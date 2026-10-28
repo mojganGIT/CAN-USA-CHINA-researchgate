@@ -1,10 +1,10 @@
-# Canada–U.S.–China ResearchGate
+# Canada-U.S.-China ResearchGate COMPLETE
 
-Full deployment package for the evidence-grounded research website.
+Advisor-oriented curated evidence-discovery prototype.
 
 Azure Static Web Apps build settings:
 - App location: `/`
 - API location: `api`
 - Output location: `dist`
 
-Features: six sectors, three relationship lenses, evidence repository, deterministic research agent, clickable evidence, matching passages, source links, 2018–2026 timeline, saved research, admin review queue, and Azure Functions source-validation API.
+Root files included: index.html, package.json, staticwebapp.config.json, README.md, .gitignore, src/, api/.
