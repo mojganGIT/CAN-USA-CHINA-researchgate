@@ -1,1 +1,1 @@
-{"name":"research-api","version":"4.0.0","main":"src/functions/health.js","dependencies":{"@azure/functions":"^4.7.0"}}
+{"name":"research-api","version":"5.0.0","main":"src/functions/health.js","dependencies":{"@azure/functions":"^4.7.0"}}

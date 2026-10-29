@@ -1,7 +1,9 @@
 {
-  "name":"can-usa-china-researchgate-v4",
-  "private":true,
-  "version":"4.0.0",
-  "type":"module",
-  "scripts":{"build":"node build.mjs"}
+  "name": "can-usa-china-researchgate-v5",
+  "private": true,
+  "version": "5.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  }
 }
