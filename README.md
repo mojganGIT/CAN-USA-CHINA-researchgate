@@ -1,18 +1,11 @@
-# Canada–U.S.–China Policy Intelligence Replacement Package
+# Deployment-safe Azure Static Web Apps package
 
-This package replaces the prior deployment with one authoritative master dataset.
+This version has no Azure Functions API and no frontend build step. Search/Ask runs directly against the single browser-side master dataset.
 
-## Azure Static Web Apps settings
-- App location: `./app`
-- API location: `api`
-- Output location: leave blank
+Azure/GitHub workflow settings:
+- app_location: ./app
+- api_location: leave blank or remove the line
+- output_location: leave blank
+- skip_app_build: true (recommended)
 
-## Fixes
-- Populated Executive Summary is rendered on load.
-- Frontend Search/Ask and API use the same master record content.
-- Search supports phrases, keywords, acronyms, years, instrument names, and fentanyl typo aliases (`fentalyn`, `fentynal`, `fentinal`, `fentanly`).
-- All 21 relationship × policy-field cells contain indexed records.
-- Primary-source buttons are normal clickable external links.
-
-## Deployment
-Replace the existing repository `app/` and `api/` folders with these folders, commit to `main`, and let the existing Azure Static Web Apps workflow redeploy.
+The `app/` folder is the deployable artifact and contains `index.html` directly.
