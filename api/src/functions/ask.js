@@ -1,0 +1,5 @@
+import { app } from '@azure/functions'; import fs from 'node:fs'; import path from 'node:path';
+const D=JSON.parse(fs.readFileSync(path.join(process.cwd(),'master-data.json'),'utf8'));
+function norm(s){s=(s||'').toLowerCase();for(const [a,b] of Object.entries(D.aliases))s=s.split(a).join(b);return s.normalize('NFKD').replace(/[^a-z0-9%.$ ]/g,' ').replace(/\s+/g,' ').trim()}
+function find(q){const x=norm(q);return D.records.map(r=>{const n=norm([r.title,r.summary,r.relationship,r.field,r.year,r.status,(r.aliases||[]).join(' ')].join(' '));let s=n.includes(x)?100:0;for(const w of x.split(' '))if(w.length>1&&n.includes(w))s+=8;return [s,r]}).filter(x=>x[0]>0).sort((a,b)=>b[0]-a[0]).map(x=>x[1])}
+app.http('ask',{methods:['GET','POST'],authLevel:'anonymous',route:'ask',handler:async req=>{let q=req.query.get('q')||'';if(req.method==='POST'){try{const b=await req.json();q=b.query||b.q||q}catch{}}const results=find(q);return {jsonBody:{query:q,results,summary:results.length?`Found ${results.length} relevant indexed records.`:'No sufficiently relevant verified evidence was found in the indexed repository.'}}}});

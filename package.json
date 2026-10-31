@@ -1,9 +1,5 @@
 {
-  "name": "can-usa-china-researchgate-v5",
+  "name": "can-us-china-policy-intelligence",
   "private": true,
-  "version": "5.0.0",
-  "type": "module",
-  "scripts": {
-    "build": "node build.mjs"
-  }
+  "version": "2.0.0"
 }

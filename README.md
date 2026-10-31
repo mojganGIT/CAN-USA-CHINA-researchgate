@@ -1,11 +1,18 @@
-# Canada-US-China Policy Intelligence Dashboard update
+# Canada–U.S.–China Policy Intelligence Replacement Package
 
-Azure Static Web Apps-ready static package containing the revised executive summary, three relationship tabs, Ask/Search box, and seven policy-field cards.
+This package replaces the prior deployment with one authoritative master dataset.
 
-## Apply to an existing GitHub-connected Azure Static Web App
-1. Upload/replace `index.html` and `staticwebapp.config.json` in the repository path configured as the Static Web Apps app location.
-2. Commit the changes to the branch used by the Azure Static Web Apps workflow (commonly `main`).
-3. GitHub Actions should run the Static Web Apps deployment workflow after the push.
-4. When the workflow completes, refresh the Azure site.
+## Azure Static Web Apps settings
+- App location: `./app`
+- API location: `api`
+- Output location: leave blank
 
-Note: this package implements local category search. Connecting the Ask/Search control to a live research backend requires the existing backend endpoint/configuration, which was not available in the retrieved files.
+## Fixes
+- Populated Executive Summary is rendered on load.
+- Frontend Search/Ask and API use the same master record content.
+- Search supports phrases, keywords, acronyms, years, instrument names, and fentanyl typo aliases (`fentalyn`, `fentynal`, `fentinal`, `fentanly`).
+- All 21 relationship × policy-field cells contain indexed records.
+- Primary-source buttons are normal clickable external links.
+
+## Deployment
+Replace the existing repository `app/` and `api/` folders with these folders, commit to `main`, and let the existing Azure Static Web Apps workflow redeploy.
