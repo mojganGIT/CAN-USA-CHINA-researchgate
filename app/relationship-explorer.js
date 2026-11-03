@@ -34,7 +34,7 @@
   if(state.stage==='implication')return `<p>Interpretation connects the evidence to Canadian opportunities and constraints. It is separate from an official government or Chamber of Commerce position.</p><button type="button" class="lab-text-button" data-question="1">Read Canadian implications</button>`;
   return `<p>${m.gap?'No directly relevant source is indexed for this selection.':'Inspect the issuing body, document year, inventory status and primary-source link. Current status has not been rechecked for this release.'}</p><div class="lab-actions">${m.items.map(r=>`<button type="button" class="lab-text-button" data-record="${r.id}">${r.id.toUpperCase()} · ${E(r.source)}</button>`).join('')||'<button type="button" class="lab-text-button" data-question="3">Read the evidence gap</button>'}</div>`;
  }
- function syncURL(){const p=new URLSearchParams({topic:state.topic,issue:state.issue,relationship:String(state.relationship)});history.replaceState(null,'','#relationship-explorer?'+p);}
+ function syncURL(){const p=new URLSearchParams({topic:state.topic,issue:state.issue,relationship:String(state.relationship)});history.replaceState(null,'','#relationship-explorer?'+p);window.HomeHub?.updateNavigation();}
  function restore(){if(!location.hash.startsWith('#relationship-explorer'))return;const p=new URLSearchParams(location.hash.split('?')[1]||'');const m=model(p.get('topic'),p.get('issue'),Number(p.get('relationship')??1));state.topic=m.topic.id;state.issue=m.issue.id;state.relationship=m.index;}
  function view(){
   const m=model();state.topic=m.topic.id;state.issue=m.issue.id;
@@ -52,7 +52,7 @@
    else if(b.dataset.record){openRecord(b.dataset.record,b);}
    else if(b.dataset.question!==undefined){const target=root.querySelector('#lab-question-'+b.dataset.question);target.scrollIntoView({block:'start',behavior:'instant'});target.querySelector('details')?.setAttribute('open','');}
    else if(b.dataset.labView==='map'){location.hash='policy-map';window.showMap();}
-   else if(b.dataset.labView==='briefing'){location.hash='';window.render();}
+   else if(b.dataset.labView==='briefing'){if(window.HomeHub)window.HomeHub.navigate('home');else{location.hash='';window.render();}}
    else if(b.dataset.labView==='explorer'){root.querySelector('#lab-topic').focus();}
    else if(b.hasAttribute('data-lab-print')){window.print();}
   });}

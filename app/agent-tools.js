@@ -36,6 +36,12 @@
  document.addEventListener('click',e=>{const b=e.target.closest('[data-agent-view]');if(b)show(b.dataset.agentView);});
  window.addEventListener('hashchange',()=>{if(location.hash==='#daily-updates')updates();if(location.hash==='#your-llm')llm();});
  window.addEventListener('pagehide',()=>{key='';answer='';});
- window.PolicyLive={get feed(){return feed;},show};banner();
- Promise.allSettled([fetch('policy-updates.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Update status unavailable');return r.json();}).then(data=>{feed=data;banner();window.dispatchEvent(new Event('policy-updates-loaded'));}),fetch('/.auth/me',{cache:'no-store'}).then(r=>r.json()).then(data=>{signedIn=!!data.clientPrincipal;})]).then(()=>{if(location.hash==='#daily-updates')updates();if(location.hash==='#your-llm')llm();});
+ async function refreshFeed(){
+  try{const response=await fetch('policy-updates.json',{cache:'no-store'});if(!response.ok)throw Error('Update status unavailable');const data=await response.json();if(!Array.isArray(data.changes))throw Error('Invalid update feed');feed=data;banner();window.dispatchEvent(new Event('policy-updates-loaded'));if(location.hash==='#daily-updates')updates();return true;}
+  catch{feed={...feed,lastRunStatus:'unavailable'};banner();window.dispatchEvent(new Event('policy-updates-loaded'));return false;}
+ }
+ window.PolicyLive={get feed(){return feed;},show,refresh:refreshFeed};banner();
+ Promise.allSettled([refreshFeed(),fetch('/.auth/me',{cache:'no-store'}).then(r=>r.json()).then(data=>{signedIn=!!data.clientPrincipal;})]).then(()=>{if(location.hash==='#daily-updates')updates();if(location.hash==='#your-llm')llm();});
+ setInterval(()=>{if(!document.hidden)refreshFeed();},5*60*1000);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFeed();});
 })();

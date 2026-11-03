@@ -1,0 +1,38 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const dir=path.join(__dirname,'../app'),nodes=new Map(),events=new Map();
+function node(id){if(!nodes.has(id))nodes.set(id,{innerHTML:'',value:'',open:false,listeners:{},addEventListener(type,fn){this.listeners[type]=fn;},querySelector(s){return node(id+' '+s);},querySelectorAll(){return[];},closest(){return node('panel');},insertAdjacentHTML(_,html){this.innerHTML+=html;},focus(){},scrollIntoView(){},setAttribute(){},append(){},showModal(){this.open=true;},remove(){}});return nodes.get(id);}
+const location={hash:'',pathname:'/',search:''},document={title:'',getElementById:node,querySelector:s=>node(s),querySelectorAll:()=>[],addEventListener(type,fn){events.set(type,fn);}};
+const window={addEventListener(type,fn){events.set(type,fn);}};
+const ctx={window,document,location,history:{replaceState(a,b,url){location.hash=url.startsWith('#')?url:'';},pushState(a,b,url){location.hash=url;}},URL,URLSearchParams,Intl,Date,console};vm.createContext(ctx);
+for(const file of ['master-data.js','app.js','explorer-inventory.js','explorer-catalog.js'])vm.runInContext(fs.readFileSync(path.join(dir,file),'utf8'),ctx,{filename:file});
+const original=JSON.stringify(window.POLICY_MASTER.executiveSummary);
+const feed={lastSuccessfulRun:new Date().toISOString(),lastRunStatus:'partial',sourcesChecked:40,sourceFailures:[{url:'https://www.canada.ca/moved',error:'HTTP 404'}],aiEnabled:false,scheduleUTC:'11:17 daily',changes:[{id:'auto-test',title:'New EV customs source <script>x</script>',url:'https://www.canada.ca/test',source:'Canada',detectedAt:new Date().toISOString(),topics:['vehicles'],relationships:['Canada-USA'],changeType:'new_source'}]};
+window.PolicyLive={feed,show(view){location.hash=view==='llm'?'#your-llm':'#daily-updates';node('root').innerHTML='LIVE VIEW '+view;}};
+window.showExplorer=()=>{location.hash='#relationship-explorer?topic=agriculture';node('root').innerHTML='EXPLORER VIEW';};
+vm.runInContext(fs.readFileSync(path.join(dir,'home.js'),'utf8'),ctx,{filename:'home.js'});
+const hub=window.HomeHub;
+assert(hub);assert.equal(hub.tabs.length,9);assert.equal(hub.tools.length,8);
+assert(node('root').innerHTML.includes('All sections, one home.'));
+assert.equal((node('site-navigation').innerHTML.match(/data-hub=/g)||[]).length,9);
+for(const [id]of hub.tabs){assert(node('site-navigation').innerHTML.includes('href="#'+id+'"'));}
+assert(hub.homeHTML().includes('Source first indexed'));assert(!hub.homeHTML().includes('<script>x'));
+assert(hub.statusHTML().includes('40'));assert(hub.statusHTML().includes('Partial coverage'));
+assert(hub.statusHTML({...feed,lastSuccessfulRun:'2000-01-01'}).includes('Check overdue'));
+assert.equal((hub.topicsHTML().match(/class="hub-topic"/g)||[]).length,8);
+for(const [id]of hub.tabs){
+ hub.navigate(id);assert(node('site-navigation').innerHTML.includes('aria-current="page"'));assert(node('root').innerHTML.length>0);
+ if(id==='home')assert(node('root').innerHTML.includes('hub-home-title'));
+ if(id==='executive-summary'){assert(node('root').innerHTML.includes('Curated assessment'));assert(node('root').innerHTML.includes('Latest developments'));}
+ if(id==='policy-map'){assert.equal((node('root').innerHTML.match(/class="mapcell"/g)||[]).length,21);assert(node('root').innerHTML.includes('data-legacy-record="live-auto-test-Canada-USA"'));assert(!node('root').innerHTML.includes('data-legacy-record="-1"'));}
+ if(id==='daily-updates')assert.equal(node('root').innerHTML,'LIVE VIEW updates');
+ if(id==='your-llm')assert.equal(node('root').innerHTML,'LIVE VIEW llm');
+ if(id==='research-search')assert(node('root').innerHTML.includes('Research search'));
+ if(id==='evidence-methods'){assert(node('root').innerHTML.includes('Sources you can inspect.'));assert.equal((node('root').innerHTML.match(/class="hub-source-id"/g)||[]).length,37);}
+}
+assert(window.LegacyPolicy.results('customs').some(r=>r.live));assert.equal(window.POLICY_MASTER.records.length,22);
+feed.changes[0].title='A later daily source revision';hub.refreshLiveSections();assert(node('hub-latest').innerHTML.includes('A later daily source revision'));assert.equal(JSON.stringify(window.POLICY_MASTER.executiveSummary),original);
+hub.navigate('unknown');assert.equal(location.hash,'#home');assert(node('root').innerHTML.includes('hub-home-title'));
+const input=node('q');window.showResearchSearch();input.value='fentanyl';window.ask();assert(node('ans').innerHTML.includes('Opioids'));
+const index=fs.readFileSync(path.join(dir,'index.html'),'utf8');assert(index.includes('id="site-navigation"'));assert(index.includes('id="root" tabindex="-1"'));assert(index.includes('home.js'));assert(index.includes('home.css'));
+const live=fs.readFileSync(path.join(dir,'agent-tools.js'),'utf8');assert(live.includes('5*60*1000'));assert(live.includes("cache:'no-store'"));assert(live.includes("'visibilitychange'"));assert(!/localStorage|sessionStorage/.test(live));
+console.log(JSON.stringify({passed:true,navigationTabs:9,homeSections:8,topicLinks:8,routes:'all home destinations',daily:'live feed refreshes home and executive developments; map and search include labelled observations',preservation:'curated executive assessment and 22 original records retained',browserQA:'not run; native visual and keyboard review remains unverified'}));
