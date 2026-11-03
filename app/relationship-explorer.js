@@ -10,6 +10,11 @@
   const issue=topic.issues.find(i=>i.id===issueId)||topic.issues[0];
   const index=[0,1,2].includes(relationship)?relationship:1;
   const link=issue.links[index],items=link.ids.map(id=>records.get(id));
+  for(const change of (window.PolicyLive?.feed?.changes||[])){
+   if(!change.ai||!change.topics?.includes(topic.id)||!change.relationships?.includes(C.relationships[index])||!change.issues?.includes(issue.id))continue;
+   const automatic={id:change.id,title:change.title,year:new Date(change.publicationDate||change.detectedAt).getFullYear(),relationship:C.relationshipNames[index],field:topic.name,summary:change.ai.summary,url:change.url,source:change.source,status:'Automated extraction · unreviewed',automatic:true,quote:change.ai.quote,uncertainty:change.ai.uncertainty,detectedAt:change.detectedAt};
+   records.set(automatic.id,automatic);items.push(automatic);
+  }
   if(items.some(r=>!r))throw new Error('Unknown evidence record');
   return {topic,issue,index,link,items,relationship:C.relationshipNames[index],gap:items.length===0};
  }
@@ -19,7 +24,7 @@
   return [
    {title:'What is the connection?',hint:'Mechanism, direction and scope',html:`<p>${E(m.link.connection)}</p>${m.link.context?'<p class="lab-caution">Comparative context or an evidence gap. No equivalent bilateral measure or outcome is established by this selection.</p>':''}`},
    {title:'Why does it matter to Canada?',hint:'Opportunities, constraints and policy choices',html:`<p>${E(m.issue.why)}</p><p class="lab-analysis"><strong>Canadian interpretation.</strong> ${E(canadaContext)}</p>`},
-   {title:'What does the evidence establish?',hint:'Indexed findings with source-level limitations',html:m.gap?'<p>No directly relevant primary-source record is stored for this selected relationship and subtopic. This is a coverage gap, not evidence that no policy or cooperation exists.</p>':`<p>The following ${m.items.length===1?'record is':'records are'} drawn from the repository’s October 2026 inventory. Summaries retain their original scope; this interface update does not reverify current legal applicability.</p>${m.items.map(r=>`<details class="lab-finding"><summary>${E(r.year)} · ${E(r.title)}</summary><div><p>${E(r.summary)}</p><p class="lab-small">${E(r.source)} · inventory label: ${E(r.status)}</p><div class="lab-actions"><button type="button" data-record="${r.id}" class="lab-text-button">Inspect ${r.id.toUpperCase()} and source</button>${sourceLink(r)}</div></div></details>`).join('')}`},
+   {title:'What does the evidence establish?',hint:'Indexed findings with source-level limitations',html:m.gap?'<p>No directly relevant primary-source record is stored for this selected relationship and subtopic. This is a coverage gap, not evidence that no policy or cooperation exists.</p>':`<p>The following ${m.items.length===1?'record is':'records are'} drawn from the dated research inventory and any separately labelled automated extractions. A newly detected source does not establish current legal applicability.</p>${m.items.map(r=>`<details class="lab-finding"><summary>${E(r.year)} · ${E(r.title)}</summary><div><p>${E(r.summary)}</p>${r.automatic?`<blockquote>${E(r.quote)}</blockquote><p class="lab-small">Automatically extracted ${E(r.detectedAt)} · ${E(r.uncertainty)}</p>`:''}<p class="lab-small">${E(r.source)} · inventory label: ${E(r.status)}</p><div class="lab-actions"><button type="button" data-record="${r.id}" class="lab-text-button">Inspect ${r.id.toUpperCase()} and source</button>${sourceLink(r)}</div></div></details>`).join('')}`},
    {title:'What remains uncertain?',hint:'Missing evidence and limits on inference',html:`<p>${E(m.issue.uncertainty)}</p>${m.gap?'<p>Next research step: obtain a dated bilateral instrument or implementation record, then compare it with compatible outcome data.</p>':'<p>Current applicability, implementation and effectiveness require separate checks. A document’s year and an inventory status label do not establish today’s operating rules.</p>'}`}
   ];
  }
@@ -54,6 +59,7 @@
  window.showExplorer=function(){restore();render();};
  window.addEventListener('hashchange',()=>{if(location.hash.startsWith('#relationship-explorer')){restore();render();}else if(location.hash==='#policy-map')window.showMap();else if(!location.hash)window.render();});
  window.matchMedia('(max-width:600px)').addEventListener('change',geometry);
+ window.addEventListener('policy-updates-loaded',()=>{if(location.hash.startsWith('#relationship-explorer'))render();});
  let printDetails=[];
  window.addEventListener('beforeprint',()=>{printDetails=[...document.querySelectorAll('#relationship-explorer details')].map(el=>({el,open:el.open}));printDetails.forEach(({el})=>el.open=true);});
  window.addEventListener('afterprint',()=>{printDetails.forEach(({el,open})=>el.open=open);printDetails=[];});

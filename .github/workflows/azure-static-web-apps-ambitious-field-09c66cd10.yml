@@ -4,14 +4,22 @@ on:
   push:
     branches:
       - main
+  workflow_run:
+    workflows: ['Daily Policy Monitor']
+    types: [completed]
+    branches: [main]
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
 
+concurrency:
+  group: azure-policy-deploy
+  cancel-in-progress: false
+
 jobs:
   build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    if: github.event_name == 'push' || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     permissions:
@@ -20,6 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          ref: ${{ github.event_name == 'workflow_run' && 'main' || github.ref }}
           submodules: true
           lfs: false
       - name: Install OIDC Client from Core Package
@@ -41,7 +50,7 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "./app"
-          api_location: ""
+          api_location: "./api"
           output_location: ""
           skip_app_build: true
           github_id_token: ${{ steps.idtoken.outputs.result }}

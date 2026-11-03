@@ -1,0 +1,48 @@
+name: Daily Policy Monitor
+on:
+  schedule:
+    - cron: '17 11 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['monitor/**', '.github/workflows/daily-policy-monitor.yml']
+permissions:
+  contents: write
+concurrency:
+  group: daily-policy-monitor
+  cancel-in-progress: false
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate monitor and customer LLM boundaries
+        run: node --test tests/monitor.test.mjs
+      - name: Observe official sources and extract supported policy changes
+        id: scan
+        continue-on-error: true
+        env:
+          POLICY_MONITOR_API_KEY: ${{ secrets.POLICY_MONITOR_API_KEY }}
+          POLICY_MONITOR_MODEL: ${{ vars.POLICY_MONITOR_MODEL }}
+          POLICY_MONITOR_PROVIDER: ${{ vars.POLICY_MONITOR_PROVIDER }}
+        run: node monitor/run.mjs
+      - name: Publish the latest observation status and evidence
+        run: |
+          git config user.name 'Policy Monitor'
+          git config user.email 'policy-monitor@users.noreply.github.com'
+          git add monitor/state.json app/policy-updates.json api/policy-updates.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update daily policy source observations'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Report source outage
+        if: steps.scan.outcome == 'failure'
+        run: echo 'No monitored source could be read. Failure status was saved without advancing the last successful check.'
