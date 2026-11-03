@@ -1,0 +1,11 @@
+# Relationship Explorer
+
+The deployed Azure workflow serves `app/` directly with `skip_app_build: true`. This update adds an independent Relationship Explorer view to that deployed application; it does not change the workflow, subscription, API configuration or deployment credentials.
+
+The existing executive summary, keyword search, three relationship views and seven-field Policy Product Map remain available. Map records now open their exact evidence in native dialogs. The new explorer has eight topic views, three priority subtopics per topic and three relationship selections per subtopic (72 briefings). Country nodes, relationship buttons, subtopic buttons and the source/finding/implication trail work with mouse, touch and keyboard. Primary sources open in new tabs; native evidence dialogs restore focus on close. URLs preserve topic, issue and relationship. Printing expands evidence summaries and includes primary-source URLs.
+
+`app/explorer-inventory.js` is a retained copy of the 37-record inventory already stored in `api/master-data.json`, not a fresh research collection. The existing 22-record `app/master-data.js` remains unchanged. `app/explorer-catalog.js` is an editorial index that links priority subtopics to those records and labels comparative context and evidence gaps. Commercial interpretations are separate from indexed source summaries and do not represent official government or Chamber of Commerce positions.
+
+The research scope ends on October 30, 2026. Existing document years and inventory status labels are displayed as such, with no invented publication/effective dates, current-law certification, quantitative confidence scores or causal estimates. In particular, annual EV-quota context is not described as a newly verified operating allocation; investment controls do not establish investment flow statistics; and missing China-bilateral fentanyl records are explicit gaps.
+
+Validation: run `node tests/explorer.test.cjs`. This exercises 72 models and four-question views, referential integrity, empty/context cases, HTML escaping, safe source URLs, control handlers, evidence dialog content, navigation and print invocation. Native browser rendering, screen-reader review and paginated printing remain unverified because no browser automation tool is available in this session.
