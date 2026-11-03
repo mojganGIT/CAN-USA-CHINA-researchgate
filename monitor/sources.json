@@ -1,6 +1,7 @@
 {
  "scheduleUTC":"11:17 daily",
  "maxNewPagesPerRun":30,
+ "maxTrackedPagesPerRun":20,
  "maxAICallsPerRun":8,
  "allowedHosts":["www.canada.ca","international.canada.ca","www.international.gc.ca","inspection.canada.ca","www.publicsafety.gc.ca","natural-resources.canada.ca","www.cbsa-asfc.gc.ca","ustr.gov","home.treasury.gov","www.cisa.gov","www.bis.gov","www.federalregister.gov","english.mofcom.gov.cn","www.mofcom.gov.cn","english.www.gov.cn","www.whitehouse.gov","www.defense.gov","www.cyber.gc.ca","www.fcc.gov","tc.canada.ca"],
  "hubs":[
