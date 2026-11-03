@@ -1,1 +1,93 @@
-{"lastAttempt":null,"lastSuccessfulRun":null,"lastRunStatus":"not_run","scheduleUTC":"11:17 daily","aiEnabled":false,"sourcesChecked":0,"sourceFailures":[],"changes":[]}
+{
+  "lastAttempt": "2026-11-03T20:25:46.807Z",
+  "lastSuccessfulRun": "2026-11-03T20:25:46.807Z",
+  "lastRunStatus": "partial",
+  "scheduleUTC": "11:17 daily",
+  "aiEnabled": false,
+  "sourcesChecked": 40,
+  "sourceFailures": [
+    {
+      "url": "https://english.mofcom.gov.cn/News/",
+      "error": "fetch failed"
+    },
+    {
+      "url": "https://www.federalregister.gov/agencies/industry-and-security-bureau",
+      "error": "Source URL is not allowed."
+    },
+    {
+      "url": "https://www.cyber.gc.ca/en/guidance/cyber-threat-bulletin-peoples-republic-china-prc-state-sponsored-cyber-threat-activity",
+      "error": "Official source returned HTTP 404"
+    },
+    {
+      "url": "https://www.canada.ca/en/department-finance/news/2026/04/canada-china-financial-working-group-joint-statement.html",
+      "error": "Official source returned HTTP 404"
+    },
+    {
+      "url": "https://international.canada.ca/en/global-affairs/campaigns/cusma-2026-review",
+      "error": "Official source returned HTTP 404"
+    },
+    {
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/02/imposing-duties-to-address-the-flow-of-illicit-drugs-across-our-northern-border/",
+      "error": "Official source returned HTTP 404"
+    },
+    {
+      "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2020-jnt-ctn-pln-pds/index-en.aspx",
+      "error": "Official source returned HTTP 404"
+    },
+    {
+      "url": "https://www.canada.ca/en/public-safety-canada/news/2024/12/government-of-canadas-border-plan-significant-investments-to-strengthen-border-security-and-our-immigration-system.html",
+      "error": "Official source returned HTTP 404"
+    },
+    {
+      "url": "https://www.canada.ca/en/department-national-defence/services/operations/allies-partners/norad/modernization.html",
+      "error": "Official source returned HTTP 404"
+    },
+    {
+      "url": "https://tc.canada.ca/en/road-transportation/innovative-technologies/zero-emission-vehicles/electric-vehicles-policies-regulations",
+      "error": "Official source returned HTTP 404"
+    },
+    {
+      "url": "https://ustr.gov/sites/default/files/files/Press/Releases/2026/USTR%20301%20FRN%20Industrial%20Excess%20Capacity%20Final.pdf",
+      "error": "Non-HTML source requires a separate parser."
+    },
+    {
+      "url": "https://www.defense.gov/National-Defense-Strategy/",
+      "error": "Source URL is not allowed."
+    },
+    {
+      "url": "https://www.bis.gov/press-release/commerce-implements-new-export-controls-advanced-computing-semiconductor-manufacturing-items",
+      "error": "Official source returned HTTP 404"
+    },
+    {
+      "url": "https://ustr.gov/issue-areas/enforcement/section-301-investigations/section-301-china-four-year-review",
+      "error": "Official source returned HTTP 404"
+    },
+    {
+      "url": "https://home.treasury.gov/policy-issues/international/the-committee-on-foreign-investment-in-the-united-states-cfius/cfius-laws-and-guidance",
+      "error": "Source URL is not allowed."
+    }
+  ],
+  "changes": [
+    {
+      "id": "auto-9a8a3a22e2197ff52811",
+      "url": "https://www.cbsa-asfc.gc.ca/publications/cn-ad/cn26-23-eng.html",
+      "title": "Customs Notice 26-23: United States Surtax Order (2026)",
+      "source": "www.cbsa-asfc.gc.ca",
+      "publicationDate": "2026-09-07",
+      "detectedAt": "2026-11-03T20:25:46.807Z",
+      "changeType": "new_source",
+      "digest": "8417b92dbf1380e5a05f6447939e0e8897865e114fa02e607446c9a12f272090",
+      "previousDigest": null,
+      "relationships": [
+        "Canada-USA"
+      ],
+      "topics": [
+        "agriculture",
+        "finance",
+        "agreements"
+      ]
+    }
+  ],
+  "workflowURL": "https://github.com/mojganGIT/CAN-USA-CHINA-researchgate/actions/runs/41712421784",
+  "aiCalls": 0
+}
