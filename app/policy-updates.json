@@ -1,6 +1,6 @@
 {
-  "lastAttempt": "2026-11-03T20:25:46.807Z",
-  "lastSuccessfulRun": "2026-11-03T20:25:46.807Z",
+  "lastAttempt": "2026-11-03T20:27:39.612Z",
+  "lastSuccessfulRun": "2026-11-03T20:27:39.612Z",
   "lastRunStatus": "partial",
   "scheduleUTC": "11:17 daily",
   "aiEnabled": false,
@@ -88,6 +88,6 @@
       ]
     }
   ],
-  "workflowURL": "https://github.com/mojganGIT/CAN-USA-CHINA-researchgate/actions/runs/41712421784",
+  "workflowURL": "https://github.com/mojganGIT/CAN-USA-CHINA-researchgate/actions/runs/41712739940",
   "aiCalls": 0
 }
