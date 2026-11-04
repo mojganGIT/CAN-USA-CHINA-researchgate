@@ -1,1 +1,1428 @@
-{"schemaVersion":1,"status":"not_run","lastAttempt":null,"lastSuccessfulRun":null,"partners":[]}
+{
+  "schemaVersion": 1,
+  "title": "U.S. merchandise trade with Canada and China",
+  "status": "success",
+  "lastAttempt": "2026-11-04T04:45:37.216Z",
+  "lastSuccessfulRun": "2026-11-04T04:45:37.216Z",
+  "basis": "U.S. Census Bureau, nominal USD millions, not seasonally adjusted, goods only. Exports include re-exports. Annual totals are source-reported; the latest year is labelled year-to-date until 12 months are present. Retrieved vintage can revise earlier observations.",
+  "partners": [
+    {
+      "id": "Canada",
+      "code": "1220",
+      "url": "https://www.census.gov/foreign-trade/balance/c1220.html",
+      "monthly": [
+        {
+          "period": "2018-01",
+          "exports": 22640.5,
+          "imports": 26184.4,
+          "balance": -3543.8
+        },
+        {
+          "period": "2018-02",
+          "exports": 23675.3,
+          "imports": 23997.4,
+          "balance": -322.1
+        },
+        {
+          "period": "2018-03",
+          "exports": 27266.6,
+          "imports": 26954.2,
+          "balance": 312.3
+        },
+        {
+          "period": "2018-04",
+          "exports": 25833.7,
+          "imports": 26533.3,
+          "balance": -699.7
+        },
+        {
+          "period": "2018-05",
+          "exports": 27066.4,
+          "imports": 28163.9,
+          "balance": -1097.5
+        },
+        {
+          "period": "2018-06",
+          "exports": 26349.2,
+          "imports": 28040.4,
+          "balance": -1691.1
+        },
+        {
+          "period": "2018-07",
+          "exports": 23707.5,
+          "imports": 26834.6,
+          "balance": -3127
+        },
+        {
+          "period": "2018-08",
+          "exports": 25607.5,
+          "imports": 27958.9,
+          "balance": -2351.4
+        },
+        {
+          "period": "2018-09",
+          "exports": 24585.8,
+          "imports": 26297.2,
+          "balance": -1711.4
+        },
+        {
+          "period": "2018-10",
+          "exports": 26194.3,
+          "imports": 28054.9,
+          "balance": -1860.6
+        },
+        {
+          "period": "2018-11",
+          "exports": 24490.5,
+          "imports": 25626.6,
+          "balance": -1136.1
+        },
+        {
+          "period": "2018-12",
+          "exports": 22314.5,
+          "imports": 23929,
+          "balance": -1614.6
+        },
+        {
+          "period": "2019-01",
+          "exports": 22683,
+          "imports": 23348.3,
+          "balance": -665.3
+        },
+        {
+          "period": "2019-02",
+          "exports": 23191.3,
+          "imports": 22814.8,
+          "balance": 376.5
+        },
+        {
+          "period": "2019-03",
+          "exports": 26448.5,
+          "imports": 27549.2,
+          "balance": -1100.7
+        },
+        {
+          "period": "2019-04",
+          "exports": 25334.4,
+          "imports": 26731.6,
+          "balance": -1397.2
+        },
+        {
+          "period": "2019-05",
+          "exports": 26157.8,
+          "imports": 29196.4,
+          "balance": -3038.6
+        },
+        {
+          "period": "2019-06",
+          "exports": 24886.5,
+          "imports": 27644.3,
+          "balance": -2757.8
+        },
+        {
+          "period": "2019-07",
+          "exports": 23465.4,
+          "imports": 26760.5,
+          "balance": -3295.1
+        },
+        {
+          "period": "2019-08",
+          "exports": 25309.2,
+          "imports": 26634.2,
+          "balance": -1325
+        },
+        {
+          "period": "2019-09",
+          "exports": 24307.4,
+          "imports": 26851.5,
+          "balance": -2544.2
+        },
+        {
+          "period": "2019-10",
+          "exports": 25266.6,
+          "imports": 28534.1,
+          "balance": -3267.5
+        },
+        {
+          "period": "2019-11",
+          "exports": 23430.1,
+          "imports": 25240.1,
+          "balance": -1810
+        },
+        {
+          "period": "2019-12",
+          "exports": 22340,
+          "imports": 27283.7,
+          "balance": -4943.7
+        },
+        {
+          "period": "2020-01",
+          "exports": 22614.4,
+          "imports": 25286.8,
+          "balance": -2672.4
+        },
+        {
+          "period": "2020-02",
+          "exports": 23284.1,
+          "imports": 24339,
+          "balance": -1055
+        },
+        {
+          "period": "2020-03",
+          "exports": 23657.3,
+          "imports": 25080.4,
+          "balance": -1423.1
+        },
+        {
+          "period": "2020-04",
+          "exports": 14735.2,
+          "imports": 14937,
+          "balance": -201.8
+        },
+        {
+          "period": "2020-05",
+          "exports": 14841.8,
+          "imports": 15842.7,
+          "balance": -1000.9
+        },
+        {
+          "period": "2020-06",
+          "exports": 20165.6,
+          "imports": 20315.2,
+          "balance": -149.5
+        },
+        {
+          "period": "2020-07",
+          "exports": 21320.5,
+          "imports": 22329.7,
+          "balance": -1009.3
+        },
+        {
+          "period": "2020-08",
+          "exports": 22923.6,
+          "imports": 23748.9,
+          "balance": -825.4
+        },
+        {
+          "period": "2020-09",
+          "exports": 23405.8,
+          "imports": 24595.5,
+          "balance": -1189.7
+        },
+        {
+          "period": "2020-10",
+          "exports": 23663.9,
+          "imports": 24853.1,
+          "balance": -1189.2
+        },
+        {
+          "period": "2020-11",
+          "exports": 22544.2,
+          "imports": 24064.9,
+          "balance": -1520.6
+        },
+        {
+          "period": "2020-12",
+          "exports": 23055.9,
+          "imports": 24632.3,
+          "balance": -1576.4
+        },
+        {
+          "period": "2021-01",
+          "exports": 21591.4,
+          "imports": 24721,
+          "balance": -3129.6
+        },
+        {
+          "period": "2021-02",
+          "exports": 22375.7,
+          "imports": 25215.6,
+          "balance": -2839.9
+        },
+        {
+          "period": "2021-03",
+          "exports": 28282.7,
+          "imports": 29809.9,
+          "balance": -1527.3
+        },
+        {
+          "period": "2021-04",
+          "exports": 25339.5,
+          "imports": 27484.2,
+          "balance": -2144.6
+        },
+        {
+          "period": "2021-05",
+          "exports": 25599.5,
+          "imports": 29040.5,
+          "balance": -3440.9
+        },
+        {
+          "period": "2021-06",
+          "exports": 26849.9,
+          "imports": 32160.9,
+          "balance": -5311
+        },
+        {
+          "period": "2021-07",
+          "exports": 25903.7,
+          "imports": 29809.8,
+          "balance": -3906.1
+        },
+        {
+          "period": "2021-08",
+          "exports": 25909.2,
+          "imports": 30951.3,
+          "balance": -5042.1
+        },
+        {
+          "period": "2021-09",
+          "exports": 24754.7,
+          "imports": 29926.5,
+          "balance": -5171.8
+        },
+        {
+          "period": "2021-10",
+          "exports": 27483.5,
+          "imports": 31577.1,
+          "balance": -4093.6
+        },
+        {
+          "period": "2021-11",
+          "exports": 27775.9,
+          "imports": 33810.9,
+          "balance": -6035
+        },
+        {
+          "period": "2021-12",
+          "exports": 27738.3,
+          "imports": 32767,
+          "balance": -5028.6
+        },
+        {
+          "period": "2022-01",
+          "exports": 24861.6,
+          "imports": 31594.6,
+          "balance": -6733
+        },
+        {
+          "period": "2022-02",
+          "exports": 25619.4,
+          "imports": 31010.7,
+          "balance": -5391.3
+        },
+        {
+          "period": "2022-03",
+          "exports": 32802.6,
+          "imports": 40050.1,
+          "balance": -7247.6
+        },
+        {
+          "period": "2022-04",
+          "exports": 31107.5,
+          "imports": 38075.2,
+          "balance": -6967.7
+        },
+        {
+          "period": "2022-05",
+          "exports": 30796.6,
+          "imports": 40460.9,
+          "balance": -9664.3
+        },
+        {
+          "period": "2022-06",
+          "exports": 33205.6,
+          "imports": 41004,
+          "balance": -7798.4
+        },
+        {
+          "period": "2022-07",
+          "exports": 29796.2,
+          "imports": 37900.3,
+          "balance": -8104.1
+        },
+        {
+          "period": "2022-08",
+          "exports": 32252.6,
+          "imports": 38931.7,
+          "balance": -6679.1
+        },
+        {
+          "period": "2022-09",
+          "exports": 30608.4,
+          "imports": 35912.5,
+          "balance": -5304
+        },
+        {
+          "period": "2022-10",
+          "exports": 30249,
+          "imports": 34665.8,
+          "balance": -4416.7
+        },
+        {
+          "period": "2022-11",
+          "exports": 29729.7,
+          "imports": 33775.6,
+          "balance": -4045.9
+        },
+        {
+          "period": "2022-12",
+          "exports": 28054.9,
+          "imports": 34036.3,
+          "balance": -5981.4
+        },
+        {
+          "period": "2023-01",
+          "exports": 27563.4,
+          "imports": 34893.2,
+          "balance": -7329.8
+        },
+        {
+          "period": "2023-02",
+          "exports": 27036.1,
+          "imports": 31574.1,
+          "balance": -4538
+        },
+        {
+          "period": "2023-03",
+          "exports": 32059,
+          "imports": 36431.2,
+          "balance": -4372.2
+        },
+        {
+          "period": "2023-04",
+          "exports": 29254.5,
+          "imports": 33927.8,
+          "balance": -4673.3
+        },
+        {
+          "period": "2023-05",
+          "exports": 30971.8,
+          "imports": 36540,
+          "balance": -5568.2
+        },
+        {
+          "period": "2023-06",
+          "exports": 31551.1,
+          "imports": 34880,
+          "balance": -3328.8
+        },
+        {
+          "period": "2023-07",
+          "exports": 28752.6,
+          "imports": 33038.8,
+          "balance": -4286.2
+        },
+        {
+          "period": "2023-08",
+          "exports": 31224.3,
+          "imports": 36242.6,
+          "balance": -5018.3
+        },
+        {
+          "period": "2023-09",
+          "exports": 29760.8,
+          "imports": 34898.8,
+          "balance": -5138
+        },
+        {
+          "period": "2023-10",
+          "exports": 29305.1,
+          "imports": 36340.6,
+          "balance": -7035.4
+        },
+        {
+          "period": "2023-11",
+          "exports": 28996.3,
+          "imports": 36179,
+          "balance": -7182.7
+        },
+        {
+          "period": "2023-12",
+          "exports": 27933.2,
+          "imports": 33060.3,
+          "balance": -5127.2
+        },
+        {
+          "period": "2024-01",
+          "exports": 26702.8,
+          "imports": 33379.1,
+          "balance": -6676.3
+        },
+        {
+          "period": "2024-02",
+          "exports": 28634.2,
+          "imports": 33112.4,
+          "balance": -4478.1
+        },
+        {
+          "period": "2024-03",
+          "exports": 30888.1,
+          "imports": 33999,
+          "balance": -3111
+        },
+        {
+          "period": "2024-04",
+          "exports": 30849.9,
+          "imports": 34350.2,
+          "balance": -3500.3
+        },
+        {
+          "period": "2024-05",
+          "exports": 30559.7,
+          "imports": 35598.5,
+          "balance": -5038.8
+        },
+        {
+          "period": "2024-06",
+          "exports": 29848.4,
+          "imports": 34374.8,
+          "balance": -4526.4
+        },
+        {
+          "period": "2024-07",
+          "exports": 27838.3,
+          "imports": 35909.4,
+          "balance": -8071.1
+        },
+        {
+          "period": "2024-08",
+          "exports": 30123.1,
+          "imports": 32830.5,
+          "balance": -2707.3
+        },
+        {
+          "period": "2024-09",
+          "exports": 29381.5,
+          "imports": 34532,
+          "balance": -5150.5
+        },
+        {
+          "period": "2024-10",
+          "exports": 30344.2,
+          "imports": 34413.5,
+          "balance": -4069.3
+        },
+        {
+          "period": "2024-11",
+          "exports": 29113.6,
+          "imports": 33446.5,
+          "balance": -4332.8
+        },
+        {
+          "period": "2024-12",
+          "exports": 26321.8,
+          "imports": 35825.7,
+          "balance": -9503.9
+        },
+        {
+          "period": "2025-01",
+          "exports": 27246.2,
+          "imports": 38949.7,
+          "balance": -11703.4
+        },
+        {
+          "period": "2025-02",
+          "exports": 28406.5,
+          "imports": 34787.4,
+          "balance": -6380.9
+        },
+        {
+          "period": "2025-03",
+          "exports": 32433.2,
+          "imports": 34967.5,
+          "balance": -2534.3
+        },
+        {
+          "period": "2025-04",
+          "exports": 27407.8,
+          "imports": 29101.7,
+          "balance": -1693.8
+        },
+        {
+          "period": "2025-05",
+          "exports": 28275.6,
+          "imports": 29977.4,
+          "balance": -1701.8
+        },
+        {
+          "period": "2025-06",
+          "exports": 28847.5,
+          "imports": 29645,
+          "balance": -797.5
+        },
+        {
+          "period": "2025-07",
+          "exports": 27040.3,
+          "imports": 32195.9,
+          "balance": -5155.6
+        },
+        {
+          "period": "2025-08",
+          "exports": 27222.2,
+          "imports": 29140.4,
+          "balance": -1918.1
+        },
+        {
+          "period": "2025-09",
+          "exports": 26623.5,
+          "imports": 31749,
+          "balance": -5125.5
+        },
+        {
+          "period": "2025-10",
+          "exports": 29282.1,
+          "imports": 31235.5,
+          "balance": -1953.4
+        },
+        {
+          "period": "2025-11",
+          "exports": 25410.9,
+          "imports": 28513.7,
+          "balance": -3102.8
+        },
+        {
+          "period": "2025-12",
+          "exports": 25423.8,
+          "imports": 31658.9,
+          "balance": -6235.1
+        },
+        {
+          "period": "2026-01",
+          "exports": 24461.2,
+          "imports": 28330.6,
+          "balance": -3869.4
+        },
+        {
+          "period": "2026-02",
+          "exports": 28417.8,
+          "imports": 29172.3,
+          "balance": -754.4
+        },
+        {
+          "period": "2026-03",
+          "exports": 31654.8,
+          "imports": 34089.3,
+          "balance": -2434.5
+        },
+        {
+          "period": "2026-04",
+          "exports": 30197.1,
+          "imports": 35028.1,
+          "balance": -4831
+        },
+        {
+          "period": "2026-05",
+          "exports": 30399,
+          "imports": 36337.2,
+          "balance": -5938.2
+        },
+        {
+          "period": "2026-06",
+          "exports": 31007.1,
+          "imports": 37216.8,
+          "balance": -6209.7
+        },
+        {
+          "period": "2026-07",
+          "exports": 29545.8,
+          "imports": 33491.1,
+          "balance": -3945.3
+        },
+        {
+          "period": "2026-08",
+          "exports": 30289.6,
+          "imports": 35980,
+          "balance": -5690.5
+        }
+      ],
+      "totals": [
+        {
+          "period": "2018",
+          "exports": 299731.7,
+          "imports": 318574.8,
+          "balance": -18843.1,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2019",
+          "exports": 292820.3,
+          "imports": 318588.8,
+          "balance": -25768.5,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2020",
+          "exports": 256212.3,
+          "imports": 270025.5,
+          "balance": -13813.3,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2021",
+          "exports": 309604,
+          "imports": 357274.7,
+          "balance": -47670.7,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2022",
+          "exports": 359084.2,
+          "imports": 437417.6,
+          "balance": -78333.4,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2023",
+          "exports": 354408,
+          "imports": 418006.2,
+          "balance": -63598.2,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2024",
+          "exports": 350605.6,
+          "imports": 411771.6,
+          "balance": -61166,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2025",
+          "exports": 333619.7,
+          "imports": 381922.1,
+          "balance": -48302.3,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2026",
+          "exports": 235972.5,
+          "imports": 269645.4,
+          "balance": -33673,
+          "months": 8,
+          "completeYear": false
+        }
+      ],
+      "dataThrough": "2026-08",
+      "status": "success",
+      "retrievedAt": "2026-11-04T04:45:37.216Z",
+      "lastAttempt": "2026-11-04T04:45:37.216Z"
+    },
+    {
+      "id": "China",
+      "code": "5700",
+      "url": "https://www.census.gov/foreign-trade/balance/c5700.html",
+      "monthly": [
+        {
+          "period": "2018-01",
+          "exports": 9909.5,
+          "imports": 45681.3,
+          "balance": -35771.9
+        },
+        {
+          "period": "2018-02",
+          "exports": 9743.1,
+          "imports": 38956.2,
+          "balance": -29213.1
+        },
+        {
+          "period": "2018-03",
+          "exports": 12653,
+          "imports": 38273.8,
+          "balance": -25620.8
+        },
+        {
+          "period": "2018-04",
+          "exports": 10509.6,
+          "imports": 38227.8,
+          "balance": -27718.2
+        },
+        {
+          "period": "2018-05",
+          "exports": 10397.8,
+          "imports": 43866.6,
+          "balance": -33468.8
+        },
+        {
+          "period": "2018-06",
+          "exports": 10855.7,
+          "imports": 44524,
+          "balance": -33668.3
+        },
+        {
+          "period": "2018-07",
+          "exports": 10152,
+          "imports": 47009.8,
+          "balance": -36857.8
+        },
+        {
+          "period": "2018-08",
+          "exports": 9278.1,
+          "imports": 47796.2,
+          "balance": -38518.1
+        },
+        {
+          "period": "2018-09",
+          "exports": 9733.1,
+          "imports": 49938,
+          "balance": -40204.9
+        },
+        {
+          "period": "2018-10",
+          "exports": 9188.7,
+          "imports": 52081.1,
+          "balance": -42892.4
+        },
+        {
+          "period": "2018-11",
+          "exports": 8650.5,
+          "imports": 46344.6,
+          "balance": -37694.1
+        },
+        {
+          "period": "2018-12",
+          "exports": 9210.2,
+          "imports": 45814.9,
+          "balance": -36604.6
+        },
+        {
+          "period": "2019-01",
+          "exports": 7105.4,
+          "imports": 41302.5,
+          "balance": -34197.1
+        },
+        {
+          "period": "2019-02",
+          "exports": 8083.6,
+          "imports": 33027.8,
+          "balance": -24944.2
+        },
+        {
+          "period": "2019-03",
+          "exports": 10574.3,
+          "imports": 31078.7,
+          "balance": -20504.4
+        },
+        {
+          "period": "2019-04",
+          "exports": 7900.4,
+          "imports": 34499.5,
+          "balance": -26599
+        },
+        {
+          "period": "2019-05",
+          "exports": 9070.7,
+          "imports": 39023.9,
+          "balance": -29953.2
+        },
+        {
+          "period": "2019-06",
+          "exports": 9168.5,
+          "imports": 38733,
+          "balance": -29564.5
+        },
+        {
+          "period": "2019-07",
+          "exports": 8700.8,
+          "imports": 41237.2,
+          "balance": -32536.3
+        },
+        {
+          "period": "2019-08",
+          "exports": 9413.5,
+          "imports": 40955.6,
+          "balance": -31542.1
+        },
+        {
+          "period": "2019-09",
+          "exports": 8604.8,
+          "imports": 39866.7,
+          "balance": -31261.9
+        },
+        {
+          "period": "2019-10",
+          "exports": 8854.9,
+          "imports": 39794.9,
+          "balance": -30940
+        },
+        {
+          "period": "2019-11",
+          "exports": 10103.2,
+          "imports": 36172.9,
+          "balance": -26069.7
+        },
+        {
+          "period": "2019-12",
+          "exports": 8901.2,
+          "imports": 33418.1,
+          "balance": -24517
+        },
+        {
+          "period": "2020-01",
+          "exports": 7155.7,
+          "imports": 32944.7,
+          "balance": -25788.9
+        },
+        {
+          "period": "2020-02",
+          "exports": 6826,
+          "imports": 22576.6,
+          "balance": -15750.6
+        },
+        {
+          "period": "2020-03",
+          "exports": 7933.5,
+          "imports": 19638.1,
+          "balance": -11704.6
+        },
+        {
+          "period": "2020-04",
+          "exports": 8635.9,
+          "imports": 30730.1,
+          "balance": -22094.3
+        },
+        {
+          "period": "2020-05",
+          "exports": 9699.7,
+          "imports": 36318.7,
+          "balance": -26619.1
+        },
+        {
+          "period": "2020-06",
+          "exports": 9240.6,
+          "imports": 37286.9,
+          "balance": -28046.2
+        },
+        {
+          "period": "2020-07",
+          "exports": 9090.1,
+          "imports": 40469.8,
+          "balance": -31379.8
+        },
+        {
+          "period": "2020-08",
+          "exports": 10969.4,
+          "imports": 40598.9,
+          "balance": -29629.6
+        },
+        {
+          "period": "2020-09",
+          "exports": 11503.3,
+          "imports": 41003.2,
+          "balance": -29499.9
+        },
+        {
+          "period": "2020-10",
+          "exports": 14803.1,
+          "imports": 44654.3,
+          "balance": -29851.2
+        },
+        {
+          "period": "2020-11",
+          "exports": 14211.7,
+          "imports": 44700.4,
+          "balance": -30488.7
+        },
+        {
+          "period": "2020-12",
+          "exports": 14512.6,
+          "imports": 41626.2,
+          "balance": -27113.6
+        },
+        {
+          "period": "2021-01",
+          "exports": 13011.2,
+          "imports": 38835.3,
+          "balance": -25824.1
+        },
+        {
+          "period": "2021-02",
+          "exports": 9265.1,
+          "imports": 33816.8,
+          "balance": -24551.7
+        },
+        {
+          "period": "2021-03",
+          "exports": 12812,
+          "imports": 39934,
+          "balance": -27122
+        },
+        {
+          "period": "2021-04",
+          "exports": 11931.4,
+          "imports": 37371.1,
+          "balance": -25439.8
+        },
+        {
+          "period": "2021-05",
+          "exports": 12407.4,
+          "imports": 38486.5,
+          "balance": -26079.2
+        },
+        {
+          "period": "2021-06",
+          "exports": 12142.6,
+          "imports": 39779.3,
+          "balance": -27636.7
+        },
+        {
+          "period": "2021-07",
+          "exports": 11757.3,
+          "imports": 40290.9,
+          "balance": -28533.6
+        },
+        {
+          "period": "2021-08",
+          "exports": 11245.2,
+          "imports": 42897.8,
+          "balance": -31652.7
+        },
+        {
+          "period": "2021-09",
+          "exports": 11019.6,
+          "imports": 47350.9,
+          "balance": -36331.4
+        },
+        {
+          "period": "2021-10",
+          "exports": 16651.5,
+          "imports": 47873.5,
+          "balance": -31221.9
+        },
+        {
+          "period": "2021-11",
+          "exports": 15883.8,
+          "imports": 48234.8,
+          "balance": -32351
+        },
+        {
+          "period": "2021-12",
+          "exports": 13312.4,
+          "imports": 49375.3,
+          "balance": -36062.9
+        },
+        {
+          "period": "2022-01",
+          "exports": 11401.7,
+          "imports": 47667.1,
+          "balance": -36265.3
+        },
+        {
+          "period": "2022-02",
+          "exports": 11612.7,
+          "imports": 42297.9,
+          "balance": -30685.1
+        },
+        {
+          "period": "2022-03",
+          "exports": 13618.8,
+          "imports": 47285.3,
+          "balance": -33666.5
+        },
+        {
+          "period": "2022-04",
+          "exports": 11342.1,
+          "imports": 41727.3,
+          "balance": -30385.2
+        },
+        {
+          "period": "2022-05",
+          "exports": 12301.2,
+          "imports": 43769.6,
+          "balance": -31468.4
+        },
+        {
+          "period": "2022-06",
+          "exports": 11578.9,
+          "imports": 48488.1,
+          "balance": -36909.2
+        },
+        {
+          "period": "2022-07",
+          "exports": 12408.5,
+          "imports": 46565,
+          "balance": -34156.6
+        },
+        {
+          "period": "2022-08",
+          "exports": 12846.6,
+          "imports": 50383.1,
+          "balance": -37536.6
+        },
+        {
+          "period": "2022-09",
+          "exports": 11815.1,
+          "imports": 49270.3,
+          "balance": -37455.1
+        },
+        {
+          "period": "2022-10",
+          "exports": 15686.3,
+          "imports": 44670.6,
+          "balance": -28984.3
+        },
+        {
+          "period": "2022-11",
+          "exports": 15797.6,
+          "imports": 36915.7,
+          "balance": -21118
+        },
+        {
+          "period": "2022-12",
+          "exports": 13577.9,
+          "imports": 37228.8,
+          "balance": -23650.9
+        },
+        {
+          "period": "2023-01",
+          "exports": 12980.2,
+          "imports": 38157.7,
+          "balance": -25177.5
+        },
+        {
+          "period": "2023-02",
+          "exports": 11782.7,
+          "imports": 30565.5,
+          "balance": -18782.7
+        },
+        {
+          "period": "2023-03",
+          "exports": 13869.2,
+          "imports": 30789.2,
+          "balance": -16920
+        },
+        {
+          "period": "2023-04",
+          "exports": 13066.5,
+          "imports": 33074.7,
+          "balance": -20008.1
+        },
+        {
+          "period": "2023-05",
+          "exports": 10706.4,
+          "imports": 35874.4,
+          "balance": -25168
+        },
+        {
+          "period": "2023-06",
+          "exports": 10078.1,
+          "imports": 34312.1,
+          "balance": -24234
+        },
+        {
+          "period": "2023-07",
+          "exports": 10793.3,
+          "imports": 36112,
+          "balance": -25318.7
+        },
+        {
+          "period": "2023-08",
+          "exports": 10783,
+          "imports": 36830.8,
+          "balance": -26047.8
+        },
+        {
+          "period": "2023-09",
+          "exports": 11778.3,
+          "imports": 40252.5,
+          "balance": -28474.2
+        },
+        {
+          "period": "2023-10",
+          "exports": 15805,
+          "imports": 41561.7,
+          "balance": -25756.7
+        },
+        {
+          "period": "2023-11",
+          "exports": 13927.5,
+          "imports": 35536.3,
+          "balance": -21608.8
+        },
+        {
+          "period": "2023-12",
+          "exports": 12056.3,
+          "imports": 34167.5,
+          "balance": -22111.2
+        },
+        {
+          "period": "2024-01",
+          "exports": 12075.7,
+          "imports": 35770.8,
+          "balance": -23695.1
+        },
+        {
+          "period": "2024-02",
+          "exports": 12089.5,
+          "imports": 31863.5,
+          "balance": -19774
+        },
+        {
+          "period": "2024-03",
+          "exports": 12641.4,
+          "imports": 29928.9,
+          "balance": -17287.6
+        },
+        {
+          "period": "2024-04",
+          "exports": 11563.3,
+          "imports": 31618.3,
+          "balance": -20055
+        },
+        {
+          "period": "2024-05",
+          "exports": 11347,
+          "imports": 35047.6,
+          "balance": -23700.6
+        },
+        {
+          "period": "2024-06",
+          "exports": 11311,
+          "imports": 34165.6,
+          "balance": -22854.6
+        },
+        {
+          "period": "2024-07",
+          "exports": 10776.7,
+          "imports": 40868.8,
+          "balance": -30092.1
+        },
+        {
+          "period": "2024-08",
+          "exports": 12001.4,
+          "imports": 39980.2,
+          "balance": -27978.8
+        },
+        {
+          "period": "2024-09",
+          "exports": 11122.4,
+          "imports": 43163.6,
+          "balance": -32041.2
+        },
+        {
+          "period": "2024-10",
+          "exports": 13379.4,
+          "imports": 42019.9,
+          "balance": -28640.5
+        },
+        {
+          "period": "2024-11",
+          "exports": 12620.5,
+          "imports": 38129.4,
+          "balance": -25508.9
+        },
+        {
+          "period": "2024-12",
+          "exports": 12343.6,
+          "imports": 37762.9,
+          "balance": -25419.3
+        },
+        {
+          "period": "2025-01",
+          "exports": 9875.2,
+          "imports": 41770.4,
+          "balance": -31895.2
+        },
+        {
+          "period": "2025-02",
+          "exports": 10429.6,
+          "imports": 31654.6,
+          "balance": -21224.9
+        },
+        {
+          "period": "2025-03",
+          "exports": 11509.5,
+          "imports": 29510.8,
+          "balance": -18001.3
+        },
+        {
+          "period": "2025-04",
+          "exports": 8090.6,
+          "imports": 25332.4,
+          "balance": -17241.8
+        },
+        {
+          "period": "2025-05",
+          "exports": 6477.8,
+          "imports": 20424.5,
+          "balance": -13946.7
+        },
+        {
+          "period": "2025-06",
+          "exports": 9466.5,
+          "imports": 18898.7,
+          "balance": -9432.3
+        },
+        {
+          "period": "2025-07",
+          "exports": 9299.1,
+          "imports": 26383.6,
+          "balance": -17084.5
+        },
+        {
+          "period": "2025-08",
+          "exports": 8267.4,
+          "imports": 25371,
+          "balance": -17103.6
+        },
+        {
+          "period": "2025-09",
+          "exports": 8365,
+          "imports": 23521.3,
+          "balance": -15156.4
+        },
+        {
+          "period": "2025-10",
+          "exports": 8924.3,
+          "imports": 24036.2,
+          "balance": -15112
+        },
+        {
+          "period": "2025-11",
+          "exports": 6959.4,
+          "imports": 20641.4,
+          "balance": -13682
+        },
+        {
+          "period": "2025-12",
+          "exports": 8313.5,
+          "imports": 21106.8,
+          "balance": -12793.3
+        },
+        {
+          "period": "2026-01",
+          "exports": 8329.1,
+          "imports": 21057.9,
+          "balance": -12728.8
+        },
+        {
+          "period": "2026-02",
+          "exports": 7946.6,
+          "imports": 18955.6,
+          "balance": -11009.1
+        },
+        {
+          "period": "2026-03",
+          "exports": 11103,
+          "imports": 20859,
+          "balance": -9756.1
+        },
+        {
+          "period": "2026-04",
+          "exports": 9395.1,
+          "imports": 19789.2,
+          "balance": -10394.1
+        },
+        {
+          "period": "2026-05",
+          "exports": 9117.4,
+          "imports": 23507.8,
+          "balance": -14390.4
+        },
+        {
+          "period": "2026-06",
+          "exports": 9571.2,
+          "imports": 25150,
+          "balance": -15578.8
+        },
+        {
+          "period": "2026-07",
+          "exports": 9710.1,
+          "imports": 27070.7,
+          "balance": -17360.5
+        },
+        {
+          "period": "2026-08",
+          "exports": 8730.7,
+          "imports": 27133.8,
+          "balance": -18403.1
+        }
+      ],
+      "totals": [
+        {
+          "period": "2018",
+          "exports": 120281.2,
+          "imports": 538514.2,
+          "balance": -418232.9,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2019",
+          "exports": 106481.2,
+          "imports": 449110.7,
+          "balance": -342629.5,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2020",
+          "exports": 124581.5,
+          "imports": 432548,
+          "balance": -307966.5,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2021",
+          "exports": 151439.4,
+          "imports": 504246.3,
+          "balance": -352806.9,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2022",
+          "exports": 153987.4,
+          "imports": 536268.7,
+          "balance": -382281.3,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2023",
+          "exports": 147626.5,
+          "imports": 427234.3,
+          "balance": -279607.8,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2024",
+          "exports": 143271.7,
+          "imports": 440319.4,
+          "balance": -297047.7,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2025",
+          "exports": 105977.8,
+          "imports": 308651.9,
+          "balance": -202674.1,
+          "months": 12,
+          "completeYear": true
+        },
+        {
+          "period": "2026",
+          "exports": 73903.2,
+          "imports": 183524,
+          "balance": -109620.8,
+          "months": 8,
+          "completeYear": false
+        }
+      ],
+      "dataThrough": "2026-08",
+      "status": "success",
+      "retrievedAt": "2026-11-04T04:45:37.216Z",
+      "lastAttempt": "2026-11-04T04:45:37.216Z"
+    }
+  ]
+}
