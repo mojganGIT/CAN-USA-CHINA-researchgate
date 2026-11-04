@@ -47,3 +47,7 @@ The daily workflow also collects U.S. Census goods trade with Canada/China and t
 ## Weekly briefing and email signup
 
 After the daily scan, the monitor prepares a weekly source-linked edition on Monday and publishes its Atom feed and archive. Visitors can subscribe from the new weekly-updates tab. To connect email signup, set Azure application setting `WEEKLY_SIGNUP_URL` to a hosted HTTPS newsletter signup page; configure that mailing service to deliver the digest or import its RSS feed. No addresses are collected by this dashboard, and email delivery is unavailable until a real provider is connected. See POLICY_READING_AND_WEEKLY_UPDATES.md.
+
+## Validation across new statistical releases
+
+The test suite validates live Census vintages by period coverage, unique monthly observations, source-total reconciliation and same-month comparisons. Exact numerical and rendering expectations use synthetic test fixtures, so a valid new month or source revision does not fail deployment by changing an old row count or dollar amount. The daily workflow reruns validation after refreshing the statistical feeds and before publishing them.

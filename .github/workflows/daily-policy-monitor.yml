@@ -33,6 +33,8 @@ jobs:
         run: node monitor/refresh-us-trade.mjs
       - name: Refresh official BEA investment tables
         run: python3 monitor/discover-us-investment.py
+      - name: Validate refreshed statistical vintages before publication
+        run: npm test
       - name: Observe official sources and extract supported policy changes
         id: scan
         continue-on-error: true
