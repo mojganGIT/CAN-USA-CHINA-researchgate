@@ -5,7 +5,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const output=path.join(root,'app/regional-statistics.json');
 const regions=['Canada','Newfoundland and Labrador','Prince Edward Island','Nova Scotia','New Brunswick','Quebec','Ontario','Manitoba','Saskatchewan','Alberta','British Columbia','Yukon','Northwest Territories','Nunavut'];
 const commodities=[['all','Total of all merchandise'],['agriculture','Farm, fishing and intermediate food products'],['energy','Energy products'],['vehicles','Motor vehicles and parts']];
-const now=new Date().toISOString();let previous={series:[]};try{previous=JSON.parse(await fs.readFile(output,'utf8'));}catch{}
+const now=new Date().toISOString();let previous={series:[]};try{previous=JSON.parse(await fs.readFile(output,'utf8'));if(previous.mappingVersion!==2)previous={series:[]};}catch{}
 async function post(method,body){const response=await fetch('https://www150.statcan.gc.ca/t1/wds/rest/'+method,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(45000)});if(!response.ok)throw Error(method+' HTTP '+response.status);return response.json();}
 try{
  const raw=await post('getCubeMetadata',[{productId:12100175}]),meta=raw[0]?.object;if(!meta?.dimension)throw Error('Statistics Canada metadata was unavailable.');
@@ -25,9 +25,19 @@ try{
   const coords=Array(10).fill(0);dimensions.forEach((d,i)=>coords[d.dimensionPositionId-1]=members[i].memberId);
   requests.push({productId:12100175,coordinate:coords.join('.'),latestN:24});labels.push({region,partner,topic,commodity,selection:dimensions.map((d,i)=>({dimension:d.dimensionNameEn,member:members[i].memberNameEn})),coordinate:coords.join('.')});
  }
- const series=[];
- for(let at=0;at<requests.length;at+=14){const response=await post('getDataFromCubePidCoordAndLatestNPeriods',requests.slice(at,at+14));for(let i=0;i<response.length;i++){const r=response[i];series.push({...labels[at+i],status:r.status,vectorId:r.object?.vectorId||null,points:(r.object?.vectorDataPoint||[]).map(p=>({period:p.refPer,value:p.value===null?null:Number(p.value),scalarFactorCode:p.scalarFactorCode,symbolCode:p.symbolCode,statusCode:p.statusCode,securityLevelCode:p.securityLevelCode,releaseTime:p.releaseTime}))});}}
+ const series=[],byCoordinate=new Map(labels.map(l=>[l.coordinate,l])),seen=new Set();
+ const coordinate=value=>String(value).split('.').map(Number).concat(Array(10).fill(0)).slice(0,10).join('.');
+ for(let at=0;at<requests.length;at+=14){
+  const response=await post('getDataFromCubePidCoordAndLatestNPeriods',requests.slice(at,at+14));
+  for(const r of response){
+   const key=coordinate(r.object?.coordinate),label=byCoordinate.get(key);
+   if(r.status!=='SUCCESS'||!label||seen.has(key))throw Error('A returned statistical series could not be uniquely matched by its official coordinate.');
+   seen.add(key);
+   series.push({...label,status:r.status,vectorId:r.object.vectorId,points:(r.object.vectorDataPoint||[]).map(p=>({period:p.refPer,value:p.value===null||p.value===undefined||p.value===''?null:Number(p.value),scalarFactorCode:p.scalarFactorCode,symbolCode:p.symbolCode,statusCode:p.statusCode,securityLevelCode:p.securityLevelCode,releaseTime:p.releaseTime}))});
+  }
+ }
+ if(seen.size!==requests.length)throw Error('The official API did not return every requested coordinate.');
  if(!series.some(s=>s.points.length))throw Error('No provincial data points were returned.');
- await fs.writeFile(output,JSON.stringify({table:'12-10-0175-01',title:meta.cubeTitleEn,url:'https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1210017501',retrievedAt:now,lastAttempt:now,status:'success',releaseTime:meta.releaseTime,dataThrough:meta.cubeEndDate,basis:'Domestic merchandise exports on a customs basis, unadjusted, current Canadian dollars. Province of origin, not port of exit. Latest retrieved vintage, not a reconstructed historical vintage. Re-exports and services excluded. Topic groups are broad product categories, not exact EV/battery or seafood industry totals.',series})+'\n');
+ await fs.writeFile(output,JSON.stringify({mappingVersion:2,table:'12-10-0175-01',title:meta.cubeTitleEn,url:'https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1210017501',retrievedAt:now,lastAttempt:now,status:'success',releaseTime:meta.releaseTime,dataThrough:meta.cubeEndDate,basis:'Domestic merchandise exports on a customs basis, unadjusted, current Canadian dollars. Province of origin, not port of exit. Latest retrieved vintage, not a reconstructed historical vintage. Re-exports and services excluded. Topic groups are broad product categories, not exact EV/battery or seafood industry totals.',series})+'\n');
  console.log(JSON.stringify({status:'success',series:series.length,dataThrough:meta.cubeEndDate}));
 }catch(e){await fs.writeFile(output,JSON.stringify({...previous,lastAttempt:now,status:'unavailable',error:e.message},null,2)+'\n');console.log(JSON.stringify({status:'unavailable',error:e.message}));}
