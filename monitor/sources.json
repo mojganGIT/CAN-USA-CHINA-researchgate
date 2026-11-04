@@ -1,20 +1,111 @@
 {
- "scheduleUTC":"11:17 daily",
- "maxNewPagesPerRun":30,
- "maxTrackedPagesPerRun":20,
- "maxAICallsPerRun":8,
- "allowedHosts":["www.canada.ca","international.canada.ca","www.international.gc.ca","inspection.canada.ca","www.publicsafety.gc.ca","natural-resources.canada.ca","www.cbsa-asfc.gc.ca","ustr.gov","home.treasury.gov","www.cisa.gov","www.bis.gov","www.federalregister.gov","english.mofcom.gov.cn","www.mofcom.gov.cn","english.www.gov.cn","www.whitehouse.gov","www.defense.gov","www.cyber.gc.ca","www.fcc.gov","tc.canada.ca"],
- "hubs":[
-  {"name":"Global Affairs Canada news","url":"https://www.canada.ca/en/global-affairs/news.html","issuer":"Canada","path":"/en/global-affairs/news/"},
-  {"name":"Finance Canada news","url":"https://www.canada.ca/en/department-finance/news.html","issuer":"Canada","path":"/en/department-finance/news/"},
-  {"name":"Public Safety Canada news","url":"https://www.canada.ca/en/public-safety-canada/news.html","issuer":"Canada","path":"/en/public-safety-canada/news/"},
-  {"name":"ISED Canada news","url":"https://www.canada.ca/en/innovation-science-economic-development/news.html","issuer":"Canada","path":"/en/innovation-science-economic-development/news/"},
-  {"name":"Natural Resources Canada news","url":"https://www.canada.ca/en/natural-resources-canada/news.html","issuer":"Canada","path":"/en/natural-resources-canada/news/"},
-  {"name":"USTR press releases","url":"https://ustr.gov/about-us/policy-offices/press-office/press-releases","issuer":"United States","path":"/about-us/policy-offices/press-office/press-releases/"},
-  {"name":"U.S. Treasury press releases","url":"https://home.treasury.gov/news/press-releases","issuer":"United States","path":"/news/press-releases/"},
-  {"name":"CISA cybersecurity advisories","url":"https://www.cisa.gov/news-events/cybersecurity-advisories","issuer":"United States","path":"/news-events/"},
-  {"name":"China MOFCOM English news","url":"https://english.mofcom.gov.cn/News/","issuer":"China","path":"/"},
-  {"name":"CBSA customs notices","url":"https://www.cbsa-asfc.gc.ca/publications/cn-ad/menu-eng.html","issuer":"Canada","path":"/publications/cn-ad/"},
-  {"name":"BIS Federal Register documents (verify legal edition)","url":"https://www.federalregister.gov/agencies/industry-and-security-bureau","issuer":"United States","path":"/documents/"}
- ]
+  "scheduleUTC": "11:17 daily",
+  "maxNewPagesPerRun": 30,
+  "maxTrackedPagesPerRun": 20,
+  "maxAICallsPerRun": 8,
+  "allowedHosts": [
+    "www.canada.ca",
+    "international.canada.ca",
+    "www.international.gc.ca",
+    "inspection.canada.ca",
+    "www.publicsafety.gc.ca",
+    "natural-resources.canada.ca",
+    "www.cbsa-asfc.gc.ca",
+    "ustr.gov",
+    "home.treasury.gov",
+    "www.cisa.gov",
+    "www.bis.gov",
+    "www.federalregister.gov",
+    "english.mofcom.gov.cn",
+    "www.mofcom.gov.cn",
+    "english.www.gov.cn",
+    "www.whitehouse.gov",
+    "www.defense.gov",
+    "www.cyber.gc.ca",
+    "www.fcc.gov",
+    "tc.canada.ca",
+    "www.canolacouncil.org",
+    "www.eics-scei.gc.ca",
+    "www150.statcan.gc.ca",
+    "lgcorp.com",
+    "www.unifor.org",
+    "www.cer-rec.gc.ca",
+    "cer-rec.gc.ca",
+    "www.lngcanada.ca",
+    "www.sec.gov",
+    "www.tradecommissioner.gc.ca",
+    "www.govinfo.gov",
+    "ised-isde.canada.ca",
+    "agriculture.canada.ca",
+    "open.canada.ca",
+    "www.pm.gc.ca"
+  ],
+  "hubs": [
+    {
+      "name": "Global Affairs Canada news",
+      "url": "https://www.canada.ca/en/global-affairs/news.html",
+      "issuer": "Canada",
+      "path": "/en/global-affairs/news/"
+    },
+    {
+      "name": "Finance Canada news",
+      "url": "https://www.canada.ca/en/department-finance/news.html",
+      "issuer": "Canada",
+      "path": "/en/department-finance/news/"
+    },
+    {
+      "name": "Public Safety Canada news",
+      "url": "https://www.canada.ca/en/public-safety-canada/news.html",
+      "issuer": "Canada",
+      "path": "/en/public-safety-canada/news/"
+    },
+    {
+      "name": "ISED Canada news",
+      "url": "https://www.canada.ca/en/innovation-science-economic-development/news.html",
+      "issuer": "Canada",
+      "path": "/en/innovation-science-economic-development/news/"
+    },
+    {
+      "name": "Natural Resources Canada news",
+      "url": "https://www.canada.ca/en/natural-resources-canada/news.html",
+      "issuer": "Canada",
+      "path": "/en/natural-resources-canada/news/"
+    },
+    {
+      "name": "USTR press releases",
+      "url": "https://ustr.gov/about-us/policy-offices/press-office/press-releases",
+      "issuer": "United States",
+      "path": "/about-us/policy-offices/press-office/press-releases/"
+    },
+    {
+      "name": "U.S. Treasury press releases",
+      "url": "https://home.treasury.gov/news/press-releases",
+      "issuer": "United States",
+      "path": "/news/press-releases/"
+    },
+    {
+      "name": "CISA cybersecurity advisories",
+      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories",
+      "issuer": "United States",
+      "path": "/news-events/"
+    },
+    {
+      "name": "China MOFCOM English news",
+      "url": "https://english.mofcom.gov.cn/News/",
+      "issuer": "China",
+      "path": "/"
+    },
+    {
+      "name": "CBSA customs notices",
+      "url": "https://www.cbsa-asfc.gc.ca/publications/cn-ad/menu-eng.html",
+      "issuer": "Canada",
+      "path": "/publications/cn-ad/"
+    },
+    {
+      "name": "BIS Federal Register documents (verify legal edition)",
+      "url": "https://www.federalregister.gov/agencies/industry-and-security-bureau",
+      "issuer": "United States",
+      "path": "/documents/"
+    }
+  ]
 }

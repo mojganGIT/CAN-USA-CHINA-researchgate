@@ -65,10 +65,10 @@ test('full monitor run baselines old sources, publishes changes, enforces the AI
  const temp=fs.mkdtempSync(path.join(os.tmpdir(),'policy-monitor-test-'));
  try{
   for(const dir of ['monitor','app','api','tests'])fs.mkdirSync(path.join(temp,dir),{recursive:true});
-  for(const file of ['monitor/run.mjs','monitor/core.mjs','monitor/sources.json','app/explorer-catalog.js','api/package.json','api/master-data.json','api/src/lib/llm.js','tests/monitor-fixture.mjs']){const dest=path.join(temp,file);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(root,file),dest);}
+  for(const file of ['monitor/run.mjs','monitor/assessment-review.mjs','monitor/core.mjs','monitor/sources.json','app/explorer-catalog.js','app/evidence-records.json','api/package.json','api/master-data.json','api/src/lib/llm.js','tests/monitor-fixture.mjs']){const dest=path.join(temp,file);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(root,file),dest);}
   const run=extra=>execFileSync(process.execPath,['--import',path.join(temp,'tests/monitor-fixture.mjs'),path.join(temp,'monitor/run.mjs')],{cwd:temp,env:{...process.env,POLICY_MONITOR_API_KEY:'test-not-a-real-key',POLICY_MONITOR_MODEL:'fixture-model',...extra},stdio:'pipe'});
   run({FIXTURE_VERSION:'1'});let feed=JSON.parse(fs.readFileSync(path.join(temp,'app/policy-updates.json')));
-  assert(feed.lastSuccessfulRun);assert(feed.changes.length>0);assert.equal(feed.aiCalls,8);assert(feed.changes.every(x=>x.changeType==='new_source'));assert(feed.changes.some(x=>x.ai));assert(!JSON.stringify(feed).includes('test-not-a-real-key'));
+  assert(feed.lastSuccessfulRun);assert.equal(feed.assessmentReview.dataVersion,'2026-11-03.1');assert.equal(feed.assessmentReview.checks.length,28);assert(feed.changes.length>0);assert.equal(feed.aiCalls,8);assert(feed.changes.every(x=>x.changeType==='new_source'));assert(feed.changes.some(x=>x.ai));assert(!JSON.stringify(feed).includes('test-not-a-real-key'));
   run({FIXTURE_VERSION:'2'});feed=JSON.parse(fs.readFileSync(path.join(temp,'app/policy-updates.json')));assert(feed.changes.some(x=>x.changeType==='source_revision'&&x.previousDigest));
   const success=feed.lastSuccessfulRun;assert.throws(()=>run({FIXTURE_FAIL:'1'}));feed=JSON.parse(fs.readFileSync(path.join(temp,'app/policy-updates.json')));assert.equal(feed.lastSuccessfulRun,success);assert.equal(feed.lastRunStatus,'failed');assert(feed.sourceFailures.length>0);
  }finally{fs.rmSync(temp,{recursive:true,force:true});}

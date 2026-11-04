@@ -1,0 +1,3230 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-03.1",
+  "asOf": "2026-11-03",
+  "title": "Canada regional outcomes assessment",
+  "basis": "Transcribed from the reviewed 3 November 2026 seven-topic assessment; source checks do not automatically revise these findings.",
+  "coverage": {
+    "trade": "Principally January–August 2026",
+    "labour": "September 2026",
+    "defence": "2024 reference year; published 2026"
+  },
+  "relationships": [
+    "Canada-USA",
+    "Canada-China",
+    "USA-China"
+  ],
+  "metrics": [
+    {
+      "id": "shipments",
+      "label": "Realized shipments / business"
+    },
+    {
+      "id": "supply_chain",
+      "label": "Canadian supply chains"
+    },
+    {
+      "id": "investment",
+      "label": "Completed investment"
+    },
+    {
+      "id": "tariffs",
+      "label": "Implemented tariffs / policy"
+    },
+    {
+      "id": "employment",
+      "label": "Regional employment"
+    }
+  ],
+  "regions": {
+    "ON": {
+      "code": "ON",
+      "name": "Ontario",
+      "kind": "mixed",
+      "summary": "Mixed: operating gains and employment pressure",
+      "limitation": "Chinese EV import access does not establish Canadian assembly jobs. These employer and industry measures cannot be added into a provincial net-jobs estimate.",
+      "recordIds": [
+        "nextstar-jobs",
+        "nextstar-capex",
+        "nextstar-cell-output",
+        "gm-layoffs",
+        "defence-share-ON"
+      ]
+    },
+    "BC": {
+      "code": "BC",
+      "name": "British Columbia",
+      "kind": "operating",
+      "summary": "Operating gains: LNG exports and existing jobs",
+      "limitation": "The operating benefit is local project evidence. A net B.C.-wide gain caused by the 2026 arrangements has not been quantified.",
+      "recordIds": [
+        "lng-jobs",
+        "lng-operating",
+        "lng-china-share",
+        "lng-phase2",
+        "lfs-BC"
+      ]
+    },
+    "AB": {
+      "code": "AB",
+      "name": "Alberta",
+      "kind": "exposure",
+      "summary": "Energy and agriculture exposure",
+      "limitation": "The national indicators show relevant trade channels. Province-specific shipment gains, completed investment and jobs caused by the new arrangements remain unquantified.",
+      "recordIds": [
+        "oil-us-volume",
+        "canola-seed-china",
+        "canola-crush"
+      ]
+    },
+    "QC": {
+      "code": "QC",
+      "name": "Quebec",
+      "kind": "exposure",
+      "summary": "Finance, manufacturing and defence exposure",
+      "limitation": "An existing industrial position is not a gain created by a new agreement. No provincial financial-services gain or loss is inferred from one company’s overseas results.",
+      "recordIds": [
+        "defence-share-QC",
+        "financial-working-group",
+        "lfs-QC"
+      ]
+    },
+    "SK": {
+      "code": "SK",
+      "name": "Saskatchewan",
+      "kind": "exposure",
+      "summary": "Agricultural recovery; provincial outcome unquantified",
+      "limitation": "Prairie producers and processors are exposed to these changes. National volumes are not allocated to this province, and new provincial jobs have not been established.",
+      "recordIds": [
+        "canola-seed-china",
+        "canola-meal-china",
+        "canola-crush",
+        "canola-seed-tariff"
+      ]
+    },
+    "MB": {
+      "code": "MB",
+      "name": "Manitoba",
+      "kind": "exposure",
+      "summary": "Agricultural recovery; provincial outcome unquantified",
+      "limitation": "Prairie producers and processors are exposed to these changes. National volumes are not allocated to this province, and new provincial jobs have not been established.",
+      "recordIds": [
+        "canola-seed-china",
+        "canola-meal-china",
+        "canola-crush",
+        "canola-seed-tariff"
+      ]
+    },
+    "NB": {
+      "code": "NB",
+      "name": "New Brunswick",
+      "kind": "access",
+      "summary": "Seafood access improved; commercial effect unquantified",
+      "limitation": "The assessment does not quantify post-relief seafood shipments, completed investment or jobs for this province. Atlantic-wide figures are not provincial totals.",
+      "recordIds": [
+        "china-seafood-relief",
+        "defence-atlantic-share"
+      ]
+    },
+    "NS": {
+      "code": "NS",
+      "name": "Nova Scotia",
+      "kind": "access",
+      "summary": "Seafood access improved; commercial effect unquantified",
+      "limitation": "The assessment does not quantify post-relief seafood shipments, completed investment or jobs for this province. Atlantic-wide figures are not provincial totals.",
+      "recordIds": [
+        "china-seafood-relief",
+        "defence-atlantic-share"
+      ]
+    },
+    "PE": {
+      "code": "PE",
+      "name": "Prince Edward Island",
+      "kind": "access",
+      "summary": "Seafood access improved; commercial effect unquantified",
+      "limitation": "The assessment does not quantify post-relief seafood shipments, completed investment or jobs for this province. Atlantic-wide figures are not provincial totals.",
+      "recordIds": [
+        "china-seafood-relief",
+        "defence-atlantic-share"
+      ]
+    },
+    "NL": {
+      "code": "NL",
+      "name": "Newfoundland and Labrador",
+      "kind": "access",
+      "summary": "Seafood access improved; commercial effect unquantified",
+      "limitation": "The assessment does not quantify post-relief seafood shipments, completed investment or jobs for this province. Atlantic-wide figures are not provincial totals.",
+      "recordIds": [
+        "china-seafood-relief",
+        "defence-atlantic-share"
+      ]
+    },
+    "YT": {
+      "code": "YT",
+      "name": "Yukon",
+      "kind": "gap",
+      "summary": "No quantified territorial outcome in the assessment",
+      "limitation": "National and combined Western/Northern statistics are not assigned to an individual territory. Security exposure does not establish a commercial gain or loss.",
+      "recordIds": []
+    },
+    "NT": {
+      "code": "NT",
+      "name": "Northwest Territories",
+      "kind": "gap",
+      "summary": "No quantified territorial outcome in the assessment",
+      "limitation": "National and combined Western/Northern statistics are not assigned to an individual territory. Security exposure does not establish a commercial gain or loss.",
+      "recordIds": []
+    },
+    "NU": {
+      "code": "NU",
+      "name": "Nunavut",
+      "kind": "gap",
+      "summary": "No quantified territorial outcome in the assessment",
+      "limitation": "National and combined Western/Northern statistics are not assigned to an individual territory. Security exposure does not establish a commercial gain or loss.",
+      "recordIds": []
+    }
+  },
+  "sources": {
+    "S01": {
+      "id": "S01",
+      "publisher": "Global Affairs Canada",
+      "title": "Monthly trade report: August 2026, tables 2-3",
+      "publicationLabel": "2026-10-08",
+      "publicationDate": "2026-10-08",
+      "url": "https://international.canada.ca/en/global-affairs/corporate/reports/chief-economist/monthly/2026-08",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S02": {
+      "id": "S02",
+      "publisher": "Canola Council of Canada / Statistics Canada CIMT",
+      "title": "Canadian canola export volumes, January-August 2026",
+      "publicationLabel": "2026-10-14",
+      "publicationDate": "2026-10-14",
+      "url": "https://www.canolacouncil.org/markets-stats/exports/",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "industry/statistical"
+    },
+    "S03": {
+      "id": "S03",
+      "publisher": "Global Affairs Canada",
+      "title": "Implemented China market-access and tariff changes",
+      "publicationLabel": "2026-03-04",
+      "publicationDate": "2026-03-04",
+      "url": "https://www.canada.ca/en/global-affairs/news/2026/03/canada-secures-renewed-market-access-with-china-to-boost-exports-and-strengthen-economic-collaboration.html",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S04": {
+      "id": "S04",
+      "publisher": "Global Affairs Canada",
+      "title": "China EV import quota utilization, year 1",
+      "publicationLabel": "2026-10-30",
+      "publicationDate": "2026-10-30",
+      "url": "https://www.eics-scei.gc.ca/report-rapport/Imports_of_electric_vehicles_from_China.htm",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S05": {
+      "id": "S05",
+      "publisher": "Global Affairs Canada",
+      "title": "EV import notice 1168: permits and quota administration",
+      "publicationLabel": "2026-08-29",
+      "publicationDate": "2026-08-29",
+      "url": "https://www.international.gc.ca/trade-commerce/controls-controles/notices-avis/1168.aspx?lang=eng",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S06": {
+      "id": "S06",
+      "publisher": "Statistics Canada",
+      "title": "Manufacturing exports to the U.S.: value added and employment",
+      "publicationLabel": "2026-05-04",
+      "publicationDate": "2026-05-04",
+      "url": "https://www150.statcan.gc.ca/n1/pub/13-605-x/2026001/article/00001-eng.htm",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S07": {
+      "id": "S07",
+      "publisher": "LG / NextStar Energy",
+      "title": "Ten million battery cells produced; operating workforce",
+      "publicationLabel": "2026-10-22",
+      "publicationDate": "2026-10-22",
+      "url": "https://lgcorp.com/media/release/30700",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "company"
+    },
+    "S08": {
+      "id": "S08",
+      "publisher": "Unifor",
+      "title": "GM bargaining opening: workers on layoff in Ontario",
+      "publicationLabel": "2026-08-10",
+      "publicationDate": "2026-08-10",
+      "url": "https://www.unifor.org/news/all-news/unifor-opens-negotiations-general-motors",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "union"
+    },
+    "S09": {
+      "id": "S09",
+      "publisher": "Canada Energy Regulator",
+      "title": "Canada Pipeline System 2026: crude oil, 2021-2025 outcomes",
+      "publicationLabel": "2026 report",
+      "publicationDate": null,
+      "url": "https://www.cer-rec.gc.ca/en/data-analysis/facilities-we-regulate/canadas-pipeline-system/2026/crude-oil/",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S10": {
+      "id": "S10",
+      "publisher": "Canada Energy Regulator",
+      "title": "Canada Pipeline System 2026: natural gas and LNG destinations",
+      "publicationLabel": "2026 report",
+      "publicationDate": null,
+      "url": "https://cer-rec.gc.ca/en/data-analysis/facilities-we-regulate/canadas-pipeline-system/2026/natural-gas/index.html",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S11": {
+      "id": "S11",
+      "publisher": "LNG Canada",
+      "title": "Phase 2 investment decision; current versus future employment",
+      "publicationLabel": "2026-09-28",
+      "publicationDate": "2026-09-28",
+      "url": "https://www.lngcanada.ca/news/lng-canada-announces-phase-2-final-investment-decision/",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "company"
+    },
+    "S12": {
+      "id": "S12",
+      "publisher": "LNG Canada",
+      "title": "Media kit: equity participants and first export cargo",
+      "publicationLabel": "2026-06-23 update",
+      "publicationDate": "2026-06-23",
+      "url": "https://www.lngcanada.ca/news/media-kit/",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "company"
+    },
+    "S13": {
+      "id": "S13",
+      "publisher": "Manulife / U.S. SEC",
+      "title": "Second-quarter 2026 results: earnings and new-business CSM detail",
+      "publicationLabel": "2026-08-05",
+      "publicationDate": "2026-08-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1086888/000108688826000080/q22026pressrelease.htm",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "company"
+    },
+    "S14": {
+      "id": "S14",
+      "publisher": "Statistics Canada",
+      "title": "FDI stock by ultimate and immediate investor country, 2025",
+      "publicationLabel": "2026-04-29",
+      "publicationDate": "2026-04-29",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260429/cg-b002-eng.htm",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S15": {
+      "id": "S15",
+      "publisher": "Statistics Canada",
+      "title": "Foreign direct investment, 2025: book values and composition",
+      "publicationLabel": "2026-04-29",
+      "publicationDate": "2026-04-29",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260429/dq260429b-eng.htm",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S16": {
+      "id": "S16",
+      "publisher": "Global Affairs Canada",
+      "title": "State of Trade 2026: 2025 FDI flows and services",
+      "publicationLabel": "2026-08-25 update",
+      "publicationDate": "2026-08-25",
+      "url": "https://international.canada.ca/en/global-affairs/corporate/reports/chief-economist/state-trade/2026",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S17": {
+      "id": "S17",
+      "publisher": "Innovation, Science and Economic Development Canada",
+      "title": "Completed TikTok national-security review: conditional permission",
+      "publicationLabel": "2026-03-09",
+      "publicationDate": "2026-03-09",
+      "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/03/minister-jolys-statement-on-the-outcome-of-the-further-national-security-review-of-tiktok-technology-canada-inc-under-the-investment-canada-act.html",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S18": {
+      "id": "S18",
+      "publisher": "White House",
+      "title": "Proclamation modifying Section 338 Canadian product coverage",
+      "publicationLabel": "2026-10-23; effective 2026-10-30",
+      "publicationDate": "2026-10-23",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/10/further-modifying-the-scope-of-products-of-canada-subject-to-the-additional-duties-imposed-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-motor-vehicles/",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S19": {
+      "id": "S19",
+      "publisher": "Trade Commissioner Service",
+      "title": "Current U.S. tariff measures, exclusions and sectoral treatment",
+      "publicationLabel": "accessed 2026-11-03",
+      "publicationDate": null,
+      "url": "https://www.tradecommissioner.gc.ca/en/market-industry-info/search-country-region/country/canada-united-states-export/us-tariffs/answers-common-questions-tariffs.html",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S20": {
+      "id": "S20",
+      "publisher": "United States / China",
+      "title": "30-for-30 framework: scope, valuation and implementation",
+      "publicationLabel": "2026-09-27 publication",
+      "publicationDate": "2026-09-27",
+      "url": "https://www.whitehouse.gov/wp-content/uploads/2026/09/Terms-of-Reference-for-30-for-30-Framework.pdf",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S21": {
+      "id": "S21",
+      "publisher": "Department of Finance Canada",
+      "title": "Canada-China Financial Working Group: first meeting",
+      "publicationLabel": "2026-04-03",
+      "publicationDate": "2026-04-03",
+      "url": "https://www.canada.ca/en/department-finance/programs/financial-sector-policy/joint-statement-on-launch-canada-china-financial-working-group.html",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S22": {
+      "id": "S22",
+      "publisher": "USTR / Federal Register",
+      "title": "CUSMA: 2026 non-extension and 2027 annual review",
+      "publicationLabel": "2026-10-05",
+      "publicationDate": "2026-10-05",
+      "url": "https://www.govinfo.gov/content/pkg/FR-2026-10-05/html/2026-20341.htm",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S23": {
+      "id": "S23",
+      "publisher": "ISED / Statistics Canada / CADSI",
+      "title": "State of Canada Defence Industry 2026: reference year 2024",
+      "publicationLabel": "2026 publication",
+      "publicationDate": null,
+      "url": "https://ised-isde.canada.ca/site/ised/en/research-and-business-intelligence/industry-sector-intelligence/manufacturing-industries/aerospace-and-defence/state-canadas-defence-industry",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S24": {
+      "id": "S24",
+      "publisher": "Statistics Canada",
+      "title": "Labour Force Survey, September 2026",
+      "publicationLabel": "2026-10-09",
+      "publicationDate": "2026-10-09",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/261009/dq261009a-eng.htm",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S25": {
+      "id": "S25",
+      "publisher": "Agriculture and Agri-Food Canada",
+      "title": "Field crops: completed 2025-26 canola exports and processing",
+      "publicationLabel": "2026-09-25",
+      "publicationDate": "2026-09-25",
+      "url": "https://agriculture.canada.ca/en/sector/crops/reports-statistics/canada-outlook-principal-field-crops-2026-09-25",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S26": {
+      "id": "S26",
+      "publisher": "Canada Energy Regulator",
+      "title": "LNG export dataset: confidentiality of prices and purchasers",
+      "publicationLabel": "accessed 2026-11-03",
+      "publicationDate": null,
+      "url": "https://open.canada.ca/data/dataset/4ff317bb-fd06-480d-a14c-3d00837f1c13",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S27": {
+      "id": "S27",
+      "publisher": "Statistics Canada",
+      "title": "Employment by industry, September 2026: agriculture context",
+      "publicationLabel": "2026-10-09",
+      "publicationDate": "2026-10-09",
+      "url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1410035502&request_locale=en",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    },
+    "S28": {
+      "id": "S28",
+      "publisher": "Canadian and Chinese governments",
+      "title": "Canada-China economic and trade cooperation roadmap",
+      "publicationLabel": "2026-01-16",
+      "publicationDate": "2026-01-16",
+      "url": "https://www.pm.gc.ca/en/news/statements/2026/01/16/canada-china-economic-and-trade-cooperation-roadmap",
+      "reviewedAt": "2026-11-03",
+      "publisherType": "government"
+    }
+  },
+  "records": [
+    {
+      "id": "vehicles-exports-ytd",
+      "title": "Motor vehicles and parts export value",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "shipments",
+      "value": -7.8,
+      "unit": "% year over year",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S01"
+      ],
+      "summary": "Nominal export value to all markets changed -7.8% year over year.",
+      "limitation": "All destinations; price, exchange-rate and product-mix changes are not isolated. Not a provincial or deal-attributable estimate.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [],
+      "measurementType": "observed",
+      "outcome": "pressure",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "agriculture-exports-ytd",
+      "title": "Farm, fishing and intermediate food export value",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "value": 8.1,
+      "unit": "% year over year",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S01"
+      ],
+      "summary": "Nominal export value to all markets changed +8.1% year over year.",
+      "limitation": "All destinations; price, exchange-rate and product-mix changes are not isolated. Not a provincial or deal-attributable estimate.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [],
+      "measurementType": "observed",
+      "outcome": "gain",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "energy-exports-ytd",
+      "title": "Energy products export value",
+      "topics": [
+        "energy"
+      ],
+      "metric": "shipments",
+      "value": 35.7,
+      "unit": "% year over year",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S01"
+      ],
+      "summary": "Nominal export value to all markets changed +35.7% year over year.",
+      "limitation": "All destinations; price, exchange-rate and product-mix changes are not isolated. Not a provincial or deal-attributable estimate.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [],
+      "measurementType": "observed",
+      "outcome": "gain",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "exports-china",
+      "title": "Canadian goods exports to China",
+      "topics": [
+        "agreements"
+      ],
+      "metric": "shipments",
+      "value": 39.3,
+      "unit": "% year over year",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S01"
+      ],
+      "summary": "Export value to China rose 39.3% year over year.",
+      "limitation": "The period ends before the September U.S.–China framework. Nominal growth does not establish additional Canadian value added or causation.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "observed",
+      "outcome": "gain",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "exports-us",
+      "title": "Canadian goods exports to United States",
+      "topics": [
+        "agreements"
+      ],
+      "metric": "shipments",
+      "value": 7.6,
+      "unit": "% year over year",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S01"
+      ],
+      "summary": "Export value to United States rose 7.6% year over year.",
+      "limitation": "The period ends before the September U.S.–China framework. Nominal growth does not establish additional Canadian value added or causation.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "observed",
+      "outcome": "gain",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "canola-seed-china",
+      "title": "Canola seed shipments to China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "value": 2581011,
+      "unit": "tonnes",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S02"
+      ],
+      "summary": "2,581,011 tonnes of Canadian canola seed were exported to China.",
+      "limitation": "Realized national customs volume; not assigned to any Prairie province. A shipment level alone is not an incremental policy effect.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "observed",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "series": {
+        "labels": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug"
+        ],
+        "values": [
+          0,
+          114223,
+          368974,
+          452240,
+          608418,
+          332483,
+          426102,
+          278571
+        ],
+        "unit": "tonnes",
+        "note": "March 1 tariff change is a timing marker, not a causal estimate."
+      },
+      "observationRegions": []
+    },
+    {
+      "id": "canola-seed-us",
+      "title": "Canola seed shipments to United States",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "value": 242489,
+      "unit": "tonnes",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S02"
+      ],
+      "summary": "242,489 tonnes of Canadian canola seed were exported to United States.",
+      "limitation": "Realized national customs volume; not assigned to any Prairie province. A shipment level alone is not an incremental policy effect.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "observed",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "series": null,
+      "observationRegions": []
+    },
+    {
+      "id": "canola-meal-china",
+      "title": "Canola meal shipments to China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "value": 1073608,
+      "unit": "tonnes",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S02"
+      ],
+      "summary": "1,073,608 tonnes of Canadian canola meal were exported to China.",
+      "limitation": "Realized national customs volume; not assigned to any Prairie province. A shipment level alone is not an incremental policy effect.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "observed",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "series": {
+        "labels": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug"
+        ],
+        "values": [
+          0,
+          30295,
+          42126,
+          100738,
+          131162,
+          198232,
+          275883,
+          295172
+        ],
+        "unit": "tonnes",
+        "note": "March 1 tariff change is a timing marker, not a causal estimate."
+      },
+      "observationRegions": []
+    },
+    {
+      "id": "canola-meal-us",
+      "title": "Canola meal shipments to United States",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "value": 3065721,
+      "unit": "tonnes",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S02"
+      ],
+      "summary": "3,065,721 tonnes of Canadian canola meal were exported to United States.",
+      "limitation": "Realized national customs volume; not assigned to any Prairie province. A shipment level alone is not an incremental policy effect.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "observed",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "series": null,
+      "observationRegions": []
+    },
+    {
+      "id": "canola-oil-china",
+      "title": "Canola oil shipments to China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "value": 1,
+      "unit": "tonnes",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S02"
+      ],
+      "summary": "1 tonnes of Canadian canola oil were exported to China.",
+      "limitation": "Realized national customs volume; not assigned to any Prairie province. A shipment level alone is not an incremental policy effect.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "observed",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "series": null,
+      "observationRegions": []
+    },
+    {
+      "id": "canola-oil-us",
+      "title": "Canola oil shipments to United States",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "value": 1988074,
+      "unit": "tonnes",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S02"
+      ],
+      "summary": "1,988,074 tonnes of Canadian canola oil were exported to United States.",
+      "limitation": "Realized national customs volume; not assigned to any Prairie province. A shipment level alone is not an incremental policy effect.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "observed",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "series": null,
+      "observationRegions": []
+    },
+    {
+      "id": "canola-crush",
+      "title": "Completed Canadian canola processing",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "supply_chain",
+      "value": 12.89,
+      "unit": "million tonnes",
+      "period": "2025–26 crop year",
+      "periodStart": "2025-08-01",
+      "periodEnd": "2026-07-31",
+      "sourceIds": [
+        "S25"
+      ],
+      "summary": "Domestic canola crush reached 12.89 million tonnes, up 13% year over year.",
+      "limitation": "Completed processing output is not completed capital spending or a count of new jobs.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA",
+        "Canada-China"
+      ],
+      "measurementType": "observed",
+      "outcome": "gain",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "comparison": 13,
+      "comparisonUnit": "% year over year",
+      "observationRegions": []
+    },
+    {
+      "id": "canola-seed-exports-crop",
+      "title": "Completed canola seed exports",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "value": 8.96,
+      "unit": "million tonnes",
+      "period": "2025–26 crop year",
+      "periodStart": "2025-08-01",
+      "periodEnd": "2026-07-31",
+      "sourceIds": [
+        "S25"
+      ],
+      "summary": "Seed exports totalled 8.96 million tonnes, down about 5% year over year.",
+      "limitation": "National crop-year total to all destinations; different period from January–August figures.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [],
+      "measurementType": "observed",
+      "outcome": "pressure",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "canola-oil-us-share",
+      "title": "U.S. share of Canadian canola oil exports",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "resilience",
+      "value": 89.1,
+      "unit": "% of world export volume",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S02"
+      ],
+      "summary": "The U.S. received 89.1% of Canadian canola oil export volume.",
+      "limitation": "Calculated from destination/world volumes. Dependence indicator, not an estimated tariff loss.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "derived",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "calculation": "United States tonnes / world tonnes × 100",
+      "observationRegions": []
+    },
+    {
+      "id": "canola-meal-us-share",
+      "title": "U.S. share of Canadian canola meal exports",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "resilience",
+      "value": 70.2,
+      "unit": "% of world export volume",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S02"
+      ],
+      "summary": "The U.S. received 70.2% of Canadian canola meal export volume.",
+      "limitation": "Calculated from destination/world volumes. Dependence indicator, not an estimated tariff loss.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "derived",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "calculation": "United States tonnes / world tonnes × 100",
+      "observationRegions": []
+    },
+    {
+      "id": "canola-seed-tariff",
+      "title": "Canola seed tariff in China",
+      "topics": [
+        "agriculture",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "value": 14.9,
+      "unit": "% combined tariff",
+      "period": "From 1 March 2026",
+      "periodStart": "2026-03-01",
+      "periodEnd": null,
+      "sourceIds": [
+        "S03"
+      ],
+      "summary": "Combined canola-seed tariff reported at 14.9% after the implemented change.",
+      "limitation": "Product-specific applied treatment. Verify tariff lines and current applicability.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "implemented_policy",
+      "outcome": "access",
+      "attribution": "policy_only",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "policyIds": [
+        "china-market-access"
+      ],
+      "observationRegions": []
+    },
+    {
+      "id": "china-seafood-relief",
+      "title": "Specified seafood and agricultural tariff relief",
+      "topics": [
+        "agriculture",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "value": null,
+      "unit": "product-specific suspension",
+      "period": "1 March–31 December 2026",
+      "periodStart": "2026-03-01",
+      "periodEnd": "2026-12-31",
+      "sourceIds": [
+        "S03"
+      ],
+      "summary": "Specified additional tariffs on canola meal, peas, lobster and crab suspended through year-end.",
+      "limitation": "Improved access is established; province-specific shipment, investment and job gains are unquantified.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB",
+        "NB",
+        "NS",
+        "PE",
+        "NL"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "implemented_policy",
+      "outcome": "access",
+      "attribution": "policy_only",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "policyIds": [
+        "china-market-access"
+      ],
+      "observationRegions": []
+    },
+    {
+      "id": "ev-quota-permits",
+      "title": "China EV quota utilization",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "shipments",
+      "value": 16206,
+      "unit": "quota units utilized",
+      "period": "As at 30 October 2026",
+      "periodStart": "2026-03-01",
+      "periodEnd": "2026-10-30",
+      "sourceIds": [
+        "S04",
+        "S05"
+      ],
+      "summary": "16,206 units of the 49,000-unit annual quota utilized (33.1%).",
+      "limitation": "Administrative quota/permit use is not a customs-clearance, retail-sale or Canadian manufacturing measure.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "administrative",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "denominator": 49000,
+      "observationRegions": []
+    },
+    {
+      "id": "ev-quota-tariff",
+      "title": "Within-quota Chinese EV tariff",
+      "topics": [
+        "vehicles",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "value": 6.1,
+      "unit": "% within-quota tariff",
+      "period": "From 1 March 2026",
+      "periodStart": "2026-03-01",
+      "periodEnd": null,
+      "sourceIds": [
+        "S03",
+        "S05"
+      ],
+      "summary": "Within-quota tariff set at 6.1%; permits are administered under the import notice.",
+      "limitation": "Imported finished vehicles do not establish Canadian component content, assembly investment or jobs.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "implemented_policy",
+      "outcome": "access",
+      "attribution": "policy_only",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "policyIds": [
+        "china-ev-access"
+      ],
+      "observationRegions": []
+    },
+    {
+      "id": "auto-us-exports",
+      "title": "Vehicles exported to the U.S.",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "shipments",
+      "value": -9.6,
+      "unit": "% year over year",
+      "period": "2025",
+      "periodStart": "2025-01-01",
+      "periodEnd": "2025-12-31",
+      "sourceIds": [
+        "S06"
+      ],
+      "summary": "Canadian vehicle export value to the U.S. fell 9.6% in 2025.",
+      "limitation": "Pre-2026 baseline; distinguish assembly from parts.",
+      "regions": [
+        "ON"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "observed",
+      "outcome": "pressure",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "auto-us-payroll",
+      "title": "Auto-assembly payroll supported by U.S. demand",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "supply_chain",
+      "value": 76.4,
+      "unit": "% of assembly payroll jobs",
+      "period": "2024",
+      "periodStart": "2024-01-01",
+      "periodEnd": "2024-12-31",
+      "sourceIds": [
+        "S06"
+      ],
+      "summary": "U.S. demand supported 76.4% of Canadian auto-assembly payroll employment.",
+      "limitation": "Input-output-supported jobs are not new 2026 jobs. Gross exports include imported inputs.",
+      "regions": [
+        "ON"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "modelled_baseline",
+      "outcome": "context",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "nextstar-capex",
+      "title": "NextStar completed investment",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "investment",
+      "value": 5,
+      "unit": "CAD billion; over",
+      "period": "October 2026",
+      "periodStart": "2026-10-01",
+      "periodEnd": "2026-10-21",
+      "sourceIds": [
+        "S07"
+      ],
+      "summary": "NextStar reports over C$5 billion invested and 10 million cells produced.",
+      "limitation": "Existing LG/Stellantis-origin project; not a result of Chinese EV import access. Company-reported spending is kept separate from FDI stocks.",
+      "regions": [
+        "ON"
+      ],
+      "geography": "Windsor, Ontario",
+      "geographyLevel": "project",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "observed",
+      "outcome": "gain",
+      "attribution": "pre_existing_project",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "currency": "CAD",
+      "observationRegions": [
+        "ON"
+      ]
+    },
+    {
+      "id": "nextstar-jobs",
+      "title": "NextStar operating workforce",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "employment",
+      "value": 1300,
+      "unit": "employees; approximately",
+      "period": "October 2026",
+      "periodStart": "2026-10-01",
+      "periodEnd": "2026-10-21",
+      "sourceIds": [
+        "S07"
+      ],
+      "summary": "About 1,300 operating employees at the Windsor battery plant.",
+      "limitation": "Company-reported existing workforce, not 1,300 jobs created by a new China/U.S. arrangement. Cannot be netted against the GM layoff share.",
+      "regions": [
+        "ON"
+      ],
+      "geography": "Windsor, Ontario",
+      "geographyLevel": "project",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "observed",
+      "outcome": "gain",
+      "attribution": "pre_existing_project",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": [
+        "ON"
+      ]
+    },
+    {
+      "id": "gm-layoffs",
+      "title": "GM represented workforce on layoff",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "employment",
+      "value": 30,
+      "unit": "% of represented members; approximately",
+      "period": "10 August 2026",
+      "periodStart": "2026-08-10",
+      "periodEnd": "2026-08-10",
+      "sourceIds": [
+        "S08"
+      ],
+      "summary": "Unifor reported about 30% of its GM Canada members on layoff.",
+      "limitation": "Union-reported share at Ontario facilities, not the provincial unemployment rate or an attributable tariff-loss count.",
+      "regions": [
+        "ON"
+      ],
+      "geography": "GM facilities in Ontario",
+      "geographyLevel": "employer",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "observed",
+      "outcome": "pressure",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": [
+        "ON"
+      ]
+    },
+    {
+      "id": "us-auto-tariff",
+      "title": "U.S. covered vehicle tariff",
+      "topics": [
+        "vehicles",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "value": 25,
+      "unit": "% on covered content",
+      "period": "Treatment reviewed 3 November 2026",
+      "periodStart": "2026-11-03",
+      "periodEnd": "2026-11-03",
+      "sourceIds": [
+        "S19"
+      ],
+      "summary": "Covered vehicle tariff is 25%, with U.S.-content relief for qualifying CUSMA vehicles; qualifying parts currently exempt.",
+      "limitation": "Coverage, origin and content rules matter. This is not a flat 25% duty on every Canadian vehicle and part.",
+      "regions": [
+        "ON",
+        "QC"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "implemented_policy",
+      "outcome": "pressure",
+      "attribution": "policy_only",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "policyIds": [
+        "us-product-coverage"
+      ],
+      "observationRegions": []
+    },
+    {
+      "id": "lng-china-share",
+      "title": "China share of Canadian LNG volume",
+      "topics": [
+        "energy"
+      ],
+      "metric": "shipments",
+      "value": 18,
+      "unit": "% of export volume",
+      "period": "January–April 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-04-30",
+      "sourceIds": [
+        "S10"
+      ],
+      "summary": "China received 18% of Canadian LNG export volume.",
+      "limitation": "National volume share, not B.C. revenue or the effect of a 2026 MOU.",
+      "regions": [
+        "BC",
+        "AB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "observed",
+      "outcome": "gain",
+      "attribution": "pre_existing_project",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "oil-us-volume",
+      "title": "Crude oil delivered to the U.S.",
+      "topics": [
+        "energy"
+      ],
+      "metric": "shipments",
+      "value": 3.9,
+      "unit": "million barrels per day; approximately",
+      "period": "2025",
+      "periodStart": "2025-01-01",
+      "periodEnd": "2025-12-31",
+      "sourceIds": [
+        "S09"
+      ],
+      "summary": "Canada delivered about 3.9 million barrels per day to the U.S., around 90% of crude exports.",
+      "limitation": "National trade context; not an Alberta-only outcome.",
+      "regions": [
+        "AB",
+        "BC",
+        "NL"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "observed",
+      "outcome": "context",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "oil-us-share",
+      "title": "U.S. share of Canadian crude exports",
+      "topics": [
+        "energy"
+      ],
+      "metric": "resilience",
+      "value": 90,
+      "unit": "% of export volume; approximately",
+      "period": "2025",
+      "periodStart": "2025-01-01",
+      "periodEnd": "2025-12-31",
+      "sourceIds": [
+        "S09"
+      ],
+      "summary": "Approximately 90% of Canadian crude exports went to the U.S.; non-U.S. share rose from about 2% in 2021 to 10% in 2025.",
+      "limitation": "Existing physical diversification, not wholly China-directed or caused by a new agreement.",
+      "regions": [
+        "AB",
+        "BC",
+        "NL"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "observed",
+      "outcome": "context",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "lng-operating",
+      "title": "LNG Canada Phase 1 operating capacity",
+      "topics": [
+        "energy",
+        "investment"
+      ],
+      "metric": "investment",
+      "value": null,
+      "unit": "commissioned export asset",
+      "period": "First cargo June 2025",
+      "periodStart": "2025-06-01",
+      "periodEnd": "2025-06-30",
+      "sourceIds": [
+        "S12"
+      ],
+      "summary": "Phase 1 is operating; PetroChina holds 15% of the multi-country joint venture.",
+      "limitation": "Operations predate the 2026 MOU. Total completed capital spending is not allocated to individual partner countries.",
+      "regions": [
+        "BC",
+        "AB"
+      ],
+      "geography": "Kitimat, British Columbia",
+      "geographyLevel": "project",
+      "relationships": [
+        "Canada-USA",
+        "Canada-China"
+      ],
+      "measurementType": "observed",
+      "outcome": "gain",
+      "attribution": "pre_existing_project",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": [
+        "BC"
+      ]
+    },
+    {
+      "id": "lng-jobs",
+      "title": "LNG Canada operating workforce",
+      "topics": [
+        "energy"
+      ],
+      "metric": "employment",
+      "value": 400,
+      "unit": "permanent full-time jobs; over",
+      "period": "September 2026",
+      "periodStart": "2026-09-01",
+      "periodEnd": "2026-09-28",
+      "sourceIds": [
+        "S11"
+      ],
+      "summary": "Over 400 permanent full-time operating jobs in Kitimat.",
+      "limitation": "Company-reported existing workforce. Not all new in 2026 or attributable to China.",
+      "regions": [
+        "BC"
+      ],
+      "geography": "Kitimat, British Columbia",
+      "geographyLevel": "project",
+      "relationships": [
+        "Canada-USA",
+        "Canada-China"
+      ],
+      "measurementType": "observed",
+      "outcome": "gain",
+      "attribution": "pre_existing_project",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": [
+        "BC"
+      ]
+    },
+    {
+      "id": "lng-phase2",
+      "title": "LNG Canada Phase 2 investment decision",
+      "topics": [
+        "energy",
+        "investment"
+      ],
+      "metric": "investment",
+      "value": null,
+      "unit": "final investment decision",
+      "period": "28 September 2026",
+      "periodStart": "2026-09-28",
+      "periodEnd": "2026-09-28",
+      "sourceIds": [
+        "S11"
+      ],
+      "summary": "Phase 2 reached a final investment decision.",
+      "limitation": "Additional trains are not completed capacity. Forecast production, jobs and tax receipts excluded from realized gains.",
+      "regions": [
+        "BC",
+        "AB"
+      ],
+      "geography": "Kitimat, British Columbia",
+      "geographyLevel": "project",
+      "relationships": [
+        "Canada-USA",
+        "Canada-China"
+      ],
+      "measurementType": "decision",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": [
+        "BC"
+      ]
+    },
+    {
+      "id": "manulife-china",
+      "title": "Manulife mainland China new-business CSM",
+      "topics": [
+        "finance"
+      ],
+      "metric": "shipments",
+      "value": 183,
+      "unit": "CAD million",
+      "period": "First half 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-06-30",
+      "sourceIds": [
+        "S13"
+      ],
+      "summary": "New-business CSM was C$183 million versus C$196 million, down 6.6% on the constant-FX basis.",
+      "limitation": "CSM estimates future profit on new contracts. It is not Canadian cross-border service exports or domestic employment.",
+      "regions": [
+        "ON",
+        "QC"
+      ],
+      "geography": "Mainland China affiliate",
+      "geographyLevel": "foreign_affiliate",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "company_result",
+      "outcome": "pressure",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "currency": "CAD",
+      "observationRegions": [],
+      "baselineValue": 196,
+      "comparison": -6.6,
+      "comparisonUnit": "% on constant-FX basis"
+    },
+    {
+      "id": "manulife-us",
+      "title": "Manulife U.S. core earnings",
+      "topics": [
+        "finance"
+      ],
+      "metric": "shipments",
+      "value": 459,
+      "unit": "USD million",
+      "period": "First half 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-06-30",
+      "sourceIds": [
+        "S13"
+      ],
+      "summary": "U.S. core earnings were US$459 million versus US$392 million, up 17% on the reported constant-FX basis.",
+      "limitation": "Company-specific non-GAAP result. Different currency and metric from China new-business CSM; do not compare bar heights or add them.",
+      "regions": [
+        "ON",
+        "QC"
+      ],
+      "geography": "U.S. affiliate",
+      "geographyLevel": "foreign_affiliate",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "company_result",
+      "outcome": "gain",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "currency": "USD",
+      "observationRegions": [],
+      "baselineValue": 392,
+      "comparison": 17,
+      "comparisonUnit": "% on reported constant-FX basis"
+    },
+    {
+      "id": "fdi-stock-us",
+      "title": "FDI stock: ultimate investor United States",
+      "topics": [
+        "investment"
+      ],
+      "metric": "investment",
+      "value": 816.8,
+      "unit": "CAD billion stock",
+      "period": "End 2025",
+      "periodStart": "2025-12-31",
+      "periodEnd": "2025-12-31",
+      "sourceIds": [
+        "S14",
+        "S15"
+      ],
+      "summary": "C$816.8 billion book-value inward FDI stock by ultimate investor.",
+      "limitation": "Stock includes acquisitions, reinvestment and valuation effects. It is not completed 2026 factory spending. China excludes separately reported Hong Kong.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "stock",
+      "outcome": "context",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "currency": "CAD",
+      "observationRegions": []
+    },
+    {
+      "id": "fdi-stock-china",
+      "title": "FDI stock: ultimate investor China",
+      "topics": [
+        "investment"
+      ],
+      "metric": "investment",
+      "value": 43.4,
+      "unit": "CAD billion stock",
+      "period": "End 2025",
+      "periodStart": "2025-12-31",
+      "periodEnd": "2025-12-31",
+      "sourceIds": [
+        "S14",
+        "S15"
+      ],
+      "summary": "C$43.4 billion book-value inward FDI stock by ultimate investor.",
+      "limitation": "Stock includes acquisitions, reinvestment and valuation effects. It is not completed 2026 factory spending. China excludes separately reported Hong Kong.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "stock",
+      "outcome": "context",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "currency": "CAD",
+      "observationRegions": []
+    },
+    {
+      "id": "us-fdi-flow",
+      "title": "U.S.-source FDI inflow",
+      "topics": [
+        "investment"
+      ],
+      "metric": "investment",
+      "value": 52.9,
+      "unit": "CAD billion net flow",
+      "period": "2025",
+      "periodStart": "2025-01-01",
+      "periodEnd": "2025-12-31",
+      "sourceIds": [
+        "S16"
+      ],
+      "summary": "U.S.-source FDI inflow was C$52.9 billion.",
+      "limitation": "Earlier-period net financial flow; not completed greenfield capex.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "financial_flow",
+      "outcome": "context",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "currency": "CAD",
+      "observationRegions": []
+    },
+    {
+      "id": "tiktok-review",
+      "title": "TikTok national-security review",
+      "topics": [
+        "investment",
+        "technology"
+      ],
+      "metric": "tariffs",
+      "value": null,
+      "unit": "completed screening decision",
+      "period": "9 March 2026",
+      "periodStart": "2026-03-09",
+      "periodEnd": "2026-03-09",
+      "sourceIds": [
+        "S17"
+      ],
+      "summary": "Further review concluded with conditional permission and legally binding undertakings.",
+      "limitation": "Implemented regulatory decision, not measured new investment dollars, jobs or security benefits.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "implemented_policy",
+      "outcome": "context",
+      "attribution": "policy_only",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "policyIds": [
+        "tiktok-screening"
+      ],
+      "observationRegions": []
+    },
+    {
+      "id": "financial-working-group",
+      "title": "Financial Working Group meeting",
+      "topics": [
+        "finance",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "value": null,
+      "unit": "institutional meeting",
+      "period": "3 April 2026",
+      "periodStart": "2026-04-03",
+      "periodEnd": "2026-04-03",
+      "sourceIds": [
+        "S21"
+      ],
+      "summary": "Canada–China Financial Working Group held its first meeting.",
+      "limitation": "A meeting does not establish new operating licences, delivered services or Canadian jobs.",
+      "regions": [
+        "ON",
+        "QC"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "institutional",
+      "outcome": "context",
+      "attribution": "policy_only",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "policyIds": [
+        "financial-dialogue"
+      ],
+      "observationRegions": []
+    },
+    {
+      "id": "us-covered-duties",
+      "title": "U.S. specified Canadian product duties",
+      "topics": [
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "value": 50,
+      "unit": "% on specified goods",
+      "period": "Coverage change effective 30 October 2026",
+      "periodStart": "2026-10-30",
+      "periodEnd": null,
+      "sourceIds": [
+        "S18",
+        "S19"
+      ],
+      "summary": "Specified Canadian products face Section 338 additional duties, including covered CUSMA-origin goods; product coverage changed October 30.",
+      "limitation": "Product-specific scope and exclusions must be checked. Do not extend this rate to every Canadian export.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "implemented_policy",
+      "outcome": "pressure",
+      "attribution": "policy_only",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "policyIds": [
+        "us-product-coverage"
+      ],
+      "observationRegions": []
+    },
+    {
+      "id": "cusma-review",
+      "title": "CUSMA review and extension uncertainty",
+      "topics": [
+        "agreements"
+      ],
+      "metric": "resilience",
+      "value": null,
+      "unit": "review outcome",
+      "period": "2026 review; publication 5 October",
+      "periodStart": "2026-10-05",
+      "periodEnd": "2026-10-05",
+      "sourceIds": [
+        "S22"
+      ],
+      "summary": "The 2026 review did not secure a new 16-year extension; annual reviews continue.",
+      "limitation": "An access-risk indicator, not current agreement termination or a measured job-loss total.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "institutional",
+      "outcome": "context",
+      "attribution": "policy_only",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "policyIds": [
+        "cusma-review"
+      ],
+      "observationRegions": []
+    },
+    {
+      "id": "roadmap",
+      "title": "Canada–China cooperation roadmap",
+      "topics": [
+        "agreements",
+        "energy"
+      ],
+      "metric": "tariffs",
+      "value": null,
+      "unit": "signed cooperation roadmap",
+      "period": "16 January 2026",
+      "periodStart": "2026-01-16",
+      "periodEnd": "2026-01-16",
+      "sourceIds": [
+        "S28"
+      ],
+      "summary": "Cooperation mechanisms and an energy MOU support dialogue.",
+      "limitation": "Signed MOUs are not completed capital spending or realized supplier orders. Existing LNG operations began earlier.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-China"
+      ],
+      "measurementType": "agreement",
+      "outcome": "context",
+      "attribution": "policy_only",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "policyIds": [
+        "china-roadmap"
+      ],
+      "observationRegions": []
+    },
+    {
+      "id": "us-china-framework",
+      "title": "U.S.–China 30-for-30 framework",
+      "topics": [
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "value": null,
+      "unit": "published framework",
+      "period": "27 September 2026 publication",
+      "periodStart": "2026-09-27",
+      "periodEnd": "2026-09-27",
+      "sourceIds": [
+        "S20"
+      ],
+      "summary": "Framework values refer to 2024 bilateral U.S.–China trade.",
+      "limitation": "Not new capital spending in Canada. August Canadian trade data cannot establish outcomes from this later framework.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "USA-China"
+      ],
+      "measurementType": "agreement",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "policyIds": [
+        "us-china-framework"
+      ],
+      "observationRegions": []
+    },
+    {
+      "id": "defence-us-exports",
+      "title": "Defence exports to the U.S.",
+      "topics": [
+        "security"
+      ],
+      "metric": "shipments",
+      "value": 5.006,
+      "unit": "CAD billion",
+      "period": "2024",
+      "periodStart": "2024-01-01",
+      "periodEnd": "2024-12-31",
+      "sourceIds": [
+        "S23"
+      ],
+      "summary": "Exports to the U.S. were C$5.006 billion versus C$4.432 billion in 2022, up 13.0%.",
+      "limitation": "2026 publication measures 2024 activity. Asia/Oceania grouping cannot be relabelled China.",
+      "regions": [
+        "ON",
+        "QC",
+        "NB",
+        "NS",
+        "PE",
+        "NL"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "historical_baseline",
+      "outcome": "gain",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "currency": "CAD",
+      "observationRegions": [],
+      "baselineValue": 4.432,
+      "baselinePeriod": "2022",
+      "comparison": 13,
+      "comparisonUnit": "% change since 2022"
+    },
+    {
+      "id": "defence-domestic-supply",
+      "title": "Canadian-based defence suppliers",
+      "topics": [
+        "security"
+      ],
+      "metric": "supply_chain",
+      "value": 53,
+      "unit": "% of industry supply chain",
+      "period": "2024",
+      "periodStart": "2024-01-01",
+      "periodEnd": "2024-12-31",
+      "sourceIds": [
+        "S23"
+      ],
+      "summary": "Canadian-based suppliers provided 53% of the defence industry supply chain.",
+      "limitation": "Historical domestic participation, not new content produced by a 2026 agreement.",
+      "regions": [
+        "ON",
+        "BC",
+        "AB",
+        "QC",
+        "SK",
+        "MB",
+        "NB",
+        "NS",
+        "PE",
+        "NL",
+        "YT",
+        "NT",
+        "NU"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "historical_baseline",
+      "outcome": "context",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "defence-direct-jobs",
+      "title": "Direct Canadian defence employment",
+      "topics": [
+        "security"
+      ],
+      "metric": "employment",
+      "value": 37700,
+      "unit": "direct jobs; approximately",
+      "period": "2024",
+      "periodStart": "2024-01-01",
+      "periodEnd": "2024-12-31",
+      "sourceIds": [
+        "S23"
+      ],
+      "summary": "About 37,700 direct industry jobs nationally.",
+      "limitation": "Do not multiply rounded regional shares into precise provincial counts. Published in 2026; reference year 2024.",
+      "regions": [
+        "ON",
+        "BC",
+        "AB",
+        "QC",
+        "SK",
+        "MB",
+        "NB",
+        "NS",
+        "PE",
+        "NL",
+        "YT",
+        "NT",
+        "NU"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "historical_baseline",
+      "outcome": "context",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "defence-share-ON",
+      "title": "Ontario defence employment share",
+      "topics": [
+        "security"
+      ],
+      "metric": "employment",
+      "value": 35,
+      "unit": "% of national direct defence jobs",
+      "period": "2024",
+      "periodStart": "2024-01-01",
+      "periodEnd": "2024-12-31",
+      "sourceIds": [
+        "S23"
+      ],
+      "summary": "Ontario accounted for 35% of direct Canadian defence employment.",
+      "limitation": "Historical baseline, not new 2026 jobs. Rounded shares do not establish precise headcounts.",
+      "regions": [
+        "ON"
+      ],
+      "geography": "Ontario",
+      "geographyLevel": "province",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "historical_baseline",
+      "outcome": "context",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": [
+        "ON"
+      ]
+    },
+    {
+      "id": "defence-share-QC",
+      "title": "Quebec defence employment share",
+      "topics": [
+        "security"
+      ],
+      "metric": "employment",
+      "value": 26,
+      "unit": "% of national direct defence jobs",
+      "period": "2024",
+      "periodStart": "2024-01-01",
+      "periodEnd": "2024-12-31",
+      "sourceIds": [
+        "S23"
+      ],
+      "summary": "Quebec accounted for 26% of direct Canadian defence employment.",
+      "limitation": "Historical baseline, not new 2026 jobs. Rounded shares do not establish precise headcounts.",
+      "regions": [
+        "QC"
+      ],
+      "geography": "Quebec",
+      "geographyLevel": "province",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "historical_baseline",
+      "outcome": "context",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": [
+        "QC"
+      ]
+    },
+    {
+      "id": "defence-atlantic-share",
+      "title": "Atlantic defence employment share",
+      "topics": [
+        "security"
+      ],
+      "metric": "employment",
+      "value": 18,
+      "unit": "% of national direct defence jobs",
+      "period": "2024",
+      "periodStart": "2024-01-01",
+      "periodEnd": "2024-12-31",
+      "sourceIds": [
+        "S23"
+      ],
+      "summary": "Atlantic Canada accounted for 18% of direct Canadian defence employment.",
+      "limitation": "Atlantic regional share is not a share for each individual province.",
+      "regions": [
+        "NB",
+        "NS",
+        "PE",
+        "NL"
+      ],
+      "geography": "Atlantic Canada",
+      "geographyLevel": "multi_province",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "historical_baseline",
+      "outcome": "context",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "agriculture-jobs",
+      "title": "National agriculture employment",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "employment",
+      "value": -6,
+      "unit": "% year over year",
+      "period": "September 2026",
+      "periodStart": "2026-09-01",
+      "periodEnd": "2026-09-30",
+      "sourceIds": [
+        "S27"
+      ],
+      "summary": "National agriculture employment declined 6.0% year over year.",
+      "limitation": "Excludes much agri-food processing. Not a provincial or bilateral-deal-specific job-loss estimate.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA",
+        "Canada-China"
+      ],
+      "measurementType": "observed",
+      "outcome": "pressure",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "lfs-BC",
+      "title": "British Columbia total employment change",
+      "topics": [
+        "vehicles",
+        "agriculture",
+        "energy",
+        "finance",
+        "investment",
+        "agreements",
+        "security"
+      ],
+      "metric": "employment",
+      "value": -20000,
+      "unit": "jobs; month over month",
+      "period": "September 2026",
+      "periodStart": "2026-09-01",
+      "periodEnd": "2026-09-30",
+      "sourceIds": [
+        "S24"
+      ],
+      "summary": "Province-wide employment changed by -20,000 in September.",
+      "limitation": "Broad Labour Force Survey context across all industries. Cannot be attributed to bilateral trade or compared directly with project headcounts.",
+      "regions": [
+        "BC"
+      ],
+      "geography": "British Columbia",
+      "geographyLevel": "province",
+      "relationships": [],
+      "measurementType": "broad_labour_context",
+      "outcome": "pressure",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": [
+        "BC"
+      ]
+    },
+    {
+      "id": "lfs-QC",
+      "title": "Quebec total employment change",
+      "topics": [
+        "vehicles",
+        "agriculture",
+        "energy",
+        "finance",
+        "investment",
+        "agreements",
+        "security"
+      ],
+      "metric": "employment",
+      "value": -49000,
+      "unit": "jobs; month over month",
+      "period": "September 2026",
+      "periodStart": "2026-09-01",
+      "periodEnd": "2026-09-30",
+      "sourceIds": [
+        "S24"
+      ],
+      "summary": "Province-wide employment changed by -49,000 in September.",
+      "limitation": "Broad Labour Force Survey context across all industries. Cannot be attributed to bilateral trade or compared directly with project headcounts.",
+      "regions": [
+        "QC"
+      ],
+      "geography": "Quebec",
+      "geographyLevel": "province",
+      "relationships": [],
+      "measurementType": "broad_labour_context",
+      "outcome": "pressure",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": [
+        "QC"
+      ]
+    },
+    {
+      "id": "canola-seed-world",
+      "title": "Canadian canola seed exports to all destinations",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "value": 6904774,
+      "unit": "tonnes",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S02"
+      ],
+      "summary": "Canadian canola seed shipments to all destinations totalled 6,904,774 tonnes.",
+      "limitation": "National all-destination denominator; not a provincial total or a China/U.S.-specific gain.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [],
+      "measurementType": "observed",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "series": {
+        "labels": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug"
+        ],
+        "values": [
+          0,
+          114223,
+          368974,
+          452240,
+          608418,
+          332483,
+          426102,
+          278571
+        ],
+        "unit": "tonnes",
+        "note": "March 1 tariff change is a timing marker, not a causal estimate."
+      },
+      "observationRegions": []
+    },
+    {
+      "id": "canola-oil-world",
+      "title": "Canadian canola oil exports to all destinations",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "value": 2230206,
+      "unit": "tonnes",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S02"
+      ],
+      "summary": "Canadian canola oil shipments to all destinations totalled 2,230,206 tonnes.",
+      "limitation": "National all-destination denominator; not a provincial total or a China/U.S.-specific gain.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [],
+      "measurementType": "observed",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "series": null,
+      "observationRegions": []
+    },
+    {
+      "id": "canola-meal-world",
+      "title": "Canadian canola meal exports to all destinations",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "value": 4368336,
+      "unit": "tonnes",
+      "period": "January–August 2026",
+      "periodStart": "2026-01-01",
+      "periodEnd": "2026-08-31",
+      "sourceIds": [
+        "S02"
+      ],
+      "summary": "Canadian canola meal shipments to all destinations totalled 4,368,336 tonnes.",
+      "limitation": "National all-destination denominator; not a provincial total or a China/U.S.-specific gain.",
+      "regions": [
+        "AB",
+        "SK",
+        "MB"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [],
+      "measurementType": "observed",
+      "outcome": "context",
+      "attribution": "not_established",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "series": {
+        "labels": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug"
+        ],
+        "values": [
+          0,
+          30295,
+          42126,
+          100738,
+          131162,
+          198232,
+          275883,
+          295172
+        ],
+        "unit": "tonnes",
+        "note": "March 1 tariff change is a timing marker, not a causal estimate."
+      },
+      "observationRegions": []
+    },
+    {
+      "id": "auto-parts-us-exports",
+      "title": "Auto-parts exports to the U.S.",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "shipments",
+      "value": 2.3,
+      "unit": "% year over year",
+      "period": "2025",
+      "periodStart": "2025-01-01",
+      "periodEnd": "2025-12-31",
+      "sourceIds": [
+        "S06"
+      ],
+      "summary": "Canadian auto-parts export value to the U.S. rose 2.3% in 2025.",
+      "limitation": "Parts differ from assembled vehicles; pre-2026 baseline, not a new-arrangement effect.",
+      "regions": [
+        "ON"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "observed",
+      "outcome": "gain",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "manufacturing-payroll-2025",
+      "title": "Canadian manufacturing payroll employment",
+      "topics": [
+        "vehicles",
+        "investment"
+      ],
+      "metric": "employment",
+      "value": -2.3,
+      "unit": "% from December 2024 to December 2025",
+      "period": "2025",
+      "periodStart": "2025-01-01",
+      "periodEnd": "2025-12-31",
+      "sourceIds": [
+        "S06"
+      ],
+      "summary": "Canadian manufacturing payroll employment fell 2.3% between December 2024 and December 2025.",
+      "limitation": "All manufacturing industries nationally. Not an Ontario allocation or a 2026 deal-attributable job-loss count.",
+      "regions": [],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [],
+      "measurementType": "historical_baseline",
+      "outcome": "pressure",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "auto-parts-payroll-2025",
+      "title": "Motor-vehicle-parts payroll employment",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "employment",
+      "value": -9.3,
+      "unit": "% from December 2024 to December 2025",
+      "period": "2025",
+      "periodStart": "2025-01-01",
+      "periodEnd": "2025-12-31",
+      "sourceIds": [
+        "S06"
+      ],
+      "summary": "Canadian motor-vehicle-parts payroll employment fell 9.3% between December 2024 and December 2025.",
+      "limitation": "National historical payroll measure; demand, retooling, tariffs and production constraints are not separately identified.",
+      "regions": [
+        "ON",
+        "QC"
+      ],
+      "geography": "Canada",
+      "geographyLevel": "national",
+      "relationships": [],
+      "measurementType": "historical_baseline",
+      "outcome": "pressure",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    },
+    {
+      "id": "nextstar-cell-output",
+      "title": "NextStar battery-cell production",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "supply_chain",
+      "value": 10,
+      "unit": "million cells produced",
+      "period": "October 2026",
+      "periodStart": "2026-10-01",
+      "periodEnd": "2026-10-21",
+      "sourceIds": [
+        "S07"
+      ],
+      "summary": "NextStar reports 10 million battery cells produced by October 21, 2026.",
+      "limitation": "Realized Canadian production output; not a measure of shipped cells, supplier contracts or the effect of Chinese EV import access.",
+      "regions": [
+        "ON"
+      ],
+      "geography": "Windsor, Ontario",
+      "geographyLevel": "project",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "observed",
+      "outcome": "gain",
+      "attribution": "pre_existing_project",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "currency": "CAD",
+      "observationRegions": [
+        "ON"
+      ]
+    },
+    {
+      "id": "defence-west-north-share",
+      "title": "Western / Northern defence employment share",
+      "topics": [
+        "security"
+      ],
+      "metric": "employment",
+      "value": 21,
+      "unit": "% of national direct defence jobs",
+      "period": "2024",
+      "periodStart": "2024-01-01",
+      "periodEnd": "2024-12-31",
+      "sourceIds": [
+        "S23"
+      ],
+      "summary": "Western and Northern Canada together accounted for 21% of direct Canadian defence employment in 2024.",
+      "limitation": "Combined regional baseline; cannot be assigned to an individual province or territory.",
+      "regions": [
+        "BC",
+        "AB",
+        "SK",
+        "MB",
+        "YT",
+        "NT",
+        "NU"
+      ],
+      "geography": "Western and Northern Canada",
+      "geographyLevel": "multi_province",
+      "relationships": [
+        "Canada-USA"
+      ],
+      "measurementType": "historical_baseline",
+      "outcome": "context",
+      "attribution": "predates_arrangement",
+      "reviewStatus": "reviewed_snapshot",
+      "reviewedAt": "2026-11-03",
+      "observationRegions": []
+    }
+  ],
+  "assessments": [
+    {
+      "id": "vehicles",
+      "name": "Vehicles, EVs & batteries",
+      "summary": "Mixed operating results and export pressure",
+      "status": "assessed",
+      "crossCutting": false,
+      "limitation": "Operating battery capacity coexists with assembly pressure. No Canadian production gain from China import access is established.",
+      "criteria": [
+        {
+          "metric": "shipments",
+          "recordIds": [
+            "ev-quota-permits",
+            "auto-us-exports",
+            "vehicles-exports-ytd",
+            "auto-parts-us-exports"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "supply_chain",
+          "recordIds": [
+            "auto-us-payroll",
+            "nextstar-cell-output"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "investment",
+          "recordIds": [
+            "nextstar-capex"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "tariffs",
+          "recordIds": [
+            "ev-quota-tariff",
+            "us-auto-tariff"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "employment",
+          "recordIds": [
+            "nextstar-jobs",
+            "gm-layoffs",
+            "manufacturing-payroll-2025",
+            "auto-parts-payroll-2025"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        }
+      ]
+    },
+    {
+      "id": "agriculture",
+      "name": "Agriculture & agri-food",
+      "summary": "Partial export recovery and stronger processing",
+      "status": "assessed",
+      "crossCutting": false,
+      "limitation": "Recovery and processing are observed; national volumes are not provincial gains. No new-deal-specific completed capex or regional net-jobs total is verified.",
+      "criteria": [
+        {
+          "metric": "shipments",
+          "recordIds": [
+            "canola-seed-china",
+            "canola-seed-us",
+            "canola-meal-china",
+            "canola-meal-us",
+            "canola-oil-china",
+            "canola-oil-us"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "supply_chain",
+          "recordIds": [
+            "canola-crush"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "investment",
+          "recordIds": [],
+          "gap": "No comparable realized evidence established in this review."
+        },
+        {
+          "metric": "tariffs",
+          "recordIds": [
+            "canola-seed-tariff",
+            "china-seafood-relief"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "employment",
+          "recordIds": [
+            "agriculture-jobs"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        }
+      ]
+    },
+    {
+      "id": "energy",
+      "name": "Energy",
+      "summary": "Operating export diversification",
+      "status": "assessed",
+      "crossCutting": false,
+      "limitation": "Existing commissioned infrastructure provides an alternative export outlet. Its operating benefits predate the 2026 MOU; Phase 2 remains future capacity.",
+      "criteria": [
+        {
+          "metric": "shipments",
+          "recordIds": [
+            "lng-china-share",
+            "oil-us-volume"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "supply_chain",
+          "recordIds": [
+            "lng-operating"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "investment",
+          "recordIds": [
+            "lng-operating",
+            "lng-phase2"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "tariffs",
+          "recordIds": [
+            "roadmap"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "employment",
+          "recordIds": [
+            "lng-jobs"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        }
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "Financial services",
+      "summary": "Mixed company results; domestic effect unproven",
+      "status": "assessed",
+      "crossCutting": false,
+      "limitation": "Foreign affiliate results are not Canadian service exports. Metrics/currencies differ; domestic value added, capex and jobs are unquantified.",
+      "criteria": [
+        {
+          "metric": "shipments",
+          "recordIds": [
+            "manulife-china",
+            "manulife-us"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "supply_chain",
+          "recordIds": [],
+          "gap": "No comparable realized evidence established in this review."
+        },
+        {
+          "metric": "investment",
+          "recordIds": [],
+          "gap": "No comparable realized evidence established in this review."
+        },
+        {
+          "metric": "tariffs",
+          "recordIds": [
+            "financial-working-group"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "employment",
+          "recordIds": [],
+          "gap": "No comparable realized evidence established in this review."
+        }
+      ]
+    },
+    {
+      "id": "investment",
+      "name": "Investment & screening",
+      "summary": "Established exposure; new-deal capex unproven",
+      "status": "assessed",
+      "crossCutting": true,
+      "limitation": "Cross-cutting view. FDI stocks, financial flows and completed factory spending are separate; no new-arrangement seven-topic capex total is established.",
+      "criteria": [
+        {
+          "metric": "shipments",
+          "recordIds": [],
+          "gap": "No comparable realized evidence established in this review."
+        },
+        {
+          "metric": "supply_chain",
+          "recordIds": [],
+          "gap": "No comparable realized evidence established in this review."
+        },
+        {
+          "metric": "investment",
+          "recordIds": [
+            "fdi-stock-us",
+            "fdi-stock-china",
+            "us-fdi-flow"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "tariffs",
+          "recordIds": [
+            "tiktok-review"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "employment",
+          "recordIds": [],
+          "gap": "No comparable realized evidence established in this review."
+        }
+      ]
+    },
+    {
+      "id": "agreements",
+      "name": "Agreements & economic dialogue",
+      "summary": "Implemented relief; incomplete outcome attribution",
+      "status": "assessed",
+      "crossCutting": true,
+      "limitation": "Cross-cutting view. Reusing industry evidence here does not create additional trade or jobs. Post-agreement timing alone does not establish cause.",
+      "criteria": [
+        {
+          "metric": "shipments",
+          "recordIds": [
+            "exports-china",
+            "exports-us"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "supply_chain",
+          "recordIds": [],
+          "gap": "No comparable realized evidence established in this review."
+        },
+        {
+          "metric": "investment",
+          "recordIds": [],
+          "gap": "No comparable realized evidence established in this review."
+        },
+        {
+          "metric": "tariffs",
+          "recordIds": [
+            "roadmap",
+            "china-seafood-relief",
+            "us-covered-duties",
+            "us-china-framework"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "employment",
+          "recordIds": [],
+          "gap": "No comparable realized evidence established in this review."
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "name": "Defence & security",
+      "summary": "Positive historical baseline; new effect unknown",
+      "status": "assessed",
+      "crossCutting": false,
+      "limitation": "Historical industrial baseline. Procurement budgets and awards are not deliveries or completed supplier investment; no parallel China integration gain is established.",
+      "criteria": [
+        {
+          "metric": "shipments",
+          "recordIds": [
+            "defence-us-exports"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "supply_chain",
+          "recordIds": [
+            "defence-domestic-supply"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        },
+        {
+          "metric": "investment",
+          "recordIds": [],
+          "gap": "No comparable realized evidence established in this review."
+        },
+        {
+          "metric": "tariffs",
+          "recordIds": [],
+          "gap": "No comparable realized evidence established in this review."
+        },
+        {
+          "metric": "employment",
+          "recordIds": [
+            "defence-direct-jobs",
+            "defence-share-ON",
+            "defence-share-QC",
+            "defence-atlantic-share",
+            "defence-west-north-share"
+          ],
+          "gap": "Evidence types and geographic scope must be read separately."
+        }
+      ]
+    },
+    {
+      "id": "technology",
+      "name": "Technology & digital trade",
+      "summary": "Outcome assessment pending",
+      "status": "pending",
+      "crossCutting": false,
+      "limitation": "The earlier research view is retained; a comparable five-test outcome assessment has not been completed.",
+      "criteria": []
+    }
+  ],
+  "policies": [
+    {
+      "id": "china-roadmap",
+      "title": "Canada–China cooperation roadmap",
+      "eventDate": "2026-01-16",
+      "eventDateType": "publication / documented event",
+      "stage": "signed",
+      "relationship": "Canada-China",
+      "topics": [
+        "agreements",
+        "energy"
+      ],
+      "regions": [
+        "BC",
+        "AB"
+      ],
+      "sourceIds": [
+        "S28"
+      ],
+      "recordIds": [
+        "roadmap",
+        "lng-operating"
+      ],
+      "summary": "Cooperation signed; existing LNG operations are separate, earlier outcomes.",
+      "effectiveDate": null,
+      "expiryDate": null,
+      "attribution": "No isolated Canadian causal effect established.",
+      "reviewedAt": "2026-11-03"
+    },
+    {
+      "id": "china-market-access",
+      "title": "China agricultural and seafood relief",
+      "eventDate": "2026-03-01",
+      "eventDateType": "publication / documented event",
+      "stage": "in_force",
+      "relationship": "Canada-China",
+      "topics": [
+        "agriculture",
+        "agreements"
+      ],
+      "regions": [
+        "AB",
+        "SK",
+        "MB",
+        "NB",
+        "NS",
+        "PE",
+        "NL"
+      ],
+      "sourceIds": [
+        "S03"
+      ],
+      "recordIds": [
+        "canola-seed-tariff",
+        "china-seafood-relief",
+        "canola-seed-china",
+        "canola-meal-china"
+      ],
+      "summary": "Product-specific relief implemented; later national shipments are observations, not an isolated policy effect.",
+      "effectiveDate": "2026-03-01",
+      "expiryDate": "2026-12-31",
+      "attribution": "No isolated Canadian causal effect established.",
+      "reviewedAt": "2026-11-03"
+    },
+    {
+      "id": "china-ev-access",
+      "title": "China EV within-quota access",
+      "eventDate": "2026-03-01",
+      "eventDateType": "publication / documented event",
+      "stage": "in_force",
+      "relationship": "Canada-China",
+      "topics": [
+        "vehicles",
+        "agreements"
+      ],
+      "regions": [],
+      "sourceIds": [
+        "S03",
+        "S04",
+        "S05"
+      ],
+      "recordIds": [
+        "ev-quota-tariff",
+        "ev-quota-permits"
+      ],
+      "summary": "6.1% within-quota tariff; permit utilization does not establish actual vehicle arrivals or Canadian jobs.",
+      "effectiveDate": "2026-03-01",
+      "expiryDate": null,
+      "attribution": "No isolated Canadian causal effect established.",
+      "reviewedAt": "2026-11-03"
+    },
+    {
+      "id": "tiktok-screening",
+      "title": "TikTok further security review concluded",
+      "eventDate": "2026-03-09",
+      "eventDateType": "publication / documented event",
+      "stage": "implemented_decision",
+      "relationship": "Canada-China",
+      "topics": [
+        "investment",
+        "technology"
+      ],
+      "regions": [],
+      "sourceIds": [
+        "S17"
+      ],
+      "recordIds": [
+        "tiktok-review"
+      ],
+      "summary": "Conditional permission and binding undertakings; no measured capex or jobs gain inferred.",
+      "effectiveDate": "2026-03-09",
+      "expiryDate": null,
+      "attribution": "No isolated Canadian causal effect established.",
+      "reviewedAt": "2026-11-03"
+    },
+    {
+      "id": "financial-dialogue",
+      "title": "Canada–China Financial Working Group",
+      "eventDate": "2026-04-03",
+      "eventDateType": "publication / documented event",
+      "stage": "meeting_held",
+      "relationship": "Canada-China",
+      "topics": [
+        "finance",
+        "agreements"
+      ],
+      "regions": [
+        "ON",
+        "QC"
+      ],
+      "sourceIds": [
+        "S21"
+      ],
+      "recordIds": [
+        "financial-working-group"
+      ],
+      "summary": "First meeting held; no new licences, delivered services or domestic jobs established.",
+      "effectiveDate": null,
+      "expiryDate": null,
+      "attribution": "No isolated Canadian causal effect established.",
+      "reviewedAt": "2026-11-03"
+    },
+    {
+      "id": "us-china-framework",
+      "title": "U.S.–China 30-for-30 framework published",
+      "eventDate": "2026-09-27",
+      "eventDateType": "publication / documented event",
+      "stage": "published_framework",
+      "relationship": "USA-China",
+      "topics": [
+        "agreements"
+      ],
+      "regions": [],
+      "sourceIds": [
+        "S20"
+      ],
+      "recordIds": [
+        "us-china-framework",
+        "exports-china",
+        "exports-us"
+      ],
+      "summary": "Canadian trade through August predates this framework. Canadian effects remain unquantified.",
+      "effectiveDate": null,
+      "expiryDate": null,
+      "attribution": "No isolated Canadian causal effect established.",
+      "reviewedAt": "2026-11-03"
+    },
+    {
+      "id": "cusma-review",
+      "title": "CUSMA annual-review pathway",
+      "eventDate": "2026-10-05",
+      "eventDateType": "publication / documented event",
+      "stage": "review_outcome",
+      "relationship": "Canada-USA",
+      "topics": [
+        "agreements"
+      ],
+      "regions": [],
+      "sourceIds": [
+        "S22"
+      ],
+      "recordIds": [
+        "cusma-review"
+      ],
+      "summary": "Extension uncertainty is an access-risk indicator, not agreement termination or measured employment loss.",
+      "effectiveDate": null,
+      "expiryDate": null,
+      "attribution": "No isolated Canadian causal effect established.",
+      "reviewedAt": "2026-11-03"
+    },
+    {
+      "id": "us-product-coverage",
+      "title": "U.S. Canadian product coverage changes",
+      "eventDate": "2026-10-30",
+      "eventDateType": "publication / documented event",
+      "stage": "in_force",
+      "relationship": "Canada-USA",
+      "topics": [
+        "agreements",
+        "vehicles"
+      ],
+      "regions": [],
+      "sourceIds": [
+        "S18",
+        "S19"
+      ],
+      "recordIds": [
+        "us-covered-duties",
+        "us-auto-tariff"
+      ],
+      "summary": "Applied treatment depends on product, origin, content and exclusions; do not apply one rate to all exports.",
+      "effectiveDate": "2026-10-30",
+      "expiryDate": null,
+      "attribution": "No isolated Canadian causal effect established.",
+      "reviewedAt": "2026-11-03"
+    }
+  ],
+  "methods": [
+    "Unknown means not established in this review, not zero impact.",
+    "Regional relevance is not a provincial allocation of a national figure.",
+    "Gross exports, domestic value added, affiliate earnings, permits, FDI stocks and completed capital spending are distinct measures.",
+    "Operating headcounts, layoff percentages, broad labour estimates and model-supported jobs cannot be netted across incompatible definitions.",
+    "Policy status is independent of commercial outcome status. A signed MOU is not an implemented tariff or a realized gain.",
+    "A causal effect requires an appropriate comparison and controls for prices, exchange rates, seasonality, production and other policy shocks.",
+    "Daily monitoring preserves reviewed values and flags changed sources for review. Detection date, effective date, source publication and reference period remain separate."
+  ],
+  "geometrySource": "https://github.com/chadbeebe/Canadian_Provinces/blob/Provinces/canada.geojson",
+  "rawStatistics": {
+    "as_of": "2026-11-03",
+    "canola_months": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug"
+    ],
+    "china_seed_tonnes": [
+      0,
+      114223,
+      368974,
+      452240,
+      608418,
+      332483,
+      426102,
+      278571
+    ],
+    "china_meal_tonnes": [
+      0,
+      30295,
+      42126,
+      100738,
+      131162,
+      198232,
+      275883,
+      295172
+    ],
+    "canola_ytd_tonnes": {
+      "seed": {
+        "China": 2581011,
+        "United States": 242489,
+        "World": 6904774
+      },
+      "oil": {
+        "China": 1,
+        "United States": 1988074,
+        "World": 2230206
+      },
+      "meal": {
+        "China": 1073608,
+        "United States": 3065721,
+        "World": 4368336
+      }
+    },
+    "export_ytd_percent": {
+      "Energy products, all markets": 35.7,
+      "Farm/fishing/intermediate food, all markets": 8.1,
+      "Motor vehicles/parts, all markets": -7.8
+    },
+    "bilateral_export_ytd_percent": {
+      "China": 39.3,
+      "United States": 7.6
+    },
+    "fdi_2025_CAD_billions_ultimate": {
+      "United States": 816.8,
+      "China": 43.4
+    },
+    "regional_defence_employment_share_2024": {
+      "Ontario": 35,
+      "Quebec": 26,
+      "Western/Northern": 21,
+      "Atlantic": 18
+    },
+    "canola_us_oil_share_pct": 89.14306570783147,
+    "canola_us_meal_share_pct": 70.18052182799126,
+    "canola_china_seed_share_pct": 37.380093830732186,
+    "quota_utilization_pct": 33.073469387755104,
+    "manulife_china_CSM_CER_H1_change_pct": -6.632653061224492,
+    "manulife_us_CSM_CER_H1_change_pct": 7.870370370370372
+  }
+}

@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['monitor/**', '.github/workflows/daily-policy-monitor.yml']
+    paths: ['monitor/**', 'app/evidence-records.json', '.github/workflows/daily-policy-monitor.yml']
 permissions:
   contents: write
 concurrency:
@@ -24,7 +24,9 @@ jobs:
         with:
           node-version: '22'
       - name: Validate monitor and customer LLM boundaries
-        run: node --test tests/monitor.test.mjs
+        run: |
+          node scripts/validate-evidence.mjs
+          npm test
       - name: Observe official sources and extract supported policy changes
         id: scan
         continue-on-error: true
