@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "title": "U.S. merchandise trade with Canada and China",
   "status": "success",
-  "lastAttempt": "2026-11-04T12:00:35.407Z",
-  "lastSuccessfulRun": "2026-11-04T12:00:35.407Z",
+  "lastAttempt": "2026-11-04T19:08:37.684Z",
+  "lastSuccessfulRun": "2026-11-04T19:08:37.684Z",
   "basis": "U.S. Census Bureau, nominal USD millions, not seasonally adjusted, goods only. Exports include re-exports. Annual totals are source-reported; the latest year is labelled year-to-date until 12 months are present. Retrieved vintage can revise earlier observations.",
   "partners": [
     {
@@ -631,9 +631,15 @@
         },
         {
           "period": "2026-08",
-          "exports": 30289.6,
+          "exports": 30328.2,
           "imports": 35980,
-          "balance": -5690.5
+          "balance": -5651.9
+        },
+        {
+          "period": "2026-09",
+          "exports": 29862.8,
+          "imports": 34919.5,
+          "balance": -5056.6
         }
       ],
       "totals": [
@@ -703,17 +709,17 @@
         },
         {
           "period": "2026",
-          "exports": 235972.5,
-          "imports": 269645.4,
-          "balance": -33673,
-          "months": 8,
+          "exports": 265874,
+          "imports": 304564.9,
+          "balance": -38691,
+          "months": 9,
           "completeYear": false
         }
       ],
-      "dataThrough": "2026-08",
+      "dataThrough": "2026-09",
       "status": "success",
-      "retrievedAt": "2026-11-04T12:00:35.407Z",
-      "lastAttempt": "2026-11-04T12:00:35.407Z"
+      "retrievedAt": "2026-11-04T19:08:37.684Z",
+      "lastAttempt": "2026-11-04T19:08:37.684Z"
     },
     {
       "id": "China",
@@ -1343,6 +1349,12 @@
           "exports": 8730.7,
           "imports": 27133.8,
           "balance": -18403.1
+        },
+        {
+          "period": "2026-09",
+          "exports": 9613.6,
+          "imports": 31484.6,
+          "balance": -21871
         }
       ],
       "totals": [
@@ -1412,17 +1424,17 @@
         },
         {
           "period": "2026",
-          "exports": 73903.2,
-          "imports": 183524,
-          "balance": -109620.8,
-          "months": 8,
+          "exports": 83516.8,
+          "imports": 215008.6,
+          "balance": -131491.8,
+          "months": 9,
           "completeYear": false
         }
       ],
-      "dataThrough": "2026-08",
+      "dataThrough": "2026-09",
       "status": "success",
-      "retrievedAt": "2026-11-04T12:00:35.407Z",
-      "lastAttempt": "2026-11-04T12:00:35.407Z"
+      "retrievedAt": "2026-11-04T19:08:37.684Z",
+      "lastAttempt": "2026-11-04T19:08:37.684Z"
     }
   ]
 }
