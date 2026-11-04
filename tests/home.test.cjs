@@ -8,11 +8,12 @@ for(const file of ['master-data.js','app.js','explorer-inventory.js','explorer-c
 const original=JSON.stringify(window.POLICY_MASTER.executiveSummary);
 const feed={lastSuccessfulRun:new Date().toISOString(),lastRunStatus:'partial',sourcesChecked:40,sourceFailures:[{url:'https://www.canada.ca/moved',error:'HTTP 404'}],aiEnabled:false,scheduleUTC:'11:17 daily',changes:[{id:'auto-test',title:'New EV customs source <script>x</script>',url:'https://www.canada.ca/test',source:'Canada',detectedAt:new Date().toISOString(),topics:['vehicles'],relationships:['Canada-USA'],changeType:'new_source'}]};
 window.PolicyLive={feed,show(view){location.hash=view==='llm'?'#your-llm':'#daily-updates';node('root').innerHTML='LIVE VIEW '+view;}};
+window.USTrade={show(){node('root').innerHTML='US TRADE VIEW';}};
 window.showExplorer=()=>{location.hash='#relationship-explorer?topic=agriculture';node('root').innerHTML='EXPLORER VIEW';};
 const mounts=[];window.CanadaImpact={data:null,mount(view,id){mounts.push(id);node(id).innerHTML='IMPACT '+view;},show(view){node('root').innerHTML='IMPACT '+view;}};
 vm.runInContext(fs.readFileSync(path.join(dir,'home.js'),'utf8'),ctx,{filename:'home.js'});
 const hub=window.HomeHub;
-assert(hub);assert.equal(hub.tabs.length,13);assert.equal(hub.tools.length,4);assert.equal(hub.researchTools.length,7);
+assert(hub);assert.equal(hub.tabs.length,14);assert.equal(hub.tools.length,4);assert.equal(hub.researchTools.length,7);
 const initialHome=hub.homeHTML();
 assert(initialHome.includes('class="hub-welcome"'));assert(initialHome.includes('Explore Canada’s policy choices.'));
 assert(initialHome.includes('Where would you like to start?'));
@@ -20,7 +21,7 @@ assert.equal((initialHome.match(/class="hub-tool"/g)||[]).length,4);
 assert.equal((initialHome.match(/id="hub-live-status"/g)||[]).length,1);
 assert.equal((initialHome.match(/class="hub-topic"/g)||[]).length,0);
 assert(!initialHome.includes('hub-region-explorer'));assert(!initialHome.includes('<table'));assert(!initialHome.includes('<svg'));assert.equal(mounts.length,0);
-assert.equal((node('site-navigation').innerHTML.match(/data-hub=/g)||[]).length,6);
+assert.equal((node('site-navigation').innerHTML.match(/data-hub=/g)||[]).length,7);
 assert(!node('site-navigation').innerHTML.includes('<details'));
 assert(node('site-navigation').innerHTML.includes('data-hub="research-tools"'));
 for(const [id]of hub.tools)assert(initialHome.includes('data-hub="'+id+'"'));
@@ -38,6 +39,7 @@ for(const [id]of hub.tabs){
  if(['executive-summary','briefing-overview','canada-implications'].includes(id))assert.equal(node('root').innerHTML,'IMPACT overview');
  if(id==='compare-topics')assert.equal(node('root').innerHTML,'IMPACT compare');
  if(id==='policy-tracker')assert.equal(node('root').innerHTML,'IMPACT policy');
+ if(id==='us-trade')assert.equal(node('root').innerHTML,'US TRADE VIEW');
  if(id==='research-tools'){assert.equal((node('root').innerHTML.match(/class="hub-research-card"/g)||[]).length,7);for(const [tool]of hub.researchTools)assert(node('root').innerHTML.includes('data-hub="'+tool+'"'));}
  if(hub.researchTools.some(([tool])=>tool===id)){assert(node('site-navigation').innerHTML.includes('aria-label="Research tool tabs"'));assert(node('site-navigation').innerHTML.includes('data-hub="'+id+'" aria-current="page"'));}
  if(id==='policy-map'){assert.equal((node('root').innerHTML.match(/class="mapcell"/g)||[]).length,21);assert(node('root').innerHTML.includes('data-legacy-record="live-auto-test-Canada-USA"'));assert(!node('root').innerHTML.includes('data-legacy-record="-1"'));}
@@ -56,5 +58,5 @@ window.CanadaImpact.data=null;
 const input=node('q');window.showResearchSearch();input.value='fentanyl';window.ask();assert(node('ans').innerHTML.includes('Opioids'));
 const index=fs.readFileSync(path.join(dir,'index.html'),'utf8');assert(index.includes('id="site-navigation"'));assert(index.includes('id="root" tabindex="-1"'));assert(index.includes('home.js'));assert(index.includes('home.css'));
 const live=fs.readFileSync(path.join(dir,'agent-tools.js'),'utf8');assert(live.includes('5*60*1000'));assert(live.includes("cache:'no-store'"));assert(live.includes("'visibilitychange'"));assert(!/localStorage|sessionStorage/.test(live));
-console.log(JSON.stringify({passed:true,navigationTabs:13,primaryTabs:6,researchTabs:7,homeSections:4,topicViews:8,routes:'all home destinations',daily:'home shows at most three source-title rows and a compact status; detailed records stay in their tools',preservation:'curated executive assessment and 22 original records retained',browserQA:'live and preview access restricted by network/saved browser permissions'}));
+console.log(JSON.stringify({passed:true,navigationTabs:14,primaryTabs:7,researchTabs:7,homeSections:4,topicViews:8,routes:'all home destinations',daily:'home shows at most three source-title rows and a compact status; detailed records stay in their tools',preservation:'curated executive assessment and 22 original records retained',browserQA:'live and preview access restricted by network/saved browser permissions'}));
 

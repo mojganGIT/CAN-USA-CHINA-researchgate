@@ -31,7 +31,7 @@ jobs:
         run: node monitor/refresh-regional-stats.mjs
       - name: Refresh U.S. goods trade with Canada and China
         run: node monitor/refresh-us-trade.mjs
-      - name: Read official BEA investment tables
+      - name: Refresh official BEA investment tables
         run: python3 monitor/discover-us-investment.py
       - name: Observe official sources and extract supported policy changes
         id: scan
@@ -45,7 +45,7 @@ jobs:
         run: |
           git config user.name 'Policy Monitor'
           git config user.email 'policy-monitor@users.noreply.github.com'
-          git add monitor/state.json app/policy-updates.json api/policy-updates.json app/regional-statistics.json app/us-trade-statistics.json
+          git add monitor/state.json app/policy-updates.json api/policy-updates.json app/regional-statistics.json app/us-trade-statistics.json app/us-investment-statistics.json
           if [ -f monitor/regional-series-metadata.json ]; then git add monitor/regional-series-metadata.json; fi
           if [ -f monitor/us-investment-discovery.json ]; then git add monitor/us-investment-discovery.json; fi
           if ! git diff --cached --quiet; then

@@ -1,0 +1,4506 @@
+{
+  "schemaVersion": 1,
+  "version": "us-2026-11-03.2",
+  "asOf": "2026-11-03",
+  "scope": "2018–2026; U.S. perspective on trade and policy with Canada and China",
+  "basis": "Official sources; original measurement periods, units and policy stages retained. Goods statistics refresh separately from this reviewed register.",
+  "sources": {
+    "US01": {
+      "id": "US01",
+      "title": "U.S. goods trade with Canada, annual and monthly",
+      "publisher": "U.S. Census Bureau",
+      "url": "https://www.census.gov/foreign-trade/balance/c1220.html",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US02": {
+      "id": "US02",
+      "title": "U.S. goods trade with China, annual and monthly",
+      "publisher": "U.S. Census Bureau",
+      "url": "https://www.census.gov/foreign-trade/balance/c5700.html",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US03": {
+      "id": "US03",
+      "title": "Canada trade summary: goods and services in 2025",
+      "publisher": "USTR",
+      "url": "https://www.ustr.gov/countries-regions/americas/canada",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US04": {
+      "id": "US04",
+      "title": "China trade summary: goods and services in 2025",
+      "publisher": "USTR",
+      "url": "https://www.ustr.gov/countries-regions/china-mongolia-taiwan/peoples-republic-china",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US05": {
+      "id": "US05",
+      "title": "2025 agricultural exports to Canada: FAS country profile",
+      "publisher": "USDA Foreign Agricultural Service",
+      "url": "https://fas-prod.azureedge.us/regions/canada",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US06": {
+      "id": "US06",
+      "title": "2025 agricultural exports to China: FAS country profile",
+      "publisher": "USDA Foreign Agricultural Service",
+      "url": "https://fas-prod.azureedge.us/regions/china",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US07": {
+      "id": "US07",
+      "title": "U.S. agricultural export market ranks, 2025",
+      "publisher": "USDA Foreign Agricultural Service",
+      "url": "https://fas.usda.gov/data/trade",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US08": {
+      "id": "US08",
+      "title": "U.S.–Canada energy trade, 2025",
+      "publisher": "U.S. Energy Information Administration",
+      "url": "https://www.eia.gov/todayinenergy/detail.php?id=67904",
+      "publicationDate": "2026-07-29",
+      "publicationLabel": "2026-07-29",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US09": {
+      "id": "US09",
+      "title": "U.S. crude oil and product exports to China",
+      "publisher": "U.S. Energy Information Administration",
+      "url": "https://www.eia.gov/dnav/pet/pet_move_expc_dc_nus-nch_mbbl_a.htm",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US10": {
+      "id": "US10",
+      "title": "U.S. natural gas exports to China, annual series",
+      "publisher": "U.S. Energy Information Administration",
+      "url": "https://www.eia.gov/dnav/ng/ng_move_poe2_dcu_NUS-NCH_a.htm",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US11": {
+      "id": "US11",
+      "title": "Direct investment by country and industry, 2025",
+      "publisher": "U.S. Bureau of Economic Analysis",
+      "url": "https://www.bea.gov/news/2026/direct-investment-country-and-industry-2025",
+      "publicationDate": "2026-07-21",
+      "publicationLabel": "2026-07-21",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US12": {
+      "id": "US12",
+      "title": "Section 301 final tariff modifications",
+      "publisher": "USTR",
+      "url": "https://ustr.gov/about-us/policy-offices/press-office/press-releases/2024/september/ustr-finalizes-action-china-tariffs-following-statutory-four-year-review",
+      "publicationDate": "2024-09-13",
+      "publicationLabel": "2024-09-13",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US13": {
+      "id": "US13",
+      "title": "CBP Section 301 implementation guidance, 89 FR 76581",
+      "publisher": "U.S. Customs and Border Protection",
+      "url": "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/3b85471",
+      "publicationDate": null,
+      "publicationLabel": "September 2024 implementation guidance",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US14": {
+      "id": "US14",
+      "title": "Connected vehicles: rule and phased compliance dates",
+      "publisher": "Bureau of Industry and Security",
+      "url": "https://www.bis.gov/connected-vehicles",
+      "publicationDate": "2025-01-14",
+      "publicationLabel": "2025-01-14",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US15": {
+      "id": "US15",
+      "title": "USMCA automotive rules: economic impact and operation",
+      "publisher": "U.S. International Trade Commission",
+      "url": "https://www.usitc.gov/publications/332/pub5642.pdf",
+      "publicationDate": null,
+      "publicationLabel": "2025 USITC report",
+      "reviewedAt": "2026-11-03",
+      "format": "pdf"
+    },
+    "US16": {
+      "id": "US16",
+      "title": "USMCA manufacturing rules of origin and labour value content",
+      "publisher": "USTR",
+      "url": "https://ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement/fact-sheets/rebalancing",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US17": {
+      "id": "US17",
+      "title": "Phase One agreement and chapter coverage",
+      "publisher": "USTR",
+      "url": "https://ustr.gov/phase-one",
+      "publicationDate": "2020-01-15",
+      "publicationLabel": "2020-01-15",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US18": {
+      "id": "US18",
+      "title": "Phase One entry into force and implementation office",
+      "publisher": "USTR",
+      "url": "https://www.ustr.gov/about-us/policy-offices/press-office/press-releases/2020/february/ustr-announces-formation-bilateral-evaluation-and-dispute-resolution-office-pursuant-us-china-phase",
+      "publicationDate": "2020-02-14",
+      "publicationLabel": "2020-02-14",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US19": {
+      "id": "US19",
+      "title": "USMCA digital trade protections",
+      "publisher": "USTR",
+      "url": "https://www.ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement/fact-sheets/supporting",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US20": {
+      "id": "US20",
+      "title": "USMCA financial services provisions",
+      "publisher": "USTR",
+      "url": "https://www.ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement/fact-sheets/modernizing",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US21": {
+      "id": "US21",
+      "title": "Advanced computing and semiconductor manufacturing controls",
+      "publisher": "Bureau of Industry and Security",
+      "url": "https://media.bis.gov/press-release/commerce-implements-new-export-controls-advanced-computing-semiconductor-manufacturing-items-peoples",
+      "publicationDate": "2022-10-07",
+      "publicationLabel": "2022-10-07",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US22": {
+      "id": "US22",
+      "title": "Case-by-case semiconductor licensing for H200 and similar chips",
+      "publisher": "Bureau of Industry and Security",
+      "url": "https://media.bis.gov/sites/default/files/documents/DoC%20Revises%20License%20Review%20Policy%20for%20Semiconductors%20Exports.pdf",
+      "publicationDate": "2026-01-13",
+      "publicationLabel": "2026-01-13",
+      "reviewedAt": "2026-11-03",
+      "format": "pdf"
+    },
+    "US23": {
+      "id": "US23",
+      "title": "Outbound investment program: rules and current proposals",
+      "publisher": "U.S. Treasury",
+      "url": "https://home.treasury.gov/policy-issues/international/outbound-investment-program",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US24": {
+      "id": "US24",
+      "title": "COINS Act implementation: proposed outbound investment rule",
+      "publisher": "U.S. Treasury",
+      "url": "https://home.treasury.gov/news/press-releases/sb0667",
+      "publicationDate": "2026-10-22",
+      "publicationLabel": "2026-10-22",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US25": {
+      "id": "US25",
+      "title": "First outbound investment program civil penalty",
+      "publisher": "U.S. Treasury",
+      "url": "https://home.treasury.gov/news/press-releases/sb0652/",
+      "publicationDate": "2026-10-07",
+      "publicationLabel": "2026-10-07",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US26": {
+      "id": "US26",
+      "title": "CFIUS excepted foreign states",
+      "publisher": "CFIUS / U.S. Treasury",
+      "url": "https://www.cfius.gov/resources/excepted-foreign-states/",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US27": {
+      "id": "US27",
+      "title": "CFIUS excepted investors: limits of the exception",
+      "publisher": "CFIUS / U.S. Treasury",
+      "url": "https://www.cfius.gov/resources/faqs/",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US28": {
+      "id": "US28",
+      "title": "Securities restrictions on listed Chinese military-industrial companies",
+      "publisher": "Office of Foreign Assets Control",
+      "url": "https://ofac.treasury.gov/faqs/898",
+      "publicationDate": "2021-06-03",
+      "publicationLabel": "2021-06-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US29": {
+      "id": "US29",
+      "title": "NORAD missions and binational command",
+      "publisher": "NORAD",
+      "url": "https://www.norad.mil/About-NORAD/NORAD-Missions/",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US30": {
+      "id": "US30",
+      "title": "Launch of the U.S.–PRC Counternarcotics Working Group",
+      "publisher": "U.S. Department of State",
+      "url": "https://2021-2025.state.gov/launch-of-united-states-peoples-republic-of-china-counternarcotics-working-group/",
+      "publicationDate": "2024-02-01",
+      "publicationLabel": "2024-02-01",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US31": {
+      "id": "US31",
+      "title": "Counternarcotics working group: precursor scheduling developments",
+      "publisher": "U.S. Department of State",
+      "url": "https://2021-2025.state.gov/u-s-prc-counternarcotics-working-group-progress-on-illicit-synthetic-drugs-including-fentanyl/",
+      "publicationDate": "2024-08-06",
+      "publicationLabel": "2024-08-06",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US32": {
+      "id": "US32",
+      "title": "Joint advisory on Volt Typhoon critical-infrastructure activity",
+      "publisher": "CISA and partner agencies",
+      "url": "https://content.govdelivery.com/accounts/USDHSCISA/bulletins/389465e",
+      "publicationDate": "2024-02-07",
+      "publicationLabel": "2024-02-07",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US33": {
+      "id": "US33",
+      "title": "Initial Section 301 tariffs on Chinese products",
+      "publisher": "USTR",
+      "url": "https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/june/ustr-issues-tariffs-chinese-products",
+      "publicationDate": "2018-06-15",
+      "publicationLabel": "2018-06-15",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US34": {
+      "id": "US34",
+      "title": "Huawei Entity List action, effective May 16, 2019",
+      "publisher": "BIS / Federal Register",
+      "url": "https://www.govinfo.gov/app/details/FR-2019-05-21/2019-10616",
+      "publicationDate": "2019-05-21",
+      "publicationLabel": "2019-05-21",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US35": {
+      "id": "US35",
+      "title": "Uyghur Forced Labor Prevention Act: rebuttable presumption",
+      "publisher": "U.S. Customs and Border Protection",
+      "url": "https://www.help.cbp.gov/s/article/Article1842",
+      "publicationDate": "2025-07-21",
+      "publicationLabel": "2025-07-21",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US36": {
+      "id": "US36",
+      "title": "U.S.–China Board of Trade recommendations",
+      "publisher": "USTR",
+      "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/september/ambassador-greer-issues-statement-announcement-recommendations-us-china-board-trade",
+      "publicationDate": "2026-09-27",
+      "publicationLabel": "2026-09-27",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US37": {
+      "id": "US37",
+      "title": "China’s statement on the 30-for-30 framework and legal steps",
+      "publisher": "China Ministry of Commerce",
+      "url": "https://english.mofcom.gov.cn/News/SignificantNews/art/2026/art_4563e1bf2d9a45d38a4663496815d2e0.html",
+      "publicationDate": "2026-09-28",
+      "publicationLabel": "2026-09-28",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US38": {
+      "id": "US38",
+      "title": "Section 338 Canadian product coverage changes",
+      "publisher": "White House",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/10/further-modifying-the-scope-of-products-of-canada-subject-to-the-additional-duties-imposed-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-motor-vehicles/",
+      "publicationDate": "2026-10-23",
+      "publicationLabel": "2026-10-23",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US39": {
+      "id": "US39",
+      "title": "CBP guidance on October 30 Canadian tariff coverage",
+      "publisher": "U.S. Customs and Border Protection",
+      "url": "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/430e931",
+      "publicationDate": null,
+      "publicationLabel": "October 2026 CBP implementation guidance",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US40": {
+      "id": "US40",
+      "title": "USMCA annual review after non-extension in July 2026",
+      "publisher": "USTR / Federal Register",
+      "url": "https://www.govinfo.gov/content/pkg/FR-2026-10-05/html/2026-20341.htm",
+      "publicationDate": "2026-10-05",
+      "publicationLabel": "2026-10-05",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US41": {
+      "id": "US41",
+      "title": "USDA ERS agricultural trade summary: alternative vintage",
+      "publisher": "USDA Economic Research Service",
+      "url": "https://ers.usda.gov/data-products/chart-gallery/58374",
+      "publicationDate": null,
+      "publicationLabel": "Live table / undated reference; accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US42": {
+      "id": "US42",
+      "title": "U.S.–Canada Joint Action Plan on Opioids statement",
+      "publisher": "White House archive / ONDCP",
+      "url": "https://trumpwhitehouse.archives.gov/briefings-statements/united-states-canada-statement-joint-action-plan-opioids/",
+      "publicationDate": "2020-02-05",
+      "publicationLabel": "2020-02-05",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US43": {
+      "id": "US43",
+      "title": "Ninth North American Drug Dialogue, Ottawa 2026",
+      "publisher": "White House",
+      "url": "https://www.whitehouse.gov/releases/2026/02/ninth-meeting-of-the-north-american-drug-dialogue/",
+      "publicationDate": "2026-02-02",
+      "publicationLabel": "2026-02-02",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US44": {
+      "id": "US44",
+      "title": "Fentanyl results dashboard: Canadian report citing U.S. CBP seizures",
+      "publisher": "Privy Council Office, Canada",
+      "url": "https://www.canada.ca/en/privy-council/services/canada-fentanyl-czar.html",
+      "publicationDate": null,
+      "publicationLabel": "Live results dashboard, accessed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "html"
+    },
+    "US45": {
+      "id": "US45",
+      "title": "U.S. direct investment abroad: detailed country positions, transactions and income, 2020–2025",
+      "publisher": "U.S. Bureau of Economic Analysis",
+      "url": "https://apps.bea.gov/international/xls/usdia-current/usdia-detailedcountry-2020-2025.xlsx",
+      "publicationDate": null,
+      "publicationLabel": "2020–2025 country workbook; current BEA vintage reviewed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "xlsx"
+    },
+    "US46": {
+      "id": "US46",
+      "title": "Foreign direct investment in the United States: detailed country positions, transactions and income, 2020–2025",
+      "publisher": "U.S. Bureau of Economic Analysis",
+      "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-detailed-country-2020-2025.xlsx",
+      "publicationDate": null,
+      "publicationLabel": "2020–2025 country workbook; current BEA vintage reviewed 2026-11-03",
+      "reviewedAt": "2026-11-03",
+      "format": "xlsx"
+    }
+  },
+  "records": [
+    {
+      "id": "us-services-canada-total",
+      "title": "Total services trade — Canada",
+      "value": 156.8,
+      "unit": "USD billion",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "finance",
+        "technology",
+        "agreements"
+      ],
+      "metric": "shipments",
+      "measurementType": "broad_context",
+      "sourceIds": [
+        "US03"
+      ],
+      "summary": "USTR reports this all-services estimate for U.S. trade with Canada.",
+      "limitation": "All services, not financial services or digital trade alone. Reported rounded components and totals can differ. Do not combine with a different goods-data vintage.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-services-canada-exports",
+      "title": "Services exports — Canada",
+      "value": 92.3,
+      "unit": "USD billion",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "finance",
+        "technology",
+        "agreements"
+      ],
+      "metric": "shipments",
+      "measurementType": "broad_context",
+      "sourceIds": [
+        "US03"
+      ],
+      "summary": "USTR reports this all-services estimate for U.S. trade with Canada.",
+      "limitation": "All services, not financial services or digital trade alone. Reported rounded components and totals can differ. Do not combine with a different goods-data vintage.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-services-canada-imports",
+      "title": "Services imports — Canada",
+      "value": 64.5,
+      "unit": "USD billion",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "finance",
+        "technology",
+        "agreements"
+      ],
+      "metric": "shipments",
+      "measurementType": "broad_context",
+      "sourceIds": [
+        "US03"
+      ],
+      "summary": "USTR reports this all-services estimate for U.S. trade with Canada.",
+      "limitation": "All services, not financial services or digital trade alone. Reported rounded components and totals can differ. Do not combine with a different goods-data vintage.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-services-canada-balance",
+      "title": "Services trade surplus — Canada",
+      "value": 27.7,
+      "unit": "USD billion",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "finance",
+        "technology",
+        "agreements"
+      ],
+      "metric": "shipments",
+      "measurementType": "broad_context",
+      "sourceIds": [
+        "US03"
+      ],
+      "summary": "USTR reports this all-services estimate for U.S. trade with Canada.",
+      "limitation": "All services, not financial services or digital trade alone. Reported rounded components and totals can differ. Do not combine with a different goods-data vintage.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-services-china-total",
+      "title": "Total services trade — China",
+      "value": 80.0,
+      "unit": "USD billion",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "finance",
+        "technology",
+        "agreements"
+      ],
+      "metric": "shipments",
+      "measurementType": "broad_context",
+      "sourceIds": [
+        "US04"
+      ],
+      "summary": "USTR reports this all-services estimate for U.S. trade with China.",
+      "limitation": "All services, not financial services or digital trade alone. Reported rounded components and totals can differ. Do not combine with a different goods-data vintage.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-services-china-exports",
+      "title": "Services exports — China",
+      "value": 57.2,
+      "unit": "USD billion",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "finance",
+        "technology",
+        "agreements"
+      ],
+      "metric": "shipments",
+      "measurementType": "broad_context",
+      "sourceIds": [
+        "US04"
+      ],
+      "summary": "USTR reports this all-services estimate for U.S. trade with China.",
+      "limitation": "All services, not financial services or digital trade alone. Reported rounded components and totals can differ. Do not combine with a different goods-data vintage.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-services-china-imports",
+      "title": "Services imports — China",
+      "value": 22.8,
+      "unit": "USD billion",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "finance",
+        "technology",
+        "agreements"
+      ],
+      "metric": "shipments",
+      "measurementType": "broad_context",
+      "sourceIds": [
+        "US04"
+      ],
+      "summary": "USTR reports this all-services estimate for U.S. trade with China.",
+      "limitation": "All services, not financial services or digital trade alone. Reported rounded components and totals can differ. Do not combine with a different goods-data vintage.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-services-china-balance",
+      "title": "Services trade surplus — China",
+      "value": 34.4,
+      "unit": "USD billion",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "finance",
+        "technology",
+        "agreements"
+      ],
+      "metric": "shipments",
+      "measurementType": "broad_context",
+      "sourceIds": [
+        "US04"
+      ],
+      "summary": "USTR reports this all-services estimate for U.S. trade with China.",
+      "limitation": "All services, not financial services or digital trade alone. Reported rounded components and totals can differ. Do not combine with a different goods-data vintage.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada",
+      "title": "Agricultural exports to Canada",
+      "value": 28.68,
+      "unit": "USD billion",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05",
+        "US07"
+      ],
+      "summary": "The FAS profile ranks Canada second among U.S. agricultural export destinations.",
+      "limitation": "FAS profile vintage. ERS publications can report a different estimate; this value is not silently replaced or combined with that series.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china",
+      "title": "Agricultural exports to China",
+      "value": 8.27,
+      "unit": "USD billion",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06",
+        "US07"
+      ],
+      "summary": "The FAS profile ranks China sixth among U.S. agricultural export destinations.",
+      "limitation": "FAS profile vintage. The ERS summary reports a different estimate; comparisons should use one defined series.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-1",
+      "title": "Soybeans exports to China",
+      "value": 3000,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-1-volume",
+      "title": "Soybeans export volume to China",
+      "value": 7180000,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-2",
+      "title": "Pork and pork products exports to China",
+      "value": 856.66,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-2-volume",
+      "title": "Pork and pork products export volume to China",
+      "value": 367122,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-3",
+      "title": "Dairy products exports to China",
+      "value": 523.32,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-3-volume",
+      "title": "Dairy products export volume to China",
+      "value": 352379,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-4",
+      "title": "Beef and beef products exports to China",
+      "value": 496.55,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-4-volume",
+      "title": "Beef and beef products export volume to China",
+      "value": 59278,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-5",
+      "title": "Food preparations exports to China",
+      "value": 363.72,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-5-volume",
+      "title": "Food preparations export volume to China",
+      "value": 13079,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-6",
+      "title": "Other feeds, meals and fodders exports to China",
+      "value": 344.61,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-6-volume",
+      "title": "Other feeds, meals and fodders export volume to China",
+      "value": 443627,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-7",
+      "title": "Hides and skins exports to China",
+      "value": 294.59,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-8",
+      "title": "Poultry meat and products, excluding eggs exports to China",
+      "value": 282.29,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-8-volume",
+      "title": "Poultry meat and products, excluding eggs export volume to China",
+      "value": 92686,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-9",
+      "title": "Hay exports to China",
+      "value": 264.45,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-9-volume",
+      "title": "Hay export volume to China",
+      "value": 747671,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-10",
+      "title": "Dog and cat food exports to China",
+      "value": 244.72,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-china-10-volume",
+      "title": "Dog and cat food export volume to China",
+      "value": 49675,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US06"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-1",
+      "title": "Baked goods exports to Canada",
+      "value": 2800,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-1-volume",
+      "title": "Baked goods export volume to Canada",
+      "value": 896383,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-2",
+      "title": "Fresh vegetables exports to Canada",
+      "value": 1850,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-2-volume",
+      "title": "Fresh vegetables export volume to Canada",
+      "value": 1380000,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-3",
+      "title": "Ethanol, non-beverage exports to Canada",
+      "value": 1690,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-4",
+      "title": "Fresh fruit exports to Canada",
+      "value": 1660,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-4-volume",
+      "title": "Fresh fruit export volume to Canada",
+      "value": 867965,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-5",
+      "title": "Food preparations exports to Canada",
+      "value": 1570,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-5-volume",
+      "title": "Food preparations export volume to Canada",
+      "value": 273531,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-6",
+      "title": "Chocolate and cocoa products exports to Canada",
+      "value": 1530,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-6-volume",
+      "title": "Chocolate and cocoa products export volume to Canada",
+      "value": 296544,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-7",
+      "title": "Non-alcoholic beverages, excluding juices exports to Canada",
+      "value": 1490,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-7-volume",
+      "title": "Non-alcoholic beverages, excluding juices export volume to Canada",
+      "value": 326406,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-8",
+      "title": "Dairy products exports to Canada",
+      "value": 1310,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-8-volume",
+      "title": "Dairy products export volume to Canada",
+      "value": 247488,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-9",
+      "title": "Dog and cat food exports to Canada",
+      "value": 1190,
+      "unit": "USD million",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports the value of this U.S. commodity export category.",
+      "limitation": "Values are rounded in the source profile; product categories should not be added to an unrelated agricultural definition.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-agri-canada-9-volume",
+      "title": "Dog and cat food export volume to Canada",
+      "value": 410697,
+      "unit": "metric tonnes",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "agriculture"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US05"
+      ],
+      "summary": "FAS reports physical shipment volume separately from export value.",
+      "limitation": "Source values described in millions have been converted to tonnes and retain their original rounding. A value increase can reflect prices or volume.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-oil-imports-canada",
+      "title": "Crude oil imports from Canada",
+      "value": 3.9,
+      "unit": "million barrels/day",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "energy"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US08"
+      ],
+      "summary": "Canadian crude supplies U.S. refiners; EIA reports 4% lower average imports than in 2024.",
+      "limitation": "National bilateral energy measure; currencies, barrel volumes and gas volumes are separate units. Rounded narrative descriptions of near-zero LNG flows are not substituted for the detailed positive series.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-oil-exports-canada",
+      "title": "Crude oil exports to Canada",
+      "value": 383000,
+      "unit": "barrels/day",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "energy"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US08"
+      ],
+      "summary": "U.S. light crude is shipped mainly to eastern Canada; EIA reports 2% lower volume than in 2024.",
+      "limitation": "National bilateral energy measure; currencies, barrel volumes and gas volumes are separate units. Rounded narrative descriptions of near-zero LNG flows are not substituted for the detailed positive series.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-products-imports-canada",
+      "title": "Petroleum product imports from Canada",
+      "value": 16,
+      "unit": "USD billion (EIA analysis basis)",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "energy"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US08"
+      ],
+      "summary": "EIA reports the value of U.S. petroleum product imports from Canada.",
+      "limitation": "National bilateral energy measure; currencies, barrel volumes and gas volumes are separate units. Rounded narrative descriptions of near-zero LNG flows are not substituted for the detailed positive series. The article labels its energy-value chart inflation-adjusted; price-basis reconciliation is not established here and these values are not added to nominal Census totals.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-products-exports-canada",
+      "title": "Petroleum product exports to Canada",
+      "value": 13.4,
+      "unit": "USD billion (EIA analysis basis)",
+      "period": "2025",
+      "partner": "Canada",
+      "topics": [
+        "energy"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US08"
+      ],
+      "summary": "EIA reports the value of U.S. petroleum product exports to Canada.",
+      "limitation": "National bilateral energy measure; currencies, barrel volumes and gas volumes are separate units. Rounded narrative descriptions of near-zero LNG flows are not substituted for the detailed positive series. The article labels its energy-value chart inflation-adjusted; price-basis reconciliation is not established here and these values are not added to nominal Census totals.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-crude-china",
+      "title": "Crude oil exports to China",
+      "value": 8321,
+      "unit": "thousand barrels/year",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "energy"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US09"
+      ],
+      "summary": "The EIA annual destination table records U.S. crude exports to China in 2025.",
+      "limitation": "National bilateral energy measure; currencies, barrel volumes and gas volumes are separate units. Rounded narrative descriptions of near-zero LNG flows are not substituted for the detailed positive series.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-crude-china-2024",
+      "title": "Crude oil exports to China, historical comparison",
+      "value": 79234,
+      "unit": "thousand barrels/year",
+      "period": "2024",
+      "partner": "China",
+      "topics": [
+        "energy"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US09"
+      ],
+      "summary": "The EIA annual destination table records the previous-year volume.",
+      "limitation": "National bilateral energy measure; currencies, barrel volumes and gas volumes are separate units. Rounded narrative descriptions of near-zero LNG flows are not substituted for the detailed positive series.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-lng-china",
+      "title": "LNG exports to China",
+      "value": 546,
+      "unit": "million cubic feet",
+      "period": "2025",
+      "partner": "China",
+      "topics": [
+        "energy"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US10"
+      ],
+      "summary": "The detailed EIA annual series records a small positive China-bound LNG volume in 2025.",
+      "limitation": "National bilateral energy measure; currencies, barrel volumes and gas volumes are separate units. Rounded narrative descriptions of near-zero LNG flows are not substituted for the detailed positive series.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-lng-china-2024",
+      "title": "LNG exports to China, historical comparison",
+      "value": 212837,
+      "unit": "million cubic feet",
+      "period": "2024",
+      "partner": "China",
+      "topics": [
+        "energy"
+      ],
+      "metric": "shipments",
+      "measurementType": "observed",
+      "sourceIds": [
+        "US10"
+      ],
+      "summary": "EIA records the previous-year China-bound LNG volume.",
+      "limitation": "National bilateral energy measure; currencies, barrel volumes and gas volumes are separate units. Rounded narrative descriptions of near-zero LNG flows are not substituted for the detailed positive series.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-fdi-ubo-canada",
+      "title": "Canadian ultimate-owner direct investment position in the U.S.",
+      "value": 819.8,
+      "unit": "USD billion",
+      "period": "End 2025",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US11"
+      ],
+      "summary": "Inward direct investment, classified by ultimate beneficial owner.",
+      "limitation": "Historical-cost stock classification. Foreign-parent and ultimate-owner measures must not be added. Changes in position do not establish newly completed factories or jobs; not comparable to Canada’s CAD-valued ultimate-investor series without reconciliation.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-fdi-position-increase-canada",
+      "title": "Increase in the Canadian-parent inward investment position",
+      "value": 39.2,
+      "unit": "USD billion",
+      "period": "2025 change in position",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US11"
+      ],
+      "summary": "Change in an accumulated position during 2025; not a transaction or completed-capex total.",
+      "limitation": "Historical-cost stock classification. Foreign-parent and ultimate-owner measures must not be added. Changes in position do not establish newly completed factories or jobs; not comparable to Canada’s CAD-valued ultimate-investor series without reconciliation.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-301-2018",
+      "title": "Initial Section 301 tariff action",
+      "value": 25,
+      "unit": "% additional duty on covered 2018 lines",
+      "period": "2018-07-06",
+      "partner": "China",
+      "topics": [
+        "vehicles",
+        "technology",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "measurementType": "historical_policy",
+      "sourceIds": [
+        "US33"
+      ],
+      "summary": "Additional 25% duties began on the first approximately USD34 billion list of Chinese goods.",
+      "limitation": "Historical starting action, not a statement of the combined tariff now applying to every product.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2018-07-06",
+      "effectiveDate": "2018-07-06"
+    },
+    {
+      "id": "us-huawei",
+      "title": "Huawei Entity List licensing requirements",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2019-05-16",
+      "partner": "China",
+      "topics": [
+        "technology",
+        "security"
+      ],
+      "metric": "tariffs",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US34"
+      ],
+      "summary": "The Entity List action imposed licensing requirements for covered transactions involving listed Huawei entities.",
+      "limitation": "Entity-, item- and transaction-specific; not a ban on all U.S.–China technology trade.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2019-05-16",
+      "effectiveDate": "2019-05-16"
+    },
+    {
+      "id": "us-phase-one",
+      "title": "Phase One agriculture and financial-services commitments",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2020-01-15",
+      "partner": "China",
+      "topics": [
+        "agriculture",
+        "finance",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "measurementType": "agreement",
+      "sourceIds": [
+        "US17",
+        "US18"
+      ],
+      "summary": "The agreement covers intellectual property, technology transfer, agriculture, financial services and trade commitments; it entered into effect February 14, 2020.",
+      "limitation": "A signed commitment is not proof that purchases or every market-access obligation were fulfilled.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2020-01-15",
+      "effectiveDate": "2020-02-14"
+    },
+    {
+      "id": "us-usmca",
+      "title": "USMCA entry into force",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2020-07-01",
+      "partner": "Canada",
+      "topics": [
+        "vehicles",
+        "agriculture",
+        "finance",
+        "technology",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "measurementType": "agreement",
+      "sourceIds": [
+        "US03"
+      ],
+      "summary": "The U.S., Canada and Mexico replaced NAFTA with USMCA.",
+      "limitation": "Preferential treatment depends on coverage and origin rules; other duties can still apply.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2020-07-01",
+      "effectiveDate": "2020-07-01"
+    },
+    {
+      "id": "us-auto-rvc",
+      "title": "USMCA vehicle regional value content",
+      "value": 75,
+      "unit": "% regional value content for light vehicles/core parts",
+      "period": "2023-07-01",
+      "partner": "Canada",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "supply_chain",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US15"
+      ],
+      "summary": "Light vehicles and core parts have a 75% regional-value-content requirement under the automotive rules.",
+      "limitation": "Rules for core, principal and complementary parts differ; this is an eligibility rule, not a measured production gain.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2023-07-01",
+      "effectiveDate": "2023-07-01"
+    },
+    {
+      "id": "us-auto-lvc",
+      "title": "USMCA high-wage content",
+      "value": 40,
+      "unit": "% passenger-vehicle labour value content; trucks 45%",
+      "period": "2023-07-01",
+      "partner": "Canada",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "supply_chain",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US15",
+        "US16"
+      ],
+      "summary": "Passenger vehicles require 40% high-wage content; the rule is 45% for light and heavy trucks, with a USD16/hour threshold.",
+      "limitation": "These are rule thresholds, not observed wages across all assembly jobs.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2023-07-01",
+      "effectiveDate": "2023-07-01"
+    },
+    {
+      "id": "us-auto-model-jobs",
+      "title": "Modelled U.S. automotive employment effect of USMCA rules",
+      "value": 5085,
+      "unit": "modelled jobs",
+      "period": "First 4.5 years of USMCA; 2025 report",
+      "partner": "Canada",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "employment",
+      "measurementType": "modelled_baseline",
+      "sourceIds": [
+        "US15"
+      ],
+      "summary": "USITC estimates an automotive employment difference under its modelling assumptions.",
+      "limitation": "Model result relative to a counterfactual; not an observed count of new 2026 jobs, not Canada-specific employment and not an effect of the September 2026 arrangements.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-auto-model-revenue",
+      "title": "Modelled U.S. vehicle/parts production revenue effect",
+      "value": 3.2,
+      "unit": "USD billion, model estimate",
+      "period": "First 4.5 years of USMCA; 2025 report",
+      "partner": "Canada",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "supply_chain",
+      "measurementType": "modelled_baseline",
+      "sourceIds": [
+        "US15"
+      ],
+      "summary": "USITC models an increase in U.S. vehicle and parts production revenue associated with the rules.",
+      "limitation": "Revenue is not value added, net welfare or a 2026 realized investment amount.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-cmic",
+      "title": "Listed Chinese military-industrial securities restrictions",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2021-06-03",
+      "partner": "China",
+      "topics": [
+        "finance",
+        "investment",
+        "security"
+      ],
+      "metric": "tariffs",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US28"
+      ],
+      "summary": "OFAC describes prohibitions on U.S.-person purchases or sales of securities linked to designated Chinese military-industrial entities.",
+      "limitation": "List-based securities restrictions are distinct from FDI screening and the outbound investment program; current entities and exemptions require checking the live list.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2021-06-03",
+      "effectiveDate": "2021-08-02"
+    },
+    {
+      "id": "us-uflpa",
+      "title": "Forced-labour import presumption",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2022-06-21",
+      "partner": "China",
+      "topics": [
+        "agriculture",
+        "vehicles",
+        "technology",
+        "security"
+      ],
+      "metric": "supply_chain",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US35"
+      ],
+      "summary": "UFLPA creates a rebuttable import prohibition for covered Xinjiang-linked goods and listed entities.",
+      "limitation": "The presumption and exception standard are supply-chain specific; a detention is not automatically a final denial or a total ban on Chinese goods.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2022-06-21",
+      "effectiveDate": "2022-06-21"
+    },
+    {
+      "id": "us-chips-2022",
+      "title": "Advanced-computing and semiconductor controls",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2022-10-07",
+      "partner": "China",
+      "topics": [
+        "technology",
+        "security"
+      ],
+      "metric": "tariffs",
+      "measurementType": "historical_policy",
+      "sourceIds": [
+        "US21"
+      ],
+      "summary": "BIS introduced phased controls on advanced computing, semiconductor manufacturing and certain U.S.-person activities.",
+      "limitation": "Later rules alter product thresholds and licensing. The 2022 action cannot alone describe the current treatment of every chip.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2022-10-07",
+      "effectiveDate": null
+    },
+    {
+      "id": "us-301-ev",
+      "title": "Section 301 EV tariff modification",
+      "value": 100,
+      "unit": "% additional Section 301 duty on covered EV lines",
+      "period": "2024-09-27",
+      "partner": "China",
+      "topics": [
+        "vehicles"
+      ],
+      "metric": "tariffs",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US12",
+        "US13"
+      ],
+      "summary": "The modification imposed an additional 100% Section 301 rate on covered Chinese EV tariff lines.",
+      "limitation": "Product-specific additional rate. It is not the total landed tariff after other applicable duties, and it does not establish consumer savings or employment effects.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2024-09-27",
+      "effectiveDate": "2024-09-27"
+    },
+    {
+      "id": "us-301-battery",
+      "title": "Section 301 EV-battery tariff modification",
+      "value": 25,
+      "unit": "% additional duty on covered EV-battery lines",
+      "period": "2024-09-27",
+      "partner": "China",
+      "topics": [
+        "vehicles",
+        "energy"
+      ],
+      "metric": "tariffs",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US13"
+      ],
+      "summary": "Covered lithium-ion EV batteries moved to a 25% Section 301 rate; non-EV batteries had a separate 2026 schedule.",
+      "limitation": "EV and non-EV batteries have different effective dates and coverage; check the current tariff line and exclusions.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2024-09-27",
+      "effectiveDate": "2024-09-27"
+    },
+    {
+      "id": "us-301-semiconductor",
+      "title": "Section 301 semiconductor tariff modification",
+      "value": 50,
+      "unit": "% additional duty on covered semiconductor lines",
+      "period": "2025-01-01",
+      "partner": "China",
+      "topics": [
+        "technology"
+      ],
+      "metric": "tariffs",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US13"
+      ],
+      "summary": "Covered semiconductor tariff lines moved to a 50% additional rate.",
+      "limitation": "Tariff coverage differs from export-control licensing and can be affected by later actions.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2025-01-01",
+      "effectiveDate": "2025-01-01"
+    },
+    {
+      "id": "us-cv-rule",
+      "title": "Connected vehicle restrictions: phased requirements",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2025-01-14",
+      "partner": "China",
+      "topics": [
+        "vehicles",
+        "technology",
+        "security"
+      ],
+      "metric": "tariffs",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US14"
+      ],
+      "summary": "The final rule took effect March 17, 2025. Covered software/manufacturer restrictions begin with model year 2027 and hardware restrictions with model year 2030 or January 1, 2029 for non-model-year components.",
+      "limitation": "Rule effectiveness and future model-year compliance dates are separate. The rule includes specific and general authorizations; not every restriction started in 2025.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2025-01-14",
+      "effectiveDate": "2025-03-17"
+    },
+    {
+      "id": "us-digital",
+      "title": "USMCA digital trade rules",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2020-07-01",
+      "partner": "Canada",
+      "topics": [
+        "technology",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US19"
+      ],
+      "summary": "The digital chapter covers electronic products, cross-border information flows and limits on localization.",
+      "limitation": "Treaty text has scope conditions and public-policy/security exceptions; it is not a dollar measure of digital exports.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2020-07-01",
+      "effectiveDate": "2020-07-01"
+    },
+    {
+      "id": "us-finance-usmca",
+      "title": "USMCA financial-services provisions",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2020-07-01",
+      "partner": "Canada",
+      "topics": [
+        "finance",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US20"
+      ],
+      "summary": "Financial-services commitments address market access, transparency and data access for supervision.",
+      "limitation": "These are legal commitments rather than observed financial-sector revenues or Canadian/U.S. jobs.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2020-07-01",
+      "effectiveDate": "2020-07-01"
+    },
+    {
+      "id": "us-oisp",
+      "title": "Outbound investment program in force",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2025-01-02",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "technology",
+        "finance",
+        "security"
+      ],
+      "metric": "tariffs",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US23"
+      ],
+      "summary": "Certain U.S.-person investments connected to China, Hong Kong and Macau are prohibited or notifiable in defined semiconductor, quantum and AI activities.",
+      "limitation": "This is not a prohibition on every investment in China. The October 2026 proposal is separate from this in-force rule.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2025-01-02",
+      "effectiveDate": "2025-01-02"
+    },
+    {
+      "id": "us-oisp-nprm",
+      "title": "COINS outbound investment proposal",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2026-10-22",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "technology",
+        "security"
+      ],
+      "metric": "tariffs",
+      "measurementType": "proposed_rule",
+      "sourceIds": [
+        "US24"
+      ],
+      "summary": "Treasury proposed updated regulations including expanded technology coverage and invites comments before final regulations.",
+      "limitation": "Proposal as of the review date; no final effective date or completed investment effect is established here.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2026-10-22",
+      "effectiveDate": null
+    },
+    {
+      "id": "us-oisp-penalty",
+      "title": "Outbound investment notification enforcement",
+      "value": 200000,
+      "unit": "USD civil penalty",
+      "period": "2026-10-07",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "technology"
+      ],
+      "metric": "investment",
+      "measurementType": "enforcement",
+      "sourceIds": [
+        "US25"
+      ],
+      "summary": "Treasury disclosed a USD200,000 penalty issued in July 2026 for failure to notify a covered investment in a Chinese embodied-AI company.",
+      "limitation": "A penalty is an enforcement observation, not the value of the investment or an estimate of blocked capital.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2026-10-07",
+      "effectiveDate": null
+    },
+    {
+      "id": "us-cfius-canada",
+      "title": "Canada’s excepted-foreign-state status",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2020-02-13",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "security"
+      ],
+      "metric": "investment",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US26",
+        "US27"
+      ],
+      "summary": "Canada is listed as an excepted foreign state for specified CFIUS provisions, subject to investor criteria.",
+      "limitation": "Foreign-control transactions can remain within CFIUS jurisdiction. Excepted status does not automatically clear every Canadian transaction.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2020-02-13",
+      "effectiveDate": "2020-02-13"
+    },
+    {
+      "id": "us-h200",
+      "title": "Case-by-case licensing for selected AI chips",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2026-01-13",
+      "partner": "China",
+      "topics": [
+        "technology",
+        "security"
+      ],
+      "metric": "tariffs",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US22"
+      ],
+      "summary": "BIS announced case-by-case review for H200, MI325X and similar chips subject to stated security conditions.",
+      "limitation": "Licensing policy is not proof of approvals or physical shipments. Current technical scope must be read with the final rule.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2026-01-13",
+      "effectiveDate": null
+    },
+    {
+      "id": "us-norad",
+      "title": "Binational aerospace and maritime warning",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "Longstanding institution; checked 2026-11-03",
+      "partner": "Canada",
+      "topics": [
+        "security"
+      ],
+      "metric": "supply_chain",
+      "measurementType": "institutional",
+      "sourceIds": [
+        "US29"
+      ],
+      "summary": "NORAD integrates U.S. and Canadian aerospace warning/control and maritime warning.",
+      "limitation": "Longstanding institutional context, not a command created in 2026 and not a measure of trade, defence contracts or employment.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "effectiveDate": null
+    },
+    {
+      "id": "us-cnwg",
+      "title": "U.S.–China counternarcotics working group launched",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2024-01-30",
+      "partner": "China",
+      "topics": [
+        "security",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "measurementType": "institutional",
+      "sourceIds": [
+        "US30"
+      ],
+      "summary": "The working group provides policy and law-enforcement coordination against illicit synthetic drugs and precursor supply.",
+      "limitation": "Bilateral coordination does not establish reductions in deaths or trafficking volumes attributable to the group.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2024-01-30",
+      "effectiveDate": null
+    },
+    {
+      "id": "us-precursors",
+      "title": "Precursor scheduling cooperation reported",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2024-08-06",
+      "partner": "China",
+      "topics": [
+        "security"
+      ],
+      "metric": "tariffs",
+      "measurementType": "institutional",
+      "sourceIds": [
+        "US31"
+      ],
+      "summary": "The State Department described China’s announcement to schedule three essential fentanyl precursors after working-group discussions.",
+      "limitation": "Report of a policy development; it does not quantify enforcement effectiveness or make all Chinese chemical exports illicit.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2024-08-06",
+      "effectiveDate": null
+    },
+    {
+      "id": "us-volt",
+      "title": "Joint critical-infrastructure cybersecurity advisory",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2024-02-07",
+      "partner": "China",
+      "topics": [
+        "security",
+        "technology"
+      ],
+      "metric": "tariffs",
+      "measurementType": "risk_advisory",
+      "sourceIds": [
+        "US32"
+      ],
+      "summary": "U.S. agencies and international partners, including Canada, published an advisory on PRC-sponsored Volt Typhoon activity.",
+      "limitation": "An attributed threat assessment is not a quantified loss of trade, an employment estimate or a claim about every Chinese firm.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2024-02-07",
+      "effectiveDate": null
+    },
+    {
+      "id": "us-30-framework",
+      "title": "30-for-30 Board of Trade recommendations",
+      "value": 30,
+      "unit": "USD billion of referenced product scope, each direction",
+      "period": "2026-09-27",
+      "partner": "China",
+      "topics": [
+        "agriculture",
+        "energy",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "measurementType": "proposed_framework",
+      "sourceIds": [
+        "US36",
+        "US37"
+      ],
+      "summary": "The two sides identified approximately USD30 billion of products in each direction for possible reciprocal tariff improvements, using a historical trade basis.",
+      "limitation": "A scope/value reference, not USD30 billion of new sales, implemented zero duties or realized incremental exports. Domestic legal implementation and later trade data must be checked.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2026-09-27",
+      "effectiveDate": null
+    },
+    {
+      "id": "us-ca-338",
+      "title": "Canadian product coverage under Section 338",
+      "value": 50,
+      "unit": "% additional duty on specified Canadian products",
+      "period": "2026-10-23",
+      "partner": "Canada",
+      "topics": [
+        "vehicles",
+        "agriculture",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "measurementType": "implemented_policy",
+      "sourceIds": [
+        "US38",
+        "US39"
+      ],
+      "summary": "The proclamation changed which Canadian products face an additional 50% duty, effective October 30; origin under USMCA does not by itself remove the covered duty.",
+      "limitation": "Applies to specified tariff lines, not all Canadian goods. The tariff register and other duties determine a shipment’s total treatment.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2026-10-23",
+      "effectiveDate": "2026-10-30"
+    },
+    {
+      "id": "us-usmca-review",
+      "title": "USMCA non-extension and 2027 annual review",
+      "value": null,
+      "unit": "Policy / institutional evidence",
+      "period": "2026-10-05",
+      "partner": "Canada",
+      "topics": [
+        "agreements",
+        "vehicles",
+        "agriculture"
+      ],
+      "metric": "tariffs",
+      "measurementType": "review_process",
+      "sourceIds": [
+        "US40"
+      ],
+      "summary": "The Federal Register says the U.S. did not agree to extend the term at the July 1, 2026 review; annual reviews follow under the agreement.",
+      "limitation": "Non-extension at that meeting is not immediate termination; the source identifies the existing 2036 term and extension mechanism.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2026-10-05",
+      "effectiveDate": null
+    },
+    {
+      "id": "us-ca-opioids",
+      "title": "U.S.–Canada opioid action-plan cooperation",
+      "value": null,
+      "unit": "Institutional evidence",
+      "period": "2020-01-31",
+      "partner": "Canada",
+      "topics": [
+        "security",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "measurementType": "institutional",
+      "sourceIds": [
+        "US42"
+      ],
+      "summary": "The two governments established working groups across law enforcement, border security and health under the Joint Action Plan on Opioids.",
+      "limitation": "Coordination and meeting evidence does not quantify reduced trafficking or deaths and does not establish a trade or employment gain.",
+      "geography": "U.S.–Canada / North American cooperation",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2020-01-31"
+    },
+    {
+      "id": "us-nadd-2026",
+      "title": "North American drug dialogue in Ottawa",
+      "value": null,
+      "unit": "Institutional evidence",
+      "period": "2026-02-02",
+      "partner": "Canada",
+      "topics": [
+        "security",
+        "agreements"
+      ],
+      "metric": "tariffs",
+      "measurementType": "institutional",
+      "sourceIds": [
+        "US43"
+      ],
+      "summary": "The United States, Canada and Mexico met in Ottawa on January 27–28, 2026 to coordinate responses to fentanyl and other illicit drugs.",
+      "limitation": "Coordination and meeting evidence does not quantify reduced trafficking or deaths and does not establish a trade or employment gain.",
+      "geography": "U.S.–Canada / North American cooperation",
+      "reviewedAt": "2026-11-03",
+      "eventDate": "2026-02-02"
+    },
+    {
+      "id": "us-fentanyl-north",
+      "title": "Fentanyl seizures in the U.S. Northern Border region",
+      "value": 4.85,
+      "unit": "pounds seized",
+      "period": "September 2025–August 2026",
+      "partner": "Canada",
+      "topics": [
+        "security"
+      ],
+      "metric": "supply_chain",
+      "measurementType": "enforcement",
+      "sourceIds": [
+        "US44"
+      ],
+      "summary": "Canada’s official dashboard reports this U.S. CBP seizure mass for the Northern Border region.",
+      "limitation": "Canadian government report citing CBP; not independently reconciled to a downloaded CBP table in this release. A border seizure region is not country of drug manufacture, total trafficking volume or causal evidence of a bilateral policy’s effectiveness. These are enforcement statistics, not merchandise imports.",
+      "geography": "United States Northern Border enforcement region",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-fentanyl-south",
+      "title": "Fentanyl seizures in the U.S. Southern Border region",
+      "value": 10216,
+      "unit": "pounds seized",
+      "period": "September 2025–August 2026",
+      "partner": "Canada",
+      "topics": [
+        "security"
+      ],
+      "metric": "supply_chain",
+      "measurementType": "enforcement",
+      "sourceIds": [
+        "US44"
+      ],
+      "summary": "Canada’s official dashboard reports this U.S. CBP seizure mass for the Southern Border region.",
+      "limitation": "Canadian government report citing CBP; not independently reconciled to a downloaded CBP table in this release. A border seizure region is not country of drug manufacture, total trafficking volume or causal evidence of a bilateral policy’s effectiveness. These are enforcement statistics, not merchandise imports.",
+      "geography": "United States Southern Border enforcement region",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null
+    },
+    {
+      "id": "us-bea-outward-stock-canada-2020",
+      "title": "Direct investment position — U.S. investment in Canada",
+      "value": 366880.0,
+      "unit": "USD million",
+      "period": "End 2020",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell B6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!B6",
+      "sourceYear": 2020,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-stock-canada-2021",
+      "title": "Direct investment position — U.S. investment in Canada",
+      "value": 398107.0,
+      "unit": "USD million",
+      "period": "End 2021",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell C6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!C6",
+      "sourceYear": 2021,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-stock-canada-2022",
+      "title": "Direct investment position — U.S. investment in Canada",
+      "value": 415388.0,
+      "unit": "USD million",
+      "period": "End 2022",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell D6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!D6",
+      "sourceYear": 2022,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-stock-canada-2023",
+      "title": "Direct investment position — U.S. investment in Canada",
+      "value": 413447.0,
+      "unit": "USD million",
+      "period": "End 2023",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell E6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!E6",
+      "sourceYear": 2023,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-stock-canada-2024",
+      "title": "Direct investment position — U.S. investment in Canada",
+      "value": 450587.0,
+      "unit": "USD million",
+      "period": "End 2024",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell F6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!F6",
+      "sourceYear": 2024,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-fdi-out-canada",
+      "title": "Direct investment position — U.S. investment in Canada",
+      "value": 488080.0,
+      "unit": "USD million",
+      "period": "End 2025",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell G6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!G6",
+      "sourceYear": 2025,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-stock-china-2020",
+      "title": "Direct investment position — U.S. investment in China",
+      "value": 116508.0,
+      "unit": "USD million",
+      "period": "End 2020",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell B203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!B203",
+      "sourceYear": 2020,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-stock-china-2021",
+      "title": "Direct investment position — U.S. investment in China",
+      "value": 116003.0,
+      "unit": "USD million",
+      "period": "End 2021",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell C203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!C203",
+      "sourceYear": 2021,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-stock-china-2022",
+      "title": "Direct investment position — U.S. investment in China",
+      "value": 116314.0,
+      "unit": "USD million",
+      "period": "End 2022",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell D203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!D203",
+      "sourceYear": 2022,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-stock-china-2023",
+      "title": "Direct investment position — U.S. investment in China",
+      "value": 116454.0,
+      "unit": "USD million",
+      "period": "End 2023",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell E203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!E203",
+      "sourceYear": 2023,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-stock-china-2024",
+      "title": "Direct investment position — U.S. investment in China",
+      "value": 112018.0,
+      "unit": "USD million",
+      "period": "End 2024",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell F203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!F203",
+      "sourceYear": 2024,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-stock-china-2025",
+      "title": "Direct investment position — U.S. investment in China",
+      "value": 120547.0,
+      "unit": "USD million",
+      "period": "End 2025",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell G203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!G203",
+      "sourceYear": 2025,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-financial_flow-canada-2020",
+      "title": "Direct investment financial transactions — U.S. investment in Canada",
+      "value": 7152.0,
+      "unit": "USD million",
+      "period": "Calendar year 2020",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell B6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!B6",
+      "sourceYear": 2020,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-financial_flow-canada-2021",
+      "title": "Direct investment financial transactions — U.S. investment in Canada",
+      "value": 33868.0,
+      "unit": "USD million",
+      "period": "Calendar year 2021",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell C6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!C6",
+      "sourceYear": 2021,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-financial_flow-canada-2022",
+      "title": "Direct investment financial transactions — U.S. investment in Canada",
+      "value": 44416.0,
+      "unit": "USD million",
+      "period": "Calendar year 2022",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell D6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!D6",
+      "sourceYear": 2022,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-financial_flow-canada-2023",
+      "title": "Direct investment financial transactions — U.S. investment in Canada",
+      "value": 18583.0,
+      "unit": "USD million",
+      "period": "Calendar year 2023",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell E6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!E6",
+      "sourceYear": 2023,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-financial_flow-canada-2024",
+      "title": "Direct investment financial transactions — U.S. investment in Canada",
+      "value": 41087.0,
+      "unit": "USD million",
+      "period": "Calendar year 2024",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell F6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!F6",
+      "sourceYear": 2024,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-financial_flow-canada-2025",
+      "title": "Direct investment financial transactions — U.S. investment in Canada",
+      "value": 30108.0,
+      "unit": "USD million",
+      "period": "Calendar year 2025",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell G6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!G6",
+      "sourceYear": 2025,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-financial_flow-china-2020",
+      "title": "Direct investment financial transactions — U.S. investment in China",
+      "value": 8996.0,
+      "unit": "USD million",
+      "period": "Calendar year 2020",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell B203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!B203",
+      "sourceYear": 2020,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-financial_flow-china-2021",
+      "title": "Direct investment financial transactions — U.S. investment in China",
+      "value": -1184.0,
+      "unit": "USD million",
+      "period": "Calendar year 2021",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell C203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!C203",
+      "sourceYear": 2021,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-financial_flow-china-2022",
+      "title": "Direct investment financial transactions — U.S. investment in China",
+      "value": 7440.0,
+      "unit": "USD million",
+      "period": "Calendar year 2022",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell D203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!D203",
+      "sourceYear": 2022,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-financial_flow-china-2023",
+      "title": "Direct investment financial transactions — U.S. investment in China",
+      "value": 3681.0,
+      "unit": "USD million",
+      "period": "Calendar year 2023",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell E203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!E203",
+      "sourceYear": 2023,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-financial_flow-china-2024",
+      "title": "Direct investment financial transactions — U.S. investment in China",
+      "value": 4826.0,
+      "unit": "USD million",
+      "period": "Calendar year 2024",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell F203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!F203",
+      "sourceYear": 2024,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-financial_flow-china-2025",
+      "title": "Direct investment financial transactions — U.S. investment in China",
+      "value": 6775.0,
+      "unit": "USD million",
+      "period": "Calendar year 2025",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell G203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!G203",
+      "sourceYear": 2025,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-affiliate_income-canada-2020",
+      "title": "Direct investment income — U.S. investment in Canada",
+      "value": 16391.0,
+      "unit": "USD million",
+      "period": "Calendar year 2020",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell B6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!B6",
+      "sourceYear": 2020,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-affiliate_income-canada-2021",
+      "title": "Direct investment income — U.S. investment in Canada",
+      "value": 34266.0,
+      "unit": "USD million",
+      "period": "Calendar year 2021",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell C6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!C6",
+      "sourceYear": 2021,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-affiliate_income-canada-2022",
+      "title": "Direct investment income — U.S. investment in Canada",
+      "value": 38304.0,
+      "unit": "USD million",
+      "period": "Calendar year 2022",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell D6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!D6",
+      "sourceYear": 2022,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-affiliate_income-canada-2023",
+      "title": "Direct investment income — U.S. investment in Canada",
+      "value": 32524.0,
+      "unit": "USD million",
+      "period": "Calendar year 2023",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell E6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!E6",
+      "sourceYear": 2023,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-affiliate_income-canada-2024",
+      "title": "Direct investment income — U.S. investment in Canada",
+      "value": 31692.0,
+      "unit": "USD million",
+      "period": "Calendar year 2024",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell F6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!F6",
+      "sourceYear": 2024,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-affiliate_income-canada-2025",
+      "title": "Direct investment income — U.S. investment in Canada",
+      "value": 26773.0,
+      "unit": "USD million",
+      "period": "Calendar year 2025",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell G6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!G6",
+      "sourceYear": 2025,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-affiliate_income-china-2020",
+      "title": "Direct investment income — U.S. investment in China",
+      "value": 10756.0,
+      "unit": "USD million",
+      "period": "Calendar year 2020",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell B203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!B203",
+      "sourceYear": 2020,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-affiliate_income-china-2021",
+      "title": "Direct investment income — U.S. investment in China",
+      "value": 14138.0,
+      "unit": "USD million",
+      "period": "Calendar year 2021",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell C203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!C203",
+      "sourceYear": 2021,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-affiliate_income-china-2022",
+      "title": "Direct investment income — U.S. investment in China",
+      "value": 10629.0,
+      "unit": "USD million",
+      "period": "Calendar year 2022",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell D203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!D203",
+      "sourceYear": 2022,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-affiliate_income-china-2023",
+      "title": "Direct investment income — U.S. investment in China",
+      "value": 9327.0,
+      "unit": "USD million",
+      "period": "Calendar year 2023",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell E203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!E203",
+      "sourceYear": 2023,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-affiliate_income-china-2024",
+      "title": "Direct investment income — U.S. investment in China",
+      "value": 8214.0,
+      "unit": "USD million",
+      "period": "Calendar year 2024",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell F203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!F203",
+      "sourceYear": 2024,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-outward-affiliate_income-china-2025",
+      "title": "Direct investment income — U.S. investment in China",
+      "value": 8989.0,
+      "unit": "USD million",
+      "period": "Calendar year 2025",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US45"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell G203.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!G203",
+      "sourceYear": 2025,
+      "investmentDirection": "outward"
+    },
+    {
+      "id": "us-bea-inward-stock-canada-2020",
+      "title": "Direct investment position — Canada-parent investment in the U.S.",
+      "value": 487449.0,
+      "unit": "USD million",
+      "period": "End 2020",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell B6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!B6",
+      "sourceYear": 2020,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-stock-canada-2021",
+      "title": "Direct investment position — Canada-parent investment in the U.S.",
+      "value": 548030.0,
+      "unit": "USD million",
+      "period": "End 2021",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell C6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!C6",
+      "sourceYear": 2021,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-stock-canada-2022",
+      "title": "Direct investment position — Canada-parent investment in the U.S.",
+      "value": 576462.0,
+      "unit": "USD million",
+      "period": "End 2022",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell D6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!D6",
+      "sourceYear": 2022,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-stock-canada-2023",
+      "title": "Direct investment position — Canada-parent investment in the U.S.",
+      "value": 668273.0,
+      "unit": "USD million",
+      "period": "End 2023",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell E6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!E6",
+      "sourceYear": 2023,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-stock-canada-2024",
+      "title": "Direct investment position — Canada-parent investment in the U.S.",
+      "value": 708177.0,
+      "unit": "USD million",
+      "period": "End 2024",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell F6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!F6",
+      "sourceYear": 2024,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-fdi-in-canada",
+      "title": "Direct investment position — Canada-parent investment in the U.S.",
+      "value": 747348.0,
+      "unit": "USD million",
+      "period": "End 2025",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell G6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!G6",
+      "sourceYear": 2025,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-stock-china-2020",
+      "title": "Direct investment position — China-parent investment in the U.S.",
+      "value": 36738.0,
+      "unit": "USD million",
+      "period": "End 2020",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell B199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!B199",
+      "sourceYear": 2020,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-stock-china-2021",
+      "title": "Direct investment position — China-parent investment in the U.S.",
+      "value": 31831.0,
+      "unit": "USD million",
+      "period": "End 2021",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell C199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!C199",
+      "sourceYear": 2021,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-stock-china-2022",
+      "title": "Direct investment position — China-parent investment in the U.S.",
+      "value": 31023.0,
+      "unit": "USD million",
+      "period": "End 2022",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell D199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!D199",
+      "sourceYear": 2022,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-stock-china-2023",
+      "title": "Direct investment position — China-parent investment in the U.S.",
+      "value": 30926.0,
+      "unit": "USD million",
+      "period": "End 2023",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell E199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!E199",
+      "sourceYear": 2023,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-stock-china-2024",
+      "title": "Direct investment position — China-parent investment in the U.S.",
+      "value": 32355.0,
+      "unit": "USD million",
+      "period": "End 2024",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell F199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!F199",
+      "sourceYear": 2024,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-stock-china-2025",
+      "title": "Direct investment position — China-parent investment in the U.S.",
+      "value": 19009.0,
+      "unit": "USD million",
+      "period": "End 2025",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "stock",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Historical-cost accumulated position. BEA detailed-country workbook: xl/worksheets/sheet1.xml, cell G199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet1.xml!G199",
+      "sourceYear": 2025,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-financial_flow-canada-2020",
+      "title": "Direct investment financial transactions — Canada-parent investment in the U.S.",
+      "value": 19579.0,
+      "unit": "USD million",
+      "period": "Calendar year 2020",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell B6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!B6",
+      "sourceYear": 2020,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-financial_flow-canada-2021",
+      "title": "Direct investment financial transactions — Canada-parent investment in the U.S.",
+      "value": 46879.0,
+      "unit": "USD million",
+      "period": "Calendar year 2021",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell C6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!C6",
+      "sourceYear": 2021,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-financial_flow-canada-2022",
+      "title": "Direct investment financial transactions — Canada-parent investment in the U.S.",
+      "value": 52707.0,
+      "unit": "USD million",
+      "period": "Calendar year 2022",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell D6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!D6",
+      "sourceYear": 2022,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-financial_flow-canada-2023",
+      "title": "Direct investment financial transactions — Canada-parent investment in the U.S.",
+      "value": 74222.0,
+      "unit": "USD million",
+      "period": "Calendar year 2023",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell E6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!E6",
+      "sourceYear": 2023,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-financial_flow-canada-2024",
+      "title": "Direct investment financial transactions — Canada-parent investment in the U.S.",
+      "value": 30423.0,
+      "unit": "USD million",
+      "period": "Calendar year 2024",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell F6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!F6",
+      "sourceYear": 2024,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-financial_flow-canada-2025",
+      "title": "Direct investment financial transactions — Canada-parent investment in the U.S.",
+      "value": 19343.0,
+      "unit": "USD million",
+      "period": "Calendar year 2025",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell G6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!G6",
+      "sourceYear": 2025,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-financial_flow-china-2020",
+      "title": "Direct investment financial transactions — China-parent investment in the U.S.",
+      "value": -1490.0,
+      "unit": "USD million",
+      "period": "Calendar year 2020",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell B199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!B199",
+      "sourceYear": 2020,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-financial_flow-china-2021",
+      "title": "Direct investment financial transactions — China-parent investment in the U.S.",
+      "value": -5596.0,
+      "unit": "USD million",
+      "period": "Calendar year 2021",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell C199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!C199",
+      "sourceYear": 2021,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-financial_flow-china-2022",
+      "title": "Direct investment financial transactions — China-parent investment in the U.S.",
+      "value": 1113.0,
+      "unit": "USD million",
+      "period": "Calendar year 2022",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell D199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!D199",
+      "sourceYear": 2022,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-financial_flow-china-2023",
+      "title": "Direct investment financial transactions — China-parent investment in the U.S.",
+      "value": -569.0,
+      "unit": "USD million",
+      "period": "Calendar year 2023",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell E199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!E199",
+      "sourceYear": 2023,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-financial_flow-china-2024",
+      "title": "Direct investment financial transactions — China-parent investment in the U.S.",
+      "value": 3125.0,
+      "unit": "USD million",
+      "period": "Calendar year 2024",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell F199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!F199",
+      "sourceYear": 2024,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-financial_flow-china-2025",
+      "title": "Direct investment financial transactions — China-parent investment in the U.S.",
+      "value": -89.0,
+      "unit": "USD million",
+      "period": "Calendar year 2025",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "investment",
+      "measurementType": "financial_flow",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Net financial transaction flow, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet2.xml, cell G199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet2.xml!G199",
+      "sourceYear": 2025,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-affiliate_income-canada-2020",
+      "title": "Direct investment income — Canada-parent investment in the U.S.",
+      "value": 19638.0,
+      "unit": "USD million",
+      "period": "Calendar year 2020",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell B6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!B6",
+      "sourceYear": 2020,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-affiliate_income-canada-2021",
+      "title": "Direct investment income — Canada-parent investment in the U.S.",
+      "value": 34427.0,
+      "unit": "USD million",
+      "period": "Calendar year 2021",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell C6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!C6",
+      "sourceYear": 2021,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-affiliate_income-canada-2022",
+      "title": "Direct investment income — Canada-parent investment in the U.S.",
+      "value": 39524.0,
+      "unit": "USD million",
+      "period": "Calendar year 2022",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell D6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!D6",
+      "sourceYear": 2022,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-affiliate_income-canada-2023",
+      "title": "Direct investment income — Canada-parent investment in the U.S.",
+      "value": 34955.0,
+      "unit": "USD million",
+      "period": "Calendar year 2023",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell E6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!E6",
+      "sourceYear": 2023,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-affiliate_income-canada-2024",
+      "title": "Direct investment income — Canada-parent investment in the U.S.",
+      "value": 40332.0,
+      "unit": "USD million",
+      "period": "Calendar year 2024",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell F6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!F6",
+      "sourceYear": 2024,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-affiliate_income-canada-2025",
+      "title": "Direct investment income — Canada-parent investment in the U.S.",
+      "value": 39465.0,
+      "unit": "USD million",
+      "period": "Calendar year 2025",
+      "partner": "Canada",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell G6.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!G6",
+      "sourceYear": 2025,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-affiliate_income-china-2020",
+      "title": "Direct investment income — China-parent investment in the U.S.",
+      "value": -534.0,
+      "unit": "USD million",
+      "period": "Calendar year 2020",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell B199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!B199",
+      "sourceYear": 2020,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-affiliate_income-china-2021",
+      "title": "Direct investment income — China-parent investment in the U.S.",
+      "value": 1113.0,
+      "unit": "USD million",
+      "period": "Calendar year 2021",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell C199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!C199",
+      "sourceYear": 2021,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-affiliate_income-china-2022",
+      "title": "Direct investment income — China-parent investment in the U.S.",
+      "value": -794.0,
+      "unit": "USD million",
+      "period": "Calendar year 2022",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell D199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!D199",
+      "sourceYear": 2022,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-affiliate_income-china-2023",
+      "title": "Direct investment income — China-parent investment in the U.S.",
+      "value": -316.0,
+      "unit": "USD million",
+      "period": "Calendar year 2023",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell E199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!E199",
+      "sourceYear": 2023,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-affiliate_income-china-2024",
+      "title": "Direct investment income — China-parent investment in the U.S.",
+      "value": 940.0,
+      "unit": "USD million",
+      "period": "Calendar year 2024",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell F199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!F199",
+      "sourceYear": 2024,
+      "investmentDirection": "inward"
+    },
+    {
+      "id": "us-bea-inward-affiliate_income-china-2025",
+      "title": "Direct investment income — China-parent investment in the U.S.",
+      "value": 707.0,
+      "unit": "USD million",
+      "period": "Calendar year 2025",
+      "partner": "China",
+      "topics": [
+        "investment",
+        "finance"
+      ],
+      "metric": "shipments",
+      "measurementType": "affiliate_income",
+      "sourceIds": [
+        "US46"
+      ],
+      "summary": "Investment income, without current-cost adjustment. BEA detailed-country workbook: xl/worksheets/sheet3.xml, cell G199.",
+      "limitation": "Immediate counterpart / foreign-parent country classification; excludes Hong Kong as a separate counterpart. This all-industry investment measure is not financial-services-only, completed factory capex, gross merchandise trade or a job count. Position changes, transaction flows and income cannot be substituted for one another.",
+      "geography": "United States national / bilateral",
+      "reviewedAt": "2026-11-03",
+      "eventDate": null,
+      "sourceCell": "xl/worksheets/sheet3.xml!G199",
+      "sourceYear": 2025,
+      "investmentDirection": "inward"
+    }
+  ],
+  "assessments": [
+    {
+      "id": "vehicles",
+      "name": "Vehicles, EVs and batteries",
+      "summary": "Regional production rules coexist with restrictive treatment of covered Chinese vehicles.",
+      "questions": [
+        {
+          "title": "What is the connection?",
+          "text": "Canada participates in North American vehicle supply chains under USMCA. China-facing measures include Section 301 duties, connected-vehicle restrictions and supply-chain controls."
+        },
+        {
+          "title": "Why does it matter to the United States?",
+          "text": "U.S. producers depend on cross-border inputs while policymakers pursue domestic production and security objectives. Price and sourcing effects can move in different directions."
+        },
+        {
+          "title": "What does the evidence establish?",
+          "text": "The record establishes tariff/eligibility thresholds and a USITC model of automotive effects. The 5,085-job figure is modelled, rather than a new 2026 payroll count."
+        },
+        {
+          "title": "What remains uncertain?",
+          "text": "This review does not establish a net U.S. jobs or consumer-welfare effect of the 2026 arrangements. A rule’s legal effective date can precede its model-year compliance date."
+        }
+      ],
+      "canadaImplications": "Canadian suppliers face origin, technology and product-coverage requirements. Treating market access to Canada and China as interchangeable would miss these constraints."
+    },
+    {
+      "id": "agriculture",
+      "name": "Agriculture and market access",
+      "summary": "Canada remains a large U.S. agricultural market; China exposure is commodity-specific.",
+      "questions": [
+        {
+          "title": "What is the connection?",
+          "text": "U.S. agricultural exports serve both markets. The source profile distinguishes Canada’s food-product demand from China’s soybean, livestock-product and feed purchases."
+        },
+        {
+          "title": "Why does it matter to the United States?",
+          "text": "Farm receipts depend on commodity prices, harvests and market access. A list of products eligible for negotiations is not a shipment or an order."
+        },
+        {
+          "title": "What does the evidence establish?",
+          "text": "The FAS 2025 profiles record USD28.68 billion exported to Canada and USD8.27 billion to China, with separate commodity values and volumes."
+        },
+        {
+          "title": "What remains uncertain?",
+          "text": "FAS and ERS publications show different estimates/vintages. Post-September 2026 sales and any displacement of Canadian products require later commodity-level evidence."
+        }
+      ],
+      "canadaImplications": "Canadian producers may face competition, supply-chain opportunities or market diversion. These are exposure channels, not measured gains or losses caused by the framework."
+    },
+    {
+      "id": "energy",
+      "name": "Energy exports and investment",
+      "summary": "Canadian crude supplies U.S. refiners; U.S.–China energy flows vary sharply by fuel.",
+      "questions": [
+        {
+          "title": "What is the connection?",
+          "text": "The U.S. imports large volumes of Canadian crude while also exporting petroleum products. Its exports to China include different crude, gas and petrochemical channels."
+        },
+        {
+          "title": "Why does it matter to the United States?",
+          "text": "Refinery configurations, logistics, prices and destination changes matter alongside tariffs. Lower trade value does not necessarily mean lower physical energy supply."
+        },
+        {
+          "title": "What does the evidence establish?",
+          "text": "EIA provides distinct 2025 crude, petroleum-product and LNG measures. The detailed China LNG series reports 546 million cubic feet, despite near-zero descriptions in rounded narratives."
+        },
+        {
+          "title": "What remains uncertain?",
+          "text": "Volumes, prices and export destination do not establish net welfare or the effect of a new agreement. Crude barrels and gas cubic feet cannot be added into one physical total."
+        }
+      ],
+      "canadaImplications": "Canadian diversification can change U.S. sourcing exposure. That effect needs measured volumes and completed infrastructure rather than crediting every existing asset to a new MOU."
+    },
+    {
+      "id": "finance",
+      "name": "Financial services",
+      "summary": "Market-access commitments and broad services totals answer different questions.",
+      "questions": [
+        {
+          "title": "What is the connection?",
+          "text": "USMCA financial-services provisions support covered U.S.–Canada transactions. Phase One includes China-facing financial-services commitments, while separate securities restrictions apply to designated entities."
+        },
+        {
+          "title": "Why does it matter to the United States?",
+          "text": "Banks, insurers and investors face market-access, supervisory, data and security rules. Sales by overseas affiliates are distinct from cross-border service exports."
+        },
+        {
+          "title": "What does the evidence establish?",
+          "text": "USTR reports 2025 all-services exports and imports for both partners. These are labelled broad context and are not represented as financial-services-only totals."
+        },
+        {
+          "title": "What remains uncertain?",
+          "text": "A comparable 2026 bilateral financial-services revenue or employment result is not established here. Treaty commitments do not prove that every licensing or market-access barrier has been removed."
+        }
+      ],
+      "canadaImplications": "Canadian financial firms must distinguish U.S. market access, Chinese opportunities and rules that affect specific technologies or designated securities."
+    },
+    {
+      "id": "technology",
+      "name": "Technology and digital trade",
+      "summary": "Digital-trade commitments coexist with targeted export controls and licensing changes.",
+      "questions": [
+        {
+          "title": "What is the connection?",
+          "text": "USMCA covers specified digital trade and data issues with Canada. China-facing controls address particular chips, end uses, entities and covered technologies."
+        },
+        {
+          "title": "Why does it matter to the United States?",
+          "text": "U.S. firms weigh market access and production networks against compliance costs and security requirements. A licensing policy is not equivalent to a shipment prohibition for every product."
+        },
+        {
+          "title": "What does the evidence establish?",
+          "text": "The timeline includes the 2019 Huawei action, 2022 semiconductor controls, 2025 connected-vehicle rule and January 2026 case-by-case licensing policy for selected chips."
+        },
+        {
+          "title": "What remains uncertain?",
+          "text": "The review has no comprehensive 2026 digital-only bilateral trade series, and does not count licenses as exports. Technical thresholds and later amendments require the current rule text."
+        }
+      ],
+      "canadaImplications": "Canadian suppliers can be affected by U.S.-origin technology rules and vehicle supply-chain requirements even when their customers or assembly locations are outside the United States."
+    },
+    {
+      "id": "security",
+      "name": "Defence and security",
+      "summary": "Alliance integration, cyber-risk response and counternarcotics cooperation have different mechanisms.",
+      "questions": [
+        {
+          "title": "What is the connection?",
+          "text": "NORAD is a longstanding binational U.S.–Canada command. U.S.–China policy combines security restrictions with selective counternarcotics coordination; joint cyber advisories also involve Canada."
+        },
+        {
+          "title": "Why does it matter to the United States?",
+          "text": "Security measures can constrain commercial choices while cooperation addresses shared threats. Fentanyl precursor controls should not be confused with a finding that all Chinese chemical trade is illicit."
+        },
+        {
+          "title": "What does the evidence establish?",
+          "text": "Primary sources establish NORAD’s missions, a 2024 U.S.–China working group, precursor-policy developments and a joint critical-infrastructure cyber advisory."
+        },
+        {
+          "title": "What remains uncertain?",
+          "text": "These records do not establish a new bilateral defence-export total, a net employment effect, or a causal reduction in trafficking and deaths attributable to the working group."
+        }
+      ],
+      "canadaImplications": "Canada has operational and regulatory exposure through continental defence, joint cyber response and cross-border supply chains. An advisory is risk evidence rather than a quantified Canadian commercial loss."
+    },
+    {
+      "id": "investment",
+      "name": "Investment and screening",
+      "summary": "Accumulated investment and security review are separate policy channels.",
+      "questions": [
+        {
+          "title": "What is the connection?",
+          "text": "BEA measures investment stocks. CFIUS reviews covered inbound transactions; separate U.S. rules address specified outbound investment connected to China."
+        },
+        {
+          "title": "Why does it matter to the United States?",
+          "text": "The location of a foreign parent, ultimate beneficial owner and operating affiliate can differ. Regulations distinguish particular investors and technologies rather than all capital from a country."
+        },
+        {
+          "title": "What does the evidence establish?",
+          "text": "BEA country workbooks provide comparable 2020–2025 positions, financial flows and investment income for Canada and China. Treasury separately documents the outbound rules, an enforcement penalty and a 2026 proposal."
+        },
+        {
+          "title": "What remains uncertain?",
+          "text": "Annual investment positions and flows do not establish completed 2026 factory spending, a causal policy effect or net jobs. Parent-country classification differs from ultimate ownership; proposed expanded rules remain separate from the in-force rule."
+        }
+      ],
+      "canadaImplications": "Canadian excepted-state status is conditional and limited. It does not automatically clear every Canadian investment or turn a U.S. stock value into completed Canadian factory spending."
+    },
+    {
+      "id": "agreements",
+      "name": "Agreements and dialogue",
+      "summary": "USMCA, Phase One and the 30-for-30 recommendations have different legal and commercial status.",
+      "questions": [
+        {
+          "title": "What is the connection?",
+          "text": "USMCA governs covered North American trade. The 2020 Phase One agreement and the 2026 Board of Trade provide China-facing commitments and dialogue, alongside continuing restrictions."
+        },
+        {
+          "title": "Why does it matter to the United States?",
+          "text": "Commercial planning depends on tariff-line coverage, implementation steps, review procedures and the period measured. Cooperation and restrictive measures can operate at the same time."
+        },
+        {
+          "title": "What does the evidence establish?",
+          "text": "Official sources distinguish USMCA entry into force, the 2026 non-extension review outcome, specified Canada Section 338 coverage, and recommended U.S.–China product lists."
+        },
+        {
+          "title": "What remains uncertain?",
+          "text": "The USD30 billion figure is a historical product-scope reference in each direction. Trade data through August 2026 precede the September recommendations and cannot demonstrate their result."
+        }
+      ],
+      "canadaImplications": "Canadian businesses face both U.S. restrictions and potential competition from non-sensitive U.S.–China trade. Net Canadian outcomes remain a separate measurement question."
+    }
+  ],
+  "metrics": [
+    {
+      "id": "shipments",
+      "label": "Delivered trade / business"
+    },
+    {
+      "id": "supply_chain",
+      "label": "Supply-chain participation"
+    },
+    {
+      "id": "investment",
+      "label": "Investment evidence"
+    },
+    {
+      "id": "tariffs",
+      "label": "Implemented policy / commitments"
+    },
+    {
+      "id": "employment",
+      "label": "Employment evidence"
+    }
+  ],
+  "methods": [
+    "Coverage is a defined register of official and primary government sources across eight topics, not a claim to contain every policy instrument or all possible statistical series.",
+    "The goods series uses U.S. Census values in nominal USD millions and is not seasonally adjusted. U.S. exports include re-exports. Canada’s domestic-export customs series and balance-of-payments indicators use different definitions and currencies.",
+    "Annual goods charts include complete years only. The latest incomplete year is shown separately as year-to-date and compared only with the same months of the previous year. Source-reported annual totals can differ slightly from sums of rounded monthly values.",
+    "Services estimates come from the linked USTR country summaries. They cover all services, not financial services or digital services alone. Do not combine vintages or infer affiliate sales from cross-border exports.",
+    "BEA historical-cost positions are accumulated stocks. Parent-country and ultimate-owner positions are alternative classifications. Neither is completed capex or a net job count.",
+    "Policy dates distinguish announcement, publication, legal effectiveness, phased compliance and proposal. A historical tariff milestone is not a complete current landed-rate schedule. Product origin, tariff classification, exclusions and other measures matter.",
+    "The 30-for-30 framework’s referenced value is not new spending, a purchase order or an observed export gain. Goods observations through August 2026 predate the September recommendations.",
+    "USITC automotive job and revenue figures are model estimates relative to a counterfactual. They are labelled separately from observed shipments and payroll employment.",
+    "FAS and ERS agricultural estimates differ in the reviewed publications; this register uses the named FAS profiles for its commodity comparisons and preserves the alternative source as a reconciliation note. Rounded near-zero energy narratives do not replace a small positive detailed series.",
+    "No U.S. national, state, province or firm employment total is allocated from aggregate trade values. State-level jobs, net welfare, real value added, completed 2026 investment and causal policy effects are gaps unless a separately identified source establishes them.",
+    "Daily collection refreshes Census observations and checks registered source pages. A changed source flags a substantive review; it does not automatically rewrite a reviewed finding or turn a proposed rule into an implemented measure.",
+    "Canada implications are analytical inferences from the documented policy and trade channels. They are not estimates of Canadian gains or losses."
+  ],
+  "researchNotes": [
+    {
+      "title": "Revised goods vintage",
+      "sourceIds": [
+        "US01",
+        "US02",
+        "US03",
+        "US04"
+      ],
+      "note": "The live Census country tables reconcile with the rounded current USTR goods summaries. Earlier 2025 release vintages can differ; the dashboard does not mix their totals."
+    },
+    {
+      "title": "Agriculture definitions and vintages",
+      "sourceIds": [
+        "US05",
+        "US06",
+        "US07",
+        "US41"
+      ],
+      "note": "The FAS country profiles and ERS summary show different agricultural export estimates. Preserve the issuer, vintage and commodity coverage rather than averaging them."
+    },
+    {
+      "title": "Small positive LNG volume",
+      "sourceIds": [
+        "US10"
+      ],
+      "note": "Use the detailed annual LNG series (546 million cubic feet in 2025), rather than interpreting a rounded near-zero narrative as literal zero."
+    },
+    {
+      "title": "Framework implementation gap",
+      "sourceIds": [
+        "US36",
+        "US37"
+      ],
+      "note": "Both governments describe recommendations and domestic legal procedures. A completed reciprocal tariff implementation schedule was not established from these sources in this review."
+    },
+    {
+      "title": "Investment stocks differ from flows",
+      "sourceIds": [
+        "US45",
+        "US46"
+      ],
+      "note": "The 2025 China-parent U.S. position is USD19,009 million; the net financial transaction flow is minus USD89 million. These are different measures. The country workbooks supply 72 country/year/direction/measure observations, including source cell references."
+    }
+  ]
+}

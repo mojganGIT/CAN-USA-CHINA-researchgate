@@ -3,7 +3,7 @@
  const root=document.getElementById('root'),navigation=document.getElementById('site-navigation');
  const D=window.POLICY_MASTER,C=window.EXPLORER_CATALOG;
  const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const tabs=[['home','Home'],['briefing-overview','Changes across Canada'],['compare-topics','Compare Topics'],['policy-tracker','Policy Tracker'],['evidence-methods','Evidence & Methods'],['research-tools','Research Tools'],['executive-summary','Executive Summary'],['canada-implications','Canada Implications Explorer'],['policy-map','Policy Product Map'],['relationship-explorer','Relationship Explorer'],['daily-updates','Daily Updates'],['research-search','Research Search'],['your-llm','Your LLM']];
+ const tabs=[['home','Home'],['briefing-overview','Changes across Canada'],['compare-topics','Compare Topics'],['policy-tracker','Policy Tracker'],['evidence-methods','Evidence & Methods'],['us-trade','U.S. Trade & Policy'],['research-tools','Research Tools'],['executive-summary','Executive Summary'],['canada-implications','Canada Implications Explorer'],['policy-map','Policy Product Map'],['relationship-explorer','Relationship Explorer'],['daily-updates','Daily Updates'],['research-search','Research Search'],['your-llm','Your LLM']];
  const tools=[
   ['briefing-overview','01','Changes across Canada','Read the main findings and Canada’s policy choices.'],
   ['compare-topics','02','Compare Topics','Compare the U.S. and China across eight sectors and policy views.'],
@@ -50,7 +50,7 @@
  function routeId(){const id=location.hash.slice(1).split('?')[0];return id||'home';}
  function updateNavigation(){
   const active=routeId(),researchActive=active==='research-tools'||researchTools.some(([id])=>id===active);
-  navigation.innerHTML=`<nav class="hub-main-nav" aria-label="Main dashboard navigation">${tabs.slice(0,6).map(([id,label])=>`<a href="#${id}" data-hub="${id}" ${id===active||id==='research-tools'&&researchActive?'aria-current="page"':''}>${label}</a>`).join('')}</nav>${researchActive&&active!=='research-tools'?`<nav class="hub-research-nav" aria-label="Research tool tabs">${researchTools.map(([id,label])=>`<a href="#${id}" data-hub="${id}" ${id===active?'aria-current="page"':''}>${E(label)}</a>`).join('')}</nav>`:''}`;
+  navigation.innerHTML=`<nav class="hub-main-nav" aria-label="Main dashboard navigation">${tabs.slice(0,7).map(([id,label])=>`<a href="#${id}" data-hub="${id}" ${id===active||id==='research-tools'&&researchActive?'aria-current="page"':''}>${label}</a>`).join('')}</nav>${researchActive&&active!=='research-tools'?`<nav class="hub-research-nav" aria-label="Research tool tabs">${researchTools.map(([id,label])=>`<a href="#${id}" data-hub="${id}" ${id===active?'aria-current="page"':''}>${E(label)}</a>`).join('')}</nav>`:''}`;
   document.title=(tabs.find(t=>t[0]===active)?.[1]||'Policy Research')+' | Canada–U.S.–China';
  }
  function researchToolsPage(){root.innerHTML=`<div class="wrap hub-home"><div class="hub-page-heading"><p class="hub-eyebrow">RESEARCH TOOLS</p><h2>Choose a research tool.</h2><p>Open a tool below. Each has its own tab, and your regional filters carry through to the evidence views.</p></div><div class="hub-research-grid">${researchTools.map(([id,title,description])=>`<a class="hub-research-card" href="#${id}" data-hub="${id}"><h3>${E(title)} <span aria-hidden="true">→</span></h3><p>${E(description)}</p></a>`).join('')}</div></div>`;}
@@ -62,6 +62,7 @@
   else if(id==='executive-summary'||id==='briefing-overview'||id==='canada-implications')summaryPage();
   else if(id==='compare-topics')window.CanadaImpact.show('compare');
   else if(id==='policy-tracker')window.CanadaImpact.show('policy');
+  else if(id==='us-trade')window.USTrade.show();
   else if(id==='research-tools')researchToolsPage();
   else if(id==='policy-map')window.showMap();
   else if(id==='relationship-explorer')window.showExplorer();

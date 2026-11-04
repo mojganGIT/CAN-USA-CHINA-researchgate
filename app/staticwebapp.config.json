@@ -41,6 +41,24 @@
       "headers": {
         "cache-control": "no-store"
       }
+    },
+    {
+      "route": "/us-trade-statistics.json",
+      "headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "route": "/us-trade-evidence.json",
+      "headers": {
+        "cache-control": "no-cache"
+      }
+    },
+    {
+      "route": "/us-investment-statistics.json",
+      "headers": {
+        "cache-control": "no-store"
+      }
     }
   ],
   "navigationFallback": {

@@ -38,7 +38,24 @@
     "ised-isde.canada.ca",
     "agriculture.canada.ca",
     "open.canada.ca",
-    "www.pm.gc.ca"
+    "www.pm.gc.ca",
+    "www.census.gov",
+    "www.ustr.gov",
+    "www.bea.gov",
+    "apps.bea.gov",
+    "fas.usda.gov",
+    "fas-prod.azureedge.us",
+    "ers.usda.gov",
+    "www.eia.gov",
+    "media.bis.gov",
+    "www.usitc.gov",
+    "www.cfius.gov",
+    "ofac.treasury.gov",
+    "www.norad.mil",
+    "2021-2025.state.gov",
+    "content.govdelivery.com",
+    "www.help.cbp.gov",
+    "trumpwhitehouse.archives.gov"
   ],
   "hubs": [
     {

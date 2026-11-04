@@ -8,12 +8,15 @@ import {hash,documentOf,safeURL,discover,classify,validateExtraction,fetchOffici
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=async(p,fallback)=>{try{return JSON.parse(await fs.readFile(path.join(root,p),'utf8'));}catch(e){if(e.code==='ENOENT')return fallback;throw e;}};
 const config=await read('monitor/sources.json'),inventory=await read('api/master-data.json'),evidence=await read('app/evidence-records.json',null);
+const usEvidence=await read('app/us-trade-evidence.json',null),usInvestment=await read('app/us-investment-statistics.json',null);
 const c={window:{}};vm.createContext(c);vm.runInContext(await fs.readFile(path.join(root,'app/explorer-catalog.js'),'utf8'),c);const catalog=c.window.EXPLORER_CATALOG;
 const now=new Date().toISOString(),state=await read('monitor/state.json',{version:1,pages:{}}),previous=await read('app/policy-updates.json',{changes:[],lastSuccessfulRun:null});
 const feed={...previous,lastAttempt:now,scheduleUTC:config.scheduleUTC,aiEnabled:!!(process.env.POLICY_MONITOR_API_KEY&&process.env.POLICY_MONITOR_MODEL),sourcesChecked:0,sourceFailures:[],changes:previous.changes||[],workflowURL:process.env.GITHUB_SERVER_URL&&process.env.GITHUB_RUN_ID?process.env.GITHUB_SERVER_URL+'/'+process.env.GITHUB_REPOSITORY+'/actions/runs/'+process.env.GITHUB_RUN_ID:null};
 const pages=new Map(),hosts=config.allowedHosts;
 for(const r of inventory.records){try{const url=safeURL(r.url,hosts);pages.set(url,{issuer:r.relationship.startsWith('Canada')?'Canada':'United States',known:true});}catch{}}
-if(evidence)for(const source of Object.values(evidence.sources)){try{const url=safeURL(source.url,hosts);if(!/\.pdf(?:$|\?)/i.test(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}}
+if(evidence)for(const source of Object.values(evidence.sources)){try{const url=safeURL(source.url,hosts);if(!/\.(?:pdf|xlsx)(?:$|\?)/i.test(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}}
+if(usInvestment)for(const source of usInvestment.sources||[])if(source.status==='success')state.pages[source.url]={digest:source.digest,lastChecked:source.retrievedAt,lastChanged:state.pages[source.url]?.digest===source.digest?state.pages[source.url].lastChanged:now,title:'BEA '+source.direction+' investment country workbook'};
+if(usEvidence)for(const source of Object.values(usEvidence.sources)){try{const url=safeURL(source.url,hosts);if(!/\.(?:pdf|xlsx)(?:$|\?)/i.test(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}}
 // Revisit recently discovered publications so later amendments are observable too.
 for(const [url,old] of Object.entries(state.pages).filter(([url,p])=>!pages.has(url)&&Date.parse(p.lastChanged||0)>Date.now()-30*86400000).sort((a,b)=>(a[1].lastChecked||'').localeCompare(b[1].lastChecked||'')).slice(0,config.maxTrackedPagesPerRun||20)){
  try{pages.set(safeURL(url,hosts),{issuer:old.issuer||'',known:true});}catch{}
@@ -49,9 +52,11 @@ for(const [url,meta] of pages){
 }
 feed.changes=feed.changes.sort((a,b)=>b.detectedAt.localeCompare(a.detectedAt)).slice(0,200);
 if(evidence)feed.assessmentReview=assessmentReview(evidence,state,feed.sourceFailures,previous.assessmentReview);
+if(usEvidence)feed.usTradeReview=assessmentReview(usEvidence,state,feed.sourceFailures,previous.usTradeReview);
 feed.aiCalls=calls;feed.lastRunStatus=successfulPages===0?'failed':feed.sourceFailures.length?'partial':'success';
 if(successfulPages>0)feed.lastSuccessfulRun=now;
 await fs.mkdir(path.join(root,'monitor'),{recursive:true});
 for(const [p,v]of [['monitor/state.json',state],['app/policy-updates.json',feed],['api/policy-updates.json',feed]])await fs.writeFile(path.join(root,p),JSON.stringify(v,null,2)+'\n');
 console.log(JSON.stringify({status:feed.lastRunStatus,sourcesChecked:feed.sourcesChecked,failures:feed.sourceFailures.length,totalObservations:feed.changes.length,aiEnabled:feed.aiEnabled,aiCalls:calls}));
 if(successfulPages===0)process.exitCode=1;
+

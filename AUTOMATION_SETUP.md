@@ -39,3 +39,7 @@ Tests: `npm run evidence:validate` and `npm test`. See `CANADA_OUTCOMES.md` for 
 ## Provincial statistics
 
 The same daily workflow now checks Statistics Canada WDS table 12-10-0175-01 before the source scan and publishes `app/regional-statistics.json`. The map, value bars and regional tables read the new vintage when published. Failed retrievals preserve the last valid vintage and expose a failure label. Data availability currently extends through August 2026. These monthly domestic-export observations are separate from the reviewed 3 November assessment; monitoring does not advance its substantive review date. See CANADA_OUTCOMES.md for coordinate matching, product scope, calculation rules and gaps. No LLM key is needed for this statistical collector.
+
+## U.S. trade and investment feeds
+
+The daily workflow also collects U.S. Census goods trade with Canada/China and the official BEA 2020–2025 detailed-country investment workbooks. It publishes the two U.S. statistical feeds and source-review flags for the reviewed U.S. register. See US_TRADE.md for measurement definitions, parser validation, retained vintages and limits. Neither collector requires a paid model or a customer API key.
