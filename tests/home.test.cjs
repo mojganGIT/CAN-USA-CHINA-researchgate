@@ -12,10 +12,21 @@ window.showExplorer=()=>{location.hash='#relationship-explorer?topic=agriculture
 window.CanadaImpact={data:null,mount(view,id){node(id).innerHTML='IMPACT '+view;},show(view){node('root').innerHTML='IMPACT '+view;}};
 vm.runInContext(fs.readFileSync(path.join(dir,'home.js'),'utf8'),ctx,{filename:'home.js'});
 const hub=window.HomeHub;
-assert(hub);assert.equal(hub.tabs.length,10);assert.equal(hub.tools.length,8);
+assert(hub);assert.equal(hub.tabs.length,12);assert.equal(hub.tools.length,11);
 assert(node('root').innerHTML.includes('All sections, one home.'));
-assert.equal((node('site-navigation').innerHTML.match(/data-hub=/g)||[]).length,10);
+assert.equal((node('site-navigation').innerHTML.match(/data-hub=/g)||[]).length,12);
 for(const [id]of hub.tabs){assert(node('site-navigation').innerHTML.includes('href="#'+id+'"'));}
+const initialHome=hub.homeHTML();
+assert(initialHome.includes('class="hub-hero"'));assert(initialHome.includes('Canada’s policy choices.'));
+assert(initialHome.indexOf('id="hub-home-title"')<initialHome.indexOf('id="hub-region-explorer"'));
+assert(initialHome.indexOf('id="hub-sections-title"')<initialHome.indexOf('id="hub-region-explorer"'));
+assert(initialHome.indexOf('id="hub-topics-title"')<initialHome.indexOf('id="hub-region-explorer"'));
+assert.equal((initialHome.match(/id="hub-live-status"/g)||[]).length,1);
+assert.equal((initialHome.match(/id="hub-region-explorer"/g)||[]).length,1);
+for(const [id]of hub.tabs.filter(([id])=>id!=='home'))assert(initialHome.includes('data-hub="'+id+'"'));
+assert.equal((initialHome.match(/class="hub-topic"/g)||[]).length,8);
+assert(initialHome.includes('data-hub="compare-topics?topic=technology"'));
+assert(node('site-navigation').innerHTML.includes('data-hub="home" aria-current="page">Home</a>'));
 assert(hub.homeHTML().includes('Source first indexed'));assert(!hub.homeHTML().includes('<script>x'));
 assert(hub.statusHTML().includes('40'));assert(hub.statusHTML().includes('Partial coverage'));
 assert(hub.statusHTML({...feed,lastSuccessfulRun:'2000-01-01'}).includes('Check overdue'));
@@ -23,7 +34,7 @@ assert.equal((hub.topicsHTML().match(/class="hub-topic"/g)||[]).length,8);
 for(const [id]of hub.tabs){
  hub.navigate(id);assert(node('site-navigation').innerHTML.includes('aria-current="page"'));assert(node('root').innerHTML.length>0);
  if(id==='home')assert(node('root').innerHTML.includes('hub-home-title'));
- if(id==='executive-summary')assert.equal(node('root').innerHTML,'IMPACT overview');
+ if(['executive-summary','briefing-overview','canada-implications'].includes(id))assert.equal(node('root').innerHTML,'IMPACT overview');
  if(id==='compare-topics')assert.equal(node('root').innerHTML,'IMPACT compare');
  if(id==='policy-tracker')assert.equal(node('root').innerHTML,'IMPACT policy');
  if(id==='policy-map'){assert.equal((node('root').innerHTML.match(/class="mapcell"/g)||[]).length,21);assert(node('root').innerHTML.includes('data-legacy-record="live-auto-test-Canada-USA"'));assert(!node('root').innerHTML.includes('data-legacy-record="-1"'));}
@@ -34,9 +45,12 @@ for(const [id]of hub.tabs){
 }
 assert(window.LegacyPolicy.results('customs').some(r=>r.live));assert.equal(window.POLICY_MASTER.records.length,22);
 feed.changes[0].title='A later daily source revision';hub.refreshLiveSections();assert(node('hub-latest').innerHTML.includes('A later daily source revision'));assert.equal(JSON.stringify(window.POLICY_MASTER.executiveSummary),original);
-hub.navigate('unknown');assert.equal(location.hash,'#home');assert(node('root').innerHTML.includes('hub-home-title'));
+hub.navigate('unknown');assert.equal(location.hash,'#home');assert(node('root').innerHTML.includes('hub-home-title'));assert.equal(node('hub-region-explorer').innerHTML,'IMPACT overview');
+window.CanadaImpact.data={};window.CanadaImpact.filterQuery=()=>"region=ON&topic=vehicles&relationship=Canada-USA&period=2026&metric=all&layer=trade";
+for(const id of ['home','briefing-overview','canada-implications']){hub.navigate(id);assert(location.hash.startsWith('#'+id+'?region=ON&topic=vehicles'));}
+window.CanadaImpact.data=null;
 const input=node('q');window.showResearchSearch();input.value='fentanyl';window.ask();assert(node('ans').innerHTML.includes('Opioids'));
 const index=fs.readFileSync(path.join(dir,'index.html'),'utf8');assert(index.includes('id="site-navigation"'));assert(index.includes('id="root" tabindex="-1"'));assert(index.includes('home.js'));assert(index.includes('home.css'));
 const live=fs.readFileSync(path.join(dir,'agent-tools.js'),'utf8');assert(live.includes('5*60*1000'));assert(live.includes("cache:'no-store'"));assert(live.includes("'visibilitychange'"));assert(!/localStorage|sessionStorage/.test(live));
-console.log(JSON.stringify({passed:true,navigationTabs:10,homeSections:8,topicLinks:8,routes:'all home destinations',daily:'live feed refreshes home and executive developments; map and search include labelled observations',preservation:'curated executive assessment and 22 original records retained',browserQA:'not rerun for the provincial statistics addition'}));
+console.log(JSON.stringify({passed:true,navigationTabs:12,homeSections:11,topicLinks:8,routes:'all home destinations',daily:'live feed refreshes home and executive developments; map and search include labelled observations',preservation:'curated executive assessment and 22 original records retained',browserQA:'live and preview access restricted by network/saved browser permissions'}));
 
