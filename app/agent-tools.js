@@ -26,13 +26,13 @@
     const selection=window.PolicyExplorer?.model();
     const scoped=root.querySelector('#byo-scope').checked;
     const recordIds=scoped?(evidenceSelection?.ids||selection?.items?.map(r=>r.id)||[]):[];
-    const response=await fetch('/api/llm',{method:'POST',credentials:'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify({provider,model,apiKey:key,question,recordIds,requireSelection:scoped}),signal:AbortSignal.timeout(45000)});
+    const response=await fetch('/api/llm',{method:'POST',credentials:'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify({provider,model,apiKey:key,question,recordIds,requireSelection:scoped,language:window.DashboardI18n?.language||'en',retrievalQuery:(window.DashboardI18n?.searchQuery(question)||'').slice(0,500)}),signal:AbortSignal.timeout(45000)});
     const data=await response.json();if(!response.ok)throw new Error(data.error||'The request failed. Sign in and check your provider settings.');
     answer=data.answer;answerSources=data.sources;warning=data.warning;root.querySelector('#byo-answer').innerHTML=answerHTML();status.textContent='Briefing generated. Check the source IDs and dates below.';
    }catch(e){status.textContent=e.name==='TimeoutError'?'Request timed out. Try again.':e.message;}finally{button.disabled=false;}
   });
  }
- function answerHTML(){return answer?`<h3>Your model’s briefing</h3><p class="note">${E(warning)}</p><div class="automation-answer">${E(answer)}</div><h4>Evidence supplied to the model</h4><ul>${answerSources.map(r=>`<li>[${E(r.id)}] ${safeLink(r.url,r.title)} · ${E(r.classification)}</li>`).join('')}</ul>`:'';}
+ function answerHTML(){return answer?`<h3>Your model’s briefing</h3><p class="note">${E(warning)}</p><div class="automation-answer" translate="no">${E(answer)}</div><h4>Evidence supplied to the model</h4><ul>${answerSources.map(r=>`<li>[${E(r.id)}] ${safeLink(r.url,r.title)} · ${E(r.classification)}</li>`).join('')}</ul>`:'';}
  function show(view){if(view==='updates')updates();else if(view==='llm')llm();else if(view==='explorer')window.showExplorer();}
  document.addEventListener('click',e=>{const b=e.target.closest('[data-agent-view]');if(b)show(b.dataset.agentView);});
  window.addEventListener('hashchange',()=>{if(location.hash==='#daily-updates')updates();if(location.hash==='#your-llm')llm();});

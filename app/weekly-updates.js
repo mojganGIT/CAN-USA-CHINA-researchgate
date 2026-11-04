@@ -3,7 +3,7 @@
  const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  let digest=null,config=null,host=null,promise,error='';
  const url='https://ambitious-field-09c66cd10.1.azurestaticapps.net/weekly-updates.xml';
- const date=s=>s?new Intl.DateTimeFormat('en-CA',{dateStyle:'medium',timeZone:'America/Toronto'}).format(new Date(s)):'Not recorded';
+ const date=s=>s?new Intl.DateTimeFormat('en-CA',{dateStyle:'medium',timeZone:'America/Toronto'}).format(new Date(s.length===10?s+'T12:00:00Z':s)):'Not recorded';
  const link=(u,label)=>{try{const v=new URL(u);return v.protocol==='https:'?`<a href="${E(v.href)}" target="_blank" rel="noopener noreferrer">${E(label)} ↗</a>`:'';}catch{return '';}};
  const story=s=>`<div class="policy-story"><dl><dt>What changed?</dt><dd>${E(s.changed)}</dd><dt>Why does it matter to Canada?</dt><dd>${E(s.why)}</dd><dt>How could Canada and its provinces be affected?</dt><dd>${E(s.regions)}</dd></dl></div>`;
  function render(){if(!host||host.isConnected===false||location.hash.split('?')[0]!=='#weekly-updates')return;const issues=digest?.issues||[],id=new URLSearchParams(location.hash.split('?')[1]||'').get('issue'),issue=issues.find(i=>i.id===id)||issues[0];

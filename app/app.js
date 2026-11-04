@@ -10,7 +10,7 @@
   }return [...D.records,...live];
  }
  function recordKey(r){return r._recordKey||String(D.records.indexOf(r));}
- function norm(s){s=String(s||'').toLowerCase();for(const [a,b] of Object.entries(D.aliases))s=s.split(a).join(b);return s.normalize('NFKD').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();}
+ function norm(s){s=String(window.DashboardI18n?.searchQuery(s)||s||'').toLowerCase();for(const [a,b] of Object.entries(D.aliases))s=s.split(a).join(b);return s.normalize('NFKD').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();}
  function results(q){const x=norm(q);if(!x)return[];return allRecords().map(r=>{const n=norm([r.relationship,r.field,r.year,r.title,r.summary,r.source,...r.aliases].join(' '));let score=n.includes(x)?100:0;for(const w of x.split(' '))if(w.length>1&&n.includes(w))score+=5;return{score,r};}).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).map(x=>x.r);}
  function source(r){return '<a class="source" target="_blank" rel="noopener noreferrer" href="'+esc(r.url)+'">Open primary source <span class="sr-only">(new tab)</span></a>';}
  function card(r){return '<article class="card"><h3><button type="button" class="record-title" data-legacy-record="'+recordKey(r)+'">'+esc(r.title)+'</button></h3><div class="meta">'+esc(r.yearLabel||r.year)+' | '+esc(r.relationship)+' | '+esc(r.field)+'</div><p>'+esc(r.summary)+'</p><span class="badge">'+esc(r.source)+'</span>'+(r.live?'<p class="note">'+esc(r.status)+'</p>':'')+(window.PolicyNarrative?.compact({...r,unreviewed:r.live})||'')+'<p>'+source(r)+'</p></article>';}

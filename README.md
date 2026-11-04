@@ -23,3 +23,5 @@ Validation: `npm run evidence:validate && npm test`.
 The `#us-trade` tab compares the United States’ trade and policy approaches toward Canada and China across eight topics. It provides Census monthly/annual goods data, services and investment snapshots, policy milestones and a source-searchable evidence register. See US_TRADE.md for definitions, provenance, update behaviour and verification.
 
 Policy explanations and weekly subscriptions: see [POLICY_READING_AND_WEEKLY_UPDATES.md](POLICY_READING_AND_WEEKLY_UPDATES.md). The RSS feed works now; email delivery requires a configured newsletter service.
+
+The navy/gold/beige dashboard supports English, French and Simplified Chinese. See [TRILINGUAL_DASHBOARD.md](TRILINGUAL_DASHBOARD.md) for language selection, translation maintenance, data preservation and verification.

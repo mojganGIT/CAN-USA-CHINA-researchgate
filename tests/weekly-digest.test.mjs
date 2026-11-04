@@ -24,6 +24,6 @@ test('weekly tab handles unavailable email, escaping and a late response after n
  const nodes=new Map(),node=id=>{if(!nodes.has(id))nodes.set(id,{innerHTML:'',isConnected:true});return nodes.get(id);},location={hash:'#weekly-updates'},events={};
  const digest=buildWeeklyDigest({now:new Date('2026-11-04'),canada,us});digest.issues[0].lead='<script>bad()</script>';
  const ctx={window:{addEventListener(){}},document:{getElementById:node,addEventListener:(n,f)=>events[n]=f},location,URL,URLSearchParams,Intl,Date,fetch:async url=>({ok:true,json:async()=>url.startsWith('/api')?{emailAvailable:false}:digest})};vm.createContext(ctx);vm.runInContext(read('app/weekly-updates.js'),ctx);ctx.window.WeeklyUpdates.show();await ctx.window.WeeklyUpdates.ready;
- let html=node('root').innerHTML;assert(html.includes('weekly-updates.xml'));assert(html.includes('Email signup is not connected'));assert(html.includes('&lt;script&gt;'));assert(!html.includes('<script>'));assert(!html.includes('type="email"'));
+ let html=node('root').innerHTML;assert(html.includes('weekly-updates.xml'));assert(html.includes('reviewed Nov 3, 2026'));assert(html.includes('Email signup is not connected'));assert(html.includes('&lt;script&gt;'));assert(!html.includes('<script>'));assert(!html.includes('type="email"'));
  ctx.window.WeeklyUpdates.show();location.hash='#compare-topics';node('root').innerHTML='CANADIAN COMPARISON';await ctx.window.WeeklyUpdates.ready;assert.equal(node('root').innerHTML,'CANADIAN COMPARISON');
 });

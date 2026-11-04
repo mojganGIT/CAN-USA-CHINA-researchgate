@@ -16,13 +16,15 @@ export async function answerCustomer(body,{inventory,updates,evidence,fetchImpl=
  if(typeof body.question!=='string'||body.question.trim().length<5||body.question.length>5000)return {status:400,jsonBody:{error:'Enter a question between 5 and 5,000 characters.'}};
  if(body.recordIds!==undefined&&(!Array.isArray(body.recordIds)||body.recordIds.length>100||body.recordIds.some(x=>typeof x!=='string')))return {status:400,jsonBody:{error:'Invalid evidence selection.'}};
  if(body.requireSelection===true&&!body.recordIds?.length)return {status:422,jsonBody:{error:'The selected filters contain no evidence to explain. Choose another topic or region.'}};
- const context=selectContext(body.question,body.recordIds,inventory,updates,evidence);
+ const retrievalQuery=typeof body.retrievalQuery==='string'?body.retrievalQuery.slice(0,500):'';
+ const context=selectContext(body.question+' '+retrievalQuery,body.recordIds,inventory,updates,evidence);
  if(!context.length)return {status:422,jsonBody:{error:'No matching source evidence is available. Select a topic or ask a more specific policy question.'}};
  try{
-  const out=await complete({provider:body.provider,apiKey:body.apiKey,model:body.model,system:INSTRUCTIONS,input:JSON.stringify({question:body.question,evidence:context}),maxTokens:1400,fetchImpl});
+  const out=await complete({provider:body.provider,apiKey:body.apiKey,model:body.model,system:INSTRUCTIONS+' Respond in '+(body.language==='fr'?'French':body.language==='zh-Hans'?'Simplified Chinese':'English')+'. Keep source record IDs exactly unchanged.',input:JSON.stringify({question:body.question,evidence:context}),maxTokens:1400,fetchImpl});
   const citations=[...out.text.matchAll(/\[([^\]]+)\]/g)].map(m=>m[1]);
   const unknown=[...new Set(citations.filter(id=>!context.some(r=>r.id===id)))];
   if(context.some(r=>r.snapshotVersion)&&(!citations.length||unknown.length))return {status:422,jsonBody:{error:'The model returned missing or unsupported record citations. No explanation was published; try a more specific question.'}};
   return {status:200,jsonBody:{answer:out.text,sources:context,provider:body.provider,model:body.model,warning:unknown.length?'Some model citations do not match the supplied evidence. Check the listed sources.':'AI interpretation; check the supplied source records and their dates.'}};
  }catch(e){const known=['Unsupported provider.','A valid provider API key is required.','Enter a model ID from your provider.','Provider rejected the key or model access.','Provider rate or spending limit reached.','Provider request failed.','The provider returned no answer. Try another model or a shorter question.'];return {status:502,jsonBody:{error:e.name==='TimeoutError'?'Provider timed out. Please try again.':known.includes(e.message)?e.message:'Provider connection failed. Check your settings and try again.'}};}
 }
+
