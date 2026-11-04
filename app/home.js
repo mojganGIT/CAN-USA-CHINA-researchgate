@@ -3,9 +3,9 @@
  const root=document.getElementById('root'),navigation=document.getElementById('site-navigation');
  const D=window.POLICY_MASTER,C=window.EXPLORER_CATALOG;
  const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const tabs=[['home','Home'],['briefing-overview','Briefing Overview'],['compare-topics','Compare Topics'],['policy-tracker','Policy Tracker'],['evidence-methods','Evidence & Methods'],['research-tools','Research Tools'],['executive-summary','Executive Summary'],['canada-implications','Canada Implications Explorer'],['policy-map','Policy Product Map'],['relationship-explorer','Relationship Explorer'],['daily-updates','Daily Updates'],['research-search','Research Search'],['your-llm','Your LLM']];
+ const tabs=[['home','Home'],['briefing-overview','Changes across Canada'],['compare-topics','Compare Topics'],['policy-tracker','Policy Tracker'],['evidence-methods','Evidence & Methods'],['research-tools','Research Tools'],['executive-summary','Executive Summary'],['canada-implications','Canada Implications Explorer'],['policy-map','Policy Product Map'],['relationship-explorer','Relationship Explorer'],['daily-updates','Daily Updates'],['research-search','Research Search'],['your-llm','Your LLM']];
  const tools=[
-  ['briefing-overview','01','Briefing Overview','Read the main findings and Canada’s policy choices.'],
+  ['briefing-overview','01','Changes across Canada','Read the main findings and Canada’s policy choices.'],
   ['compare-topics','02','Compare Topics','Compare the U.S. and China across eight sectors and policy views.'],
   ['policy-tracker','03','Policy Tracker','Follow policy changes, effective dates and implementation.'],
   ['evidence-methods','04','Evidence & Methods','Check the original sources, definitions and limitations.']
