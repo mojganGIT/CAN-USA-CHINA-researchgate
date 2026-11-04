@@ -5,7 +5,7 @@
  const attribution={not_established:'Arrangement effect not established',pre_existing_project:'Existing project; new-arrangement effect not established',predates_arrangement:'Predates the new arrangements',policy_only:'Policy implementation; commercial effect not established'};
  const stages={signed:'Signed',in_force:'In force',implemented_decision:'Decision implemented',meeting_held:'Meeting held',published_framework:'Framework published',review_outcome:'Review outcome recorded'};
  function normalize(data,state={}){
-  return {region:state.region==='CA'||data.regions[state.region]?state.region:defaults.region,topic:state.topic==='all'||data.assessments.some(t=>t.id===state.topic)?state.topic:'all',relationship:data.relationships.includes(state.relationship)?state.relationship:'all',period:['all','2026','2025','2024'].includes(state.period)?state.period:'all',metric:[...data.metrics.map(m=>m.id),'resilience'].includes(state.metric)?state.metric:'all',layer:['summary','observed','exposure','policy'].includes(state.layer)?state.layer:'summary'};
+  return {region:state.region==='CA'||data.regions[state.region]?state.region:defaults.region,topic:state.topic==='all'||data.assessments.some(t=>t.id===state.topic)?state.topic:'all',relationship:data.relationships.includes(state.relationship)?state.relationship:'all',period:['all','2026','2025','2024'].includes(state.period)?state.period:'all',metric:[...data.metrics.map(m=>m.id),'resilience'].includes(state.metric)?state.metric:'all',layer:['summary','observed','exposure','policy','trade'].includes(state.layer)?state.layer:'summary'};
  }
  function recordMatches(record,state,{ignoreRegion=false,ignoreMetric=false,ignoreRelationship=false}={}){
   if(!ignoreRegion&&state.region!=='CA'&&record.regions.length&&!record.regions.includes(state.region))return false;
@@ -38,3 +38,4 @@
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
  if(global)global.ImpactModel=api;
 })(typeof window==='undefined'?null:window);
+

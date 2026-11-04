@@ -23,6 +23,12 @@
       "headers": {
         "cache-control": "no-cache"
       }
+    },
+    {
+      "route": "/regional-statistics.json",
+      "headers": {
+        "cache-control": "no-store"
+      }
     }
   ],
   "navigationFallback": {

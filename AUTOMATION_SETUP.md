@@ -34,3 +34,8 @@ The endpoint accepts bounded questions and record selections, supplies repositor
 The existing Azure workflow now deploys `api/` as managed HTTP Functions with Node 22. `api/package.json` supplies the Functions entrypoint. `/api/llm` requires the authenticated role; existing public pages remain public. No Azure subscription upgrade, paid service provisioning or stored owner model key is required for customer BYO requests. The daily schedule runs in GitHub Actions, because managed Static Web Apps Functions support HTTP triggers rather than timer triggers.
 
 Tests: `npm run evidence:validate` and `npm test`. See `CANADA_OUTCOMES.md` for the shared-record schema, regional map and source-review workflow. Tests use mock provider responses, not paid API calls. Browser rendering, sign-in and live provider billing calls require end-to-end verification with an account.
+
+
+## Provincial statistics
+
+The same daily workflow now checks Statistics Canada WDS table 12-10-0175-01 before the source scan and publishes `app/regional-statistics.json`. The map, value bars and regional tables read the new vintage when published. Failed retrievals preserve the last valid vintage and expose a failure label. Data availability currently extends through August 2026. These monthly domestic-export observations are separate from the reviewed 3 November assessment; monitoring does not advance its substantive review date. See CANADA_OUTCOMES.md for coordinate matching, product scope, calculation rules and gaps. No LLM key is needed for this statistical collector.
