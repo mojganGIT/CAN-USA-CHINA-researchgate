@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "status": "success",
-  "lastAttempt": "2026-11-04T05:07:24.338762+00:00",
+  "lastAttempt": "2026-11-04T12:00:36.604061+00:00",
   "basis": "BEA detailed-country workbooks, USD million; historical-cost positions, financial transactions and investment income, 2020\u20132025. Immediate counterpart / foreign-parent country; not ultimate ownership or completed capex. Disclosure flags remain in rawValue.",
   "sources": [
     {
@@ -9,8 +9,8 @@
       "sourceId": "US45",
       "url": "https://apps.bea.gov/international/xls/usdia-current/usdia-detailedcountry-2020-2025.xlsx",
       "status": "success",
-      "retrievedAt": "2026-11-04T05:07:24.338762+00:00",
-      "lastAttempt": "2026-11-04T05:07:24.338762+00:00",
+      "retrievedAt": "2026-11-04T12:00:36.604061+00:00",
+      "lastAttempt": "2026-11-04T12:00:36.604061+00:00",
       "digest": "35627a9117698c818f01b0f0059e7ad6aebabe8799fd3d7b292dffb37c5c2ef3",
       "records": [
         {
@@ -380,8 +380,8 @@
       "sourceId": "US46",
       "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-detailed-country-2020-2025.xlsx",
       "status": "success",
-      "retrievedAt": "2026-11-04T05:07:24.338762+00:00",
-      "lastAttempt": "2026-11-04T05:07:24.338762+00:00",
+      "retrievedAt": "2026-11-04T12:00:36.604061+00:00",
+      "lastAttempt": "2026-11-04T12:00:36.604061+00:00",
       "digest": "0e70a78e1b8e3a33f0aee45c6e710ceb70340fbec5d81d9bed344814d899de4e",
       "records": [
         {
