@@ -27,6 +27,8 @@ jobs:
         run: |
           node scripts/validate-evidence.mjs
           npm test
+      - name: Refresh official provincial trade series
+        run: node monitor/refresh-regional-stats.mjs
       - name: Observe official sources and extract supported policy changes
         id: scan
         continue-on-error: true
@@ -39,7 +41,8 @@ jobs:
         run: |
           git config user.name 'Policy Monitor'
           git config user.email 'policy-monitor@users.noreply.github.com'
-          git add monitor/state.json app/policy-updates.json api/policy-updates.json
+          git add monitor/state.json app/policy-updates.json api/policy-updates.json app/regional-statistics.json
+          if [ -f monitor/regional-series-metadata.json ]; then git add monitor/regional-series-metadata.json; fi
           if ! git diff --cached --quiet; then
             git commit -m 'Update daily policy source observations'
             git pull --rebase origin main
@@ -48,3 +51,4 @@ jobs:
       - name: Report source outage
         if: steps.scan.outcome == 'failure'
         run: echo 'No monitored source could be read. Failure status was saved without advancing the last successful check.'
+
