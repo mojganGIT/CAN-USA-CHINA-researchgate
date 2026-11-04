@@ -7214,5 +7214,109 @@
  "LOADING U.S. TRADE EVIDENCE…": [
   "CHARGEMENT DES DONNÉES COMMERCIALES AMÉRICAINES…",
   "正在加载美国贸易证据……"
+ ],
+ "ABOUT THE DASHBOARD": [
+  "À PROPOS DU TABLEAU DE BORD",
+  "关于本仪表板"
+ ],
+ "Understand the dashboard, its Canadian purpose and how to use it.": [
+  "Comprendre le tableau de bord, sa vocation canadienne et son utilisation.",
+  "了解仪表板、其加拿大视角及使用方法。"
+ ],
+ "UNDERSTAND THE DASHBOARD, ITS CANADIAN PURPOSE AND HOW TO USE IT.": [
+  "COMPRENDRE LE TABLEAU DE BORD, SA VOCATION CANADIENNE ET SON UTILISATION.",
+  "了解仪表板、其加拿大视角及使用方法。"
+ ],
+ "One workspace to understand how Canada’s relationships with the United States and China shape its policy choices.": [
+  "Un espace de recherche pour comprendre comment les relations du Canada avec les États-Unis et la Chine façonnent ses choix de politique.",
+  "在同一个研究空间中，理解加拿大与美国及中国的关系如何影响其政策选择。"
+ ],
+ "What is this dashboard?": [
+  "Qu’est-ce que ce tableau de bord ?",
+  "这个仪表板是什么？"
+ ],
+ "WHAT IS THIS DASHBOARD?": [
+  "QU’EST-CE QUE CE TABLEAU DE BORD ?",
+  "这个仪表板是什么？"
+ ],
+ "Canada–U.S.–China Policy Intelligence is a research dashboard for comparing economic and security relationships across eight topics, with evidence from 2018–2026.": [
+  "Veille stratégique Canada–États-Unis–Chine est un tableau de bord de recherche comparant les relations économiques et sécuritaires selon huit thèmes, à partir de données de 2018 à 2026.",
+  "“加拿大—美国—中国政策观察”是一个研究仪表板，依据2018至2026年的证据，围绕八个主题比较经济与安全关系。"
+ ],
+ "Changes in U.S. and Chinese demand, market access and security policy can shape Canadian opportunities and constraints. The dashboard helps users examine those connections nationally and across provinces and territories.": [
+  "L’évolution de la demande américaine et chinoise, de l’accès aux marchés et des politiques de sécurité peut modifier les possibilités et contraintes canadiennes. Le tableau de bord aide à examiner ces liens à l’échelle nationale, provinciale et territoriale.",
+  "美国与中国的需求、市场准入及安全政策变化，可能影响加拿大的机会与约束。仪表板帮助用户从全国及各省、地区层面考察这些联系。"
+ ],
+ "What is it used for?": [
+  "À quoi sert-il ?",
+  "它有什么用途？"
+ ],
+ "WHAT IS IT USED FOR?": [
+  "À QUOI SERT-IL ?",
+  "它有什么用途？"
+ ],
+ "Use it to prepare policy briefs, compare sectors and relationships, track implemented measures and examine trends. It separates announcements, observed results and unresolved questions so comparisons stay grounded in evidence.": [
+  "Utilisez-le pour préparer des notes de politique, comparer secteurs et relations, suivre les mesures appliquées et examiner les tendances. Il distingue annonces, résultats observés et questions ouvertes pour étayer les comparaisons.",
+  "可用于撰写政策简报、比较行业与关系、追踪已实施措施及分析趋势。仪表板区分公告、已观测结果和未解决问题，使比较有证据依据。"
+ ],
+ "Who can use it?": [
+  "À qui s’adresse-t-il ?",
+  "谁可以使用？"
+ ],
+ "WHO CAN USE IT?": [
+  "À QUI S’ADRESSE-T-IL ?",
+  "谁可以使用？"
+ ],
+ "Policy advisors, governments, chambers of commerce, businesses, industry associations, researchers and students can use the same source-linked workspace to investigate Canadian policy questions.": [
+  "Conseillers en politiques, gouvernements, chambres de commerce, entreprises, associations sectorielles, chercheurs et étudiants peuvent utiliser cet espace documenté pour étudier les questions de politique canadienne.",
+  "政策顾问、政府、商会、企业、行业协会、研究人员及学生，都可以利用这个可追溯来源的研究空间考察加拿大政策问题。"
+ ],
+ "Why should users choose it?": [
+  "Pourquoi l’utiliser ?",
+  "为什么使用这个仪表板？"
+ ],
+ "WHY SHOULD USERS CHOOSE IT?": [
+  "POURQUOI L’UTILISER ?",
+  "为什么使用这个仪表板？"
+ ],
+ "It brings dispersed sources into one comparative view. Consistent questions, dated records and clear limits help users judge what changed, why Canada should care and which regional effects are measured or still uncertain.": [
+  "Il rassemble des sources dispersées dans une vue comparative. Des questions cohérentes, des fiches datées et des limites explicites aident à comprendre les changements, leur importance pour le Canada et les effets régionaux mesurés ou incertains.",
+  "它将分散来源汇集到同一比较视图。一致的问题、有日期的记录及明确限制，帮助用户判断变化、加拿大为何应关注，以及哪些地区影响已测量或仍不确定。"
+ ],
+ "What will users find?": [
+  "Que peut-on y trouver ?",
+  "用户能找到什么？"
+ ],
+ "WHAT WILL USERS FIND?": [
+  "QUE PEUT-ON Y TROUVER ?",
+  "用户能找到什么？"
+ ],
+ "Users can find eight topic views, a Canada map with regional evidence, U.S. trade comparisons, policy timelines and original sources. Daily source checks, weekly briefings and optional LLM explanations of reviewed Canadian evidence support follow-up.": [
+  "Vous y trouverez huit thèmes, une carte canadienne documentée, des comparaisons commerciales américaines, des chronologies et les sources originales. La veille quotidienne, les notes hebdomadaires et les explications facultatives par modèle des données canadiennes examinées facilitent le suivi.",
+  "用户可找到八个主题视图、配有地区证据的加拿大地图、美国贸易比较、政策时间线及原始来源。每日来源检查、每周简报，以及对已审阅加拿大证据的可选大语言模型解释，支持进一步研究。"
+ ],
+ "Daily monitoring detects source changes; each dataset keeps its own reference period and review status.": [
+  "La veille quotidienne détecte les changements des sources ; chaque jeu de données conserve sa période de référence et son statut d’examen.",
+  "每日监测检测来源变化；每个数据集保留自己的参考期及审阅状态。"
+ ],
+ "DAILY MONITORING DETECTS SOURCE CHANGES; EACH DATASET KEEPS ITS OWN REFERENCE PERIOD AND REVIEW STATUS.": [
+  "LA VEILLE QUOTIDIENNE DÉTECTE LES CHANGEMENTS DES SOURCES ; CHAQUE JEU DE DONNÉES CONSERVE SA PÉRIODE DE RÉFÉRENCE ET SON STATUT D’EXAMEN.",
+  "每日监测检测来源变化；每个数据集保留自己的参考期及审阅状态。"
+ ],
+ "Compare the eight topics": [
+  "Comparer les huit thèmes",
+  "比较八个主题"
+ ],
+ "COMPARE THE EIGHT TOPICS": [
+  "COMPARER LES HUIT THÈMES",
+  "比较八个主题"
+ ],
+ "Inspect the evidence and methods": [
+  "Examiner les données et méthodes",
+  "查看证据与方法"
+ ],
+ "INSPECT THE EVIDENCE AND METHODS": [
+  "EXAMINER LES DONNÉES ET MÉTHODES",
+  "查看证据与方法"
  ]
 };if(typeof module!=="undefined"&&module.exports)module.exports=data;if(g)g.POLICY_TRANSLATIONS_UI=data;})(typeof window==="undefined"?null:window);
