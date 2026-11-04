@@ -46,10 +46,10 @@ test('regional statistics render 13 selectable regions, dated values and truthfu
  for(const [partner,value] of [['All countries',100],['United States',80],['China',10]])series.push({region:'Ontario',topic:'all',partner,points:[point(1,value)]});
  const data={mappingVersion:2,status:'success',series,retrievedAt:'2026-11-04T03:46:00Z'},events=[];
  const window={RegionalTradeModel:M,addEventListener(){},dispatchEvent:e=>events.push(e.type)};
- const context={window,Intl,Date,Event,console,fetch:async()=>({ok:true,json:async()=>data})};vm.createContext(context);vm.runInContext(read('app/regional-trade.js'),context);
+ const context={window,Intl,Date,Event,console,fetch:async()=>({ok:true,json:async()=>data})};vm.createContext(context);vm.runInContext(read('app/policy-narrative.js'),context);vm.runInContext(read('app/regional-trade.js'),context);
  await window.RegionalTrade.refresh();await new Promise(resolve=>setImmediate(resolve));
  const state={region:'ON',topic:'all',relationship:'all',period:'2026',layer:'trade'},html=window.RegionalTrade.html(state,regions);
- assert.equal((html.match(/data-impact-region=/g)||[]).length,14);assert(html.includes('$80,000'));assert(html.includes('80.0%'));assert(html.includes('Canada —')===false);assert(html.includes('2026'));assert(html.includes('rounded-to-zero'));assert(events.includes('regional-statistics-loaded'));
+ assert.equal((html.match(/data-impact-region=/g)||[]).length,14);assert(html.includes('$80,000'));assert(html.includes('80.0%'));assert(html.includes('Canada —')===false);assert(html.includes('2026'));assert(html.includes('rounded-to-zero'));assert(html.includes('data-policy-datum'));assert(html.includes('&quot;geography&quot;:&quot;Ontario&quot;'));assert(events.includes('regional-statistics-loaded'));
  assert.match(window.RegionalTrade.paint('ON',state,regions).label,/80.0%/);assert.match(window.RegionalTrade.legend(state,regions),/not a gain\/loss score/);
  assert.match(window.RegionalTrade.html({...state,relationship:'USA-China'},regions),/not a Canadian provincial export series/);
 });

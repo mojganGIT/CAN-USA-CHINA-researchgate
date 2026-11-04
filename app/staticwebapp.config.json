@@ -59,6 +59,25 @@
       "headers": {
         "cache-control": "no-store"
       }
+    },
+    {
+      "route": "/weekly-updates.xml",
+      "headers": {
+        "content-type": "application/atom+xml; charset=utf-8",
+        "cache-control": "no-cache"
+      }
+    },
+    {
+      "route": "/weekly-updates.json",
+      "headers": {
+        "cache-control": "no-cache"
+      }
+    },
+    {
+      "route": "/api/weekly-subscription",
+      "headers": {
+        "cache-control": "no-store"
+      }
     }
   ],
   "navigationFallback": {
@@ -68,7 +87,8 @@
       "/.auth/*",
       "*.css",
       "*.js",
-      "*.json"
+      "*.json",
+      "*.xml"
     ]
   }
 }

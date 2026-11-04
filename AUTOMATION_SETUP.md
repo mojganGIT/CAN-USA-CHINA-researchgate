@@ -43,3 +43,7 @@ The same daily workflow now checks Statistics Canada WDS table 12-10-0175-01 bef
 ## U.S. trade and investment feeds
 
 The daily workflow also collects U.S. Census goods trade with Canada/China and the official BEA 2020–2025 detailed-country investment workbooks. It publishes the two U.S. statistical feeds and source-review flags for the reviewed U.S. register. See US_TRADE.md for measurement definitions, parser validation, retained vintages and limits. Neither collector requires a paid model or a customer API key.
+
+## Weekly briefing and email signup
+
+After the daily scan, the monitor prepares a weekly source-linked edition on Monday and publishes its Atom feed and archive. Visitors can subscribe from the new weekly-updates tab. To connect email signup, set Azure application setting `WEEKLY_SIGNUP_URL` to a hosted HTTPS newsletter signup page; configure that mailing service to deliver the digest or import its RSS feed. No addresses are collected by this dashboard, and email delivery is unavailable until a real provider is connected. See POLICY_READING_AND_WEEKLY_UPDATES.md.

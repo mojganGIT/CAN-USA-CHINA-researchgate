@@ -74,9 +74,10 @@ test('rendered explorer loads its two assets, escapes records and retains filter
  const window={ImpactModel:M,PolicyLive:{feed:{changes:[]}},addEventListener(k,fn){events[k]=fn;},dispatchEvent(){}};
  const document={getElementById:node,addEventListener(k,fn){events[k]=fn;}};
  const ctx={window,document,location,history:{replaceState(a,b,h){location.hash=h;}},URLSearchParams,Intl,Date,Event,console,fetch:async url=>({ok:true,json:async()=>url==='evidence-records.json'?fake:geometry})};
- vm.createContext(ctx);vm.runInContext(read('app/impact-explorer.js'),ctx);window.CanadaImpact.mount('overview','target');await window.CanadaImpact.ready;
+ vm.createContext(ctx);vm.runInContext(read('app/policy-narrative.js'),ctx);vm.runInContext(read('app/impact-explorer.js'),ctx);window.CanadaImpact.mount('overview','target');await window.CanadaImpact.ready;
  const html=node('target').innerHTML;assert.equal((html.match(/data-impact-region=/g)||[]).length,26);assert(html.includes('&lt;img'));assert(!html.includes('<img src=x'));
  assert(html.includes('How confidently can we connect it?'));assert(html.includes('30%'));assert(html.includes('S07'));
  window.CanadaImpact.show('compare');assert.equal(window.CanadaImpact.state.region,'ON');assert.equal(window.CanadaImpact.state.topic,'vehicles');assert(node('canada-impact-root').innerHTML.includes('Canada–U.S.'));
  events.change({target:{matches:()=>true,dataset:{impactFilter:'region'},value:'BC'}});assert(location.hash.includes('region=BC'));
 });
+
