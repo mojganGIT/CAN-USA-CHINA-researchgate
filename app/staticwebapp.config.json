@@ -78,6 +78,22 @@
       "headers": {
         "cache-control": "no-store"
       }
+    },
+    {
+      "route": "/weekly-updates.fr.xml",
+      "headers": {
+        "content-type": "application/atom+xml; charset=utf-8",
+        "content-language": "fr",
+        "cache-control": "no-cache"
+      }
+    },
+    {
+      "route": "/weekly-updates.zh.xml",
+      "headers": {
+        "content-type": "application/atom+xml; charset=utf-8",
+        "content-language": "zh-Hans",
+        "cache-control": "no-cache"
+      }
     }
   ],
   "navigationFallback": {

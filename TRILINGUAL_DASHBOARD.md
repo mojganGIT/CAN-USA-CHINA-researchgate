@@ -12,10 +12,16 @@ Language switching changes text in place, without rerendering the selected view.
 
 French and Chinese search aliases match the original English evidence. Multiword U.S. evidence queries match all search terms. The customer LLM request includes a supported language code and an optional bounded retrieval query. Only fixed English/French/Simplified-Chinese response instructions are accepted; source IDs, authentication, key handling and citation validation remain unchanged. No paid model call was used for translation or testing.
 
-The weekly briefing also fixes date-only review dates at midday before formatting, so a November 3 review is not displayed as November 2 in Toronto. Weekly RSS source data and external documents remain in their publication language.
+The weekly briefing also fixes date-only review dates at midday before formatting, so a November 3 review is not displayed as November 2 in Toronto. Weekly RSS editions are available in English, French and Simplified Chinese. Source titles, source URLs and external documents retain their publication identity. The selected dashboard language updates the subscription link and copied address without replacing open edition content.
 
 ## Maintenance and verification
 
 When changing a user-facing phrase, add its French and Chinese forms to the translation dictionaries. Preserve source identifiers, units and interpretation limits. Newly reviewed findings should include matching translations; new live statistical months continue to use dynamic templates rather than fixed totals.
 
 `tests/i18n.test.mjs` checks reviewed-record and subtopic coverage, numerical/period preservation, language restoration, filter and form retention, accessible labels, search aliases, fixed customer-model language instructions and text contrast. Existing map/legend, monitoring, data-vintage, source-integrity, navigation and subscription tests remain active. Text/attribute snapshots were inspected across the 15 routes, eight topics and 72 relationship briefings. Browser visual QA remains restricted by the saved browser permission.
+
+## Weekly language feeds and refreshes
+
+`monitor/build-weekly-digest.mjs` publishes `weekly-updates.xml`, `weekly-updates.fr.xml` and `weekly-updates.zh.xml`. All three keep the canonical issue date, reference periods, source URLs and separate labels for reviewed baselines, source observations and statistical revisions. Each language has stable feed and entry identities; the original English entry IDs remain unchanged. Missing or revised translations regenerate between weekly editions without creating a new issue. The daily workflow publishes all feed files together, and the document head advertises each language.
+
+Common French and Simplified Chinese locale aliases are accepted. Browser back/forward navigation restores an explicit URL language without clearing filters or form entries. Missing-data, unchanged-export and year-end investment statements have native-language templates rather than partially translated sentences.

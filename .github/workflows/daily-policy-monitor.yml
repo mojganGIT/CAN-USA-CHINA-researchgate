@@ -49,7 +49,7 @@ jobs:
         run: |
           git config user.name 'Policy Monitor'
           git config user.email 'policy-monitor@users.noreply.github.com'
-          git add app/weekly-updates.json app/weekly-updates.xml
+          git add app/weekly-updates.json app/weekly-updates*.xml
           git add monitor/state.json app/policy-updates.json api/policy-updates.json app/regional-statistics.json app/us-trade-statistics.json app/us-investment-statistics.json
           if [ -f monitor/regional-series-metadata.json ]; then git add monitor/regional-series-metadata.json; fi
           if [ -f monitor/us-investment-discovery.json ]; then git add monitor/us-investment-discovery.json; fi

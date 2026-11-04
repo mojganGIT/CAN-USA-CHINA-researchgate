@@ -20,7 +20,7 @@ The digest distinguishes:
 - Up to six changed reviewed records, identified by record fingerprints. An opening selection is labelled a baseline, not new policy. Original sources, review date, period and the three policy answers accompany each item.
 - Changes in collected statistical values or coverage, kept separate from reviewed findings. A data revision is not presented as a new economic or policy effect.
 
-The Atom feed includes the narrative and direct evidence links. Its identifiers are stable across retrievals. The JSON archive preserves dates, coverage errors and the analytical interpretations used for that edition. The normal monitor commit and its existing Azure deployment publish these files.
+The Atom feeds in English, French and Simplified Chinese include the narrative and direct evidence links. The subscription URL follows the selected dashboard language. Its identifiers are stable across retrievals. The JSON archive preserves dates, coverage errors and the analytical interpretations used for that edition. The normal monitor commit and its existing Azure deployment publish these files.
 
 ## Connect an email signup service
 

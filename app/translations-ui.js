@@ -7042,5 +7042,177 @@
  "AI INTERPRETATION; CHECK THE SUPPLIED SOURCE RECORDS AND THEIR DATES.": [
   "INTERPRÉTATION IA ; VÉRIFIEZ LES SOURCES FOURNIES ET LEURS DATES.",
   "AI解读；请核查所提供来源记录及日期。"
+ ],
+ "Canada–U.S.–China weekly policy briefing": [
+  "Note hebdomadaire Canada–États-Unis–Chine",
+  "加拿大—美国—中国每周政策简报"
+ ],
+ "CANADA–U.S.–CHINA WEEKLY POLICY BRIEFING": [
+  "NOTE HEBDOMADAIRE CANADA–ÉTATS-UNIS–CHINE",
+  "加拿大—美国—中国每周政策简报"
+ ],
+ "Source-linked changes, Canadian implications and provincial exposure.": [
+  "Évolutions sourcées, implications canadiennes et exposition provinciale.",
+  "可追溯来源的变化、对加拿大的影响及省级风险敞口。"
+ ],
+ "SOURCE-LINKED CHANGES, CANADIAN IMPLICATIONS AND PROVINCIAL EXPOSURE.": [
+  "ÉVOLUTIONS SOURCÉES, IMPLICATIONS CANADIENNES ET EXPOSITION PROVINCIALE.",
+  "可追溯来源的变化、对加拿大的影响及省级风险敞口。"
+ ],
+ "Source monitoring": [
+  "Veille des sources",
+  "来源监测"
+ ],
+ "SOURCE MONITORING": [
+  "VEILLE DES SOURCES",
+  "来源监测"
+ ],
+ "source errors": [
+  "erreurs de source",
+  "来源错误"
+ ],
+ "SOURCE ERRORS": [
+  "ERREURS DE SOURCE",
+  "来源错误"
+ ],
+ "Source title in its published language": [
+  "Titre dans sa langue de publication",
+  "来源标题保留原发布语言"
+ ],
+ "SOURCE TITLE IN ITS PUBLISHED LANGUAGE": [
+  "TITRE DANS SA LANGUE DE PUBLICATION",
+  "来源标题保留原发布语言"
+ ],
+ "Reviewed baseline": [
+  "Référence examinée",
+  "已审阅基线"
+ ],
+ "REVIEWED BASELINE": [
+  "RÉFÉRENCE EXAMINÉE",
+  "已审阅基线"
+ ],
+ "Reviewed evidence update": [
+  "Mise à jour des données examinées",
+  "已审阅证据更新"
+ ],
+ "REVIEWED EVIDENCE UPDATE": [
+  "MISE À JOUR DES DONNÉES EXAMINÉES",
+  "已审阅证据更新"
+ ],
+ "Sources": [
+  "Sources",
+  "来源"
+ ],
+ "SOURCES": [
+  "SOURCES",
+  "来源"
+ ],
+ "U.S. goods trade": [
+  "Commerce américain de marchandises",
+  "美国货物贸易"
+ ],
+ "U.S. GOODS TRADE": [
+  "COMMERCE AMÉRICAIN DE MARCHANDISES",
+  "美国货物贸易"
+ ],
+ "U.S. investment": [
+  "Investissement américain",
+  "美国投资"
+ ],
+ "U.S. INVESTMENT": [
+  "INVESTISSEMENT AMÉRICAIN",
+  "美国投资"
+ ],
+ "Canadian provincial exports": [
+  "Exportations provinciales canadiennes",
+  "加拿大省级出口"
+ ],
+ "CANADIAN PROVINCIAL EXPORTS": [
+  "EXPORTATIONS PROVINCIALES CANADIENNES",
+  "加拿大省级出口"
+ ],
+ "Follow this week’s source developments, then ask whether implemented rules or measured Canadian outcomes changed.": [
+  "Suivez les sources de la semaine, puis vérifiez si les règles appliquées ou les résultats canadiens mesurés ont changé.",
+  "追踪本周来源动态，再核查已实施规则或加拿大已测量结果是否变化。"
+ ],
+ "Collected statistical values or coverage changed. Compare the source vintages before treating this as an economic change; revisions may affect earlier periods.": [
+  "Les valeurs collectées ou la couverture ont changé. Comparez les versions avant de conclure à une évolution économique ; des révisions peuvent toucher les périodes antérieures.",
+  "已收集统计数值或覆盖范围发生变化。将其视为经济变化前，请比较来源版本；修订可能涉及早期参考期。"
+ ],
+ "The weekly archive is temporarily unavailable. You can still subscribe to the feed above.": [
+  "L’archive hebdomadaire est temporairement indisponible. Vous pouvez toujours vous abonner au flux ci-dessus.",
+  "每周归档暂时不可用。您仍可订阅上方更新源。"
+ ],
+ "THE WEEKLY ARCHIVE IS TEMPORARILY UNAVAILABLE. YOU CAN STILL SUBSCRIBE TO THE FEED ABOVE.": [
+  "L’ARCHIVE HEBDOMADAIRE EST TEMPORAIREMENT INDISPONIBLE. VOUS POUVEZ TOUJOURS VOUS ABONNER AU FLUX CI-DESSUS.",
+  "每周归档暂时不可用。您仍可订阅上方更新源。"
+ ],
+ "No new source observations were stored for this window. This does not prove that no policy changed.": [
+  "Aucune nouvelle observation enregistrée pour cette période. Cela ne prouve pas l’absence de changement de politique.",
+  "本期未存储新的来源动态。这并不证明政策没有变化。"
+ ],
+ "NO NEW SOURCE OBSERVATIONS WERE STORED FOR THIS WINDOW. THIS DOES NOT PROVE THAT NO POLICY CHANGED.": [
+  "AUCUNE NOUVELLE OBSERVATION ENREGISTRÉE POUR CETTE PÉRIODE. CELA NE PROUVE PAS L’ABSENCE DE CHANGEMENT DE POLITIQUE.",
+  "本期未存储新的来源动态。这并不证明政策没有变化。"
+ ],
+ "Statistics unavailable for this year. No zero or estimated replacement has been inserted.": [
+  "Statistiques indisponibles pour cette année. Aucune valeur n’a été remplacée par zéro ou une estimation.",
+  "本年度统计不可用。未以零或估计值替代。"
+ ],
+ "STATISTICS UNAVAILABLE FOR THIS YEAR. NO ZERO OR ESTIMATED REPLACEMENT HAS BEEN INSERTED.": [
+  "STATISTIQUES INDISPONIBLES POUR CETTE ANNÉE. AUCUNE VALEUR N’A ÉTÉ REMPLACÉE PAR ZÉRO OU UNE ESTIMATION.",
+  "本年度统计不可用。未以零或估计值替代。"
+ ],
+ "Latest statistics refresh failed. Any displayed values retain their previous retrieval date; missing values have not been replaced with zero.": [
+  "La dernière actualisation a échoué. Les valeurs affichées conservent leur date de récupération ; les données manquantes ne sont pas remplacées par zéro.",
+  "最近统计刷新失败。已显示数值保留原获取日期；未以零替代缺失值。"
+ ],
+ "Provincial trade values are unavailable until the official collector completes successfully. The reviewed assessment above remains available.": [
+  "Les valeurs provinciales restent indisponibles jusqu’à une collecte officielle réussie. L’évaluation examinée ci-dessus reste accessible.",
+  "官方采集成功完成前，省级贸易数值不可用。上方已审阅评估仍可查阅。"
+ ],
+ "A complete January-to-reference-month total is unavailable for this selection. Choose a supported period; no partial-month total is shown as a complete year-to-date value.": [
+  "Le cumul complet de janvier au mois de référence est indisponible. Choisissez une période couverte ; un total partiel n’est pas présenté comme un cumul complet.",
+  "此选择缺少1月至参考月的完整总量。请选择受支持参考期；不会将不完整月度总量显示为完整年初至今值。"
+ ],
+ "This is all-merchandise context; services, investment, security and digital activity are not measured separately here.": [
+  "Contexte de toutes les marchandises ; services, investissement, sécurité et numérique ne sont pas mesurés séparément ici.",
+  "此处为全部货物背景；未分别衡量服务、投资、安全及数字活动。"
+ ],
+ "The assessment could not be loaded. Existing research tools remain available; retry to open the regional evidence.": [
+  "L’évaluation n’a pas pu être chargée. Les outils existants restent disponibles ; réessayez pour ouvrir les données régionales.",
+  "评估未能加载。现有研究工具仍可用；请重试打开地区证据。"
+ ],
+ "U.S. evidence could not be loaded. Existing Canadian views remain available.": [
+  "Les données américaines n’ont pas pu être chargées. Les vues canadiennes restent disponibles.",
+  "美国证据未能加载。现有加拿大视图仍可用。"
+ ],
+ "U.S. EVIDENCE COULD NOT BE LOADED. EXISTING CANADIAN VIEWS REMAIN AVAILABLE.": [
+  "LES DONNÉES AMÉRICAINES N’ONT PAS PU ÊTRE CHARGÉES. LES VUES CANADIENNES RESTENT DISPONIBLES.",
+  "美国证据未能加载。现有加拿大视图仍可用。"
+ ],
+ "Retry": [
+  "Réessayer",
+  "重试"
+ ],
+ "RETRY": [
+  "RÉESSAYER",
+  "重试"
+ ],
+ "Loading the shared assessment and Canada map…": [
+  "Chargement de l’évaluation partagée et de la carte du Canada…",
+  "正在加载共享评估及加拿大地图……"
+ ],
+ "LOADING THE SHARED ASSESSMENT AND CANADA MAP…": [
+  "CHARGEMENT DE L’ÉVALUATION PARTAGÉE ET DE LA CARTE DU CANADA…",
+  "正在加载共享评估及加拿大地图……"
+ ],
+ "Loading U.S. trade evidence…": [
+  "Chargement des données commerciales américaines…",
+  "正在加载美国贸易证据……"
+ ],
+ "LOADING U.S. TRADE EVIDENCE…": [
+  "CHARGEMENT DES DONNÉES COMMERCIALES AMÉRICAINES…",
+  "正在加载美国贸易证据……"
  ]
 };if(typeof module!=="undefined"&&module.exports)module.exports=data;if(g)g.POLICY_TRANSLATIONS_UI=data;})(typeof window==="undefined"?null:window);

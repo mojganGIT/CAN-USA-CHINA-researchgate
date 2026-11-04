@@ -23,13 +23,16 @@ test('statistical narratives preserve actual values, reference periods, units an
  const us={kind:'us-goods',partner:'Canada',metric:'imports',value:304564.9,prior:290000,unit:'USD million',period:'Jan–Sep 2026'};
  for(const lang of ['fr','zh-Hans']){const s=L.t(PN.describe(us).changed,lang);assert(s.includes('304,564.9'));assert(s.includes('14,564.9'));assert(s.includes('2026'));assert(!s.includes(' were '));}
  assert(L.t(PN.describe({...us,value:null}).changed,'zh-Hans').includes('零'));
+ for(const lang of ['fr','zh-Hans'])assert(!/have no publishable value/.test(L.t(PN.describe({...us,value:null}).changed,lang)));
  const regional={kind:'regional-trade',geography:'Ontario',partner:'China',metric:'exports',value:12345,unit:'CAD',period:'January–August 2026',commodity:'Motor vehicles and parts'};
  assert(L.t(PN.describe(regional).changed,'zh-Hans').includes('12,345加元'));
  assert(L.t(PN.describe(regional).regions,'fr').includes('origine'));
+ const unchanged={...regional,metric:'growth',value:0};assert(L.t(PN.describe(unchanged).changed,'zh-Hans').includes('保持不变'));assert(L.t(PN.describe(unchanged).changed,'fr').includes('stables'));assert.equal(L.t('Jan 2026','zh-Hans'),'2026年1月');
+ const stock=JSON.parse(read('app/us-trade-evidence.json')).records.find(r=>r.id==='us-fdi-in-canada');for(const lang of ['fr','zh-Hans']){const text=L.t(PN.describe(stock).changed,lang);assert(text.includes('747,348'));assert(!/\bin\b/.test(text));}
  for(const s of ['https://www.canada.ca/en/test?year=2026','energy-exports-ytd','US45','9c830c925abde177e7231ab34a8cd956'])for(const lang of ['fr','zh-Hans'])assert.equal(L.t(s,lang),s);
 });
 test('language switching restores English and preserves form values, expanded evidence, IDs and filter URLs',()=>{
- const nodes=new Map(),saved=new Map();let callback,events=0;
+ const nodes=new Map(),saved=new Map(),listeners={};let callback,events=0;
  class Element{
   constructor(tag,attrs={}){this.tagName=tag.toUpperCase();this.nodeType=1;this.attrs=attrs;this.children=[];this.value='';if(attrs.id)nodes.set(attrs.id,this);}
   append(n){n.parentElement=this;this.children.push(n);}
@@ -40,13 +43,19 @@ test('language switching restores English and preserves form values, expanded ev
  const root=new Element('html'),header=new Element('header'),main=new Element('main'),select=new Element('select',{id:'dashboard-language'}),note=new Element('small',{id:'dashboard-language-note','data-no-translate':''}),form=new Element('input',{id:'customer-key',placeholder:'Provider API key'}),details=new Element('details',{id:'evidence'}),text={nodeType:3,nodeValue:'Policy Tracker'},quote=new Element('blockquote'),quoteText={nodeType:3,nodeValue:'What changed?'};
  details.open=true;form.value='typed-private-session-value';header.append(select);header.append(note);main.append(text);main.append(form);main.append(details);quote.append(quoteText);main.append(quote);root.append(header);root.append(main);
  const doc={documentElement:root,getElementById:id=>nodes.get(id),querySelector:s=>s==='body > header'?header:null,createTreeWalker(n){const values=[];function walk(el){for(const c of el.children||[]){if(c.nodeType===3)values.push(c);else walk(c);}}walk(n);let i=0;return{nextNode:()=>values[i++]||null};}};
- const win={document:doc,location:{href:'https://example.com/?lang=en#canada-implications?region=ON&topic=vehicles'},history:{replaceState(a,b,u){win.location.href=new URL(u,win.location.href).href;}},localStorage:{getItem:k=>saved.get(k),setItem:(k,v)=>saved.set(k,v)},dispatchEvent(){events++;},MutationObserver:class{constructor(f){callback=f;}observe(){}}};
+ const win={document:doc,location:{href:'https://example.com/?lang=en#canada-implications?region=ON&topic=vehicles'},history:{replaceState(a,b,u){win.location.href=new URL(u,win.location.href).href;}},localStorage:{getItem:k=>saved.get(k),setItem:(k,v)=>saved.set(k,v)},addEventListener(n,f){listeners[n]=f;},dispatchEvent(){events++;},MutationObserver:class{constructor(f){callback=f;}observe(){}}};
  const context={window:win,document:doc,URL,Event};vm.createContext(context);for(const f of ['translations-ui.js','translations-content.js','i18n.js'])vm.runInContext(read('app/'+f),context);
  win.DashboardI18n.setLanguage('fr');assert.equal(text.nodeValue,'Suivi des politiques');assert.equal(form.getAttribute('placeholder'),'Clé API du fournisseur');assert.equal(root.lang,'fr');
  win.DashboardI18n.setLanguage('zh-Hans');assert.equal(text.nodeValue,'政策追踪');assert.equal(root.lang,'zh-Hans');assert(win.location.href.includes('region=ON&topic=vehicles'));assert(win.location.href.includes('lang=zh-Hans'));
  assert.equal(form.value,'typed-private-session-value');assert(details.open);assert.equal(form.getAttribute('id'),'customer-key');assert.equal(quoteText.nodeValue,'What changed?');
  win.DashboardI18n.setLanguage('en');assert.equal(text.nodeValue,'Policy Tracker');assert.equal(form.getAttribute('placeholder'),'Provider API key');
  text.nodeValue='Evidence & Methods';callback([{type:'characterData',target:text}]);win.DashboardI18n.setLanguage('fr');assert.equal(text.nodeValue,'Données et méthodes');assert.equal(saved.size,1);assert.equal(saved.get('policy-dashboard-language'),'fr');assert(events>=4);
+ win.location.href='https://example.com/?lang=zh_CN#canada-implications?region=ON';listeners.popstate();assert.equal(root.lang,'zh-Hans');assert.equal(text.nodeValue,'证据与方法');assert(details.open);assert.equal(form.value,'typed-private-session-value');
+});
+test('common French and Simplified Chinese locale codes map to supported language choices',()=>{
+ for(const code of ['fr-CA','fr_FR','FR'])assert.equal(L.normalize(code),'fr');
+ for(const code of ['zh-CN','zh_Hans_CN','ZH-HANS'])assert.equal(L.normalize(code),'zh-Hans');
+ assert.equal(L.normalize('en-CA'),'en');assert.equal(L.normalize('invalid'),'en');
 });
 test('French and Chinese search terms reach the original English evidence without changing route keys',()=>{
  assert.equal(L.searchQuery('芬太尼'),'fentanyl');assert.equal(L.searchQuery('huile de canola'),'canola oil');assert.equal(L.searchQuery('chine'),'China');
