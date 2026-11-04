@@ -48,6 +48,7 @@ feed.changes[0].title='A later daily source revision';hub.refreshLiveSections();
 hub.navigate('unknown');assert.equal(location.hash,'#home');assert(node('root').innerHTML.includes('hub-home-title'));assert.equal(node('hub-region-explorer').innerHTML,'IMPACT overview');
 window.CanadaImpact.data={};window.CanadaImpact.filterQuery=()=>"region=ON&topic=vehicles&relationship=Canada-USA&period=2026&metric=all&layer=trade";
 for(const id of ['home','briefing-overview','canada-implications']){hub.navigate(id);assert(location.hash.startsWith('#'+id+'?region=ON&topic=vehicles'));}
+hub.navigate('compare-topics?topic=agriculture');const selected=new URLSearchParams(location.hash.split('?')[1]);assert.equal(selected.get('region'),'ON');assert.equal(selected.get('topic'),'agriculture');assert.equal(selected.get('layer'),'trade');
 window.CanadaImpact.data=null;
 const input=node('q');window.showResearchSearch();input.value='fentanyl';window.ask();assert(node('ans').innerHTML.includes('Opioids'));
 const index=fs.readFileSync(path.join(dir,'index.html'),'utf8');assert(index.includes('id="site-navigation"'));assert(index.includes('id="root" tabindex="-1"'));assert(index.includes('home.js'));assert(index.includes('home.css'));
