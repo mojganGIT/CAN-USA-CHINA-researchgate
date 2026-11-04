@@ -1,0 +1,864 @@
+{
+  "responseStatusCode": 0,
+  "productId": "12100175",
+  "cansimId": null,
+  "cubeTitleEn": "International merchandise trade by province, commodity, and Principal Trading Partners",
+  "cubeTitleFr": "Commerce international de marchandises par province, par produit et les principaux partenaires commerciaux",
+  "cubeStartDate": "1997-01-01",
+  "cubeEndDate": "2026-08-01",
+  "frequencyCode": 6,
+  "nbSeriesCube": 11687,
+  "nbDatapointsCube": 3871790,
+  "releaseTime": "2026-10-06T08:30",
+  "archiveStatusCode": "2",
+  "archiveStatusEn": "CURRENT - a cube available to the public and that is current",
+  "archiveStatusFr": "ACTIF - un cube qui est disponible au public et qui est toujours mise a jour",
+  "subjectCode": [
+    "1201",
+    "1804"
+  ],
+  "surveyCode": [
+    "2201"
+  ],
+  "dimension": [
+    {
+      "dimensionPositionId": 1,
+      "dimensionNameEn": "Geography",
+      "dimensionNameFr": "Géographie",
+      "hasUom": false,
+      "member": [
+        {
+          "memberId": 1,
+          "parentMemberId": null,
+          "memberNameEn": "Canada",
+          "memberNameFr": "Canada",
+          "classificationCode": "11124",
+          "classificationTypeCode": "1",
+          "geoLevel": 0,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 2,
+          "parentMemberId": 1,
+          "memberNameEn": "Newfoundland and Labrador",
+          "memberNameFr": "Terre-Neuve-et-Labrador",
+          "classificationCode": "10",
+          "classificationTypeCode": "1",
+          "geoLevel": 2,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 3,
+          "parentMemberId": 1,
+          "memberNameEn": "Prince Edward Island",
+          "memberNameFr": "Île-du-Prince-Édouard",
+          "classificationCode": "11",
+          "classificationTypeCode": "1",
+          "geoLevel": 2,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 4,
+          "parentMemberId": 1,
+          "memberNameEn": "Nova Scotia",
+          "memberNameFr": "Nouvelle-Écosse",
+          "classificationCode": "12",
+          "classificationTypeCode": "1",
+          "geoLevel": 2,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 5,
+          "parentMemberId": 1,
+          "memberNameEn": "New Brunswick",
+          "memberNameFr": "Nouveau-Brunswick",
+          "classificationCode": "13",
+          "classificationTypeCode": "1",
+          "geoLevel": 2,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 6,
+          "parentMemberId": 1,
+          "memberNameEn": "Quebec",
+          "memberNameFr": "Québec",
+          "classificationCode": "24",
+          "classificationTypeCode": "1",
+          "geoLevel": 2,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 7,
+          "parentMemberId": 1,
+          "memberNameEn": "Ontario",
+          "memberNameFr": "Ontario",
+          "classificationCode": "35",
+          "classificationTypeCode": "1",
+          "geoLevel": 2,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 8,
+          "parentMemberId": 1,
+          "memberNameEn": "Manitoba",
+          "memberNameFr": "Manitoba",
+          "classificationCode": "46",
+          "classificationTypeCode": "1",
+          "geoLevel": 2,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 9,
+          "parentMemberId": 1,
+          "memberNameEn": "Saskatchewan",
+          "memberNameFr": "Saskatchewan",
+          "classificationCode": "47",
+          "classificationTypeCode": "1",
+          "geoLevel": 2,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 10,
+          "parentMemberId": 1,
+          "memberNameEn": "Alberta",
+          "memberNameFr": "Alberta",
+          "classificationCode": "48",
+          "classificationTypeCode": "1",
+          "geoLevel": 2,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 11,
+          "parentMemberId": 1,
+          "memberNameEn": "British Columbia",
+          "memberNameFr": "Colombie-Britannique",
+          "classificationCode": "59",
+          "classificationTypeCode": "1",
+          "geoLevel": 2,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 12,
+          "parentMemberId": 1,
+          "memberNameEn": "Yukon",
+          "memberNameFr": "Yukon",
+          "classificationCode": "60",
+          "classificationTypeCode": "1",
+          "geoLevel": 2,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 13,
+          "parentMemberId": 1,
+          "memberNameEn": "Northwest Territories including Nunavut",
+          "memberNameFr": "Territoires du Nord Ouest incluant Nunavut",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 1,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 14,
+          "parentMemberId": 1,
+          "memberNameEn": "Northwest Territories",
+          "memberNameFr": "Territoires du Nord Ouest",
+          "classificationCode": "61",
+          "classificationTypeCode": "1",
+          "geoLevel": 2,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 15,
+          "parentMemberId": 1,
+          "memberNameEn": "Nunavut",
+          "memberNameFr": "Nunavut",
+          "classificationCode": "62",
+          "classificationTypeCode": "1",
+          "geoLevel": 2,
+          "vintage": 2021,
+          "terminated": 0,
+          "memberUomCode": null
+        }
+      ]
+    },
+    {
+      "dimensionPositionId": 2,
+      "dimensionNameEn": "Trade",
+      "dimensionNameFr": "Commerce",
+      "hasUom": true,
+      "member": [
+        {
+          "memberId": 1,
+          "parentMemberId": null,
+          "memberNameEn": "Import",
+          "memberNameFr": "Importations",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": 81
+        },
+        {
+          "memberId": 2,
+          "parentMemberId": null,
+          "memberNameEn": "Domestic export",
+          "memberNameFr": "Exportations nationales",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": 81
+        },
+        {
+          "memberId": 3,
+          "parentMemberId": null,
+          "memberNameEn": "Re-export",
+          "memberNameFr": "Réexportations",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": 81
+        }
+      ]
+    },
+    {
+      "dimensionPositionId": 3,
+      "dimensionNameEn": "North American Product Classification System (NAPCS)",
+      "dimensionNameFr": "Système de classification des produits de l'Amérique du Nord (SCPAN)",
+      "hasUom": false,
+      "member": [
+        {
+          "memberId": 1,
+          "parentMemberId": null,
+          "memberNameEn": "Total of all merchandise",
+          "memberNameFr": "Total de toutes les marchandises",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 2,
+          "parentMemberId": 1,
+          "memberNameEn": "Farm, fishing and intermediate food products",
+          "memberNameFr": "Produits agricoles et de la pêche et produits intermédiaires des aliments",
+          "classificationCode": "C11",
+          "classificationTypeCode": "20",
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 3,
+          "parentMemberId": 1,
+          "memberNameEn": "Energy products",
+          "memberNameFr": "Produits énergétiques",
+          "classificationCode": "C12",
+          "classificationTypeCode": "20",
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 4,
+          "parentMemberId": 1,
+          "memberNameEn": "Metal ores and non-metallic minerals",
+          "memberNameFr": "Minerais et minéraux non métalliques",
+          "classificationCode": "C13",
+          "classificationTypeCode": "20",
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 5,
+          "parentMemberId": 1,
+          "memberNameEn": "Metal and non-metallic mineral products",
+          "memberNameFr": "Produits en métal et produits minéraux non métalliques",
+          "classificationCode": "C14",
+          "classificationTypeCode": "20",
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 6,
+          "parentMemberId": 1,
+          "memberNameEn": "Basic and industrial chemical, plastic and rubber products",
+          "memberNameFr": "Produits chimiques de base et industriels, produits en plastique et en caoutchouc",
+          "classificationCode": "C15",
+          "classificationTypeCode": "20",
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 7,
+          "parentMemberId": 1,
+          "memberNameEn": "Forestry products and building and packaging materials",
+          "memberNameFr": "Produits forestiers et matériaux de construction et d'emballage",
+          "classificationCode": "C16",
+          "classificationTypeCode": "20",
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 8,
+          "parentMemberId": 1,
+          "memberNameEn": "Industrial machinery, equipment and parts",
+          "memberNameFr": "Machines, matériel et pièces industriels",
+          "classificationCode": "C17",
+          "classificationTypeCode": "20",
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 9,
+          "parentMemberId": 1,
+          "memberNameEn": "Electronic and electrical equipment and parts",
+          "memberNameFr": "Matériel et pièces électroniques et électriques",
+          "classificationCode": "C18",
+          "classificationTypeCode": "20",
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 10,
+          "parentMemberId": 1,
+          "memberNameEn": "Motor vehicles and parts",
+          "memberNameFr": "Véhicules automobiles et pièces pour véhicule automobile",
+          "classificationCode": "C19",
+          "classificationTypeCode": "20",
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 11,
+          "parentMemberId": 1,
+          "memberNameEn": "Aircraft and other transportation equipment and parts",
+          "memberNameFr": "Aéronefs et autres matériel et pièces de transport",
+          "classificationCode": "C21",
+          "classificationTypeCode": "20",
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 12,
+          "parentMemberId": 1,
+          "memberNameEn": "Consumer goods",
+          "memberNameFr": "Biens de consommation",
+          "classificationCode": "C22",
+          "classificationTypeCode": "20",
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 13,
+          "parentMemberId": 1,
+          "memberNameEn": "Special transactions trade",
+          "memberNameFr": "Transactions spéciales commerciales",
+          "classificationCode": "C23",
+          "classificationTypeCode": "20",
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 14,
+          "parentMemberId": 1,
+          "memberNameEn": "Other balance of payments adjustments",
+          "memberNameFr": "Autres ajustements de la balance des paiements",
+          "classificationCode": "C24",
+          "classificationTypeCode": "20",
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        }
+      ]
+    },
+    {
+      "dimensionPositionId": 4,
+      "dimensionNameEn": "Principal trading partners",
+      "dimensionNameFr": "Principaux partenaires commerciaux",
+      "hasUom": false,
+      "member": [
+        {
+          "memberId": 1,
+          "parentMemberId": null,
+          "memberNameEn": "All countries",
+          "memberNameFr": "Tous les pays",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 2,
+          "parentMemberId": 1,
+          "memberNameEn": "United States",
+          "memberNameFr": "États-Unis",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 3,
+          "parentMemberId": 1,
+          "memberNameEn": "China",
+          "memberNameFr": "Chine",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 4,
+          "parentMemberId": 1,
+          "memberNameEn": "Mexico",
+          "memberNameFr": "Mexique",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 5,
+          "parentMemberId": 1,
+          "memberNameEn": "United Kingdom",
+          "memberNameFr": "Royaume-Uni",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 6,
+          "parentMemberId": 1,
+          "memberNameEn": "Japan",
+          "memberNameFr": "Japon",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 7,
+          "parentMemberId": 1,
+          "memberNameEn": "Germany",
+          "memberNameFr": "Allemagne",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 8,
+          "parentMemberId": 1,
+          "memberNameEn": "South Korea",
+          "memberNameFr": "Corée du Sud",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 9,
+          "parentMemberId": 1,
+          "memberNameEn": "Italy",
+          "memberNameFr": "Italie",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 10,
+          "parentMemberId": 1,
+          "memberNameEn": "France",
+          "memberNameFr": "France",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 11,
+          "parentMemberId": 1,
+          "memberNameEn": "Netherlands",
+          "memberNameFr": "Pays-Bas",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 12,
+          "parentMemberId": 1,
+          "memberNameEn": "Belgium",
+          "memberNameFr": "Belgique",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 13,
+          "parentMemberId": 1,
+          "memberNameEn": "Spain",
+          "memberNameFr": "Espagne",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 14,
+          "parentMemberId": 1,
+          "memberNameEn": "Hong Kong",
+          "memberNameFr": "Hong-Kong",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 15,
+          "parentMemberId": 1,
+          "memberNameEn": "Brazil",
+          "memberNameFr": "Brésil",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 16,
+          "parentMemberId": 1,
+          "memberNameEn": "Algeria",
+          "memberNameFr": "Algérie",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 17,
+          "parentMemberId": 1,
+          "memberNameEn": "Norway",
+          "memberNameFr": "Norvège",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 18,
+          "parentMemberId": 1,
+          "memberNameEn": "India",
+          "memberNameFr": "Inde",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 19,
+          "parentMemberId": 1,
+          "memberNameEn": "Switzerland",
+          "memberNameFr": "Suisse",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 20,
+          "parentMemberId": 1,
+          "memberNameEn": "Saudi Arabia",
+          "memberNameFr": "Arabie Saoudite",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 21,
+          "parentMemberId": 1,
+          "memberNameEn": "Türkiye",
+          "memberNameFr": "Türkiye",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 22,
+          "parentMemberId": 1,
+          "memberNameEn": "Taiwan",
+          "memberNameFr": "Taïwan",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 23,
+          "parentMemberId": 1,
+          "memberNameEn": "Peru",
+          "memberNameFr": "Pérou",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 24,
+          "parentMemberId": 1,
+          "memberNameEn": "Australia",
+          "memberNameFr": "Australie",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 25,
+          "parentMemberId": 1,
+          "memberNameEn": "Iraq",
+          "memberNameFr": "Iraq",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 26,
+          "parentMemberId": 1,
+          "memberNameEn": "Indonesia",
+          "memberNameFr": "Indonésie",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 27,
+          "parentMemberId": 1,
+          "memberNameEn": "Singapore",
+          "memberNameFr": "Singapour",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 28,
+          "parentMemberId": 1,
+          "memberNameEn": "Russian Federation",
+          "memberNameFr": "Fédération de Russie",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        },
+        {
+          "memberId": 29,
+          "parentMemberId": 1,
+          "memberNameEn": "Other countries",
+          "memberNameFr": "Autres pays",
+          "classificationCode": null,
+          "classificationTypeCode": null,
+          "geoLevel": null,
+          "vintage": null,
+          "terminated": 0,
+          "memberUomCode": null
+        }
+      ]
+    }
+  ],
+  "footnote": [
+    {
+      "footnoteId": 1,
+      "footnotesEn": "This cube replaces archived cube 12-10-0119-01.",
+      "footnotesFr": "Ce cube remplace le cube archivé 12-10-0119-01.",
+      "link": {
+        "footnoteId": 1,
+        "dimensionPositionId": 0,
+        "memberId": 0
+      }
+    },
+    {
+      "footnoteId": 2,
+      "footnotesEn": "For more information related to the North American Product Classification System (NAPCS) 2022, please use the following <a href=\"http://www.statcan.gc.ca/eng/subjects/standard/napcs/2022/index\" rel=\"external noopener noreferrer\" target=\"_blank\">hyperlink (opens new window)</a>.",
+      "footnotesFr": "Pour plus d'information concernant le Système de classification des produits de l'Amérique du Nord (SCPAN) 2022, s'il vous plaît vous rendre à l'<a href=\"http://www.statcan.gc.ca/fra/sujets/norme/scpan/2022/index\" rel=\"external noopener noreferrer\" target=\"_blank\">adresse internet suivante (ouvre une nouvelle fenêtre)</a>.",
+      "link": {
+        "footnoteId": 2,
+        "dimensionPositionId": 0,
+        "memberId": 0
+      }
+    },
+    {
+      "footnoteId": 3,
+      "footnotesEn": "Domestic exports are goods grown, produced, extracted, or manufactured in Canada, including goods of foreign origin that have been materially transformed in Canada.",
+      "footnotesFr": "Les exportations nationales comprennent les biens cultivés, produits, extraits ou fabriqués au Canada, y compris les produits d'origines étrangères qui ont été sensiblement transformés au Canada.",
+      "link": {
+        "footnoteId": 3,
+        "dimensionPositionId": 0,
+        "memberId": 0
+      }
+    },
+    {
+      "footnoteId": 4,
+      "footnotesEn": "Imports are goods that have entered the country by crossing territorial boundaries. Imports in this table are based on the province of clearance concept, which is the Canadian province (or territory) where the goods cleared customs. This may not always be the province (or territory) in which the goods are consumed.",
+      "footnotesFr": "Les importations comprennent les produits qui sont entrés au Canada après y avoir franchi la frontière territoriale. Les importations dans ce tableau sont basées sur le concept de la province de dédouanement, donc la province (ou le territoire) canadien(ne) où les biens ont été dédouanés. Cela peut ne pas être la province (ou le territoire) où le bien a été consommé.",
+      "link": {
+        "footnoteId": 4,
+        "dimensionPositionId": 0,
+        "memberId": 0
+      }
+    },
+    {
+      "footnoteId": 5,
+      "footnotesEn": "Re-exports are goods of foreign origin which are exported in either the same condition in which they were originally imported into Canada, or after undergoing some minor operations (for example: blending, packaging, bottling, cleaning and sorting) which leave them essentially unchanged. Re-exports are only available at the Canada level.",
+      "footnotesFr": "Les réexportations sont des biens d'origine étrangère qui ont été importés au Canada dans un premier temps et qui ont été exportés par la suite, soit dans le même état dans lequel ils ont été importés, soit après avoir subi des modifications mineures (par exemple : mélange, conditionnement, embouteillage, nettoyage, tri). Les réexportations ne sont disponibles qu'à l'échelle canadienne.",
+      "link": {
+        "footnoteId": 5,
+        "dimensionPositionId": 0,
+        "memberId": 0
+      }
+    },
+    {
+      "footnoteId": 6,
+      "footnotesEn": "The category \"Other countries\" consists of countries not identified as principal trading partners.",
+      "footnotesFr": "La catégorie « Autres pays » comprend les pays non identifiés comme des principaux partenaires commerciaux.",
+      "link": {
+        "footnoteId": 6,
+        "dimensionPositionId": 0,
+        "memberId": 0
+      }
+    },
+    {
+      "footnoteId": 2,
+      "footnotesEn": "For more information related to the North American Product Classification System (NAPCS) 2022, please use the following <a href=\"http://www.statcan.gc.ca/eng/subjects/standard/napcs/2022/index\" rel=\"external noopener noreferrer\" target=\"_blank\">hyperlink (opens new window)</a>.",
+      "footnotesFr": "Pour plus d'information concernant le Système de classification des produits de l'Amérique du Nord (SCPAN) 2022, s'il vous plaît vous rendre à l'<a href=\"http://www.statcan.gc.ca/fra/sujets/norme/scpan/2022/index\" rel=\"external noopener noreferrer\" target=\"_blank\">adresse internet suivante (ouvre une nouvelle fenêtre)</a>.",
+      "link": {
+        "footnoteId": 2,
+        "dimensionPositionId": 3,
+        "memberId": 0
+      }
+    }
+  ],
+  "correctionFootnote": [],
+  "correction": [],
+  "issueDate": "2023-12-06"
+}

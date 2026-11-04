@@ -1,6 +1,6 @@
 {
-  "lastAttempt": "2026-11-04T03:37:21.285Z",
-  "lastSuccessfulRun": "2026-11-04T03:37:21.285Z",
+  "lastAttempt": "2026-11-04T03:44:38.069Z",
+  "lastSuccessfulRun": "2026-11-04T03:44:38.069Z",
   "lastRunStatus": "partial",
   "scheduleUTC": "11:17 daily",
   "aiEnabled": false,
@@ -96,7 +96,7 @@
       ]
     }
   ],
-  "workflowURL": "https://github.com/mojganGIT/CAN-USA-CHINA-researchgate/actions/runs/41768243011",
+  "workflowURL": "https://github.com/mojganGIT/CAN-USA-CHINA-researchgate/actions/runs/41768967400",
   "aiCalls": 0,
   "assessmentReview": {
     "dataVersion": "2026-11-03.1",
@@ -104,7 +104,7 @@
     "checks": [
       {
         "sourceId": "S01",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "cb018e00c391811956d39e4c9fd8fa67c2d2493e5f035c2d65e16355ef6f8cb7",
         "status": "read",
         "reviewRequired": false,
@@ -140,7 +140,7 @@
       },
       {
         "sourceId": "S03",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "d6b8911041079155deb23e5ec9a7ed188485a697a0529633ad044568beccd238",
         "status": "read",
         "reviewRequired": false,
@@ -153,7 +153,7 @@
       },
       {
         "sourceId": "S04",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "7ad4c531629ce1decfab9c16b7057f48f71748ad4c399c55f5a2aa0463a77dd5",
         "status": "read",
         "reviewRequired": false,
@@ -164,7 +164,7 @@
       },
       {
         "sourceId": "S05",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "e8f273e0d51cd54eee158a84433b76434b672f954235690f402996e4f86c9dde",
         "status": "read",
         "reviewRequired": false,
@@ -176,7 +176,7 @@
       },
       {
         "sourceId": "S06",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "cd10e8564ae9564a6600cbe0ebb8cf7b16780fc8a5401b2f35320ce772fbf7f1",
         "status": "read",
         "reviewRequired": false,
@@ -191,7 +191,7 @@
       },
       {
         "sourceId": "S07",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "c2392610741e7c3dfff8a2c5809fa249b5a982a7610c8b0254963c8181f4cdf7",
         "status": "read",
         "reviewRequired": false,
@@ -204,7 +204,7 @@
       },
       {
         "sourceId": "S08",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "7d2c8ab718c166d91da69506f1592a6357fa4464a388ed207a8b454d15395724",
         "status": "read",
         "reviewRequired": false,
@@ -215,7 +215,7 @@
       },
       {
         "sourceId": "S09",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "27682d468f927e22ca469c83c310f6912db2292600d63b964e372aeaf1306aad",
         "status": "read",
         "reviewRequired": false,
@@ -227,7 +227,7 @@
       },
       {
         "sourceId": "S10",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "f76ffdeba7df39ae9f2b93bff8d35060723dd9fd9492c90ec523e8b019d3ec07",
         "status": "read",
         "reviewRequired": false,
@@ -250,7 +250,7 @@
       },
       {
         "sourceId": "S12",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "f5af9a40452b06257ea3f824b9d3b4d7eefdc744a541bd9a7b7c2ba82085d8f6",
         "status": "read",
         "reviewRequired": false,
@@ -261,7 +261,7 @@
       },
       {
         "sourceId": "S13",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "7136da21cde8984d7bbd5d28cb669dafea38453c2102a8a86837f6ee0ac45e34",
         "status": "read",
         "reviewRequired": false,
@@ -273,7 +273,7 @@
       },
       {
         "sourceId": "S14",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "c472369f171db169363d2f33f76025c93addea21f7997b66ba749c91d82005f9",
         "status": "read",
         "reviewRequired": false,
@@ -285,7 +285,7 @@
       },
       {
         "sourceId": "S15",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "817764c91b6eacad212795c92c1b8ce09c3728eed57096061e8da0d7b71bafe0",
         "status": "read",
         "reviewRequired": false,
@@ -297,7 +297,7 @@
       },
       {
         "sourceId": "S16",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "521bc8826c0a4187b1db0adbf4d2d0feb67ea0a459ae8e0663f56e3a6b7ee17a",
         "status": "read",
         "reviewRequired": false,
@@ -308,7 +308,7 @@
       },
       {
         "sourceId": "S17",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "cf1cdbfe0b79ac0b884cfb8585478f03e9508e7bf201e8a5b12c4e7ecc43992d",
         "status": "read",
         "reviewRequired": false,
@@ -319,7 +319,7 @@
       },
       {
         "sourceId": "S18",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "2e1aff44aeee1e2f5af4e66affc28cc06cd90d3f8101b2765ea568d94637d306",
         "status": "read",
         "reviewRequired": false,
@@ -330,7 +330,7 @@
       },
       {
         "sourceId": "S19",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "839033b4d7fb137221a07920a3bf24df370ab10adbd6ca9ec0d62e9ea0cddf22",
         "status": "read",
         "reviewRequired": false,
@@ -353,7 +353,7 @@
       },
       {
         "sourceId": "S21",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "012eabb235460f63ea3d1e1d507dc1e99061931b225006c28c89e5fd353aa980",
         "status": "read",
         "reviewRequired": false,
@@ -364,7 +364,7 @@
       },
       {
         "sourceId": "S22",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "c893c9c7fef3536d32435053bf2051c1f2f6c72fc9f8c97efc72f8857854bd00",
         "status": "read",
         "reviewRequired": false,
@@ -375,7 +375,7 @@
       },
       {
         "sourceId": "S23",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "c6b7164e1d34e7a697a12b6ea9ede3dca2afcf09450bf47040988bb2caba297a",
         "status": "read",
         "reviewRequired": false,
@@ -392,7 +392,7 @@
       },
       {
         "sourceId": "S24",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "cc2dca61f3c5e532923473bd314280779d05155e809dcc549845ec69a8d8d7d1",
         "status": "read",
         "reviewRequired": false,
@@ -404,7 +404,7 @@
       },
       {
         "sourceId": "S25",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "6eb1fcd29294f2def6642fa25cbf5ece702cbcca70e887ce5a4af6839f51ca2e",
         "status": "read",
         "reviewRequired": false,
@@ -416,7 +416,7 @@
       },
       {
         "sourceId": "S26",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "99090014eebc33740cf00cb45efe219d654bf18732e4ababc767ebfdc66f2d31",
         "status": "read",
         "reviewRequired": false,
@@ -425,7 +425,7 @@
       },
       {
         "sourceId": "S27",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "e75998cef2f92618c3a7b14a2ebc000d4627c234df4eb0e4ca4c0b88be52273d",
         "status": "read",
         "reviewRequired": false,
@@ -436,7 +436,7 @@
       },
       {
         "sourceId": "S28",
-        "lastChecked": "2026-11-04T03:37:21.285Z",
+        "lastChecked": "2026-11-04T03:44:38.069Z",
         "digest": "89b2340a076cba0ca078335ac2c46e474d19de4a9726ae35e7d71574b70ff998",
         "status": "read",
         "reviewRequired": false,

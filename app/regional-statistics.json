@@ -1,1 +1,9 @@
-{"status":"not_run","retrievedAt":null,"lastAttempt":null,"series":[],"table":"12-10-0175-01","url":"https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1210017501"}
+{
+  "status": "unavailable",
+  "retrievedAt": null,
+  "lastAttempt": "2026-11-04T03:44:37.643Z",
+  "series": [],
+  "table": "12-10-0175-01",
+  "url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1210017501",
+  "error": "A table dimension could not be matched safely: Geography=Canada; Trade=UNRESOLVED; North American Product Classification System (NAPCS)=Total of all merchandise; Principal trading partners=United States"
+}
