@@ -31,6 +31,6 @@
   try{const r=await fetch('regional-statistics.json',{cache:'no-store'});if(!r.ok)throw Error();const d=await r.json();if(d.mappingVersion!==2||!Array.isArray(d.series))throw Error();data=d;}catch{data={...(data||{mappingVersion:2,series:[]}),status:'unavailable'};}finally{loading=false;window.dispatchEvent(new Event('regional-statistics-loaded'));}
  }
  window.RegionalTrade={html,paint,legend,snapshot,refresh,get data(){return data;}};
- refresh();
- window.addEventListener('policy-updates-loaded',refresh);
+ window.addEventListener('impact-evidence-loaded',refresh);
+ window.addEventListener('policy-updates-loaded',()=>{if(window.CanadaImpact?.data)refresh();});
 })();

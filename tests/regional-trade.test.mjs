@@ -62,3 +62,11 @@ test('published vintage has complete regional coverage and consistent all-destin
   for(const p of s.partners)if(p.share!==null)assert(p.share>=0&&p.share<=100.01,region+' '+topic+' '+p.partner);
  }
 });
+test('home does not fetch provincial statistics until a detailed evidence view opens',async()=>{
+ const events={},window={addEventListener:(name,fn)=>events[name]=fn,dispatchEvent(){}};let requests=0;
+ const context={window,Intl,Date,Event,console,fetch:async()=>{requests++;return {ok:true,json:async()=>({mappingVersion:2,status:'success',series:[]})};}};
+ vm.createContext(context);window.RegionalTradeModel=M;vm.runInContext(read('app/regional-trade.js'),context);
+ assert.equal(requests,0);events['policy-updates-loaded']();assert.equal(requests,0);
+ window.CanadaImpact={data:{}};events['impact-evidence-loaded']();await new Promise(resolve=>setImmediate(resolve));assert.equal(requests,1);
+ events['policy-updates-loaded']();await new Promise(resolve=>setImmediate(resolve));assert.equal(requests,2);
+});

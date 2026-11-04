@@ -59,3 +59,7 @@ The SVG, current-layer legend, selected-region key and 13-region register now us
 ## Restored home entry point
 
 The home hub precedes the complete embedded map and retains all statistical and evidence panels. Home and Briefing Overview are distinct primary-navigation destinations. `#canada-implications` opens the full map workspace directly and retains shared filters. This change updates presentation and routes only; no underlying dataset or policy finding changes. See HOME_PAGE.md.
+
+## Concise Home and visible research tabs
+
+Home now acts as a compact starting page; it no longer embeds the full explorer or repeats the topic cards and statistical panels. Research Tools is a main tab with its own directory and seven separate tool tabs. Every detailed map, source, statistical and comparison view remains available. Statistical requests begin when a detailed evidence view opens. This supersedes the embedded-home layout described in the earlier home-restoration note. No dataset changes.
