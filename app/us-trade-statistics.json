@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "title": "U.S. merchandise trade with Canada and China",
   "status": "success",
-  "lastAttempt": "2026-11-04T19:18:57.758Z",
-  "lastSuccessfulRun": "2026-11-04T19:18:57.758Z",
+  "lastAttempt": "2026-11-04T21:19:06.689Z",
+  "lastSuccessfulRun": "2026-11-04T21:19:06.689Z",
   "basis": "U.S. Census Bureau, nominal USD millions, not seasonally adjusted, goods only. Exports include re-exports. Annual totals are source-reported; the latest year is labelled year-to-date until 12 months are present. Retrieved vintage can revise earlier observations.",
   "partners": [
     {
@@ -718,8 +718,8 @@
       ],
       "dataThrough": "2026-09",
       "status": "success",
-      "retrievedAt": "2026-11-04T19:18:57.758Z",
-      "lastAttempt": "2026-11-04T19:18:57.758Z"
+      "retrievedAt": "2026-11-04T21:19:06.689Z",
+      "lastAttempt": "2026-11-04T21:19:06.689Z"
     },
     {
       "id": "China",
@@ -1433,8 +1433,8 @@
       ],
       "dataThrough": "2026-09",
       "status": "success",
-      "retrievedAt": "2026-11-04T19:18:57.758Z",
-      "lastAttempt": "2026-11-04T19:18:57.758Z"
+      "retrievedAt": "2026-11-04T21:19:06.689Z",
+      "lastAttempt": "2026-11-04T21:19:06.689Z"
     }
   ]
 }
