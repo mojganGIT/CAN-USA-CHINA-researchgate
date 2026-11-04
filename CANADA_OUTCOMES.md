@@ -51,3 +51,7 @@ The separate **Measured export dependence** map layer shades each region by U.S.
 
 Year-to-date calculations require all January-to-reference-month values. Missing, suppressed, rounded-to-zero and unpublished values remain unavailable. True zeros remain zero; zero comparison bases do not produce an infinite growth rate. Tests reverse simulated API responses, verify monetary scales and geography, preserve the last valid vintage on failure and check rendered regional controls. Printing opens evidence drawers and restores their prior state afterward.
 
+
+## Regional map colour correction
+
+The SVG, current-layer legend, selected-region key and 13-region register now use one `mapPresentation` result per region code. The measured-export layer uses its statistical percentage in the register rather than an unrelated qualitative category. Legends show categories actually present in the active layer. Explicit SVG fills, stronger colours and borders preserve the meaning during hover and selection; versioned map assets prevent stale styles after deployment. A regression test checks all 13 region codes across five map layers and three relationship selections, and verifies the selected-region key. File-based SVG rendering confirms the published geometry and colour fills. Live browser inspection and preview were blocked by network/saved browser permission restrictions for this correction.

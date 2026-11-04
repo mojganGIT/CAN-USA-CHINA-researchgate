@@ -4,6 +4,18 @@
   },
   "routes": [
     {
+      "route": "/",
+      "headers": {
+        "cache-control": "no-cache"
+      }
+    },
+    {
+      "route": "/index.html",
+      "headers": {
+        "cache-control": "no-cache"
+      }
+    },
+    {
       "route": "/api/llm",
       "allowedRoles": [
         "authenticated"
