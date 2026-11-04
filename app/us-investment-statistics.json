@@ -1,1 +1,1472 @@
-{"schemaVersion":1,"status":"not_run","sources":[],"series":[]}
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "lastAttempt": "2026-11-04T05:07:24.338762+00:00",
+  "basis": "BEA detailed-country workbooks, USD million; historical-cost positions, financial transactions and investment income, 2020\u20132025. Immediate counterpart / foreign-parent country; not ultimate ownership or completed capex. Disclosure flags remain in rawValue.",
+  "sources": [
+    {
+      "direction": "outward",
+      "sourceId": "US45",
+      "url": "https://apps.bea.gov/international/xls/usdia-current/usdia-detailedcountry-2020-2025.xlsx",
+      "status": "success",
+      "retrievedAt": "2026-11-04T05:07:24.338762+00:00",
+      "lastAttempt": "2026-11-04T05:07:24.338762+00:00",
+      "digest": "35627a9117698c818f01b0f0059e7ad6aebabe8799fd3d7b292dffb37c5c2ef3",
+      "records": [
+        {
+          "partner": "Canada",
+          "year": 2020,
+          "direction": "outward",
+          "measure": "stock",
+          "value": 366880.0,
+          "rawValue": "366880",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!B6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2021,
+          "direction": "outward",
+          "measure": "stock",
+          "value": 398107.0,
+          "rawValue": "398107",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!C6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2022,
+          "direction": "outward",
+          "measure": "stock",
+          "value": 415388.0,
+          "rawValue": "415388",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!D6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2023,
+          "direction": "outward",
+          "measure": "stock",
+          "value": 413447.0,
+          "rawValue": "413447",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!E6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2024,
+          "direction": "outward",
+          "measure": "stock",
+          "value": 450587.0,
+          "rawValue": "450587",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!F6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2025,
+          "direction": "outward",
+          "measure": "stock",
+          "value": 488080.0,
+          "rawValue": "488080",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!G6"
+        },
+        {
+          "partner": "China",
+          "year": 2020,
+          "direction": "outward",
+          "measure": "stock",
+          "value": 116508.0,
+          "rawValue": "116508",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!B203"
+        },
+        {
+          "partner": "China",
+          "year": 2021,
+          "direction": "outward",
+          "measure": "stock",
+          "value": 116003.0,
+          "rawValue": "116003",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!C203"
+        },
+        {
+          "partner": "China",
+          "year": 2022,
+          "direction": "outward",
+          "measure": "stock",
+          "value": 116314.0,
+          "rawValue": "116314",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!D203"
+        },
+        {
+          "partner": "China",
+          "year": 2023,
+          "direction": "outward",
+          "measure": "stock",
+          "value": 116454.0,
+          "rawValue": "116454",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!E203"
+        },
+        {
+          "partner": "China",
+          "year": 2024,
+          "direction": "outward",
+          "measure": "stock",
+          "value": 112018.0,
+          "rawValue": "112018",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!F203"
+        },
+        {
+          "partner": "China",
+          "year": 2025,
+          "direction": "outward",
+          "measure": "stock",
+          "value": 120547.0,
+          "rawValue": "120547",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!G203"
+        },
+        {
+          "partner": "Canada",
+          "year": 2020,
+          "direction": "outward",
+          "measure": "financial_flow",
+          "value": 7152.0,
+          "rawValue": "7152",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!B6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2021,
+          "direction": "outward",
+          "measure": "financial_flow",
+          "value": 33868.0,
+          "rawValue": "33868",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!C6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2022,
+          "direction": "outward",
+          "measure": "financial_flow",
+          "value": 44416.0,
+          "rawValue": "44416",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!D6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2023,
+          "direction": "outward",
+          "measure": "financial_flow",
+          "value": 18583.0,
+          "rawValue": "18583",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!E6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2024,
+          "direction": "outward",
+          "measure": "financial_flow",
+          "value": 41087.0,
+          "rawValue": "41087",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!F6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2025,
+          "direction": "outward",
+          "measure": "financial_flow",
+          "value": 30108.0,
+          "rawValue": "30108",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!G6"
+        },
+        {
+          "partner": "China",
+          "year": 2020,
+          "direction": "outward",
+          "measure": "financial_flow",
+          "value": 8996.0,
+          "rawValue": "8996",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!B203"
+        },
+        {
+          "partner": "China",
+          "year": 2021,
+          "direction": "outward",
+          "measure": "financial_flow",
+          "value": -1184.0,
+          "rawValue": "-1184",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!C203"
+        },
+        {
+          "partner": "China",
+          "year": 2022,
+          "direction": "outward",
+          "measure": "financial_flow",
+          "value": 7440.0,
+          "rawValue": "7440",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!D203"
+        },
+        {
+          "partner": "China",
+          "year": 2023,
+          "direction": "outward",
+          "measure": "financial_flow",
+          "value": 3681.0,
+          "rawValue": "3681",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!E203"
+        },
+        {
+          "partner": "China",
+          "year": 2024,
+          "direction": "outward",
+          "measure": "financial_flow",
+          "value": 4826.0,
+          "rawValue": "4826",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!F203"
+        },
+        {
+          "partner": "China",
+          "year": 2025,
+          "direction": "outward",
+          "measure": "financial_flow",
+          "value": 6775.0,
+          "rawValue": "6775",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!G203"
+        },
+        {
+          "partner": "Canada",
+          "year": 2020,
+          "direction": "outward",
+          "measure": "affiliate_income",
+          "value": 16391.0,
+          "rawValue": "16391",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!B6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2021,
+          "direction": "outward",
+          "measure": "affiliate_income",
+          "value": 34266.0,
+          "rawValue": "34266",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!C6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2022,
+          "direction": "outward",
+          "measure": "affiliate_income",
+          "value": 38304.0,
+          "rawValue": "38304",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!D6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2023,
+          "direction": "outward",
+          "measure": "affiliate_income",
+          "value": 32524.0,
+          "rawValue": "32524",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!E6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2024,
+          "direction": "outward",
+          "measure": "affiliate_income",
+          "value": 31692.0,
+          "rawValue": "31692",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!F6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2025,
+          "direction": "outward",
+          "measure": "affiliate_income",
+          "value": 26773.0,
+          "rawValue": "26773",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!G6"
+        },
+        {
+          "partner": "China",
+          "year": 2020,
+          "direction": "outward",
+          "measure": "affiliate_income",
+          "value": 10756.0,
+          "rawValue": "10756",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!B203"
+        },
+        {
+          "partner": "China",
+          "year": 2021,
+          "direction": "outward",
+          "measure": "affiliate_income",
+          "value": 14138.0,
+          "rawValue": "14138",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!C203"
+        },
+        {
+          "partner": "China",
+          "year": 2022,
+          "direction": "outward",
+          "measure": "affiliate_income",
+          "value": 10629.0,
+          "rawValue": "10629",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!D203"
+        },
+        {
+          "partner": "China",
+          "year": 2023,
+          "direction": "outward",
+          "measure": "affiliate_income",
+          "value": 9327.0,
+          "rawValue": "9327",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!E203"
+        },
+        {
+          "partner": "China",
+          "year": 2024,
+          "direction": "outward",
+          "measure": "affiliate_income",
+          "value": 8214.0,
+          "rawValue": "8214",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!F203"
+        },
+        {
+          "partner": "China",
+          "year": 2025,
+          "direction": "outward",
+          "measure": "affiliate_income",
+          "value": 8989.0,
+          "rawValue": "8989",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!G203"
+        }
+      ]
+    },
+    {
+      "direction": "inward",
+      "sourceId": "US46",
+      "url": "https://apps.bea.gov/international/xls/fdius-current/fdius-detailed-country-2020-2025.xlsx",
+      "status": "success",
+      "retrievedAt": "2026-11-04T05:07:24.338762+00:00",
+      "lastAttempt": "2026-11-04T05:07:24.338762+00:00",
+      "digest": "0e70a78e1b8e3a33f0aee45c6e710ceb70340fbec5d81d9bed344814d899de4e",
+      "records": [
+        {
+          "partner": "Canada",
+          "year": 2020,
+          "direction": "inward",
+          "measure": "stock",
+          "value": 487449.0,
+          "rawValue": "487449",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!B6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2021,
+          "direction": "inward",
+          "measure": "stock",
+          "value": 548030.0,
+          "rawValue": "548030",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!C6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2022,
+          "direction": "inward",
+          "measure": "stock",
+          "value": 576462.0,
+          "rawValue": "576462",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!D6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2023,
+          "direction": "inward",
+          "measure": "stock",
+          "value": 668273.0,
+          "rawValue": "668273",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!E6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2024,
+          "direction": "inward",
+          "measure": "stock",
+          "value": 708177.0,
+          "rawValue": "708177",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!F6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2025,
+          "direction": "inward",
+          "measure": "stock",
+          "value": 747348.0,
+          "rawValue": "747348",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!G6"
+        },
+        {
+          "partner": "China",
+          "year": 2020,
+          "direction": "inward",
+          "measure": "stock",
+          "value": 36738.0,
+          "rawValue": "36738",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!B199"
+        },
+        {
+          "partner": "China",
+          "year": 2021,
+          "direction": "inward",
+          "measure": "stock",
+          "value": 31831.0,
+          "rawValue": "31831",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!C199"
+        },
+        {
+          "partner": "China",
+          "year": 2022,
+          "direction": "inward",
+          "measure": "stock",
+          "value": 31023.0,
+          "rawValue": "31023",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!D199"
+        },
+        {
+          "partner": "China",
+          "year": 2023,
+          "direction": "inward",
+          "measure": "stock",
+          "value": 30926.0,
+          "rawValue": "30926",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!E199"
+        },
+        {
+          "partner": "China",
+          "year": 2024,
+          "direction": "inward",
+          "measure": "stock",
+          "value": 32355.0,
+          "rawValue": "32355",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!F199"
+        },
+        {
+          "partner": "China",
+          "year": 2025,
+          "direction": "inward",
+          "measure": "stock",
+          "value": 19009.0,
+          "rawValue": "19009",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet1.xml!G199"
+        },
+        {
+          "partner": "Canada",
+          "year": 2020,
+          "direction": "inward",
+          "measure": "financial_flow",
+          "value": 19579.0,
+          "rawValue": "19579",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!B6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2021,
+          "direction": "inward",
+          "measure": "financial_flow",
+          "value": 46879.0,
+          "rawValue": "46879",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!C6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2022,
+          "direction": "inward",
+          "measure": "financial_flow",
+          "value": 52707.0,
+          "rawValue": "52707",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!D6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2023,
+          "direction": "inward",
+          "measure": "financial_flow",
+          "value": 74222.0,
+          "rawValue": "74222",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!E6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2024,
+          "direction": "inward",
+          "measure": "financial_flow",
+          "value": 30423.0,
+          "rawValue": "30423",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!F6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2025,
+          "direction": "inward",
+          "measure": "financial_flow",
+          "value": 19343.0,
+          "rawValue": "19343",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!G6"
+        },
+        {
+          "partner": "China",
+          "year": 2020,
+          "direction": "inward",
+          "measure": "financial_flow",
+          "value": -1490.0,
+          "rawValue": "-1490",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!B199"
+        },
+        {
+          "partner": "China",
+          "year": 2021,
+          "direction": "inward",
+          "measure": "financial_flow",
+          "value": -5596.0,
+          "rawValue": "-5596",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!C199"
+        },
+        {
+          "partner": "China",
+          "year": 2022,
+          "direction": "inward",
+          "measure": "financial_flow",
+          "value": 1113.0,
+          "rawValue": "1113",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!D199"
+        },
+        {
+          "partner": "China",
+          "year": 2023,
+          "direction": "inward",
+          "measure": "financial_flow",
+          "value": -569.0,
+          "rawValue": "-569",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!E199"
+        },
+        {
+          "partner": "China",
+          "year": 2024,
+          "direction": "inward",
+          "measure": "financial_flow",
+          "value": 3125.0,
+          "rawValue": "3125",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!F199"
+        },
+        {
+          "partner": "China",
+          "year": 2025,
+          "direction": "inward",
+          "measure": "financial_flow",
+          "value": -89.0,
+          "rawValue": "-89",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet2.xml!G199"
+        },
+        {
+          "partner": "Canada",
+          "year": 2020,
+          "direction": "inward",
+          "measure": "affiliate_income",
+          "value": 19638.0,
+          "rawValue": "19638",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!B6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2021,
+          "direction": "inward",
+          "measure": "affiliate_income",
+          "value": 34427.0,
+          "rawValue": "34427",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!C6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2022,
+          "direction": "inward",
+          "measure": "affiliate_income",
+          "value": 39524.0,
+          "rawValue": "39524",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!D6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2023,
+          "direction": "inward",
+          "measure": "affiliate_income",
+          "value": 34955.0,
+          "rawValue": "34955",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!E6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2024,
+          "direction": "inward",
+          "measure": "affiliate_income",
+          "value": 40332.0,
+          "rawValue": "40332",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!F6"
+        },
+        {
+          "partner": "Canada",
+          "year": 2025,
+          "direction": "inward",
+          "measure": "affiliate_income",
+          "value": 39465.0,
+          "rawValue": "39465",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!G6"
+        },
+        {
+          "partner": "China",
+          "year": 2020,
+          "direction": "inward",
+          "measure": "affiliate_income",
+          "value": -534.0,
+          "rawValue": "-534",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!B199"
+        },
+        {
+          "partner": "China",
+          "year": 2021,
+          "direction": "inward",
+          "measure": "affiliate_income",
+          "value": 1113.0,
+          "rawValue": "1113",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!C199"
+        },
+        {
+          "partner": "China",
+          "year": 2022,
+          "direction": "inward",
+          "measure": "affiliate_income",
+          "value": -794.0,
+          "rawValue": "-794",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!D199"
+        },
+        {
+          "partner": "China",
+          "year": 2023,
+          "direction": "inward",
+          "measure": "affiliate_income",
+          "value": -316.0,
+          "rawValue": "-316",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!E199"
+        },
+        {
+          "partner": "China",
+          "year": 2024,
+          "direction": "inward",
+          "measure": "affiliate_income",
+          "value": 940.0,
+          "rawValue": "940",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!F199"
+        },
+        {
+          "partner": "China",
+          "year": 2025,
+          "direction": "inward",
+          "measure": "affiliate_income",
+          "value": 707.0,
+          "rawValue": "707",
+          "unit": "USD million",
+          "sourceCell": "xl/worksheets/sheet3.xml!G199"
+        }
+      ]
+    }
+  ],
+  "series": [
+    {
+      "partner": "Canada",
+      "year": 2020,
+      "direction": "outward",
+      "measure": "stock",
+      "value": 366880.0,
+      "rawValue": "366880",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!B6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2021,
+      "direction": "outward",
+      "measure": "stock",
+      "value": 398107.0,
+      "rawValue": "398107",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!C6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2022,
+      "direction": "outward",
+      "measure": "stock",
+      "value": 415388.0,
+      "rawValue": "415388",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!D6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2023,
+      "direction": "outward",
+      "measure": "stock",
+      "value": 413447.0,
+      "rawValue": "413447",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!E6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2024,
+      "direction": "outward",
+      "measure": "stock",
+      "value": 450587.0,
+      "rawValue": "450587",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!F6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2025,
+      "direction": "outward",
+      "measure": "stock",
+      "value": 488080.0,
+      "rawValue": "488080",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!G6"
+    },
+    {
+      "partner": "China",
+      "year": 2020,
+      "direction": "outward",
+      "measure": "stock",
+      "value": 116508.0,
+      "rawValue": "116508",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!B203"
+    },
+    {
+      "partner": "China",
+      "year": 2021,
+      "direction": "outward",
+      "measure": "stock",
+      "value": 116003.0,
+      "rawValue": "116003",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!C203"
+    },
+    {
+      "partner": "China",
+      "year": 2022,
+      "direction": "outward",
+      "measure": "stock",
+      "value": 116314.0,
+      "rawValue": "116314",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!D203"
+    },
+    {
+      "partner": "China",
+      "year": 2023,
+      "direction": "outward",
+      "measure": "stock",
+      "value": 116454.0,
+      "rawValue": "116454",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!E203"
+    },
+    {
+      "partner": "China",
+      "year": 2024,
+      "direction": "outward",
+      "measure": "stock",
+      "value": 112018.0,
+      "rawValue": "112018",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!F203"
+    },
+    {
+      "partner": "China",
+      "year": 2025,
+      "direction": "outward",
+      "measure": "stock",
+      "value": 120547.0,
+      "rawValue": "120547",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!G203"
+    },
+    {
+      "partner": "Canada",
+      "year": 2020,
+      "direction": "outward",
+      "measure": "financial_flow",
+      "value": 7152.0,
+      "rawValue": "7152",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!B6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2021,
+      "direction": "outward",
+      "measure": "financial_flow",
+      "value": 33868.0,
+      "rawValue": "33868",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!C6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2022,
+      "direction": "outward",
+      "measure": "financial_flow",
+      "value": 44416.0,
+      "rawValue": "44416",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!D6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2023,
+      "direction": "outward",
+      "measure": "financial_flow",
+      "value": 18583.0,
+      "rawValue": "18583",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!E6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2024,
+      "direction": "outward",
+      "measure": "financial_flow",
+      "value": 41087.0,
+      "rawValue": "41087",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!F6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2025,
+      "direction": "outward",
+      "measure": "financial_flow",
+      "value": 30108.0,
+      "rawValue": "30108",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!G6"
+    },
+    {
+      "partner": "China",
+      "year": 2020,
+      "direction": "outward",
+      "measure": "financial_flow",
+      "value": 8996.0,
+      "rawValue": "8996",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!B203"
+    },
+    {
+      "partner": "China",
+      "year": 2021,
+      "direction": "outward",
+      "measure": "financial_flow",
+      "value": -1184.0,
+      "rawValue": "-1184",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!C203"
+    },
+    {
+      "partner": "China",
+      "year": 2022,
+      "direction": "outward",
+      "measure": "financial_flow",
+      "value": 7440.0,
+      "rawValue": "7440",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!D203"
+    },
+    {
+      "partner": "China",
+      "year": 2023,
+      "direction": "outward",
+      "measure": "financial_flow",
+      "value": 3681.0,
+      "rawValue": "3681",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!E203"
+    },
+    {
+      "partner": "China",
+      "year": 2024,
+      "direction": "outward",
+      "measure": "financial_flow",
+      "value": 4826.0,
+      "rawValue": "4826",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!F203"
+    },
+    {
+      "partner": "China",
+      "year": 2025,
+      "direction": "outward",
+      "measure": "financial_flow",
+      "value": 6775.0,
+      "rawValue": "6775",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!G203"
+    },
+    {
+      "partner": "Canada",
+      "year": 2020,
+      "direction": "outward",
+      "measure": "affiliate_income",
+      "value": 16391.0,
+      "rawValue": "16391",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!B6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2021,
+      "direction": "outward",
+      "measure": "affiliate_income",
+      "value": 34266.0,
+      "rawValue": "34266",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!C6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2022,
+      "direction": "outward",
+      "measure": "affiliate_income",
+      "value": 38304.0,
+      "rawValue": "38304",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!D6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2023,
+      "direction": "outward",
+      "measure": "affiliate_income",
+      "value": 32524.0,
+      "rawValue": "32524",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!E6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2024,
+      "direction": "outward",
+      "measure": "affiliate_income",
+      "value": 31692.0,
+      "rawValue": "31692",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!F6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2025,
+      "direction": "outward",
+      "measure": "affiliate_income",
+      "value": 26773.0,
+      "rawValue": "26773",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!G6"
+    },
+    {
+      "partner": "China",
+      "year": 2020,
+      "direction": "outward",
+      "measure": "affiliate_income",
+      "value": 10756.0,
+      "rawValue": "10756",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!B203"
+    },
+    {
+      "partner": "China",
+      "year": 2021,
+      "direction": "outward",
+      "measure": "affiliate_income",
+      "value": 14138.0,
+      "rawValue": "14138",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!C203"
+    },
+    {
+      "partner": "China",
+      "year": 2022,
+      "direction": "outward",
+      "measure": "affiliate_income",
+      "value": 10629.0,
+      "rawValue": "10629",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!D203"
+    },
+    {
+      "partner": "China",
+      "year": 2023,
+      "direction": "outward",
+      "measure": "affiliate_income",
+      "value": 9327.0,
+      "rawValue": "9327",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!E203"
+    },
+    {
+      "partner": "China",
+      "year": 2024,
+      "direction": "outward",
+      "measure": "affiliate_income",
+      "value": 8214.0,
+      "rawValue": "8214",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!F203"
+    },
+    {
+      "partner": "China",
+      "year": 2025,
+      "direction": "outward",
+      "measure": "affiliate_income",
+      "value": 8989.0,
+      "rawValue": "8989",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!G203"
+    },
+    {
+      "partner": "Canada",
+      "year": 2020,
+      "direction": "inward",
+      "measure": "stock",
+      "value": 487449.0,
+      "rawValue": "487449",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!B6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2021,
+      "direction": "inward",
+      "measure": "stock",
+      "value": 548030.0,
+      "rawValue": "548030",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!C6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2022,
+      "direction": "inward",
+      "measure": "stock",
+      "value": 576462.0,
+      "rawValue": "576462",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!D6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2023,
+      "direction": "inward",
+      "measure": "stock",
+      "value": 668273.0,
+      "rawValue": "668273",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!E6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2024,
+      "direction": "inward",
+      "measure": "stock",
+      "value": 708177.0,
+      "rawValue": "708177",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!F6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2025,
+      "direction": "inward",
+      "measure": "stock",
+      "value": 747348.0,
+      "rawValue": "747348",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!G6"
+    },
+    {
+      "partner": "China",
+      "year": 2020,
+      "direction": "inward",
+      "measure": "stock",
+      "value": 36738.0,
+      "rawValue": "36738",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!B199"
+    },
+    {
+      "partner": "China",
+      "year": 2021,
+      "direction": "inward",
+      "measure": "stock",
+      "value": 31831.0,
+      "rawValue": "31831",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!C199"
+    },
+    {
+      "partner": "China",
+      "year": 2022,
+      "direction": "inward",
+      "measure": "stock",
+      "value": 31023.0,
+      "rawValue": "31023",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!D199"
+    },
+    {
+      "partner": "China",
+      "year": 2023,
+      "direction": "inward",
+      "measure": "stock",
+      "value": 30926.0,
+      "rawValue": "30926",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!E199"
+    },
+    {
+      "partner": "China",
+      "year": 2024,
+      "direction": "inward",
+      "measure": "stock",
+      "value": 32355.0,
+      "rawValue": "32355",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!F199"
+    },
+    {
+      "partner": "China",
+      "year": 2025,
+      "direction": "inward",
+      "measure": "stock",
+      "value": 19009.0,
+      "rawValue": "19009",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet1.xml!G199"
+    },
+    {
+      "partner": "Canada",
+      "year": 2020,
+      "direction": "inward",
+      "measure": "financial_flow",
+      "value": 19579.0,
+      "rawValue": "19579",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!B6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2021,
+      "direction": "inward",
+      "measure": "financial_flow",
+      "value": 46879.0,
+      "rawValue": "46879",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!C6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2022,
+      "direction": "inward",
+      "measure": "financial_flow",
+      "value": 52707.0,
+      "rawValue": "52707",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!D6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2023,
+      "direction": "inward",
+      "measure": "financial_flow",
+      "value": 74222.0,
+      "rawValue": "74222",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!E6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2024,
+      "direction": "inward",
+      "measure": "financial_flow",
+      "value": 30423.0,
+      "rawValue": "30423",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!F6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2025,
+      "direction": "inward",
+      "measure": "financial_flow",
+      "value": 19343.0,
+      "rawValue": "19343",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!G6"
+    },
+    {
+      "partner": "China",
+      "year": 2020,
+      "direction": "inward",
+      "measure": "financial_flow",
+      "value": -1490.0,
+      "rawValue": "-1490",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!B199"
+    },
+    {
+      "partner": "China",
+      "year": 2021,
+      "direction": "inward",
+      "measure": "financial_flow",
+      "value": -5596.0,
+      "rawValue": "-5596",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!C199"
+    },
+    {
+      "partner": "China",
+      "year": 2022,
+      "direction": "inward",
+      "measure": "financial_flow",
+      "value": 1113.0,
+      "rawValue": "1113",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!D199"
+    },
+    {
+      "partner": "China",
+      "year": 2023,
+      "direction": "inward",
+      "measure": "financial_flow",
+      "value": -569.0,
+      "rawValue": "-569",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!E199"
+    },
+    {
+      "partner": "China",
+      "year": 2024,
+      "direction": "inward",
+      "measure": "financial_flow",
+      "value": 3125.0,
+      "rawValue": "3125",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!F199"
+    },
+    {
+      "partner": "China",
+      "year": 2025,
+      "direction": "inward",
+      "measure": "financial_flow",
+      "value": -89.0,
+      "rawValue": "-89",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet2.xml!G199"
+    },
+    {
+      "partner": "Canada",
+      "year": 2020,
+      "direction": "inward",
+      "measure": "affiliate_income",
+      "value": 19638.0,
+      "rawValue": "19638",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!B6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2021,
+      "direction": "inward",
+      "measure": "affiliate_income",
+      "value": 34427.0,
+      "rawValue": "34427",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!C6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2022,
+      "direction": "inward",
+      "measure": "affiliate_income",
+      "value": 39524.0,
+      "rawValue": "39524",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!D6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2023,
+      "direction": "inward",
+      "measure": "affiliate_income",
+      "value": 34955.0,
+      "rawValue": "34955",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!E6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2024,
+      "direction": "inward",
+      "measure": "affiliate_income",
+      "value": 40332.0,
+      "rawValue": "40332",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!F6"
+    },
+    {
+      "partner": "Canada",
+      "year": 2025,
+      "direction": "inward",
+      "measure": "affiliate_income",
+      "value": 39465.0,
+      "rawValue": "39465",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!G6"
+    },
+    {
+      "partner": "China",
+      "year": 2020,
+      "direction": "inward",
+      "measure": "affiliate_income",
+      "value": -534.0,
+      "rawValue": "-534",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!B199"
+    },
+    {
+      "partner": "China",
+      "year": 2021,
+      "direction": "inward",
+      "measure": "affiliate_income",
+      "value": 1113.0,
+      "rawValue": "1113",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!C199"
+    },
+    {
+      "partner": "China",
+      "year": 2022,
+      "direction": "inward",
+      "measure": "affiliate_income",
+      "value": -794.0,
+      "rawValue": "-794",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!D199"
+    },
+    {
+      "partner": "China",
+      "year": 2023,
+      "direction": "inward",
+      "measure": "affiliate_income",
+      "value": -316.0,
+      "rawValue": "-316",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!E199"
+    },
+    {
+      "partner": "China",
+      "year": 2024,
+      "direction": "inward",
+      "measure": "affiliate_income",
+      "value": 940.0,
+      "rawValue": "940",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!F199"
+    },
+    {
+      "partner": "China",
+      "year": 2025,
+      "direction": "inward",
+      "measure": "affiliate_income",
+      "value": 707.0,
+      "rawValue": "707",
+      "unit": "USD million",
+      "sourceCell": "xl/worksheets/sheet3.xml!G199"
+    }
+  ]
+}
