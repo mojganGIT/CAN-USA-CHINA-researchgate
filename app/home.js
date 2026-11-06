@@ -3,21 +3,21 @@
  const root=document.getElementById('root'),navigation=document.getElementById('site-navigation');
  const D=window.POLICY_MASTER,C=window.EXPLORER_CATALOG;
  const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const tabs=[['home','Home'],['briefing-overview','Changes across Canada'],['compare-topics','Compare Topics'],['policy-tracker','Policy Tracker'],['evidence-methods','Evidence & Methods'],['us-trade','U.S. Trade & Policy'],['research-tools','Research Tools'],['weekly-updates','Subscribe to receive weekly updates'],['executive-summary','Executive Summary'],['canada-implications','Canada Implications Explorer'],['policy-map','Policy Product Map'],['relationship-explorer','Relationship Explorer'],['daily-updates','Daily Updates'],['research-search','Research Search'],['your-llm','Your LLM']];
- const tools=[
-  ['briefing-overview','01','Changes across Canada','See where demand, production and regional pressures are changing—and what the evidence can establish.'],
-  ['compare-topics','02','Compare Topics','Put eight topics through the same tests to distinguish shared trends from different policy choices.'],
-  ['policy-tracker','03','Policy Tracker','Trace a policy from announcement to implementation, then look for measurable Canadian results.'],
-  ['evidence-methods','04','Evidence & Methods','Open the original evidence before using a finding in comparative, policy or trend analysis.']
- ];
+ const guide=window.PolicyGuide,L=guide.labels;
+ const primaryTabs=[['home','Home'],['compare-topics','Compare Topics'],['policy-tracker','Policy Tracker'],['us-trade',L.us],['research-search',L.search],['your-llm',L.llm],['weekly-updates',L.subscribe],['daily-updates','Daily Updates']];
+ const homeMenu=[['categories',L.categories],['countries',L.countries],['comparative',L.comparative]];
+ const compareMenu=[['evidence-methods','Evidence & Methods'],['relationship-explorer',L.relationship]];
+ const menus={home:{label:L.homeMenu,items:homeMenu},'compare-topics':{label:L.compareMenu,items:compareMenu}};
+ const tabs=[...primaryTabs,...homeMenu,...compareMenu,['executive-summary','Executive Summary'],['briefing-overview','Changes across Canada'],['canada-implications','Canada Implications Explorer'],['policy-map','Policy Product Map'],['research-tools','Research Tools']];
+ const tools=homeMenu.map(([id,title],i)=>[id,String(i+1).padStart(2,'0'),title,guide.guideNotes[id]]);
  const researchTools=[
   ['executive-summary','Executive Summary','Understand the dashboard, its Canadian purpose and how to use it.'],
   ['canada-implications','Canada Implications Explorer','Open the provincial map, export statistics and regional evidence.'],
   ['policy-map','Policy Product Map','Browse policy fields across the three relationships.'],
-  ['relationship-explorer','Relationship Explorer','Explore topic connections and their significance for Canada.'],
+  ['relationship-explorer',L.relationship,'Explore topic connections and their significance for Canada.'],
   ['daily-updates','Daily Updates','Inspect source observations, dates and monitoring coverage.'],
-  ['research-search','Research Search','Find evidence in the curated inventory and daily source records.'],
-  ['your-llm','Your LLM','Use your own model account for a cited explanation.']
+  ['research-search',L.search,'Find evidence in the curated inventory and daily source records.'],
+  ['your-llm',L.llm,'Use your own model account for a cited explanation.']
  ];
  function feed(){return window.PolicyLive?.feed||{changes:[],lastRunStatus:'loading'};}
  function date(value){if(!value)return 'Not recorded yet';const d=new Date(value);return Number.isNaN(d.getTime())?'Date unavailable':new Intl.DateTimeFormat('en-CA',{dateStyle:'medium',timeStyle:'short',timeZone:'America/Toronto'}).format(d)+' ET';}
@@ -40,7 +40,7 @@
   const items=[...(f.changes||[])].sort((a,b)=>(b.detectedAt||'').localeCompare(a.detectedAt||'')).slice(0,3);
   return `<div class="hub-section-heading"><h3 id="hub-updates-title">Latest source updates</h3><a href="#daily-updates" data-hub="daily-updates">View all updates →</a></div>${items.length?`<ul class="hub-update-list">${items.map(x=>`<li><div class="hub-update-title">${official(x.url,x.title)}</div><span class="hub-small">${E(x.ai?'AI extraction · unreviewed':x.changeType==='source_revision'?'Source page revised':'Source first indexed')} · detected ${E(date(x.detectedAt))}</span></li>`).join('')}</ul><p class="hub-small">Source observations; implementation and outcomes are assessed in the Policy Tracker.</p>`:`<p class="hub-small">${f.lastRunStatus==='loading'?'Loading the latest source observations…':'No new source observations are available. Open the Policy Tracker for the reviewed policy timeline.'}</p>`}`;
  }
- function homeHTML(){return `<div class="wrap hub-home hub-landing"><section class="hub-welcome" aria-labelledby="hub-home-title"><p class="hub-eyebrow">CANADA · UNITED STATES · CHINA / 2018–2026</p><h2 id="hub-home-title">Explore Canada’s policy choices.</h2><p>When trade rules change, Canada’s choices change with them. Follow the evidence from national trends to provincial exposure, then compare the U.S. and China.</p><div class="hub-actions"><a href="#executive-summary" data-hub="executive-summary" class="hub-primary">Read the executive summary →</a></div></section><section aria-labelledby="hub-sections-title"><div class="hub-section-heading"><h3 id="hub-sections-title">Where would you like to start?</h3></div><div class="hub-tool-grid">${tools.map(([id,number,title,desc])=>`<a href="#${id}" data-hub="${id}" class="hub-tool"><div class="hub-tool-top"><span class="hub-tool-number" aria-hidden="true">${number}</span><span aria-hidden="true">→</span></div><h4>${E(title)}</h4><p>${E(desc)}</p></a>`).join('')}</div></section><section id="hub-latest" class="hub-update-preview" aria-labelledby="hub-updates-title">${homeLatestHTML()}</section><div class="hub-monitor-strip" id="hub-live-status" aria-label="Daily monitoring status">${homeStatusHTML()}</div></div>`;}
+ function homeHTML(){return `<div class="wrap hub-home hub-landing"><section class="hub-welcome" aria-labelledby="hub-home-title"><p class="hub-eyebrow">CANADA · UNITED STATES · CHINA</p><h2 id="hub-home-title">Explore Canada’s policy choices.</h2><p>When trade rules change, Canada’s choices change with them. Follow the evidence from national trends to provincial exposure, then compare the U.S. and China.</p><div class="hub-actions"><a href="#executive-summary" data-hub="executive-summary" class="hub-primary">Read the executive summary →</a></div></section><section aria-labelledby="hub-sections-title"><div class="hub-section-heading"><h3 id="hub-sections-title">Where would you like to start?</h3></div><div class="hub-tool-grid">${tools.map(([id,number,title,desc])=>`<a href="#${id}" data-hub="${id}" class="hub-tool"><div class="hub-tool-top"><span class="hub-tool-number" aria-hidden="true">${number}</span><span aria-hidden="true">→</span></div><h4>${E(title)}</h4><p>${E(desc)}</p></a>`).join('')}</div></section><section id="hub-latest" class="hub-update-preview" aria-labelledby="hub-updates-title">${homeLatestHTML()}</section><div class="hub-monitor-strip" id="hub-live-status" aria-label="Daily monitoring status">${homeStatusHTML()}</div></div>`;}
 
  function topicsHTML(standalone=true){return `${standalone?'<div class="wrap hub-home">':''}<section aria-labelledby="hub-topics-title"><div class="hub-section-heading"><div><p class="hub-eyebrow">COMPARE TOPICS</p><h3 id="hub-topics-title">Eight ways to examine the relationship.</h3></div></div><div class="hub-topics-grid">${C.topics.map((t,i)=>{const target='compare-topics?'+new URLSearchParams({topic:t.id});return `<a href="#${target}" data-hub="${target}" class="hub-topic"><span class="hub-topic-number">${String(i+1).padStart(2,'0')}</span><div><h4>${E(t.name)}</h4><p>${t.issues.map(x=>E(x.title)).join(' · ')}</p></div><span aria-hidden="true">→</span></a>`;}).join('')}</div></section>${standalone?'</div>':''}`;}
  function earlierSummaryPage(){root.innerHTML=`<div class="wrap hub-home"><div class="hub-page-heading"><p class="hub-eyebrow">BRIEFING OVERVIEW</p><h2>Executive summary</h2><p>The dated assessment and the live daily brief are shown separately so that newly indexed sources do not silently rewrite reviewed analysis.</p></div><section id="hub-latest" class="hub-latest" aria-label="Daily briefing developments">${latestHTML(feed(),5)}</section><div class="hub-core-note">Curated assessment · ${E(D.scope)}</div>${window.LegacyPolicy.summary()}</div>`;}
@@ -48,11 +48,28 @@
  function healthHTML(){const f=feed();return `<details class="hub-health"><summary>Latest source coverage · ${(f.sourceFailures||[]).length} errors</summary><p>Last successful check: ${E(date(f.lastSuccessfulRun))}. Latest result: ${E(f.lastRunStatus||'unknown')}.</p>${(f.sourceFailures||[]).map(x=>`<p>${official(x.url,x.url)}<br><span class="hub-small">${E(x.error)}</span></p>`).join('')||'<p>No errors have been recorded in the current status feed.</p>'}</details>`;}
  function searchPage(){window.showResearchSearch();const container=document.querySelector('#search-form')?.closest('.panel');if(container)container.insertAdjacentHTML('beforeend','<section id="hub-live-search"><h3>Search daily updates</h3><form id="daily-search-form" class="search"><label class="sr-only" for="daily-query">Search daily source updates</label><input id="daily-query" placeholder="Search latest policies, sources and amendments"><button class="btn" type="submit">Search updates</button></form><p id="daily-search-status" role="status" aria-live="polite"></p><div id="daily-search-results"></div></section>');document.getElementById('daily-search-form')?.addEventListener('submit',e=>{e.preventDefault();const raw=document.getElementById('daily-query').value;const q=(window.DashboardI18n?.searchQuery(raw)||raw).trim().toLowerCase();const rows=q?(feed().changes||[]).filter(x=>q.split(/\s+/).every(term=>[x.title,x.ai?.summary,x.source,...(x.topics||[])].join(' ').toLowerCase().includes(term))):[];document.getElementById('daily-search-status').textContent=rows.length+' matching daily source records.';document.getElementById('daily-search-results').innerHTML=rows.map(x=>`<article class="card"><h4>${official(x.url,x.title)}</h4><p>${E(x.ai?.summary||'Source observation; no automated policy finding.')}</p>${window.PolicyNarrative?.compact({...x,unreviewed:true})||''}<p class="note">Detected ${E(date(x.detectedAt))}</p></article>`).join('');});}
  function routeId(){const id=location.hash.slice(1).split('?')[0];return id||'home';}
- function updateNavigation(){
-  const active=routeId(),researchActive=active==='research-tools'||researchTools.some(([id])=>id===active);
-  navigation.innerHTML=`<nav class="hub-main-nav" aria-label="Main dashboard navigation">${tabs.slice(0,8).map(([id,label])=>`<a href="#${id}" data-hub="${id}" ${id===active||id==='research-tools'&&researchActive?'aria-current="page"':''}>${label}</a>`).join('')}</nav>${researchActive&&active!=='research-tools'?`<nav class="hub-research-nav" aria-label="Research tool tabs">${researchTools.map(([id,label])=>`<a href="#${id}" data-hub="${id}" ${id===active?'aria-current="page"':''}>${E(label)}</a>`).join('')}</nav>`:''}`;
-  document.title=(tabs.find(t=>t[0]===active)?.[1]||'Policy Research')+' | Canada–U.S.–China';
+ function updateTitle(){
+  const title=tabs.find(t=>t[0]===routeId())?.[1]||'Policy Research';
+  document.title=(window.DashboardI18n?.t(title)||title)+' | Canada–U.S.–China';
  }
+ function updateNavigation(){
+  const active=routeId();
+  const legacyParents={'executive-summary':'home','briefing-overview':'home','canada-implications':'home','research-tools':'home','policy-map':'compare-topics'};
+  const parent=legacyParents[active]||Object.keys(menus).find(key=>menus[key].items.some(([id])=>id===active))||active;
+  const navLink=(id,label,current)=>{const target=id==='us-trade'?'us-trade?partner=China&view=overview&topic=all':id;return `<a href="#${E(target)}" data-hub="${E(target)}"${current?' aria-current="'+current+'"':''}>${E(label)}</a>`;};
+  navigation.innerHTML=`<nav class="hub-main-nav" aria-label="Main dashboard navigation">${primaryTabs.map(([id,label])=>{
+   const menu=menus[id];
+   const top=navLink(id,label,id===active?'page':legacyParents[active]===id?'location':'');
+   return menu?`<div class="hub-nav-group" ${parent===id?'data-section-active':''}>${top}<details class="hub-nav-menu"><summary aria-label="${E(menu.label)}"><span aria-hidden="true">▾</span></summary><ul>${menu.items.map(([key,title])=>`<li>${navLink(key,title,key===active?'page':'')}</li>`).join('')}</ul></details></div>`:top;
+  }).join('')}</nav>`;
+  updateTitle();
+ }
+ function closeMenus(except=null){
+  for(const menu of navigation.querySelectorAll('details.hub-nav-menu[open]'))if(menu!==except)menu.open=false;
+ }
+ navigation.addEventListener('click',e=>{const summary=e.target.closest('.hub-nav-menu > summary');if(summary)closeMenus(summary.parentElement);});
+ document.addEventListener('click',e=>{if(!e.target.closest('.hub-nav-menu'))closeMenus();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'){const menu=navigation.querySelector('details.hub-nav-menu[open]');if(menu){closeMenus();menu.querySelector('summary').focus();}}});
  function researchToolsPage(){root.innerHTML=`<div class="wrap hub-home"><div class="hub-page-heading"><p class="hub-eyebrow">RESEARCH TOOLS</p><h2>Choose a research tool.</h2><p>Start with a question, follow the relationship and open its evidence. Each tool supports a different step in preparing a Canadian policy brief.</p></div><div class="hub-research-grid">${researchTools.map(([id,title,description])=>`<a class="hub-research-card" href="#${id}" data-hub="${id}"><h3>${E(title)} <span aria-hidden="true">→</span></h3><p>${E(description)}</p></a>`).join('')}</div></div>`;}
  function executiveSummaryHTML(){
   const questions=[
@@ -63,13 +80,14 @@
    ['Why should users choose it?','It brings dispersed sources into one comparative view. Consistent questions, dated records and clear limits help users judge what changed, why Canada should care and which regional effects are measured or still uncertain.'],
    ['What will users find?','Users can find eight topic views, a Canada map with regional evidence, U.S. trade comparisons, policy timelines and original sources. Daily source checks, weekly briefings and optional LLM explanations of reviewed Canadian evidence support follow-up.']
   ];
-  return `<div class="wrap hub-home hub-product-summary"><header class="hub-page-heading"><p class="hub-eyebrow">ABOUT THE DASHBOARD</p><h2>Executive summary</h2><p>One workspace to understand how Canada’s relationships with the United States and China shape its policy choices.</p></header><div class="hub-product-grid">${questions.map(([title,answer])=>`<section class="hub-product-question"><h3>${E(title)}</h3><p>${E(answer)}</p></section>`).join('')}</div><p class="hub-small hub-product-note">Daily monitoring detects source changes; each dataset keeps its own reference period and review status.</p><div class="hub-actions hub-product-actions"><a href="#compare-topics" data-hub="compare-topics" class="hub-primary">Compare the eight topics →</a><a href="#evidence-methods" data-hub="evidence-methods" class="hub-secondary">Inspect the evidence and methods →</a></div></div>`;
+  return `<div class="wrap hub-home hub-product-summary"><header class="hub-page-heading"><p class="hub-eyebrow">ABOUT THE DASHBOARD</p><h2>Executive summary</h2><p>One workspace to understand how Canada’s relationships with the United States and China shape its policy choices.</p></header><div class="hub-product-grid">${questions.map(([title,answer])=>`<section class="hub-product-question"><h3>${E(title)}</h3><p>${E(answer)}</p></section>`).join('')}</div><p class="hub-small hub-product-note">Daily monitoring detects source changes; each dataset keeps its own reference period and review status.</p><div class="hub-actions hub-product-actions"><a href="#compare-topics" data-hub="compare-topics" class="hub-primary">Compare the eight topics →</a><a href="#evidence-methods" data-hub="evidence-methods" class="hub-secondary">Inspect the evidence and methods →</a><a href="#research-tools" data-hub="research-tools" class="hub-secondary">Research Tools</a></div></div>`;
  }
  function summaryPage(){root.innerHTML=executiveSummaryHTML();}
  function evidencePage(){window.CanadaImpact.show('evidence');}
 
  function route(focus=false){let id=routeId();
   if(id==='home')root.innerHTML=homeHTML();
+  else if(homeMenu.some(([key])=>key===id))root.innerHTML=guide.page(id,C);
   else if(id==='executive-summary')summaryPage();
   else if(id==='briefing-overview'||id==='canada-implications')window.CanadaImpact.show('overview');
   else if(id==='compare-topics')window.CanadaImpact.show('compare');
@@ -89,8 +107,9 @@
  function navigate(target='home'){const [id,incoming='']=target.split('?');if(['home','briefing-overview','canada-implications','compare-topics','policy-tracker','evidence-methods'].includes(id)){const params=new URLSearchParams(window.CanadaImpact?.data?window.CanadaImpact.filterQuery():location.hash.split('?')[1]||'');for(const [key,value]of new URLSearchParams(incoming))params.set(key,value);target=id+(params.toString()?'?'+params:'');}history.pushState(null,'','#'+target);route(true);}
  document.addEventListener('click',e=>{const a=e.target.closest('a[data-hub]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();navigate(a.dataset.hub);});
  function refreshLiveSections(){const latest=document.getElementById('hub-latest'),status=document.getElementById('hub-live-status'),health=document.getElementById('hub-source-health');if(latest)latest.innerHTML=routeId()==='home'?homeLatestHTML():latestHTML(feed(),routeId()==='executive-summary'?5:3);if(status)status.innerHTML=routeId()==='home'?homeStatusHTML():statusHTML();if(health){const open=health.querySelector('details')?.open;health.innerHTML=healthHTML();if(open)health.querySelector('details').open=true;}}
+ window.addEventListener('dashboard-language-changed',updateTitle);
  window.addEventListener('hashchange',()=>route());window.addEventListener('policy-updates-loaded',refreshLiveSections);
- window.HomeHub={navigate,route,updateNavigation,homeHTML,executiveSummaryHTML,homeStatusHTML,homeLatestHTML,statusHTML,latestHTML,topicsHTML,refreshLiveSections,tabs,tools,researchTools};
+ window.HomeHub={navigate,route,updateNavigation,primaryTabs,homeMenu,compareMenu,homeHTML,executiveSummaryHTML,homeStatusHTML,homeLatestHTML,statusHTML,latestHTML,topicsHTML,refreshLiveSections,tabs,tools,researchTools};
  route();
 })();
 

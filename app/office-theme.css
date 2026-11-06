@@ -28,3 +28,48 @@ html[lang=fr] .hub-main-nav a{font-size:12px}html[lang=zh-Hans] body{font-family
 
 /* Keep the subscription title legible on its navy header in every language. */
 @media screen{#weekly-subscription-title{color:#c6a04e}}
+
+/* Main navigation disclosures and short research guides. */
+.hub-main-nav{position:relative;z-index:5}
+.hub-main-nav .hub-nav-group{display:flex;align-items:stretch;position:relative;min-width:0;border-radius:7px;background:#1a3657}
+.hub-nav-group>a{flex:1;min-width:0}
+.hub-main-nav .hub-nav-group[data-section-active]>a,.hub-main-nav>a[aria-current=location]{background:var(--office-gold);color:var(--office-deep);font-weight:650}
+.hub-main-nav .hub-nav-menu{margin:0;border:0;border-radius:0;background:transparent;padding:0}
+.hub-main-nav .hub-nav-menu>summary{min-width:44px;min-height:44px;height:100%;padding:0;display:grid;place-items:center;color:#ffe7ac;list-style:none;border-radius:0 7px 7px 0;cursor:pointer}
+.hub-nav-menu>summary::-webkit-details-marker{display:none}
+.hub-nav-menu[open]>summary,.hub-nav-menu>summary:hover{background:#304d6e}
+.hub-nav-menu[open]>summary span{transform:rotate(180deg)}
+.hub-main-nav :is(a,summary):focus-visible{outline:2px solid #fff0c9;outline-offset:-3px}
+.hub-nav-menu ul{margin:0;position:absolute;top:calc(100% + 4px);left:0;z-index:10;min-width:242px;width:max-content;max-width:min(315px,calc(100vw - 32px));padding:6px;list-style:none;background:var(--office-paper);border:1px solid var(--office-line);border-radius:9px;box-shadow:0 12px 28px #0b203940}
+.hub-nav-menu ul a{white-space:normal;color:var(--office-navy);border:0}
+.hub-nav-menu ul a:hover,.hub-nav-menu ul a[aria-current=page]{background:var(--office-beige);color:var(--office-deep)}
+.hub-nav-menu ul a:focus-visible{outline:2px solid var(--office-ink-gold)}
+.hub-landing .hub-tool-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hub-guide{max-width:1160px}
+.hub-guide .hub-page-heading{padding:0;background:none;color:var(--office-navy);border:0}
+.hub-guide .hub-secondary{color:var(--office-deep);background:var(--office-paper);border-color:var(--office-line);display:inline-flex}
+.guide-questions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0 20px}
+.guide-questions>div,.guide-country-grid>section{background:var(--office-paper);border:1px solid var(--office-line);border-radius:8px;padding:14px 16px;min-width:0}
+.guide-questions dt,.guide-source-facts dt{font-weight:650;color:var(--office-navy);margin:0 0 5px}
+.guide-questions dd,.guide-source-facts dd{margin:0;color:#394452;line-height:1.55;font-size:.94rem}
+.guide-country-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0 14px}
+.guide-country-grid h3{margin:0;color:var(--office-navy)}
+.guide-country-grid p{margin:8px 0 0;line-height:1.55}
+.guide-category,.guide-context,.guide-source{margin:8px 0;background:var(--office-paper);border:1px solid var(--office-line);border-radius:8px}
+.guide-category>summary,.guide-context>summary,.guide-source>summary{padding:13px 16px;cursor:pointer;color:var(--office-navy);font-weight:600}
+.guide-category>summary span{color:var(--office-ink-gold);margin-right:.7em}
+.guide-category .guide-questions,.guide-context .guide-questions,.guide-category>p,.guide-source-body{margin:0;padding:0 16px 14px}
+.guide-context{margin:14px 0 18px}
+.guide-register{padding:16px;margin:20px 0;background:var(--office-beige);border:1px solid var(--office-line);border-radius:10px}
+.guide-register h3{margin:0;color:var(--office-navy)}
+.guide-source-meta{color:var(--office-muted);font-size:.82rem;font-weight:400}
+.guide-source summary strong{display:block;padding:3px 0 0}
+.guide-source-facts{display:grid;gap:12px;margin:0}
+.guide-source-body ul{padding-left:1.35em;margin:10px 0 0}
+.guide-source-body li+li{margin-top:6px}
+@media(max-width:690px){
+ .hub-main-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .hub-main-nav .hub-nav-group:nth-child(2) .hub-nav-menu ul{left:auto;right:0}
+ .hub-landing .hub-tool-grid,.guide-country-grid,.guide-questions{grid-template-columns:minmax(0,1fr)}
+}
+@media print{.guide-register,.guide-context,.guide-questions>div,.guide-source{background:white;color:#10243d}.guide-context{break-inside:avoid}}

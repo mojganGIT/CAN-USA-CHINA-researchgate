@@ -20,7 +20,12 @@
  function showResearchSearch(){root.innerHTML='<div class="wrap">'+agent()+'</div>';document.getElementById('search-form').addEventListener('submit',e=>{e.preventDefault();ask();});}
  function showRelationships(){root.innerHTML='<div class="wrap">'+rel()+'</div>';}
  function render(){root.innerHTML='<div class="wrap">'+summary()+agent()+rel()+'</div>';document.getElementById('search-form').addEventListener('submit',e=>{e.preventDefault();ask();});}
- function ask(){const input=document.getElementById('q');if(!input)return;const rows=results(input.value);document.getElementById('search-status').textContent=rows.length?'Found '+rows.length+' indexed records.':'No relevant record was found in this inventory; this does not prove no policy exists.';document.getElementById('ans').innerHTML='<div class="grid">'+rows.map(card).join('')+'</div>';}
+ function ask(){
+  const input=document.getElementById('q');if(!input)return;
+  const guide=window.PolicyGuide,rows=results(input.value),reviewed=guide?.search(input.value)||[],count=rows.length+reviewed.length;
+  document.getElementById('search-status').textContent=count?'Found '+count+' indexed records.':'No relevant record was found in this inventory; this does not prove no policy exists.';
+  document.getElementById('ans').innerHTML=(guide?.register('search',{records:reviewed})||'')+(rows.length?'<div class="grid">'+rows.map(card).join('')+'</div>':'');
+ }
  function preset(q){if(!document.getElementById('q'))render();document.getElementById('q').value=q;ask();}
  function setRel(x){if(!D.relationships.includes(x))return;active=x;if(location.hash==='#relationship-cards')showRelationships();else render();}
  function showMap(){let h='<div class="wrap"><section class="panel map"><nav class="tabs" aria-label="Comparison views"><button type="button" class="btn" data-view="briefing">Briefing & search</button><button type="button" class="btn active" aria-current="page" data-view="map">Policy Product Map</button><button type="button" class="btn" data-view="explorer">Relationship Explorer</button></nav><h2>Policy Product Map</h2><p class="note">Follow how one policy field connects the three relationships. Select a record to read what changed, why Canada should care and which regional effects still need evidence. Use Relationship Explorer to compare subtopics.</p>';

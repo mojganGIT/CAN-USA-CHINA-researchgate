@@ -4,6 +4,7 @@ import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {complete} from '../api/src/lib/llm.js';
 import {assessmentReview} from './assessment-review.mjs';
+import research from '../app/research-register.js';
 import {hash,documentOf,safeURL,discover,classify,validateExtraction,fetchOfficial} from './core.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=async(p,fallback)=>{try{return JSON.parse(await fs.readFile(path.join(root,p),'utf8'));}catch(e){if(e.code==='ENOENT')return fallback;throw e;}};
@@ -17,6 +18,10 @@ for(const r of inventory.records){try{const url=safeURL(r.url,hosts);pages.set(u
 if(evidence)for(const source of Object.values(evidence.sources)){try{const url=safeURL(source.url,hosts);if(!/\.(?:pdf|xlsx)(?:$|\?)/i.test(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}}
 if(usInvestment)for(const source of usInvestment.sources||[])if(source.status==='success')state.pages[source.url]={digest:source.digest,lastChecked:source.retrievedAt,lastChanged:state.pages[source.url]?.digest===source.digest?state.pages[source.url].lastChanged:now,title:'BEA '+source.direction+' investment country workbook'};
 if(usEvidence)for(const source of Object.values(usEvidence.sources)){try{const url=safeURL(source.url,hosts);if(!/\.(?:pdf|xlsx)(?:$|\?)/i.test(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}}
+// Monitor linked official releases; independent analysis remains curated reading.
+for(const record of research.records.filter(r=>r.kind!=='analysis'))for(const source of record.sources){
+ try{const url=safeURL(source.url,hosts);if(!pages.has(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}
+}
 // Revisit recently discovered publications so later amendments are observable too.
 for(const [url,old] of Object.entries(state.pages).filter(([url,p])=>!pages.has(url)&&Date.parse(p.lastChanged||0)>Date.now()-30*86400000).sort((a,b)=>(a[1].lastChecked||'').localeCompare(b[1].lastChecked||'')).slice(0,config.maxTrackedPagesPerRun||20)){
  try{pages.set(safeURL(url,hosts),{issuer:old.issuer||'',known:true});}catch{}

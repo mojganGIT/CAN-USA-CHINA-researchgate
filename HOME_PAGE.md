@@ -1,19 +1,11 @@
-# Concise Home and Research Tools tabs
+# Dashboard navigation
 
-Home is a starting page with a brief introduction, an executive-summary shortcut, four links to the main areas, at most three source-update headlines, and a compact daily-monitoring status. It does not mount the Canada explorer, repeat the eight topic cards, show detailed analysis, or embed statistical tables. Full findings, sources, comparisons and methods remain in their dedicated views.
+The primary navigation order is Home, Compare Topics, Policy Tracker, U.S.–China Policy and Trade, Search Tool, BYOLLM, Subscribe, and Daily Updates. Home links to the three short guides (eight categories, countries and timeline, comparative topics); Compare Topics exposes Evidence & Methods and Relationship Tracker. Both dropdowns use native disclosures and support keyboard navigation. Existing hash routes, including the executive summary, provincial map, Research Tools directory and Policy Product Map, remain available.
 
-Main navigation exposes Home, Changes across Canada, Compare Topics, Policy Tracker, Evidence & Methods, U.S. Trade & Policy, Research Tools, and Subscribe to receive weekly updates. Research Tools has its own page, replacing the former dropdown. Its seven tools remain separate destinations: Executive Summary, Canada Implications Explorer, Policy Product Map, Relationship Explorer, Daily Updates, Research Search, and Your LLM. Each tool page exposes those destinations as visible secondary tabs; on narrow screens the tab row scrolls horizontally.
+The homepage keeps its product-summary shortcut, three guide links, up to three monitored source headlines and a short status. Guides explain why a subject matters to Canada, how to use it in policy analysis and what changed. The categories link to topic-filtered comparisons. The countries guide links to the map and a selection of dated milestones from 2018. The product executive summary remains separate from the Canada map and outcome evidence.
 
-Shared region, topic, relationship, period, measure and layer filters carry between the detailed views and through Home. No dataset or finding changes. The 59 reviewed records, 28 sources, eight policies, 168 official statistical series, 13 regional geometries, original inventory and 72 relationship briefings remain intact.
+## Source notes
 
-Home source headlines are detected observations, not established policy outcomes. It retains source dates and unreviewed labels and links to the full Daily Updates view. Monitoring status updates in place without adding detailed monitoring configuration to Home.
+`app/research-register.js` holds separately dated reviewed source notes, including signed MOUs, official policy records, statistics and independent research. These supplement the original reviewed Canada and U.S. evidence registers without changing their reference periods or review dates. The Policy Tracker shows instruments and decisions, while Evidence & Methods and Search Tool also surface statistics and independent research. Daily Updates distinguishes recently reviewed notes from automatically detected changes. The U.S.–China tab opens with China selected and retains the option to compare Canada.
 
-The provincial statistical feed is requested when a detailed evidence view first loads, rather than on the initial Home visit. After activation it continues to refresh alongside daily policy observations. The existing scheduled backend collection and deployment workflows are unchanged.
-
-Validation covers compact home content, absence of an embedded explorer, four primary section cards, eight visible main tabs, seven research tabs, all dedicated routes, filter preservation, three-headline preview limits, delayed statistical requests, data integrity and existing map/monitor behaviour. Browser preview remains restricted by saved browser permissions.
-
-## Product executive summary
-
-The `executive-summary` route now describes the dashboard as a product: what it is, why it matters to Canada, its uses and audiences, why users should choose it, and what they can find. It contains no map, outcome register or statistical tables and does not activate the Canadian evidence loader. Its English, French and Simplified Chinese copy is separate from the reviewed policy findings.
-
-Home no longer includes the Explore the Canada map shortcut. Canada Implications Explorer and Changes across Canada retain their regional map and original data. Evidence filters remain available when returning to the detailed views; they are not applied to the product summary.
+A documented signature or announced extension does not establish legal implementation or economic outcomes. Historical figures keep their original unit, scope and date. Official release URLs in the supplement are eligible for the existing daily monitor; independent research remains separately labelled. The guides and source notes include English, French and Simplified Chinese copy.

@@ -4,8 +4,9 @@
  const kinds={observed:'Observed outcome',derived:'Calculated indicator',administrative:'Administrative utilization',implemented_policy:'Implemented policy',modelled_baseline:'Modelled historical baseline',historical_baseline:'Historical baseline',company_result:'Foreign affiliate result',stock:'Investment stock',financial_flow:'Financial flow',decision:'Investment decision',agreement:'Agreement / framework',institutional:'Institutional activity',broad_labour_context:'Broad labour context'};
  const attribution={not_established:'Arrangement effect not established',pre_existing_project:'Existing project; new-arrangement effect not established',predates_arrangement:'Predates the new arrangements',policy_only:'Policy implementation; commercial effect not established'};
  const stages={signed:'Signed',in_force:'In force',implemented_decision:'Decision implemented',meeting_held:'Meeting held',published_framework:'Framework published',review_outcome:'Review outcome recorded'};
+ function years(data){const end=Number(data.asOf?.slice(0,4));return end>=2018&&end<2100?Array.from({length:end-2018+1},(_,i)=>String(end-i)):[];}
  function normalize(data,state={}){
-  return {region:state.region==='CA'||data.regions[state.region]?state.region:defaults.region,topic:state.topic==='all'||data.assessments.some(t=>t.id===state.topic)?state.topic:'all',relationship:data.relationships.includes(state.relationship)?state.relationship:'all',period:['all','2026','2025','2024'].includes(state.period)?state.period:'all',metric:[...data.metrics.map(m=>m.id),'resilience'].includes(state.metric)?state.metric:'all',layer:['summary','observed','exposure','policy','trade'].includes(state.layer)?state.layer:'summary'};
+  return {region:state.region==='CA'||data.regions[state.region]?state.region:defaults.region,topic:state.topic==='all'||data.assessments.some(t=>t.id===state.topic)?state.topic:'all',relationship:data.relationships.includes(state.relationship)?state.relationship:'all',period:years(data).includes(state.period)?state.period:'all',metric:[...data.metrics.map(m=>m.id),'resilience'].includes(state.metric)?state.metric:'all',layer:['summary','observed','exposure','policy','trade'].includes(state.layer)?state.layer:'summary'};
  }
  function recordMatches(record,state,{ignoreRegion=false,ignoreMetric=false,ignoreRelationship=false}={}){
   if(!ignoreRegion&&state.region!=='CA'&&record.regions.length&&!record.regions.includes(state.region))return false;
@@ -34,7 +35,7 @@
   return record.sourceIds.map(id=>({source:data.sources[id],check:checks.find(c=>c.sourceId===id)||null}));
  }
  function displayedValue(record){return record.value===null?record.unit:new Intl.NumberFormat('en-CA',{maximumFractionDigits:3}).format(record.value)+' '+record.unit;}
- const api={defaults,kinds,attribution,stages,normalize,recordMatches,records,policies,local,mapClass,sourceHealth,displayedValue};
+ const api={defaults,kinds,attribution,stages,years,normalize,recordMatches,records,policies,local,mapClass,sourceHealth,displayedValue};
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
  if(global)global.ImpactModel=api;
 })(typeof window==='undefined'?null:window);
