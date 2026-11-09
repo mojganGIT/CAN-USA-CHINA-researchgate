@@ -1,10 +1,10 @@
 {
-  "lastAttempt": "2026-11-08T11:51:29.913Z",
-  "lastSuccessfulRun": "2026-11-08T11:51:29.913Z",
+  "lastAttempt": "2026-11-09T12:08:45.382Z",
+  "lastSuccessfulRun": "2026-11-09T12:08:45.382Z",
   "lastRunStatus": "partial",
   "scheduleUTC": "11:17 daily",
   "aiEnabled": false,
-  "sourcesChecked": 111,
+  "sourcesChecked": 115,
   "sourceFailures": [
     {
       "url": "https://english.mofcom.gov.cn/News/",
@@ -71,10 +71,6 @@
       "error": "Official source returned HTTP 403"
     },
     {
-      "url": "https://www.lngcanada.ca/news/media-kit/",
-      "error": "Insufficient source content."
-    },
-    {
       "url": "https://fas.usda.gov/data/trade",
       "error": "Source URL is not allowed."
     },
@@ -95,18 +91,6 @@
       "error": "Insufficient source content."
     },
     {
-      "url": "https://english.mofcom.gov.cn/News/SignificantNews/art/2026/art_4563e1bf2d9a45d38a4663496815d2e0.html",
-      "error": "fetch failed"
-    },
-    {
-      "url": "https://english.mofcom.gov.cn/News/SignificantNews/art/2026/art_149a7dde819c4192be07d226cff098fb.html",
-      "error": "fetch failed"
-    },
-    {
-      "url": "https://english.mofcom.gov.cn/News/PressConference/art/2026/art_87a9606dc3b1480fb39cb3c5b77c3b81.html",
-      "error": "fetch failed"
-    },
-    {
       "url": "https://apps.bea.gov/international/xls/usdia-current/usdia-detailedcountry-2020-2025.xlsx",
       "error": "Official source returned HTTP 406"
     },
@@ -116,6 +100,23 @@
     }
   ],
   "changes": [
+    {
+      "id": "auto-d88c11618b765f46a137",
+      "url": "https://fas-prod.azureedge.us/regions/china",
+      "title": "China",
+      "source": "fas-prod.azureedge.us",
+      "publicationDate": null,
+      "detectedAt": "2026-11-09T12:08:45.382Z",
+      "changeType": "source_revision",
+      "digest": "b4d4af36e9bc6594bad61824c0cf9c5e9cbdbafdfb3dac54baaa9892c2a57854",
+      "previousDigest": "1e857f8a9fdedc79a07c8daece90537ecc1a410aefcfb9a84519f6aadcde6b99",
+      "relationships": [
+        "USA-China"
+      ],
+      "topics": [
+        "agriculture"
+      ]
+    },
     {
       "id": "auto-7503854db4f9333e5b59",
       "url": "https://fas-prod.azureedge.us/regions/china",
@@ -307,7 +308,7 @@
       ]
     }
   ],
-  "workflowURL": "https://github.com/mojganGIT/CAN-USA-CHINA-researchgate/actions/runs/42477549339",
+  "workflowURL": "https://github.com/mojganGIT/CAN-USA-CHINA-researchgate/actions/runs/42614506323",
   "aiCalls": 0,
   "assessmentReview": {
     "dataVersion": "2026-11-03.1",
@@ -315,7 +316,7 @@
     "checks": [
       {
         "sourceId": "S01",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "39b89d538c445de19ac2c0bf64d7c61f743ee240074adb0a5becb9ce47357999",
         "status": "read",
         "reviewRequired": true,
@@ -351,7 +352,7 @@
       },
       {
         "sourceId": "S03",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "d6b8911041079155deb23e5ec9a7ed188485a697a0529633ad044568beccd238",
         "status": "read",
         "reviewRequired": false,
@@ -364,7 +365,7 @@
       },
       {
         "sourceId": "S04",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "547ffe296f9f1a6990e1a3cc89dcc6a7571060fa9e6beb1ec5eada7306629308",
         "status": "read",
         "reviewRequired": true,
@@ -375,7 +376,7 @@
       },
       {
         "sourceId": "S05",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "e8f273e0d51cd54eee158a84433b76434b672f954235690f402996e4f86c9dde",
         "status": "read",
         "reviewRequired": false,
@@ -387,7 +388,7 @@
       },
       {
         "sourceId": "S06",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "cd10e8564ae9564a6600cbe0ebb8cf7b16780fc8a5401b2f35320ce772fbf7f1",
         "status": "read",
         "reviewRequired": false,
@@ -402,7 +403,7 @@
       },
       {
         "sourceId": "S07",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "c2392610741e7c3dfff8a2c5809fa249b5a982a7610c8b0254963c8181f4cdf7",
         "status": "read",
         "reviewRequired": false,
@@ -415,7 +416,7 @@
       },
       {
         "sourceId": "S08",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "7d2c8ab718c166d91da69506f1592a6357fa4464a388ed207a8b454d15395724",
         "status": "read",
         "reviewRequired": false,
@@ -426,7 +427,7 @@
       },
       {
         "sourceId": "S09",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "27682d468f927e22ca469c83c310f6912db2292600d63b964e372aeaf1306aad",
         "status": "read",
         "reviewRequired": false,
@@ -438,7 +439,7 @@
       },
       {
         "sourceId": "S10",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "f76ffdeba7df39ae9f2b93bff8d35060723dd9fd9492c90ec523e8b019d3ec07",
         "status": "read",
         "reviewRequired": false,
@@ -461,9 +462,9 @@
       },
       {
         "sourceId": "S12",
-        "lastChecked": "2026-11-07T11:50:53.061Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "f5af9a40452b06257ea3f824b9d3b4d7eefdc744a541bd9a7b7c2ba82085d8f6",
-        "status": "failed",
+        "status": "read",
         "reviewRequired": false,
         "changedAt": null,
         "recordIds": [
@@ -472,7 +473,7 @@
       },
       {
         "sourceId": "S13",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "7136da21cde8984d7bbd5d28cb669dafea38453c2102a8a86837f6ee0ac45e34",
         "status": "read",
         "reviewRequired": false,
@@ -484,7 +485,7 @@
       },
       {
         "sourceId": "S14",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "c472369f171db169363d2f33f76025c93addea21f7997b66ba749c91d82005f9",
         "status": "read",
         "reviewRequired": false,
@@ -496,7 +497,7 @@
       },
       {
         "sourceId": "S15",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "817764c91b6eacad212795c92c1b8ce09c3728eed57096061e8da0d7b71bafe0",
         "status": "read",
         "reviewRequired": false,
@@ -508,7 +509,7 @@
       },
       {
         "sourceId": "S16",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "521bc8826c0a4187b1db0adbf4d2d0feb67ea0a459ae8e0663f56e3a6b7ee17a",
         "status": "read",
         "reviewRequired": false,
@@ -519,7 +520,7 @@
       },
       {
         "sourceId": "S17",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "cf1cdbfe0b79ac0b884cfb8585478f03e9508e7bf201e8a5b12c4e7ecc43992d",
         "status": "read",
         "reviewRequired": false,
@@ -530,7 +531,7 @@
       },
       {
         "sourceId": "S18",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "2e1aff44aeee1e2f5af4e66affc28cc06cd90d3f8101b2765ea568d94637d306",
         "status": "read",
         "reviewRequired": false,
@@ -541,7 +542,7 @@
       },
       {
         "sourceId": "S19",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "839033b4d7fb137221a07920a3bf24df370ab10adbd6ca9ec0d62e9ea0cddf22",
         "status": "read",
         "reviewRequired": false,
@@ -564,7 +565,7 @@
       },
       {
         "sourceId": "S21",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "012eabb235460f63ea3d1e1d507dc1e99061931b225006c28c89e5fd353aa980",
         "status": "read",
         "reviewRequired": false,
@@ -575,7 +576,7 @@
       },
       {
         "sourceId": "S22",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "c893c9c7fef3536d32435053bf2051c1f2f6c72fc9f8c97efc72f8857854bd00",
         "status": "read",
         "reviewRequired": false,
@@ -586,7 +587,7 @@
       },
       {
         "sourceId": "S23",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "c6b7164e1d34e7a697a12b6ea9ede3dca2afcf09450bf47040988bb2caba297a",
         "status": "read",
         "reviewRequired": false,
@@ -603,7 +604,7 @@
       },
       {
         "sourceId": "S24",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "cc2dca61f3c5e532923473bd314280779d05155e809dcc549845ec69a8d8d7d1",
         "status": "read",
         "reviewRequired": false,
@@ -615,7 +616,7 @@
       },
       {
         "sourceId": "S25",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "6eb1fcd29294f2def6642fa25cbf5ece702cbcca70e887ce5a4af6839f51ca2e",
         "status": "read",
         "reviewRequired": false,
@@ -627,7 +628,7 @@
       },
       {
         "sourceId": "S26",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "99090014eebc33740cf00cb45efe219d654bf18732e4ababc767ebfdc66f2d31",
         "status": "read",
         "reviewRequired": false,
@@ -636,18 +637,18 @@
       },
       {
         "sourceId": "S27",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
-        "digest": "0ce96da1d941303c272d4745702b13ff6b78f5d9c36ef8e222ee7ccd5ed5e585",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
+        "digest": "eba9a209466f8637502b80b2353445fc0b02ecb012540093471fce290d0aa239",
         "status": "read",
         "reviewRequired": true,
-        "changedAt": "2026-11-08T11:51:29.913Z",
+        "changedAt": "2026-11-09T12:08:45.382Z",
         "recordIds": [
           "agriculture-jobs"
         ]
       },
       {
         "sourceId": "S28",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "89b2340a076cba0ca078335ac2c46e474d19de4a9726ae35e7d71574b70ff998",
         "status": "read",
         "reviewRequired": false,
@@ -664,7 +665,7 @@
     "checks": [
       {
         "sourceId": "US01",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "e7ca52cec7785567645d6b4c75154b528b900bae9ac56a25a085c18863203f5f",
         "status": "read",
         "reviewRequired": true,
@@ -673,7 +674,7 @@
       },
       {
         "sourceId": "US02",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "d8dde73f032449217710e6554ac96329b3e5d56f1722661df00cf57fc4ba1faa",
         "status": "read",
         "reviewRequired": true,
@@ -682,7 +683,7 @@
       },
       {
         "sourceId": "US03",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "4ad40a5604360dc352e1ce6184a218604603d86f7650ec7688f3722363c06be1",
         "status": "read",
         "reviewRequired": false,
@@ -697,7 +698,7 @@
       },
       {
         "sourceId": "US04",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "54cb61a7b3b23f1bcfd7b530acb6de02d979eb1ee912e18f55852aa40f6b1ef2",
         "status": "read",
         "reviewRequired": false,
@@ -711,7 +712,7 @@
       },
       {
         "sourceId": "US05",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "7126b414a45c05cef7760f848133926fd0bdce8ae6715bd51efd01c5d9462768",
         "status": "read",
         "reviewRequired": true,
@@ -739,11 +740,11 @@
       },
       {
         "sourceId": "US06",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
-        "digest": "1e857f8a9fdedc79a07c8daece90537ecc1a410aefcfb9a84519f6aadcde6b99",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
+        "digest": "b4d4af36e9bc6594bad61824c0cf9c5e9cbdbafdfb3dac54baaa9892c2a57854",
         "status": "read",
         "reviewRequired": true,
-        "changedAt": "2026-11-07T11:50:53.061Z",
+        "changedAt": "2026-11-09T12:08:45.382Z",
         "recordIds": [
           "us-agri-china",
           "us-agri-china-1",
@@ -781,7 +782,7 @@
       },
       {
         "sourceId": "US08",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "a953cac037f8e3839efb3c039ff8a9686b0c1f64491eef3593747462e6a4a569",
         "status": "read",
         "reviewRequired": false,
@@ -795,7 +796,7 @@
       },
       {
         "sourceId": "US09",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "31953e23ea469decc928ece2f2a5294e2be7efb4b9c06191599b96354307043c",
         "status": "read",
         "reviewRequired": false,
@@ -807,7 +808,7 @@
       },
       {
         "sourceId": "US10",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "5c101dea209d24a99ac3939eba9b75bb491a10ece085b843f312c2c8ddef95b4",
         "status": "read",
         "reviewRequired": false,
@@ -819,7 +820,7 @@
       },
       {
         "sourceId": "US11",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "528923ec8147dbf742f2e489bf2fdd6b3d87ddd351cc1c072d4e4dccc1ec1824",
         "status": "read",
         "reviewRequired": false,
@@ -831,7 +832,7 @@
       },
       {
         "sourceId": "US12",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "d7a199a1c321ca49bff2a5ed78a458e8b249814d2c40d9b0dcbad03524a50d41",
         "status": "read",
         "reviewRequired": false,
@@ -842,7 +843,7 @@
       },
       {
         "sourceId": "US13",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "3d07b370e3c95596fa55d47b104ab8452d20d42676870e6ecff0713936f608b9",
         "status": "read",
         "reviewRequired": false,
@@ -855,7 +856,7 @@
       },
       {
         "sourceId": "US14",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "80b4b2a32dadd6d212513fe2e7527bed54959b3d4bdec4db16c75f153fc8ab4c",
         "status": "read",
         "reviewRequired": false,
@@ -880,7 +881,7 @@
       },
       {
         "sourceId": "US16",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "e3e367b3b28226120f4edc8a2e1329a5e6b519e8863b09ca556bcd6567403cfc",
         "status": "read",
         "reviewRequired": false,
@@ -891,7 +892,7 @@
       },
       {
         "sourceId": "US17",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "5b3bb0da1999b6a296b3b2be4fc431c134d4f5442263dc88650288bedfbac0d9",
         "status": "read",
         "reviewRequired": false,
@@ -902,7 +903,7 @@
       },
       {
         "sourceId": "US18",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "b4ed39836263536a3473ba3818cab980b688ba8bd527a7b7fac39ccb9abc6ca4",
         "status": "read",
         "reviewRequired": false,
@@ -913,7 +914,7 @@
       },
       {
         "sourceId": "US19",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "04e02042542fa9666e82f863a5a286c97adcdf99f266e53a1879828f2c16762c",
         "status": "read",
         "reviewRequired": false,
@@ -924,7 +925,7 @@
       },
       {
         "sourceId": "US20",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "aca96dfc7527dcae6a65b4318426a9cfbe29e4f936a4be37d2205066e679a3d4",
         "status": "read",
         "reviewRequired": false,
@@ -935,7 +936,7 @@
       },
       {
         "sourceId": "US21",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "0e8af4e8d2226a580519849daac897e4fc44e0b9c7f7fe39bc8ccbea787363e7",
         "status": "read",
         "reviewRequired": false,
@@ -957,7 +958,7 @@
       },
       {
         "sourceId": "US23",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "9553e12518fc251871e1dd08616d6b7f082c2e4780557bf6cddc966a7ee963c7",
         "status": "read",
         "reviewRequired": false,
@@ -968,7 +969,7 @@
       },
       {
         "sourceId": "US24",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "ef3897b71c89309806ae6833c8a908da3249c5ccf52e1a6bd9f0edfeef348ebf",
         "status": "read",
         "reviewRequired": false,
@@ -979,7 +980,7 @@
       },
       {
         "sourceId": "US25",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "e87479d0b45e19895b3001dc3ac79dd2bfb5f376d52adf323450e1307ab3195e",
         "status": "read",
         "reviewRequired": false,
@@ -990,7 +991,7 @@
       },
       {
         "sourceId": "US26",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "09a927631fdae0e173449bf53269fe743a2e3aafbed77fbdd1b9c723ec6f0919",
         "status": "read",
         "reviewRequired": false,
@@ -1001,7 +1002,7 @@
       },
       {
         "sourceId": "US27",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "2b3e14162078ffef86a48613fb1133c7e65eafc55bc6faed1cfcf4b9b9243c4f",
         "status": "read",
         "reviewRequired": false,
@@ -1012,7 +1013,7 @@
       },
       {
         "sourceId": "US28",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "eb6df732457f6cea083cfbbda6ec222896318b80f5ddac42fcfb99753d49b39c",
         "status": "read",
         "reviewRequired": false,
@@ -1023,7 +1024,7 @@
       },
       {
         "sourceId": "US29",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "f6c6ea2f7113a39d66396fa293c27fc554fa7e5084c1e639a4bb61929beed752",
         "status": "read",
         "reviewRequired": false,
@@ -1056,7 +1057,7 @@
       },
       {
         "sourceId": "US32",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "d7f1caa3987641d0204cee28c1463c7ae6e0e9ffea104a53541ae0a58d0ea7ef",
         "status": "read",
         "reviewRequired": false,
@@ -1067,7 +1068,7 @@
       },
       {
         "sourceId": "US33",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "f0d218199efbc29d6841fa441c39be75cd4b941636cd29ae290b24407fb3cf20",
         "status": "read",
         "reviewRequired": false,
@@ -1100,7 +1101,7 @@
       },
       {
         "sourceId": "US36",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "e16abd784ef7a5f81637c8471d6b6b6d29d48c797117e5662e3f31354442c037",
         "status": "read",
         "reviewRequired": false,
@@ -1111,9 +1112,9 @@
       },
       {
         "sourceId": "US37",
-        "lastChecked": "2026-11-07T11:50:53.061Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "0c2cefc49f96907a82365d58b715c3e4c24dd2f5313d8741df14c3fd58947306",
-        "status": "failed",
+        "status": "read",
         "reviewRequired": false,
         "changedAt": null,
         "recordIds": [
@@ -1122,7 +1123,7 @@
       },
       {
         "sourceId": "US38",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "2e1aff44aeee1e2f5af4e66affc28cc06cd90d3f8101b2765ea568d94637d306",
         "status": "read",
         "reviewRequired": false,
@@ -1133,7 +1134,7 @@
       },
       {
         "sourceId": "US39",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "1f330e6408dff3ea5e97b6515571dd3474ee6037ba64d54423020cfa0cc3552d",
         "status": "read",
         "reviewRequired": false,
@@ -1144,7 +1145,7 @@
       },
       {
         "sourceId": "US40",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "c893c9c7fef3536d32435053bf2051c1f2f6c72fc9f8c97efc72f8857854bd00",
         "status": "read",
         "reviewRequired": false,
@@ -1155,7 +1156,7 @@
       },
       {
         "sourceId": "US41",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "ac6f10b728bd9a8f310c1e572d2c08283c2136f279f0e97876a2ac54b5f4b57b",
         "status": "read",
         "reviewRequired": false,
@@ -1164,7 +1165,7 @@
       },
       {
         "sourceId": "US42",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "4c578d80073771912608580cd4c7efd7e917aab613cfeffddc237a3a5c179b29",
         "status": "read",
         "reviewRequired": false,
@@ -1175,7 +1176,7 @@
       },
       {
         "sourceId": "US43",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "267698da3bf59ba1a2e284f386a7226256ad036b8f9f2fd704a4a5df374b333c",
         "status": "read",
         "reviewRequired": false,
@@ -1186,7 +1187,7 @@
       },
       {
         "sourceId": "US44",
-        "lastChecked": "2026-11-08T11:51:29.913Z",
+        "lastChecked": "2026-11-09T12:08:45.382Z",
         "digest": "492aa1a54ea9ec6470e4d495a6b0db0d8d4b65f8e9eab6c8f5205447990f03d6",
         "status": "read",
         "reviewRequired": true,
@@ -1198,7 +1199,7 @@
       },
       {
         "sourceId": "US45",
-        "lastChecked": "2026-11-08T11:51:27.609556+00:00",
+        "lastChecked": "2026-11-09T12:08:43.685600+00:00",
         "digest": "35627a9117698c818f01b0f0059e7ad6aebabe8799fd3d7b292dffb37c5c2ef3",
         "status": "failed",
         "reviewRequired": false,
@@ -1244,7 +1245,7 @@
       },
       {
         "sourceId": "US46",
-        "lastChecked": "2026-11-08T11:51:27.609556+00:00",
+        "lastChecked": "2026-11-09T12:08:43.685600+00:00",
         "digest": "0e70a78e1b8e3a33f0aee45c6e710ceb70340fbec5d81d9bed344814d899de4e",
         "status": "failed",
         "reviewRequired": false,
