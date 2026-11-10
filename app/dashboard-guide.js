@@ -3,6 +3,8 @@
  const translations={};
  const S=(en,fr,zh)=>(translations[en]=[fr,zh],en);
  const labels={
+  usStateMap:S('State trade map','Carte du commerce par État','州贸易地图'),
+
   insights:S('Findings & Trends','Constats et tendances','发现与趋势'),
   insightsIntro:S('Explore the dashboard’s statistics, policies, MOUs, amendments and updates in one interactive view. Compare matching periods, read the statistical interpretation and open the original evidence.','Explorez les statistiques, politiques, protocoles, modifications et mises à jour dans une vue interactive. Comparez des périodes équivalentes, lisez l’interprétation statistique et ouvrez les preuves originales.','在同一交互视图中探索统计数据、政策、谅解备忘录、修订和更新。对照可比时期，阅读统计解读并查阅原始证据。'),
   insightsOpen:S('Open the full findings view','Ouvrir la vue complète des constats','打开完整发现视图'),

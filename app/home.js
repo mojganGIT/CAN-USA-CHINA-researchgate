@@ -60,7 +60,7 @@
   const active=routeId();
   const legacyParents={'executive-summary':'home','briefing-overview':'home','canada-implications':'home','research-tools':'home','policy-map':'compare-topics'};
   const parent=legacyParents[active]||Object.keys(menus).find(key=>menus[key].items.some(([id])=>id===active))||active;
-  const navLink=(id,label,current)=>{const target=id==='us-trade'?'us-trade?partner=China&view=overview&topic=all':id;return `<a href="#${E(target)}" data-hub="${E(target)}"${current?' aria-current="'+current+'"':''}>${E(label)}</a>`;};
+  const navLink=(id,label,current)=>{const target=id==='us-trade'?'us-trade?partner=China&view=states&topic=all':id;return `<a href="#${E(target)}" data-hub="${E(target)}"${current?' aria-current="'+current+'"':''}>${E(label)}</a>`;};
   navigation.innerHTML=`<nav class="hub-main-nav" aria-label="Main dashboard navigation">${primaryTabs.map(([id,label])=>{
    const menu=menus[id];
    const top=navLink(id,label,id===active?'page':legacyParents[active]===id?'location':'');

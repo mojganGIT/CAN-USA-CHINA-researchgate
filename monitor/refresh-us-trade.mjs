@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import {PARTNERS,parseCensus} from './us-trade-core.mjs';
+import {refreshStateProfiles} from './us-state-core.mjs';
 const output=new URL('../app/us-trade-statistics.json',import.meta.url),now=new Date().toISOString();
 let previous={partners:[]};try{previous=JSON.parse(await fs.readFile(output,'utf8'));}catch{}
 const partners=await Promise.all(PARTNERS.map(async source=>{
@@ -10,4 +11,5 @@ const partners=await Promise.all(PARTNERS.map(async source=>{
 }));
 const successful=partners.filter(p=>p.status==='success').length;
 const data={schemaVersion:1,title:'U.S. merchandise trade with Canada and China',status:successful===2?'success':successful?'partial':'unavailable',lastAttempt:now,lastSuccessfulRun:successful?now:previous.lastSuccessfulRun||null,basis:'U.S. Census Bureau, nominal USD millions, not seasonally adjusted, goods only. Exports include re-exports. Annual totals are source-reported; the latest year is labelled year-to-date until 12 months are present. Retrieved vintage can revise earlier observations.',partners};
+data.stateTrade=await refreshStateProfiles(previous.stateTrade,{now});
 await fs.writeFile(output,JSON.stringify(data,null,2)+'\n');console.log(JSON.stringify({status:data.status,partners:partners.map(p=>({id:p.id,status:p.status,dataThrough:p.dataThrough,monthly:p.monthly?.length||0,error:p.error||null}))}));

@@ -94,7 +94,7 @@
    ['Change from prior period',r.change===null?T('Comparable total unavailable'):r.percent!==null?percent(r.percent,true):compact(r.change,r.unit,true),r.change!==null&&r.percent!==null?compact(r.change,r.unit,true):'']];
   if(r.share!==null&&r.share!==undefined)tiles.push(['Share of all destinations',percent(r.share),r.shareChange===null?'':T('That share changed by {0} percentage points.',signed(r.shareChange))]);
   return controls+`<section class="insight-panel"><div class="insight-section-title"><h2>${tx(datasetLabels[ds])}</h2><p class="insight-muted">${tx('Latest in source')}: ${e(r.dataThrough||T('Not available'))} · ${tx('Source retrieved')}: ${e(prettyDate(r.checked))} · ${tr(r.status||'')}</p></div><dl class="insight-metrics">${tiles.map(([l,v,n])=>`<div><dt>${tx(l)}</dt><dd>${e(v)}</dd>${n?`<dd class="insight-meta">${e(n)}</dd>`:''}</div>`).join('')}</dl>
-  ${interpret(r,ds,s)}${plot(r)}<p class="insight-muted">${tr(r.basis)}</p><div class="insight-links">${source(r.source,'Original data source')}${ds==='canada'?jump('canada-implications','Check regional evidence'):jump('us-trade','Check U.S. trade and policy')}</div></section>`;
+  ${interpret(r,ds,s)}${plot(r)}<p class="insight-muted">${tr(r.basis)}</p><div class="insight-links">${source(r.source,'Original data source')}${ds==='canada'?jump('canada-implications','Check regional evidence'):jump('us-trade','Check U.S. trade and policy')}${ds==='us'?jump('us-trade?view=states','State trade map'):''}</div></section>`;
  }
 
 

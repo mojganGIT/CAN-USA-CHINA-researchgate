@@ -1436,5 +1436,1344 @@
       "retrievedAt": "2026-11-10T11:59:52.009Z",
       "lastAttempt": "2026-11-10T11:59:52.009Z"
     }
-  ]
+  ],
+  "stateTrade": {
+    "schemaVersion": 1,
+    "reviewedAt": "2026-11-10",
+    "lastAttempt": "2026-11-10",
+    "status": "partial",
+    "basis": "Annual goods exports, nominal U.S. dollars, as rounded in the canonical USTR state profiles. Country figures cover only explicitly reported leading export markets. Missing partner values are not zero. No import or policy-attributable effect is inferred.",
+    "scope": "50 states and the District of Columbia; the District profile is unavailable in this review.",
+    "methodsURL": "https://www.census.gov/foreign-trade/guide/sec2.html",
+    "profilesURL": "https://ustr.gov/countries-regions/united-states-trade-data",
+    "rows": [
+      {
+        "code": "AL",
+        "name": "Alabama",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/alabama",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 23700000000,
+        "partners": {
+          "Canada": {
+            "value": 4300000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 2000000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 11400000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "AK",
+        "name": "Alaska",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/alaska",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 6700000000,
+        "partners": {
+          "Canada": {
+            "value": 635000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 803000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "primary metal manufacturing",
+        "leadingManufacturingValue": 1200000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "AZ",
+        "name": "Arizona",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/arizona",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 44600000000,
+        "partners": {
+          "Canada": {
+            "value": 3000000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "computer & electronic products",
+        "leadingManufacturingValue": 19600000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "AR",
+        "name": "Arkansas",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/arkansas",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 6700000000,
+        "partners": {
+          "Canada": {
+            "value": 1300000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 169000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 1700000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "CA",
+        "name": "California",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/california",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 188200000000,
+        "partners": {
+          "Canada": {
+            "value": 17000000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 10300000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "computer & electronic products",
+        "leadingManufacturingValue": 54300000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "CO",
+        "name": "Colorado",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/colorado",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 11500000000,
+        "partners": {
+          "Canada": {
+            "value": 1600000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "food & kindred products",
+        "leadingManufacturingValue": 2300000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "CT",
+        "name": "Connecticut",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/connecticut",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 17800000000,
+        "partners": {
+          "Canada": {
+            "value": 2200000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 6200000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "DE",
+        "name": "Delaware",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/delaware",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 5500000000,
+        "partners": {
+          "Canada": {
+            "value": 775000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 405000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "chemicals",
+        "leadingManufacturingValue": 1600000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "DC",
+        "name": "District of Columbia",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": null,
+        "totalExports": null,
+        "partners": {
+          "Canada": {
+            "value": null,
+            "status": "not_reported",
+            "year": null
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": null
+          }
+        },
+        "leadingManufacturingCategory": null,
+        "leadingManufacturingValue": null,
+        "sourceStatus": "unavailable",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile.",
+        "profileURLAttempted": "https://ustr.gov/countries-regions/united-states-trade-data/district-of-columbia"
+      },
+      {
+        "code": "FL",
+        "name": "Florida",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/florida",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 79100000000,
+        "partners": {
+          "Canada": {
+            "value": 5600000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 17600000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "GA",
+        "name": "Georgia",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/georgia",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 60300000000,
+        "partners": {
+          "Canada": {
+            "value": 6900000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 18300000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "HI",
+        "name": "Hawaii",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/hawaii",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 414000000,
+        "partners": {
+          "Canada": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 145000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "ID",
+        "name": "Idaho",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/idaho",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 4600000000,
+        "partners": {
+          "Canada": {
+            "value": 1800000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "food & kindred products",
+        "leadingManufacturingValue": 965000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "IL",
+        "name": "Illinois",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/illinois",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 80200000000,
+        "partners": {
+          "Canada": {
+            "value": 18100000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "chemicals",
+        "leadingManufacturingValue": 15500000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "IN",
+        "name": "Indiana",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/indiana",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 68600000000,
+        "partners": {
+          "Canada": {
+            "value": 12900000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "chemicals",
+        "leadingManufacturingValue": 33300000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "IA",
+        "name": "Iowa",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/iowa",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 16300000000,
+        "partners": {
+          "Canada": {
+            "value": 5000000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 756000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "food & kindred products",
+        "leadingManufacturingValue": 3500000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "KS",
+        "name": "Kansas",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/kansas",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 14600000000,
+        "partners": {
+          "Canada": {
+            "value": 2400000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 3800000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "KY",
+        "name": "Kentucky",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/kentucky",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 51700000000,
+        "partners": {
+          "Canada": {
+            "value": 9400000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 4700000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 30100000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "LA",
+        "name": "Louisiana",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/louisiana",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 92700000000,
+        "partners": {
+          "Canada": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "petroleum & coal products",
+        "leadingManufacturingValue": 22300000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "ME",
+        "name": "Maine",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/maine",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 3200000000,
+        "partners": {
+          "Canada": {
+            "value": 1300000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 752000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "MD",
+        "name": "Maryland",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/maryland",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 16600000000,
+        "partners": {
+          "Canada": {
+            "value": 2200000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 3500000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "MA",
+        "name": "Massachusetts",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/massachusetts",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 38800000000,
+        "partners": {
+          "Canada": {
+            "value": 3200000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 2800000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "chemicals",
+        "leadingManufacturingValue": 8100000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "MI",
+        "name": "Michigan",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/michigan",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 60300000000,
+        "partners": {
+          "Canada": {
+            "value": 23200000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 1500000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 25200000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "MN",
+        "name": "Minnesota",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/minnesota",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 23600000000,
+        "partners": {
+          "Canada": {
+            "value": 5600000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 1500000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "computer & electronic products",
+        "leadingManufacturingValue": 4400000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "MS",
+        "name": "Mississippi",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/mississippi",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 14100000000,
+        "partners": {
+          "Canada": {
+            "value": 1800000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "petroleum & coal products",
+        "leadingManufacturingValue": 4200000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "MO",
+        "name": "Missouri",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/missouri",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 19600000000,
+        "partners": {
+          "Canada": {
+            "value": 6700000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 5700000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "MT",
+        "name": "Montana",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/montana",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 2200000000,
+        "partners": {
+          "Canada": {
+            "value": 1000000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "chemicals",
+        "leadingManufacturingValue": 363000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "NE",
+        "name": "Nebraska",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/nebraska",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 7800000000,
+        "partners": {
+          "Canada": {
+            "value": 1500000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 302000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "food & kindred products",
+        "leadingManufacturingValue": 3000000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "NV",
+        "name": "Nevada",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/nevada",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 12700000000,
+        "partners": {
+          "Canada": {
+            "value": 1600000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "computer & electronic products",
+        "leadingManufacturingValue": 4000000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "NH",
+        "name": "New Hampshire",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/new-hampshire",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 7200000000,
+        "partners": {
+          "Canada": {
+            "value": 859000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 331000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 1900000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "NJ",
+        "name": "New Jersey",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/new-jersey",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 44100000000,
+        "partners": {
+          "Canada": {
+            "value": 7400000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "chemicals",
+        "leadingManufacturingValue": 11400000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "NM",
+        "name": "New Mexico",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/new-mexico",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 15300000000,
+        "partners": {
+          "Canada": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 3100000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "computer & electronic products",
+        "leadingManufacturingValue": 12900000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "NY",
+        "name": "New York",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/new-york",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 158600000000,
+        "partners": {
+          "Canada": {
+            "value": 20000000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "primary metal manufacturing",
+        "leadingManufacturingValue": 85700000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "NC",
+        "name": "North Carolina",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/north-carolina",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 43900000000,
+        "partners": {
+          "Canada": {
+            "value": 8700000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 6600000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "chemicals",
+        "leadingManufacturingValue": 17700000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "ND",
+        "name": "North Dakota",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/north-dakota",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 8700000000,
+        "partners": {
+          "Canada": {
+            "value": 7000000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "petroleum & coal products",
+        "leadingManufacturingValue": 3800000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "OH",
+        "name": "Ohio",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/ohio",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 56500000000,
+        "partners": {
+          "Canada": {
+            "value": 18300000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 3000000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 18800000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "OK",
+        "name": "Oklahoma",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/oklahoma",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 7500000000,
+        "partners": {
+          "Canada": {
+            "value": 1700000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 2200000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "OR",
+        "name": "Oregon",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/oregon",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 27900000000,
+        "partners": {
+          "Canada": {
+            "value": 2300000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 5400000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "computer & electronic products",
+        "leadingManufacturingValue": 11300000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "PA",
+        "name": "Pennsylvania",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/pennsylvania",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 52300000000,
+        "partners": {
+          "Canada": {
+            "value": 14000000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 2600000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "chemicals",
+        "leadingManufacturingValue": 13300000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "RI",
+        "name": "Rhode Island",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/rhode-island",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 4200000000,
+        "partners": {
+          "Canada": {
+            "value": 596000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "chemicals",
+        "leadingManufacturingValue": 1500000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "SC",
+        "name": "South Carolina",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/south-carolina",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 38600000000,
+        "partners": {
+          "Canada": {
+            "value": 4100000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 1900000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 20200000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "SD",
+        "name": "South Dakota",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/south-dakota",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 1900000000,
+        "partners": {
+          "Canada": {
+            "value": 851000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 111000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "food & kindred products",
+        "leadingManufacturingValue": 559000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "TN",
+        "name": "Tennessee",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/tennessee",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 37800000000,
+        "partners": {
+          "Canada": {
+            "value": 6500000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 2600000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "computer & electronic products",
+        "leadingManufacturingValue": 9300000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "TX",
+        "name": "Texas",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/texas",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 448200000000,
+        "partners": {
+          "Canada": {
+            "value": 34800000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "computer & electronic products",
+        "leadingManufacturingValue": 70700000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "UT",
+        "name": "Utah",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/utah",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 22400000000,
+        "partners": {
+          "Canada": {
+            "value": 1500000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 915000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "primary metal manufacturing",
+        "leadingManufacturingValue": 11000000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "VT",
+        "name": "Vermont",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/vermont",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 2100000000,
+        "partners": {
+          "Canada": {
+            "value": 635000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 115000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "computer & electronic products",
+        "leadingManufacturingValue": 627000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "VA",
+        "name": "Virginia",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/virginia",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 19100000000,
+        "partners": {
+          "Canada": {
+            "value": 3000000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "chemicals",
+        "leadingManufacturingValue": 2400000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "WA",
+        "name": "Washington",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/washington",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 65400000000,
+        "partners": {
+          "Canada": {
+            "value": 7100000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 10200000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "transportation equipment",
+        "leadingManufacturingValue": 29800000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "WV",
+        "name": "West Virginia",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/west-virginia",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 4600000000,
+        "partners": {
+          "Canada": {
+            "value": 2000000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 322000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "chemicals",
+        "leadingManufacturingValue": 1500000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "WI",
+        "name": "Wisconsin",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/wisconsin",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 27200000000,
+        "partners": {
+          "Canada": {
+            "value": 7600000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": 1000000000,
+            "status": "reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "machinery, except electrical",
+        "leadingManufacturingValue": 5100000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      },
+      {
+        "code": "WY",
+        "name": "Wyoming",
+        "sourceURL": "https://ustr.gov/countries-regions/united-states-trade-data/wyoming",
+        "sourcePublisher": "Office of the U.S. Trade Representative",
+        "year": 2025,
+        "totalExports": 2000000000,
+        "partners": {
+          "Canada": {
+            "value": 491000000,
+            "status": "reported",
+            "year": 2025
+          },
+          "China": {
+            "value": null,
+            "status": "not_reported",
+            "year": 2025
+          }
+        },
+        "leadingManufacturingCategory": "chemicals",
+        "leadingManufacturingValue": 1300000000,
+        "sourceStatus": "reviewed",
+        "reviewedAt": "2026-11-10",
+        "lastAttempt": "2026-11-10",
+        "rounding": "As rounded in the published USTR profile."
+      }
+    ]
+  }
 }

@@ -1,0 +1,30 @@
+.usstate-shell{color:var(--office-navy,#122b49)}
+.usstate-controls{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+.usstate-controls label{display:grid;gap:6px;flex:1 1 160px;font-size:12px;font-weight:600}
+.usstate-controls select{font:inherit;font-size:14px;min-height:44px;width:100%;max-width:100%;padding:9px;border:1px solid var(--office-line);border-radius:6px;background:var(--office-paper);color:var(--office-navy)}
+.usstate-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(310px,1fr);gap:20px;align-items:start}
+.usstate-map-card,.usstate-panel{min-width:0;background:var(--office-paper);border:1px solid var(--office-line);border-radius:10px;padding:18px}
+.usstate-map svg{display:block;width:100%;height:auto}
+.usstate-boundary{stroke:#fff;stroke-width:.85;vector-effect:non-scaling-stroke;transition:stroke .12s}
+.usstate-shape{cursor:pointer;outline:none}
+.usstate-shape text{font:600 17px system-ui,sans-serif;pointer-events:none}
+.usstate-shape.selected .usstate-boundary,.usstate-shape:focus-visible .usstate-boundary{stroke:#183247;stroke-width:3;vector-effect:non-scaling-stroke}
+.usstate-shape:hover .usstate-boundary{stroke:#87631e;stroke-width:2;vector-effect:non-scaling-stroke}
+.usstate-callout{fill:none;stroke:#7d8990;stroke-width:1}
+.usstate-inset-label{font:15px system-ui,sans-serif;fill:#625e55}
+.usstate-legend{display:flex;flex-wrap:wrap;gap:10px 14px;font-size:11px;color:var(--office-navy);line-height:1.5}
+.usstate-legend span{display:inline-flex;align-items:center;gap:5px}
+.usstate-legend i,.usstate-row-button i{display:inline-block;flex-shrink:0;width:15px;height:15px;border:1px solid #667583;border-radius:3px}
+.usstate-panel h3{font-size:23px;line-height:1.25;margin:5px 0 16px}
+.usstate-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.usstate-metrics>div{padding:11px;border:1px solid var(--office-line);background:var(--office-beige);border-radius:6px;min-width:0}
+.usstate-metrics h4{font-size:11px;margin:0 0 6px}.usstate-metrics strong{font-size:19px;overflow-wrap:anywhere}.usstate-metrics p{font-size:10px;line-height:1.4;margin:6px 0 0;color:var(--office-muted)}
+.usstate-reading{display:grid;gap:13px;margin:18px 0}.usstate-reading dt{font-weight:650;font-size:13px;margin-bottom:4px}.usstate-reading dd{font-size:12px;line-height:1.65;margin:0}
+.usstate-source,.usstate-register,.usstate-methods{background:var(--office-paper);border:1px solid var(--office-line);border-radius:8px;padding:13px;margin:18px 0}
+.usstate-source summary,.usstate-register summary,.usstate-methods summary{cursor:pointer;font-weight:600}.usstate-source p{font-size:12px;line-height:1.6}
+.usstate-links{display:grid;gap:10px;font-size:12px}
+.usstate-register table{min-width:720px}.usstate-row-button{display:flex;align-items:center;gap:8px;background:none;border:0;text-decoration:underline;color:var(--office-navy);font:inherit;cursor:pointer;text-align:left;min-height:44px;padding:5px 0}
+.usstate-row-button:focus-visible,.usstate-controls select:focus-visible{outline:3px solid var(--office-ink-gold);outline-offset:3px}
+@media(max-width:1050px){.usstate-layout{grid-template-columns:1fr}.usstate-reading{grid-template-columns:repeat(2,minmax(0,1fr))}.usstate-panel .usstate-source{margin-bottom:10px}}
+@media(max-width:600px){.usstate-map{overflow-x:auto}.usstate-map svg{min-width:680px}.usstate-map-card,.usstate-panel{padding:13px}.usstate-reading{grid-template-columns:1fr}}
+@media print{.usstate-controls{display:none}.usstate-layout{display:block}.usstate-map-card,.usstate-panel{break-inside:avoid}.usstate-map svg{min-width:0}.usstate-boundary,.usstate-legend i,.usstate-row-button i{print-color-adjust:exact;-webkit-print-color-adjust:exact}.usstate-register .impact-comparison-scroll{overflow:visible}.usstate-register table{min-width:0;font-size:9px}.usstate-reading{display:block}.usstate-reading>div{margin:10px 0}}
