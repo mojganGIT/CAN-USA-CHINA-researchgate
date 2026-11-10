@@ -54,3 +54,8 @@ body>header h1{font-size:clamp(23px,3vw,32px)}
 .insight-files li{margin:7px 0}
 @media(max-width:700px){.insight-shell{padding:15px}.insight-intro{display:block}.insight-actions{margin-top:14px}.insight-reading{grid-template-columns:1fr}.insight-panel{padding:15px}.insight-chart{padding:10px}.insight-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.insight-metrics>div{padding:11px}.insight-metrics dd{font-size:1.15rem}.insight-nav a{padding:10px;font-size:.85rem}}
 @media print{body{background:white}.insight-shell{max-width:none;padding:0}body>header{display:flex!important;background:white;color:#10243d}.dashboard-language-bar,.insight-actions,.insight-nav,.insight-filters,.insight-search,.insight-pagination,.insight-files{display:none}.insight-panel{border:0;padding:0}.insight-reading{display:block}.insight-reading>div{margin:12px 0}.insight-chart{break-inside:avoid}details{break-inside:avoid}}
+
+@media screen{
+ .insight-nav{position:sticky;top:0;z-index:5;background:var(--office-beige);box-shadow:0 3px 9px #0b203915}
+ #insights-view{scroll-margin-top:calc(var(--insights-nav-height,70px) + 12px)}
+}

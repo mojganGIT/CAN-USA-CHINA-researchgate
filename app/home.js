@@ -52,6 +52,10 @@
   const title=tabs.find(t=>t[0]===routeId())?.[1]||'Policy Research';
   document.title=(window.DashboardI18n?.t(title)||title)+' | Canada–U.S.–China';
  }
+ function updateNavigationOffset(){
+  const height=navigation.getBoundingClientRect?.().height;
+  if(Number.isFinite(height))document.documentElement?.style?.setProperty('--dashboard-nav-height',Math.ceil(height)+'px');
+ }
  function updateNavigation(){
   const active=routeId();
   const legacyParents={'executive-summary':'home','briefing-overview':'home','canada-implications':'home','research-tools':'home','policy-map':'compare-topics'};
@@ -62,7 +66,7 @@
    const top=navLink(id,label,id===active?'page':legacyParents[active]===id?'location':'');
    return menu?`<div class="hub-nav-group" ${parent===id?'data-section-active':''}>${top}<details class="hub-nav-menu"><summary aria-label="${E(menu.label)}"><span aria-hidden="true">▾</span></summary><ul>${menu.items.map(([key,title])=>`<li>${navLink(key,title,key===active?'page':'')}</li>`).join('')}</ul></details></div>`:top;
   }).join('')}</nav>`;
-  updateTitle();
+  updateTitle();updateNavigationOffset();
  }
  function closeMenus(except=null){
   for(const menu of navigation.querySelectorAll('details.hub-nav-menu[open]'))if(menu!==except)menu.open=false;
@@ -131,7 +135,9 @@
  function navigate(target='home'){const [id,incoming='']=target.split('?');if(['home','briefing-overview','canada-implications','compare-topics','policy-tracker','evidence-methods'].includes(id)){const params=new URLSearchParams(window.CanadaImpact?.data?window.CanadaImpact.filterQuery():location.hash.split('?')[1]||'');for(const [key,value]of new URLSearchParams(incoming))params.set(key,value);target=id+(params.toString()?'?'+params:'');}history.pushState(null,'','#'+target);route(true);}
  document.addEventListener('click',e=>{const a=e.target.closest('a[data-hub]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();navigate(a.dataset.hub);});
  function refreshLiveSections(){const latest=document.getElementById('hub-latest'),status=document.getElementById('hub-live-status'),health=document.getElementById('hub-source-health');if(latest)latest.innerHTML=routeId()==='home'?homeLatestHTML():latestHTML(feed(),routeId()==='executive-summary'?5:3);if(status)status.innerHTML=routeId()==='home'?homeStatusHTML():statusHTML();if(health){const open=health.querySelector('details')?.open;health.innerHTML=healthHTML();if(open)health.querySelector('details').open=true;}}
- window.addEventListener('dashboard-language-changed',()=>{updateTitle();syncInsightsLanguage();});
+ if(window.ResizeObserver)new window.ResizeObserver(updateNavigationOffset).observe(navigation);
+ window.addEventListener('resize',updateNavigationOffset);
+ window.addEventListener('dashboard-language-changed',()=>{updateTitle();syncInsightsLanguage();updateNavigationOffset();});
  window.addEventListener('hashchange',()=>route());window.addEventListener('policy-updates-loaded',refreshLiveSections);
  window.HomeHub={navigate,route,updateNavigation,primaryTabs,homeMenu,compareMenu,homeHTML,executiveSummaryHTML,homeStatusHTML,homeLatestHTML,statusHTML,latestHTML,topicsHTML,refreshLiveSections,tabs,tools,researchTools};
  route();

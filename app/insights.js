@@ -146,6 +146,8 @@
   document.getElementById('insights-full').href=navURL('home');
   document.getElementById('insights-full').textContent=T('Open dashboard')+' ↗';
   document.getElementById('insights-nav').innerHTML=Object.entries(labels).map(([id,label])=>`<a href="#${id}" ${view===id?'aria-current="page"':''}>${tx(label)}</a>`).join('');
+  const navHeight=document.getElementById('insights-nav').getBoundingClientRect?.().height;
+  if(Number.isFinite(navHeight))document.documentElement?.style?.setProperty('--insights-nav-height',Math.ceil(navHeight)+'px');
   main.innerHTML=view==='trends'?trends():register(view);
   for(const el of main.querySelectorAll('details[data-insight-detail]'))if(open.has(el.dataset.insightDetail))el.open=true;
   document.getElementById('insights-files').innerHTML=`<summary>${tx('Published data files')}</summary><ul>${Object.values(feeds).map(([file,label])=>`<li><a href="${e(file)}" target="_blank" rel="noopener" download>${tx(label)} · ${tx('Download JSON')}</a></li>`).join('')}</ul>`;
@@ -180,7 +182,7 @@
  host.addEventListener('submit',ev=>{if(ev.target.id!=='insight-search')return;ev.preventDefault();state.query=document.getElementById('insight-query').value;state.page=0;render();document.getElementById('insight-query')?.focus({preventScroll:true});});
  host.addEventListener('click',ev=>{const b=ev.target.closest('[data-insight-page]');if(!b)return;state.page+=Number(b.dataset.insightPage);render();document.getElementById('insights-nav').scrollIntoView({block:'start'});});
  refreshButton.addEventListener('click',refresh);
- window.addEventListener('hashchange',()=>{state.page=0;state.kind='all';state.set='all';render();main.focus({preventScroll:true});});
+ window.addEventListener('hashchange',()=>{state.page=0;state.kind='all';state.set='all';render();main.focus({preventScroll:true});main.scrollIntoView({block:'start'});});
  window.addEventListener('dashboard-language-changed',()=>{render();refreshButton.textContent=T(busy?'Refreshing…':'Refresh data');});
  window.addEventListener('message',ev=>{
   if(ev.source!==window.parent||ev.origin!==location.origin||ev.data?.type!=='policy-insights-language')return;

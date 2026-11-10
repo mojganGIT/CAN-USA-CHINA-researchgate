@@ -75,3 +75,9 @@ html[lang=fr] .hub-main-nav a{font-size:12px}html[lang=zh-Hans] body{font-family
 
 .policy-insights-frame{display:block;width:100%;border:1px solid var(--office-line);border-radius:10px;background:var(--office-paper)}.policy-embed-code{width:100%;max-width:100%;box-sizing:border-box;font:12px/1.6 ui-monospace,monospace;padding:12px;background:var(--office-paper);color:var(--office-navy);border:1px solid var(--office-line)}
 @media print{.policy-insights-frame,.policy-embed-code,#policy-embed-copy{display:none}}
+
+@media screen{
+ #site-navigation{position:sticky;top:0;z-index:50;background:var(--office-navy);box-shadow:0 4px 12px #0b203920}
+ html{scroll-padding-top:var(--dashboard-nav-height,0px)}
+ #root{scroll-margin-top:12px}
+}
