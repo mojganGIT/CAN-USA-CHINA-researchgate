@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "title": "U.S. merchandise trade with Canada and China",
   "status": "success",
-  "lastAttempt": "2026-11-10T11:59:52.009Z",
-  "lastSuccessfulRun": "2026-11-10T11:59:52.009Z",
+  "lastAttempt": "2026-11-10T23:58:08.852Z",
+  "lastSuccessfulRun": "2026-11-10T23:58:08.852Z",
   "basis": "U.S. Census Bureau, nominal USD millions, not seasonally adjusted, goods only. Exports include re-exports. Annual totals are source-reported; the latest year is labelled year-to-date until 12 months are present. Retrieved vintage can revise earlier observations.",
   "partners": [
     {
@@ -718,8 +718,8 @@
       ],
       "dataThrough": "2026-09",
       "status": "success",
-      "retrievedAt": "2026-11-10T11:59:52.009Z",
-      "lastAttempt": "2026-11-10T11:59:52.009Z"
+      "retrievedAt": "2026-11-10T23:58:08.852Z",
+      "lastAttempt": "2026-11-10T23:58:08.852Z"
     },
     {
       "id": "China",
@@ -1433,14 +1433,14 @@
       ],
       "dataThrough": "2026-09",
       "status": "success",
-      "retrievedAt": "2026-11-10T11:59:52.009Z",
-      "lastAttempt": "2026-11-10T11:59:52.009Z"
+      "retrievedAt": "2026-11-10T23:58:08.852Z",
+      "lastAttempt": "2026-11-10T23:58:08.852Z"
     }
   ],
   "stateTrade": {
     "schemaVersion": 1,
     "reviewedAt": "2026-11-10",
-    "lastAttempt": "2026-11-10",
+    "lastAttempt": "2026-11-10T23:58:08.852Z",
     "status": "partial",
     "basis": "Annual goods exports, nominal U.S. dollars, as rounded in the canonical USTR state profiles. Country figures cover only explicitly reported leading export markets. Missing partner values are not zero. No import or policy-attributable effect is inferred.",
     "scope": "50 states and the District of Columbia; the District profile is unavailable in this review.",
@@ -1468,10 +1468,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 11400000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "AK",
@@ -1494,10 +1497,13 @@
         },
         "leadingManufacturingCategory": "primary metal manufacturing",
         "leadingManufacturingValue": 1200000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "AZ",
@@ -1520,10 +1526,13 @@
         },
         "leadingManufacturingCategory": "computer & electronic products",
         "leadingManufacturingValue": 19600000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "AR",
@@ -1546,10 +1555,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 1700000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "CA",
@@ -1572,10 +1584,13 @@
         },
         "leadingManufacturingCategory": "computer & electronic products",
         "leadingManufacturingValue": 54300000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "CO",
@@ -1598,10 +1613,13 @@
         },
         "leadingManufacturingCategory": "food & kindred products",
         "leadingManufacturingValue": 2300000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "CT",
@@ -1624,10 +1642,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 6200000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "DE",
@@ -1650,10 +1671,13 @@
         },
         "leadingManufacturingCategory": "chemicals",
         "leadingManufacturingValue": 1600000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "DC",
@@ -1678,9 +1702,11 @@
         "leadingManufacturingValue": null,
         "sourceStatus": "unavailable",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
         "rounding": "As rounded in the published USTR profile.",
-        "profileURLAttempted": "https://ustr.gov/countries-regions/united-states-trade-data/district-of-columbia"
+        "profileURLAttempted": "https://ustr.gov/countries-regions/united-states-trade-data/district-of-columbia",
+        "lastReadStatus": "failed",
+        "error": "USTR HTTP 404"
       },
       {
         "code": "FL",
@@ -1703,10 +1729,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 17600000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "GA",
@@ -1729,10 +1758,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 18300000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "HI",
@@ -1755,10 +1787,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 145000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "ID",
@@ -1781,10 +1816,13 @@
         },
         "leadingManufacturingCategory": "food & kindred products",
         "leadingManufacturingValue": 965000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "IL",
@@ -1807,10 +1845,13 @@
         },
         "leadingManufacturingCategory": "chemicals",
         "leadingManufacturingValue": 15500000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "IN",
@@ -1833,10 +1874,13 @@
         },
         "leadingManufacturingCategory": "chemicals",
         "leadingManufacturingValue": 33300000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "IA",
@@ -1859,10 +1903,13 @@
         },
         "leadingManufacturingCategory": "food & kindred products",
         "leadingManufacturingValue": 3500000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "KS",
@@ -1885,10 +1932,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 3800000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "KY",
@@ -1911,10 +1961,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 30100000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "LA",
@@ -1937,10 +1990,13 @@
         },
         "leadingManufacturingCategory": "petroleum & coal products",
         "leadingManufacturingValue": 22300000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "ME",
@@ -1963,10 +2019,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 752000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "MD",
@@ -1989,10 +2048,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 3500000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "MA",
@@ -2015,10 +2077,13 @@
         },
         "leadingManufacturingCategory": "chemicals",
         "leadingManufacturingValue": 8100000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "MI",
@@ -2041,10 +2106,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 25200000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "MN",
@@ -2067,10 +2135,13 @@
         },
         "leadingManufacturingCategory": "computer & electronic products",
         "leadingManufacturingValue": 4400000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "MS",
@@ -2093,10 +2164,13 @@
         },
         "leadingManufacturingCategory": "petroleum & coal products",
         "leadingManufacturingValue": 4200000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "MO",
@@ -2119,10 +2193,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 5700000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "MT",
@@ -2145,10 +2222,13 @@
         },
         "leadingManufacturingCategory": "chemicals",
         "leadingManufacturingValue": 363000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "NE",
@@ -2171,10 +2251,13 @@
         },
         "leadingManufacturingCategory": "food & kindred products",
         "leadingManufacturingValue": 3000000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "NV",
@@ -2197,10 +2280,13 @@
         },
         "leadingManufacturingCategory": "computer & electronic products",
         "leadingManufacturingValue": 4000000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "NH",
@@ -2223,10 +2309,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 1900000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "NJ",
@@ -2249,10 +2338,13 @@
         },
         "leadingManufacturingCategory": "chemicals",
         "leadingManufacturingValue": 11400000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "NM",
@@ -2275,10 +2367,13 @@
         },
         "leadingManufacturingCategory": "computer & electronic products",
         "leadingManufacturingValue": 12900000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "NY",
@@ -2301,10 +2396,13 @@
         },
         "leadingManufacturingCategory": "primary metal manufacturing",
         "leadingManufacturingValue": 85700000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "NC",
@@ -2327,10 +2425,13 @@
         },
         "leadingManufacturingCategory": "chemicals",
         "leadingManufacturingValue": 17700000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "ND",
@@ -2353,10 +2454,13 @@
         },
         "leadingManufacturingCategory": "petroleum & coal products",
         "leadingManufacturingValue": 3800000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "OH",
@@ -2379,10 +2483,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 18800000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "OK",
@@ -2405,10 +2512,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 2200000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "OR",
@@ -2431,10 +2541,13 @@
         },
         "leadingManufacturingCategory": "computer & electronic products",
         "leadingManufacturingValue": 11300000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "PA",
@@ -2457,10 +2570,13 @@
         },
         "leadingManufacturingCategory": "chemicals",
         "leadingManufacturingValue": 13300000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "RI",
@@ -2483,10 +2599,13 @@
         },
         "leadingManufacturingCategory": "chemicals",
         "leadingManufacturingValue": 1500000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "SC",
@@ -2509,10 +2628,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 20200000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "SD",
@@ -2535,10 +2657,13 @@
         },
         "leadingManufacturingCategory": "food & kindred products",
         "leadingManufacturingValue": 559000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "TN",
@@ -2561,10 +2686,13 @@
         },
         "leadingManufacturingCategory": "computer & electronic products",
         "leadingManufacturingValue": 9300000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "TX",
@@ -2587,10 +2715,13 @@
         },
         "leadingManufacturingCategory": "computer & electronic products",
         "leadingManufacturingValue": 70700000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "UT",
@@ -2613,10 +2744,13 @@
         },
         "leadingManufacturingCategory": "primary metal manufacturing",
         "leadingManufacturingValue": 11000000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "VT",
@@ -2639,10 +2773,13 @@
         },
         "leadingManufacturingCategory": "computer & electronic products",
         "leadingManufacturingValue": 627000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "VA",
@@ -2665,10 +2802,13 @@
         },
         "leadingManufacturingCategory": "chemicals",
         "leadingManufacturingValue": 2400000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "WA",
@@ -2691,10 +2831,13 @@
         },
         "leadingManufacturingCategory": "transportation equipment",
         "leadingManufacturingValue": 29800000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "WV",
@@ -2717,10 +2860,13 @@
         },
         "leadingManufacturingCategory": "chemicals",
         "leadingManufacturingValue": 1500000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "WI",
@@ -2743,10 +2889,13 @@
         },
         "leadingManufacturingCategory": "machinery, except electrical",
         "leadingManufacturingValue": 5100000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       },
       {
         "code": "WY",
@@ -2769,11 +2918,15 @@
         },
         "leadingManufacturingCategory": "chemicals",
         "leadingManufacturingValue": 1300000000,
-        "sourceStatus": "reviewed",
+        "sourceStatus": "parsed",
         "reviewedAt": "2026-11-10",
-        "lastAttempt": "2026-11-10",
-        "rounding": "As rounded in the published USTR profile."
+        "lastAttempt": "2026-11-10T23:58:08.852Z",
+        "rounding": "As rounded in the published USTR profile.",
+        "retrievedAt": "2026-11-10T23:58:08.852Z",
+        "lastReadStatus": "success",
+        "error": null
       }
-    ]
+    ],
+    "lastSuccessfulRun": "2026-11-10T23:58:08.852Z"
   }
 }
