@@ -1,6 +1,13 @@
 (function(g){
  'use strict';
  const strings={
+  'Trading partner':['Partenaire commercial','贸易伙伴'],
+  'Geography':['Zone géographique','地理范围'],
+  'Observation window':['Période d’observation','观测窗口'],
+  'Source errors':['Erreurs de source','来源错误'],
+  'Pagination':['Pagination des résultats','结果分页'],
+  'All topics':['Tous les thèmes','所有主题'],
+
   'All-destination exports show the scale of the selected region’s product sales abroad. Compare individual destinations to see whether demand is becoming more concentrated or diversified.':['Les exportations vers toutes les destinations montrent l’ampleur des ventes à l’étranger pour la région et le groupe de produits choisis. Comparez les destinations pour voir si la demande se concentre ou se diversifie.','对所有目的地的出口反映所选地区产品海外销售的规模。比较各目的地，判断需求是趋于集中还是更多元化。'],
 
   'Live evidence workspace':['Espace de consultation des données','实时证据工作区'],
