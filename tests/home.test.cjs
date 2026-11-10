@@ -1,7 +1,7 @@
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const dir=path.join(__dirname,'../app'),nodes=new Map(),events=new Map();
 function node(id){if(!nodes.has(id))nodes.set(id,{innerHTML:'',value:'',open:false,listeners:{},addEventListener(type,fn){this.listeners[type]=fn;},querySelector(s){return node(id+' '+s);},querySelectorAll(){return[];},closest(){return node('panel');},insertAdjacentHTML(_,html){this.innerHTML+=html;},focus(){},scrollIntoView(){},setAttribute(){},append(){},showModal(){this.open=true;},remove(){}});return nodes.get(id);}
-const location={hash:'',pathname:'/',search:''},document={title:'',getElementById:node,querySelector:s=>node(s),querySelectorAll:()=>[],addEventListener(type,fn){events.set(type,fn);}};
+const location={hash:'',pathname:'/',search:'',href:'https://dashboard.test/',origin:'https://dashboard.test'},document={title:'',getElementById:node,querySelector:s=>node(s),querySelectorAll:()=>[],addEventListener(type,fn){events.set(type,fn);}};
 const window={addEventListener(type,fn){events.set(type,fn);}};
 const ctx={window,document,location,history:{replaceState(a,b,url){location.hash=url.startsWith('#')?url:'';},pushState(a,b,url){location.hash=url;}},URL,URLSearchParams,Intl,Date,console};vm.createContext(ctx);
 for(const file of ['research-register.js','dashboard-guide.js','master-data.js','app.js','explorer-inventory.js','explorer-catalog.js'])vm.runInContext(fs.readFileSync(path.join(dir,file),'utf8'),ctx,{filename:file});
@@ -19,7 +19,7 @@ const primary=['home','compare-topics','policy-tracker','us-trade','research-sea
 const initialNav=node('site-navigation').innerHTML;
 assert.deepEqual(Array.from(initialNav.matchAll(/data-hub="([^"?]+)(?:\?[^"]*)?"/g),m=>m[1]).filter(id=>primary.includes(id)),primary);
 assert.deepEqual(Array.from(hub.homeMenu,([id])=>id),['categories','countries','comparative']);
-assert.deepEqual(Array.from(hub.compareMenu,([id])=>id),['evidence-methods','relationship-explorer']);
+assert.deepEqual(Array.from(hub.compareMenu,([id])=>id),['findings-trends','evidence-methods','relationship-explorer']);
 assert.equal((initialNav.match(/<details class="hub-nav-menu">/g)||[]).length,2);
 assert(!initialNav.includes('data-hub="research-tools"'));
 
@@ -45,6 +45,7 @@ for(const [id]of hub.tabs){
  if(['briefing-overview','canada-implications'].includes(id))assert.equal(node('root').innerHTML,'IMPACT overview');
  if(id==='executive-summary'){assert.equal(impactViews.length,viewsBefore);assert(node('root').innerHTML.includes('hub-product-summary'));assert(node('root').innerHTML.includes('What is this dashboard?'));assert(node('root').innerHTML.includes('Who can use it?'));assert(!node('root').innerHTML.includes('canada-impact-root'));}
  if(id==='compare-topics')assert.equal(node('root').innerHTML,'IMPACT compare');
+ if(id==='findings-trends'){assert(node('root').innerHTML.includes('policy-insights-frame'));assert(node('root').innerHTML.includes('insights.html?lang=en'));assert(node('root').innerHTML.includes('policy-embed-code'));}
  if(id==='policy-tracker')assert.equal(node('root').innerHTML,'IMPACT policy');
  if(id==='us-trade')assert.equal(node('root').innerHTML,'US TRADE VIEW');
  if(id==='weekly-updates')assert.equal(node('root').innerHTML,'WEEKLY UPDATES VIEW');

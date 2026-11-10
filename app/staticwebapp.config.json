@@ -16,6 +16,13 @@
       }
     },
     {
+      "route": "/insights.html",
+      "headers": {
+        "cache-control": "no-cache",
+        "X-Frame-Options": ""
+      }
+    },
+    {
       "route": "/api/llm",
       "allowedRoles": [
         "authenticated"

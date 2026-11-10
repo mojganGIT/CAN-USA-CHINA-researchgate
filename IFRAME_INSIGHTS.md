@@ -1,0 +1,13 @@
+# Embeddable findings and trend interpretation
+
+app/insights.html is a public, read-only workspace available in the Compare Topics dropdown under Findings & Trends. It can also be embedded in Wix or another website by its HTTPS URL. The page uses the dashboard's existing published JSON feeds; it does not copy them into a second maintained dataset or send data to a model.
+
+The trend workspace computes descriptive comparisons for Canadian origin-based domestic exports (all 13 provinces/territories plus Canada, four available product groups and three destination scopes), U.S. goods trade with Canada and China (2018 onward), and BEA investment positions, financial transactions and income. It matches current-year months with the same prior-year months, preserves suppressed and missing values as null, calculates shares only with a matching regional/product denominator, and compares signed balances or flows in absolute terms rather than inventing percentage growth.
+
+The evidence and policy workspaces include the original Canadian and U.S. reviewed registers, policies, curated source notes and historical source inventory. Signed MOUs and explicitly titled amendments/extensions are selectable categories. Source revisions remain unreviewed daily observations. Reference dates, source review dates, effective dates and recorded expiries are shown separately. The archived November 3 agricultural expiry is labelled as historical and linked conceptually to the later reviewed extension.
+
+Daily observations and weekly editions remain available in the Updates workspace. Seven independent feeds are fetched on opening, on request and every five minutes while visible. Refreshing the iframe reads the latest published files; it does not imply that official statistical releases occur daily. One failed feed does not erase previously loaded values or other datasets. Original feed download links are provided.
+
+The existing scheduled monitor continues to produce daily published files. This implementation adds no credential, private API, email action, model call or new hosting service. Only the public insights HTML route removes frame-blocking headers. The authenticated LLM endpoint remains protected.
+
+The parent dashboard and iframe synchronize the selected language using same-origin messages, and the parent validates both source window and origin for height messages. External source links accept HTTPS only, open separately and escape text. Filters, tables, source drawers, chart legends and original data links are keyboard-accessible; mobile layouts stack the reading panels. Browser preview remains restricted by saved browser permissions; validation uses the data models, render fixtures and deployment pipeline.

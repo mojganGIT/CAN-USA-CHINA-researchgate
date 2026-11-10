@@ -6,7 +6,7 @@
  const guide=window.PolicyGuide,L=guide.labels;
  const primaryTabs=[['home','Home'],['compare-topics','Compare Topics'],['policy-tracker','Policy Tracker'],['us-trade',L.us],['research-search',L.search],['your-llm',L.llm],['weekly-updates',L.subscribe],['daily-updates','Daily Updates']];
  const homeMenu=[['categories',L.categories],['countries',L.countries],['comparative',L.comparative]];
- const compareMenu=[['evidence-methods','Evidence & Methods'],['relationship-explorer',L.relationship]];
+ const compareMenu=[['findings-trends',L.insights],['evidence-methods','Evidence & Methods'],['relationship-explorer',L.relationship]];
  const menus={home:{label:L.homeMenu,items:homeMenu},'compare-topics':{label:L.compareMenu,items:compareMenu}};
  const tabs=[...primaryTabs,...homeMenu,...compareMenu,['executive-summary','Executive Summary'],['briefing-overview','Changes across Canada'],['canada-implications','Canada Implications Explorer'],['policy-map','Policy Product Map'],['research-tools','Research Tools']];
  const tools=homeMenu.map(([id,title],i)=>[id,String(i+1).padStart(2,'0'),title,guide.guideNotes[id]]);
@@ -83,11 +83,35 @@
   return `<div class="wrap hub-home hub-product-summary"><header class="hub-page-heading"><p class="hub-eyebrow">ABOUT THE DASHBOARD</p><h2>Executive summary</h2><p>One workspace to understand how Canada’s relationships with the United States and China shape its policy choices.</p></header><div class="hub-product-grid">${questions.map(([title,answer])=>`<section class="hub-product-question"><h3>${E(title)}</h3><p>${E(answer)}</p></section>`).join('')}</div><p class="hub-small hub-product-note">Daily monitoring detects source changes; each dataset keeps its own reference period and review status.</p><div class="hub-actions hub-product-actions"><a href="#compare-topics" data-hub="compare-topics" class="hub-primary">Compare the eight topics →</a><a href="#evidence-methods" data-hub="evidence-methods" class="hub-secondary">Inspect the evidence and methods →</a><a href="#research-tools" data-hub="research-tools" class="hub-secondary">Research Tools</a></div></div>`;
  }
  function summaryPage(){root.innerHTML=executiveSummaryHTML();}
+ function insightsPage(){
+  const language=window.DashboardI18n?.language||'en',src='insights.html?lang='+encodeURIComponent(language);
+  const absolute=new URL(src,location.href).href;
+  const markup='<iframe src="'+absolute+'" title="Canada–U.S.–China Findings and Trends" width="100%" height="1100" style="border:0" loading="lazy"></iframe>';
+  root.innerHTML='<div class="wrap hub-home"><div class="hub-page-heading"><h2>'+E(L.insights)+'</h2><p>'+E(L.insightsIntro)+'</p></div><p><a id="insight-frame-open" href="'+E(src)+'" target="_blank" rel="noopener noreferrer">'+E(L.insightsOpen)+' ↗</a></p><iframe id="policy-insights-frame" class="policy-insights-frame" src="'+E(src)+'" title="'+E(L.insights)+'" width="100%" height="1100" loading="lazy"></iframe><details class="hub-health"><summary>'+E(L.insightsEmbed)+'</summary><p><label for="policy-embed-code">'+E(L.insightsEmbed)+'</label></p><textarea id="policy-embed-code" class="policy-embed-code" rows="4" readonly>'+E(markup)+'</textarea><button type="button" id="policy-embed-copy" class="impact-reset">'+E(L.insightsCopy)+'</button><p id="policy-embed-status" role="status" aria-live="polite"></p></details></div>';
+  document.getElementById('policy-insights-frame')?.addEventListener('load',syncInsightsLanguage);
+  document.getElementById('policy-embed-copy')?.addEventListener('click',async()=>{
+   try{await navigator.clipboard.writeText(document.getElementById('policy-embed-code').value);document.getElementById('policy-embed-status').textContent=window.DashboardI18n?.t('Copied')||'Copied';}
+   catch{document.getElementById('policy-embed-code').select();}
+  });
+ }
+ window.addEventListener('message',ev=>{
+  const frame=document.getElementById('policy-insights-frame');
+  if(!frame||ev.source!==frame.contentWindow||ev.origin!==location.origin||ev.data?.type!=='policy-insights-size'||!Number.isFinite(ev.data.height))return;
+  frame.height=String(Math.max(700,Math.min(2400,Math.ceil(ev.data.height)+8)));
+ });
+ function syncInsightsLanguage(){
+  const frame=document.getElementById('policy-insights-frame'),language=window.DashboardI18n?.language||'en';
+  frame?.contentWindow?.postMessage({type:'policy-insights-language',language},location.origin);
+  const link=document.getElementById('insight-frame-open');if(link)link.href='insights.html?lang='+encodeURIComponent(language);
+  const code=document.getElementById('policy-embed-code');
+  if(code&&link)code.value='<iframe src="'+new URL(link.href,location.href).href+'" title="Canada–U.S.–China Findings and Trends" width="100%" height="1100" style="border:0" loading="lazy"></iframe>';
+ }
  function evidencePage(){window.CanadaImpact.show('evidence');}
 
  function route(focus=false){let id=routeId();
   if(id==='home')root.innerHTML=homeHTML();
   else if(homeMenu.some(([key])=>key===id))root.innerHTML=guide.page(id,C);
+  else if(id==='findings-trends')insightsPage();
   else if(id==='executive-summary')summaryPage();
   else if(id==='briefing-overview'||id==='canada-implications')window.CanadaImpact.show('overview');
   else if(id==='compare-topics')window.CanadaImpact.show('compare');
@@ -107,7 +131,7 @@
  function navigate(target='home'){const [id,incoming='']=target.split('?');if(['home','briefing-overview','canada-implications','compare-topics','policy-tracker','evidence-methods'].includes(id)){const params=new URLSearchParams(window.CanadaImpact?.data?window.CanadaImpact.filterQuery():location.hash.split('?')[1]||'');for(const [key,value]of new URLSearchParams(incoming))params.set(key,value);target=id+(params.toString()?'?'+params:'');}history.pushState(null,'','#'+target);route(true);}
  document.addEventListener('click',e=>{const a=e.target.closest('a[data-hub]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();navigate(a.dataset.hub);});
  function refreshLiveSections(){const latest=document.getElementById('hub-latest'),status=document.getElementById('hub-live-status'),health=document.getElementById('hub-source-health');if(latest)latest.innerHTML=routeId()==='home'?homeLatestHTML():latestHTML(feed(),routeId()==='executive-summary'?5:3);if(status)status.innerHTML=routeId()==='home'?homeStatusHTML():statusHTML();if(health){const open=health.querySelector('details')?.open;health.innerHTML=healthHTML();if(open)health.querySelector('details').open=true;}}
- window.addEventListener('dashboard-language-changed',updateTitle);
+ window.addEventListener('dashboard-language-changed',()=>{updateTitle();syncInsightsLanguage();});
  window.addEventListener('hashchange',()=>route());window.addEventListener('policy-updates-loaded',refreshLiveSections);
  window.HomeHub={navigate,route,updateNavigation,primaryTabs,homeMenu,compareMenu,homeHTML,executiveSummaryHTML,homeStatusHTML,homeLatestHTML,statusHTML,latestHTML,topicsHTML,refreshLiveSections,tabs,tools,researchTools};
  route();
