@@ -7239,13 +7239,13 @@
   "QU’EST-CE QUE CE TABLEAU DE BORD ?",
   "这个仪表板是什么？"
  ],
- "Canada–U.S.–China Policy Intelligence is a research dashboard for comparing economic and security relationships across eight topics, with evidence from 2018–2026.": [
-  "Veille stratégique Canada–États-Unis–Chine est un tableau de bord de recherche comparant les relations économiques et sécuritaires selon huit thèmes, à partir de données de 2018 à 2026.",
-  "“加拿大—美国—中国政策观察”是一个研究仪表板，依据2018至2026年的证据，围绕八个主题比较经济与安全关系。"
+ "Canada–U.S.–China Policy Intelligence is a research dashboard that compares three relationships: Canada–China, U.S.–China, and Canada–U.S. It brings together evidence from 2018–2026 to answer a central question: How do Canada’s close ties with the United States and its economic relationship with China shape its opportunities, constraints, and policy choices?": [
+  "Le tableau de bord de recherche Veille stratégique Canada–États-Unis–Chine compare trois relations : Canada–Chine, États-Unis–Chine et Canada–États-Unis. Il rassemble des données et des sources de 2018 à 2026 pour répondre à une question centrale : comment les liens étroits du Canada avec les États-Unis et sa relation économique avec la Chine façonnent-ils ses possibilités, ses contraintes et ses choix de politique publique ?",
+  "“加拿大—美国—中国政策观察”是一个研究仪表板，比较加中、美中和加美三组关系。它汇集2018至2026年的证据，探讨一个核心问题：加拿大与美国的紧密联系及其与中国的经济关系，如何影响加拿大的机遇、约束和政策选择？"
  ],
- "Changes in U.S. and Chinese demand, market access and security policy can shape Canadian opportunities and constraints. The dashboard helps users examine those connections nationally and across provinces and territories.": [
-  "L’évolution de la demande américaine et chinoise, de l’accès aux marchés et des politiques de sécurité peut modifier les possibilités et contraintes canadiennes. Le tableau de bord aide à examiner ces liens à l’échelle nationale, provinciale et territoriale.",
-  "美国与中国的需求、市场准入及安全政策变化，可能影响加拿大的机会与约束。仪表板帮助用户从全国及各省、地区层面考察这些联系。"
+ "The same policy change can have different effects across Canada. Improved access to China can open opportunities for Prairie canola exporters, while changes to U.S. vehicle rules can affect Ontario manufacturers that rely on cross-border supply chains. The dashboard helps users identify which industries and regions are exposed, what has been measured, and where the effects are still uncertain.": [
+  "Un même changement de politique peut avoir des effets différents selon les régions du Canada. Un meilleur accès au marché chinois peut ouvrir des débouchés aux exportateurs de canola des Prairies, tandis qu’une modification des règles américaines sur les véhicules peut toucher les fabricants ontariens qui dépendent de chaînes d’approvisionnement transfrontalières. Le tableau de bord aide à repérer les secteurs et les régions exposés, à voir ce qui a été mesuré et à cerner les effets qui restent incertains.",
+  "同一项政策变化在加拿大各地可能产生不同影响。改善对华市场准入可为草原省份的油菜籽出口商创造机会，而美国汽车规则的变化可能影响依赖跨境供应链的安大略省制造商。仪表板帮助用户识别哪些行业和地区受到影响、哪些结果已有测量，以及哪些影响仍不确定。"
  ],
  "What is it used for?": [
   "À quoi sert-il ?",
@@ -7255,9 +7255,9 @@
   "À QUOI SERT-IL ?",
   "它有什么用途？"
  ],
- "Use it to prepare policy briefs, compare sectors and relationships, track implemented measures and examine trends. It separates announcements, observed results and unresolved questions so comparisons stay grounded in evidence.": [
-  "Utilisez-le pour préparer des notes de politique, comparer secteurs et relations, suivre les mesures appliquées et examiner les tendances. Il distingue annonces, résultats observés et questions ouvertes pour étayer les comparaisons.",
-  "可用于撰写政策简报、比较行业与关系、追踪已实施措施及分析趋势。仪表板区分公告、已观测结果和未解决问题，使比较有证据依据。"
+ "Use it to prepare policy briefs, compare sectors, and follow a measure from announcement to implementation. For example, when a tariff changes, you can check which products are covered and when the change takes effect, then look at shipment or employment data to see what followed. The dashboard helps you distinguish what happened after a policy change from what the evidence shows the policy caused.": [
+  "Utilisez-le pour préparer des notes de breffage, comparer des secteurs et suivre une mesure de son annonce à sa mise en œuvre. Par exemple, lorsqu’un droit de douane change, vous pouvez vérifier quels produits sont visés et à quelle date le changement entre en vigueur, puis consulter les données sur les expéditions ou l’emploi. Le tableau de bord aide à distinguer ce qui a suivi le changement de ce que les données permettent de lui attribuer.",
+  "可用它撰写政策简报、比较行业，并跟踪措施从宣布到实施的过程。例如，关税变化后，可先核查涉及哪些产品及何时生效，再查阅出货或就业数据，了解随后发生了什么。仪表板帮助用户区分政策变化后出现的现象与有证据表明确由该政策造成的结果。"
  ],
  "Who can use it?": [
   "À qui s’adresse-t-il ?",
@@ -7267,9 +7267,9 @@
   "À QUI S’ADRESSE-T-IL ?",
   "谁可以使用？"
  ],
- "Policy advisors, governments, chambers of commerce, businesses, industry associations, researchers and students can use the same source-linked workspace to investigate Canadian policy questions.": [
-  "Conseillers en politiques, gouvernements, chambres de commerce, entreprises, associations sectorielles, chercheurs et étudiants peuvent utiliser cet espace documenté pour étudier les questions de politique canadienne.",
-  "政策顾问、政府、商会、企业、行业协会、研究人员及学生，都可以利用这个可追溯来源的研究空间考察加拿大政策问题。"
+ "Policy advisors and government officials can use it to brief decision-makers and assess policy options. Chambers of commerce, industry associations, and businesses can use it to identify market opportunities and questions to investigate before making decisions. Researchers and students can trace findings to their original sources and build their own comparisons.": [
+  "Les conseillers en politiques et les responsables gouvernementaux peuvent s’en servir pour informer les décideurs et évaluer les options. Les chambres de commerce, les associations sectorielles et les entreprises peuvent repérer des débouchés et des questions à approfondir avant de prendre une décision. Les chercheurs et les étudiants peuvent remonter aux sources originales et établir leurs propres comparaisons.",
+  "政策顾问和政府官员可用它向决策者简报并评估政策选项。商会、行业协会和企业可识别市场机遇，并在决策前明确需要进一步调查的问题。研究人员和学生可追溯原始来源，并开展自己的比较分析。"
  ],
  "Why should users choose it?": [
   "Pourquoi l’utiliser ?",
@@ -7279,9 +7279,9 @@
   "POURQUOI L’UTILISER ?",
   "为什么使用这个仪表板？"
  ],
- "It brings dispersed sources into one comparative view. Consistent questions, dated records and clear limits help users judge what changed, why Canada should care and which regional effects are measured or still uncertain.": [
-  "Il rassemble des sources dispersées dans une vue comparative. Des questions cohérentes, des fiches datées et des limites explicites aident à comprendre les changements, leur importance pour le Canada et les effets régionaux mesurés ou incertains.",
-  "它将分散来源汇集到同一比较视图。一致的问题、有日期的记录及明确限制，帮助用户判断变化、加拿大为何应关注，以及哪些地区影响已测量或仍不确定。"
+ "The dashboard applies the same questions across sectors and relationships: What changed? Why does it matter to Canada? How could provinces and territories be affected? Each record keeps its source, date, geography, and measurement limits visible. That makes it easier to compare like with like and see why, for example, an import quota, actual vehicle arrivals, and Canadian factory jobs tell different parts of the story.": [
+  "Le tableau de bord pose les mêmes questions pour chaque secteur et chaque relation : qu’est-ce qui a changé ? Pourquoi est-ce important pour le Canada ? Comment les provinces et les territoires pourraient-ils être touchés ? Chaque fiche indique sa source, sa date, sa portée géographique et les limites de la mesure. On peut ainsi comparer des données de même nature et comprendre, par exemple, qu’un contingent d’importation, les arrivées réelles de véhicules et les emplois dans les usines canadiennes renseignent sur des aspects différents.",
+  "仪表板对各行业和双边关系提出同样的问题：发生了什么变化？为什么这对加拿大重要？各省和地区可能受到怎样的影响？每条记录都标明来源、日期、地理范围和衡量局限。这有助于按统一口径比较，并理解进口配额、实际进口车辆数量和加拿大工厂就业分别反映哪些情况。"
  ],
  "What will users find?": [
   "Que peut-on y trouver ?",
@@ -7291,9 +7291,13 @@
   "QUE PEUT-ON Y TROUVER ?",
   "用户能找到什么？"
  ],
- "Users can find eight topic views, a Canada map with regional evidence, U.S. trade comparisons, policy timelines and original sources. Daily source checks, weekly briefings and optional LLM explanations of reviewed Canadian evidence support follow-up.": [
-  "Vous y trouverez huit thèmes, une carte canadienne documentée, des comparaisons commerciales américaines, des chronologies et les sources originales. La veille quotidienne, les notes hebdomadaires et les explications facultatives par modèle des données canadiennes examinées facilitent le suivi.",
-  "用户可找到八个主题视图、配有地区证据的加拿大地图、美国贸易比较、政策时间线及原始来源。每日来源检查、每周简报，以及对已审阅加拿大证据的可选大语言模型解释，支持进一步研究。"
+ "Users can explore eight topics: vehicles, EVs and batteries; agriculture and market access; energy exports and investment; financial services; technology and digital trade; defence and security; investment and screening; and agreements and dialogue.": [
+  "Les utilisateurs peuvent explorer huit thèmes : véhicules, véhicules électriques et batteries ; agriculture et accès aux marchés ; exportations énergétiques et investissements ; services financiers ; technologie et commerce numérique ; défense et sécurité ; investissements et examen des investissements ; accords et dialogue.",
+  "用户可探索八个主题：汽车、电动汽车和电池；农业与市场准入；能源出口与投资；金融服务；技术与数字贸易；国防与安全；投资与审查；协议与对话。"
+ ],
+ "The dashboard includes interactive Canadian provincial and U.S. state maps, trade charts, policy timelines, and expandable evidence linked to original sources. Daily checks flag changes to monitored sources, weekly briefings highlight developments worth following, and the optional Bring Your Own LLM tool can help users ask questions about reviewed evidence.": [
+  "Le tableau de bord comprend des cartes interactives des provinces canadiennes et des États américains, des graphiques sur le commerce, des chronologies et des fiches de données à ouvrir pour consulter les sources originales. Les vérifications quotidiennes signalent les changements dans les sources suivies, les notes hebdomadaires présentent les faits à surveiller et l’outil facultatif BYOLLM permet d’interroger les données examinées à l’aide de son propre modèle.",
+  "仪表板包含加拿大省级和美国州级交互地图、贸易图表、政策时间线，以及可展开并链接到原始来源的证据。每日检查标记受监测来源的变化，每周简报介绍值得关注的动态，可选的自带大语言模型（BYOLLM）工具可帮助用户就已审阅的证据提问。"
  ],
  "Daily monitoring detects source changes; each dataset keeps its own reference period and review status.": [
   "La veille quotidienne détecte les changements des sources ; chaque jeu de données conserve sa période de référence et son statut d’examen.",
