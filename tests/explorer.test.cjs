@@ -3,9 +3,9 @@ const vm=require('node:vm');
 const assert=require('node:assert/strict');
 const dir=require('node:path').join(__dirname,'../app');
 const media={matches:false,addEventListener(){}};
-const ctx={window:{matchMedia:()=>media,addEventListener(){}},location:{hash:''},URL,URLSearchParams,history:{replaceState(){}},document:{},console};
+const ctx={window:{matchMedia:()=>media,addEventListener(){}},location:{hash:''},URL,URLSearchParams,history:{replaceState(){}},document:{},CSS:{escape:s=>s},console};
 vm.createContext(ctx);
-for(const file of ['explorer-inventory.js','explorer-catalog.js','relationship-explorer.js'])vm.runInContext(fs.readFileSync(dir+'/'+file,'utf8'),ctx,{filename:file});
+for(const file of ['explorer-inventory.js','explorer-catalog.js','regional-trade-model.js','us-trade-model.js','insights-model.js','insights-copy.js','relationship-copy.js','relationship-findings.js','relationship-explorer.js'])vm.runInContext(fs.readFileSync(dir+'/'+file,'utf8'),ctx,{filename:file});
 const api=ctx.window.PolicyExplorer;
 assert.equal(api.catalog.topics.length,8);
 assert.equal(api.records.size,37);
@@ -29,6 +29,7 @@ for(const topic of api.catalog.topics){
    for(let n=0;n<4;n++)assert(html.includes('id="lab-question-'+n+'"'));
    assert.equal((html.match(/data-relationship="/g)||[]).length,3);
    assert.equal((html.match(/data-country="/g)||[]).length,3);
+   for(const code of ['ca','us','cn'])assert(html.includes(`src="flags/${code}.svg" alt=""`));
    assert.equal((html.match(/data-stage="/g)||[]).length,3);
    for(const r of m.items)assert(html.includes('data-record="'+r.id+'"'));
    assert(!/onclick=|href="javascript:/.test(html));
@@ -47,9 +48,9 @@ const r=api.records.get('r9'),original=r.summary;r.summary='<script>alert("x")</
 api.state.topic='agriculture';api.state.issue='canola';api.state.relationship=1;
 assert(api.view().includes('&lt;script&gt;'));assert(!api.view().includes('<script>alert'));r.summary=original;
 // Exercise actual event handlers with a minimal event target, without a browser.
-let handler,topicChange;
+let handler,topicChange,chartChange,chartKey;
 const nodes=new Map();
-function node(id){if(!nodes.has(id))nodes.set(id,{innerHTML:'',hidden:false,dataset:{},setAttribute(){},addEventListener(type,fn){if(id==='relationship-explorer'&&type==='click')handler=fn;if(id==='#lab-topic'&&type==='change')topicChange=fn;},querySelector(sel){return node(sel);},querySelectorAll(){return[];},focus(){},scrollIntoView(){},showModal(){this.open=true;},removeAttribute(){}});return nodes.get(id);}
+function node(id){if(!nodes.has(id))nodes.set(id,{innerHTML:'',hidden:false,dataset:{},setAttribute(){},addEventListener(type,fn){if(id==='relationship-explorer'&&type==='click')handler=fn;if(id==='relationship-explorer'&&type==='change')chartChange=fn;if(id==='relationship-explorer'&&type==='keydown')chartKey=fn;if(id==='#lab-topic'&&type==='change')topicChange=fn;},querySelector(sel){return node(sel);},querySelectorAll(){return[];},focus(){},scrollIntoView(){},showModal(){this.open=true;},removeAttribute(){}});return nodes.get(id);}
 ctx.document.getElementById=id=>node(id);ctx.document.querySelector=sel=>node(sel);ctx.document.querySelectorAll=()=>[];
 ctx.history.replaceState=(a,b,hash)=>ctx.location.hash=hash;
 ctx.window.showExplorer();assert(handler&&topicChange);assert(node('root').innerHTML.includes('Relationship Explorer'));
@@ -58,7 +59,9 @@ topicChange({target:{value:'security'}});assert.equal(api.state.topic,'security'
 click({issue:'fentanyl'});assert.equal(api.state.issue,'fentanyl');
 click({relationship:'0'});assert.equal(api.state.relationship,0);assert(node('root').innerHTML.includes('Enforcement and intelligence'));
 click({country:'china'});assert.equal(api.state.relationship,1);assert.equal(api.state.country,'china');
-click({stage:'finding'});assert.equal(api.state.stage,'finding');assert(node('#lab-trace-detail').innerHTML.includes('question 3'));
+click({stage:'finding'});assert.equal(api.state.stage,'finding');assert(node('#lab-trace-detail').innerHTML.includes('No dated finding is indexed'));assert(ctx.location.hash.includes('stage=finding'));
+click({stage:'implication'});assert(node('#lab-trace-detail').innerHTML.includes('Canadian policy implications'));assert(node('#lab-trace-detail').innerHTML.includes('What to check next'));
+click({stage:'source'});assert(node('#lab-trace-detail').innerHTML.includes('No original document is indexed'));
 click({record:'r16'});assert(node('lab-evidence-dialog').open);assert(node('lab-dialog-body').innerHTML.includes('Joint Action Plan'));
 click({question:'3'});
 let mapOpened=false,briefOpened=false,printed=false;ctx.window.showMap=()=>mapOpened=true;ctx.window.render=()=>briefOpened=true;ctx.window.print=()=>printed=true;
@@ -85,3 +88,26 @@ assert.equal(api.state.relationship,1);assert(ctx.location.hash.includes('view=r
 click({country:'us'});assert.equal(api.state.relationship,1);
 click({relationship:'0'});assert(visited.at(-1).startsWith('us-canada?'));
 click({labView:'map'});assert(visited.at(-1).includes('view=products'));
+
+const {test}=require('node:test');
+test('Finding controls load the matched chart and navigate policy records without changing the relationship',async()=>{
+ const files=[];
+ ctx.fetch=async name=>{files.push(name);return {ok:true,json:async()=>JSON.parse(fs.readFileSync(dir+'/'+name,'utf8'))};};
+ const flush=()=>new Promise(resolve=>setImmediate(resolve));
+ ctx.location.hash='#canada-china?view=relationship&topic=agriculture&issue=canola&stage=finding';
+ ctx.window.showExplorer();await flush();
+ assert.deepEqual(files,['evidence-records.json']);
+ const chart=()=>node('#lab-finding-chart').innerHTML;
+ assert(chart().includes('Canola seed shipments to China'));assert(chart().includes('2026-03'));assert(chart().includes('Show exact values'));assert(chart().includes('2,581,011')||chart().includes('2.58M'));
+ chartChange({target:{dataset:{labChart:'series'},value:'canola-meal-china'}});
+ assert(chart().includes('Canola meal shipments to China'));assert(!chart().includes('Canola seed tariff change:'));
+ chartChange({target:{dataset:{labChart:'point'},value:'2'}});assert(chart().includes('2026-03: 42,126 tonnes'));
+ chartKey({key:'Enter',preventDefault(){},target:{closest:()=>({dataset:{labPoint:'7'}})}});assert(chart().includes('2026-08: 295,172 tonnes'));
+ ctx.window.BilateralHub.active.relationship='Canada-USA';
+ ctx.location.hash='#us-canada?view=relationship&topic=technology&issue=telecom&stage=finding';
+ ctx.window.showExplorer();
+ assert(node('bilateral-body').innerHTML.includes('data-lab-finding="r29"'));
+ assert(node('bilateral-body').innerHTML.includes('a numerical trend would need a comparable outcome series'));
+ click({labFinding:'r29'});assert(node('#lab-trace-detail').innerHTML.includes('data-lab-finding="r29" aria-controls="lab-timeline-detail" aria-pressed="true"'));
+ assert.equal(files.length,1,'a policy-only issue should not request unrelated statistics');
+});
