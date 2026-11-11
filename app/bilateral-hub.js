@@ -133,7 +133,7 @@
  }
  function set(key,value){
   state=B.normalize(state.pair.id,{...state,[key]:value,page:0});
-  history.replaceState(null,'','#'+target(state.view,{topic:state.topic,year:state.year,query:state.query,page:state.page}));render();
+  history.replaceState(null,'','#'+target(state.view,{topic:state.topic,year:state.year,query:state.query,page:state.page}));render();window.HomeHub?.updateNavigation();
   document.getElementById('bilateral-'+key)?.focus({preventScroll:true});
  }
  document.addEventListener('change',ev=>{const el=ev.target.closest('[data-bilateral-filter]');if(el&&state)set(el.dataset.bilateralFilter,el.value);});
@@ -141,6 +141,9 @@
  document.addEventListener('click',ev=>{const el=ev.target.closest('[data-bilateral-page]');if(el&&state){state.page=Math.max(0,state.page+Number(el.dataset.bilateralPage));render();document.getElementById('bilateral-search')?.scrollIntoView({block:'start'});}});
  window.addEventListener('dashboard-language-changed',()=>{if(state)render();});
  window.addEventListener('policy-updates-loaded',()=>{if(state&&location.hash.startsWith('#'+state.pair.id))promise=load();});
+ let printDetails=[];
+ window.addEventListener('beforeprint',()=>{if(!state)return;printDetails=Array.from(root.querySelectorAll?.('details[class^="bilateral-"]')||[],el=>({el,open:el.open}));printDetails.forEach(({el})=>el.open=true);});
+ window.addEventListener('afterprint',()=>{printDetails.forEach(({el,open})=>el.open=open);printDetails=[];});
  window.BilateralHub={show,render,get active(){return state?{...state.pair,view:state.view}:null;},clear(){state=null;},get ready(){return promise;},target:(view,extra)=>state?target(view,extra):'home',get state(){return state&&{...state};}};
 })();
 

@@ -89,7 +89,10 @@ test('every relationship renders eight topics, scoped policy and evidence, maps,
  assert(selected.includes('note-cc-2024-ev-steel-surtaxes'));
  assert(!selected.includes('note-uc-section301-ev-2024'));
  for(const lang of ['fr','zh-Hans']){language.value=lang;events['dashboard-language-changed']();const html=node('root').innerHTML;assert(html.includes(I18n.t('Canada–China Policy and Trade',lang)));assert(html.includes(I18n.t('Why does it matter to Canada?',lang)));}
- language.value='en';go('canada-china','overview');setOutage();events['policy-updates-loaded']();await window.BilateralHub.ready;
+ language.value='en';go('canada-china','overview');
+ const printed=[{open:false},{open:true}],root=node('root'),query=root.querySelectorAll;root.querySelectorAll=()=>printed;
+ events.beforeprint();assert(printed.every(x=>x.open));events.afterprint();assert.equal(printed[0].open,false);assert.equal(printed[1].open,true);root.querySelectorAll=query;
+ setOutage();events['policy-updates-loaded']();await window.BilateralHub.ready;
  assert(node('root').innerHTML.includes('Some published datasets could not be refreshed'));
  assert(node('root').innerHTML.includes('bilateral-stat'),'previous valid values retained');
 });
