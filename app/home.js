@@ -55,8 +55,9 @@
  function healthHTML(){const f=feed();return `<details class="hub-health"><summary>Latest source coverage · ${(f.sourceFailures||[]).length} errors</summary><p>Last successful check: ${E(date(f.lastSuccessfulRun))}. Latest result: ${E(f.lastRunStatus||'unknown')}.</p>${(f.sourceFailures||[]).map(x=>`<p>${official(x.url,x.url)}<br><span class="hub-small">${E(x.error)}</span></p>`).join('')||'<p>No errors have been recorded in the current status feed.</p>'}</details>`;}
  function searchPage(){window.showResearchSearch();const container=document.querySelector('#search-form')?.closest('.panel');if(container)container.insertAdjacentHTML('beforeend','<section id="hub-live-search"><h3>Search daily updates</h3><form id="daily-search-form" class="search"><label class="sr-only" for="daily-query">Search daily source updates</label><input id="daily-query" placeholder="Search latest policies, sources and amendments"><button class="btn" type="submit">Search updates</button></form><p id="daily-search-status" role="status" aria-live="polite"></p><div id="daily-search-results"></div></section>');document.getElementById('daily-search-form')?.addEventListener('submit',e=>{e.preventDefault();const raw=document.getElementById('daily-query').value;const q=(window.DashboardI18n?.searchQuery(raw)||raw).trim().toLowerCase();const rows=q?(feed().changes||[]).filter(x=>q.split(/\s+/).every(term=>[x.title,x.ai?.summary,x.source,...(x.topics||[])].join(' ').toLowerCase().includes(term))):[];document.getElementById('daily-search-status').textContent=rows.length+' matching daily source records.';document.getElementById('daily-search-results').innerHTML=rows.map(x=>`<article class="card"><h4>${official(x.url,x.title)}</h4><p>${E(x.ai?.summary||'Source observation; no automated policy finding.')}</p>${window.PolicyNarrative?.compact({...x,unreviewed:true})||''}<p class="note">Detected ${E(date(x.detectedAt))}</p></article>`).join('');});}
  function routeId(){const id=location.hash.slice(1).split('?')[0];return id||'home';}
+ function weeklyBriefingActive(){return routeId()==='weekly-updates'&&new URLSearchParams(location.hash.split('?')[1]||'').get('view')==='briefing';}
  function updateTitle(){
-  const title=tabs.find(t=>t[0]===routeId())?.[1]||'Policy Research';
+  const title=weeklyBriefingActive()?'Weekly policy briefing':tabs.find(t=>t[0]===routeId())?.[1]||'Policy Research';
   document.title=(window.DashboardI18n?.t(title)||title)+' | Canada–U.S.–China';
  }
  function updateNavigationOffset(){
@@ -65,7 +66,8 @@
  }
  function updateSubscriptionDock(){
   const dock=document.getElementById('subscription-dock');if(!dock)return;
-  dock.innerHTML='<div><span>Weekly policy briefing</span><a href="#weekly-updates" data-hub="weekly-updates" '+(routeId()==='weekly-updates'?'aria-current="page"':'')+'>Subscribe to weekly updates <span aria-hidden="true">→</span></a></div>';
+  const briefing=weeklyBriefingActive(),subscribing=routeId()==='weekly-updates'&&!briefing;
+  dock.innerHTML=`<div><a class="dock-briefing" href="#weekly-updates?view=briefing" data-hub="weekly-updates?view=briefing"${briefing?' aria-current="page"':''}>Weekly policy briefing</a><a class="dock-subscribe" href="#weekly-updates" data-hub="weekly-updates"${subscribing?' aria-current="page"':''}>Subscribe to weekly updates <span aria-hidden="true">→</span></a></div>`;
   updateSubscriptionOffset();
  }
  function updateSubscriptionOffset(){
