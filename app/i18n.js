@@ -5,7 +5,8 @@
  const content=common?require('./translations-content.js'):global.POLICY_TRANSLATIONS_CONTENT;
  const guide=common?require('./dashboard-guide.js'):global.PolicyGuide;
  const register=common?require('./research-register.js'):global.PolicyResearchRegister;
- const dictionaries={...(ui||{}),...(content||{}),...(guide?.translations||{}),...(register?.translations||{})};
+ const bilateral=common?require('./bilateral-copy.js'):global.BilateralCopy;
+ const dictionaries={...(ui||{}),...(content||{}),...(guide?.translations||{}),...(register?.translations||{}),...(bilateral?.strings||{})};
  const normalize=s=>{const code=String(s??'').replaceAll('_','-').toLowerCase();return /^fr(?:-|$)/.test(code)?'fr':['zh','zh-cn','zh-hans','zh-hans-cn'].includes(code)?'zh-Hans':'en';};
  let language='en';const textCache=new Map();const originals=new WeakMap(),attributes=new WeakMap();
  const clean=s=>String(s??'').replace(/\s+/g,' ').trim();

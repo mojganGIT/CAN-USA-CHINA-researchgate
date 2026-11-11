@@ -4,10 +4,11 @@ function node(id){if(!nodes.has(id))nodes.set(id,{innerHTML:'',value:'',open:fal
 const location={hash:'',pathname:'/',search:'',href:'https://dashboard.test/',origin:'https://dashboard.test'},document={title:'',getElementById:node,querySelector:s=>node(s),querySelectorAll:()=>[],addEventListener(type,fn){events.set(type,fn);}};
 const window={addEventListener(type,fn){events.set(type,fn);}};
 const ctx={window,document,location,history:{replaceState(a,b,url){location.hash=url.startsWith('#')?url:'';},pushState(a,b,url){location.hash=url;}},URL,URLSearchParams,Intl,Date,console};vm.createContext(ctx);
-for(const file of ['research-register.js','dashboard-guide.js','master-data.js','app.js','explorer-inventory.js','explorer-catalog.js'])vm.runInContext(fs.readFileSync(path.join(dir,file),'utf8'),ctx,{filename:file});
+for(const file of ['bilateral-model.js','research-register.js','dashboard-guide.js','master-data.js','app.js','explorer-inventory.js','explorer-catalog.js'])vm.runInContext(fs.readFileSync(path.join(dir,file),'utf8'),ctx,{filename:file});
 const original=JSON.stringify(window.POLICY_MASTER.executiveSummary);
 const feed={lastSuccessfulRun:new Date().toISOString(),lastRunStatus:'partial',sourcesChecked:40,sourceFailures:[{url:'https://www.canada.ca/moved',error:'HTTP 404'}],aiEnabled:false,scheduleUTC:'11:17 daily',changes:[{id:'auto-test',title:'New EV customs source <script>x</script>',url:'https://www.canada.ca/test',source:'Canada',detectedAt:new Date().toISOString(),topics:['vehicles'],relationships:['Canada-USA'],changeType:'new_source'}]};
 window.PolicyLive={feed,show(view){location.hash=view==='llm'?'#your-llm':'#daily-updates';node('root').innerHTML='LIVE VIEW '+view;}};
+window.BilateralHub={show(id){node('root').innerHTML='BILATERAL '+id;},clear(){}};
 window.USTrade={show(){node('root').innerHTML='US TRADE VIEW';}};
 window.WeeklyUpdates={show(){node('root').innerHTML='WEEKLY UPDATES VIEW';}};
 window.showExplorer=()=>{location.hash='#relationship-explorer?topic=agriculture';node('root').innerHTML='EXPLORER VIEW';};
@@ -15,12 +16,12 @@ const mounts=[],impactViews=[];window.CanadaImpact={data:null,mount(view,id){mou
 vm.runInContext(fs.readFileSync(path.join(dir,'home.js'),'utf8'),ctx,{filename:'home.js'});
 const hub=window.HomeHub;
 assert(hub);assert.equal(hub.tools.length,3);
-const primary=['home','compare-topics','policy-tracker','us-trade','research-search','your-llm','weekly-updates','daily-updates'];
+const primary=['home','canada-china','us-china','us-canada','research-search','your-llm','daily-updates'];
 const initialNav=node('site-navigation').innerHTML;
-assert.deepEqual(Array.from(initialNav.matchAll(/data-hub="([^"?]+)(?:\?[^"]*)?"/g),m=>m[1]).filter(id=>primary.includes(id)),primary);
+assert.deepEqual(Array.from(initialNav.matchAll(/data-hub="([^"?]+)"/g),m=>m[1]).filter(id=>primary.includes(id)),primary);
 assert.deepEqual(Array.from(hub.homeMenu,([id])=>id),['categories','countries','comparative']);
 assert.deepEqual(Array.from(hub.compareMenu,([id])=>id),['findings-trends','evidence-methods','relationship-explorer']);
-assert.equal((initialNav.match(/<details class="hub-nav-menu">/g)||[]).length,2);
+assert.equal((initialNav.match(/<details class="hub-nav-menu">/g)||[]).length,4);
 assert(!initialNav.includes('data-hub="research-tools"'));
 
 const initialHome=hub.homeHTML();
@@ -40,7 +41,7 @@ const many={...feed,changes:Array.from({length:8},(_,i)=>({...feed.changes[0],id
 const preview=hub.homeLatestHTML(many);assert.equal((preview.match(/<li>/g)||[]).length,3);assert(!preview.includes('Do not repeat the detailed analysis here.'));
 assert.equal((hub.topicsHTML().match(/class="hub-topic"/g)||[]).length,8);
 for(const [id]of hub.tabs){
- const viewsBefore=impactViews.length;hub.navigate(id);assert(/aria-current="(?:page|location)"/.test(node('site-navigation').innerHTML));assert(node('root').innerHTML.length>0);
+ const viewsBefore=impactViews.length;hub.navigate(id);assert(/aria-current="(?:page|location)"/.test(node('site-navigation').innerHTML+node('subscription-dock').innerHTML));assert(node('subscription-dock').innerHTML.includes('data-hub="weekly-updates"'));if(['canada-china','us-china','us-canada'].includes(id))assert.equal(node('root').innerHTML,'BILATERAL '+id);assert(node('root').innerHTML.length>0);
  if(id==='home')assert(node('root').innerHTML.includes('hub-home-title'));
  if(['briefing-overview','canada-implications'].includes(id))assert.equal(node('root').innerHTML,'IMPACT overview');
  if(id==='executive-summary'){assert.equal(impactViews.length,viewsBefore);assert(node('root').innerHTML.includes('hub-product-summary'));assert(node('root').innerHTML.includes('What is this dashboard?'));assert(node('root').innerHTML.includes('Who can use it?'));assert(!node('root').innerHTML.includes('canada-impact-root'));}
@@ -77,5 +78,5 @@ input.value='龙虾';window.ask();assert(node('ans').innerHTML.includes('data-gu
 
 const index=fs.readFileSync(path.join(dir,'index.html'),'utf8');assert(index.includes('id="site-navigation"'));assert(index.includes('id="root" tabindex="-1"'));assert(index.includes('home.js'));assert(index.includes('home.css'));
 const live=fs.readFileSync(path.join(dir,'agent-tools.js'),'utf8');assert(live.includes('5*60*1000'));assert(live.includes("cache:'no-store'"));assert(live.includes("'visibilitychange'"));assert(!/localStorage|sessionStorage/.test(live));
-console.log(JSON.stringify({passed:true,navigationTabs:hub.tabs.length,primaryTabs:8,dropdowns:2,homeSections:3,topicViews:8,routes:'all home destinations',daily:'home shows at most three source-title rows and a compact status; detailed records stay in their tools',preservation:'curated executive assessment and 22 original records retained',browserQA:'live and preview access restricted by network/saved browser permissions'}));
+console.log(JSON.stringify({passed:true,navigationTabs:hub.tabs.length,primaryTabs:7,dropdowns:4,homeSections:3,topicViews:8,routes:'all home destinations',daily:'home shows at most three source-title rows and a compact status; detailed records stay in their tools',preservation:'curated executive assessment and 22 original records retained',browserQA:'live and preview access restricted by network/saved browser permissions'}));
 

@@ -3,7 +3,7 @@
  const M=window.USStateModel,T=window.USStateCopy.text;
  const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const tx=(s,...args)=>E(T(s,...args));
- let data=null,geometry=null,host=null,promise=null,error='',state={state:'MI',partner:'Canada',metric:'share'},onPartnerChange=null;
+ let data=null,geometry=null,host=null,promise=null,error='',state={state:'MI',partner:'Canada',metric:'share'},onPartnerChange=null,lockedPartner=null;
  const date=d=>String(d||'').slice(0,10)||T('Not reported in the profile');
  const number=(n,options={})=>new Intl.NumberFormat(window.DashboardI18n?.locale||'en-CA',{maximumFractionDigits:1,...options}).format(n);
  const usd=n=>n===null?T('Not reported in the profile'):new Intl.NumberFormat(window.DashboardI18n?.locale||'en-CA',{style:'currency',currency:'USD',notation:'compact',maximumFractionDigits:2}).format(n);
@@ -12,8 +12,9 @@
  const numeric=(row,partner)=>row?.year===Number(state.year)?row.partners[partner].value:null;
  const share=(row,partner)=>numeric(row,partner)===null||!(row.totalExports>0)?null:numeric(row,partner)/row.totalExports*100;
  function source(row){return `<a href="${E(row.sourceURL)}" target="_blank" rel="noopener noreferrer">${tx(row.sourceStatus==='unavailable'?'USTR state data directory':'Source profile')} · USTR ↗</a>`;}
+ const partners=()=>lockedPartner?[lockedPartner]:['Canada','China'];
  function select(key,label,rows){
-  return `<label for="usstate-${key}">${tx(label)}<select id="usstate-${key}" data-usstate-filter="${key}">${rows.map(([value,text])=>`<option value="${E(value)}" ${String(value)===String(state[key])?'selected':''}>${tx(text)}</option>`).join('')}</select></label>`;
+  return `<label for="usstate-${key}">${tx(label)}<select id="usstate-${key}" data-usstate-filter="${key}" ${key==='partner'&&lockedPartner?'disabled':''}>${rows.map(([value,text])=>`<option value="${E(value)}" ${String(value)===String(state[key])?'selected':''}>${tx(text)}</option>`).join('')}</select></label>`;
  }
  function legend(){
   const labels=state.metric==='share'?['Under 5%','5% to under 15%','15% to under 30%','At least 30%']:['Under US$1 billion','US$1 billion to under US$5 billion','US$5 billion to under US$10 billion','At least US$10 billion'];
@@ -38,28 +39,28 @@
  function panel(){
   const row=selected(),value=numeric(row,state.partner);
   const connection=row.year&&String(row.year)!==String(state.year)?'Reference year differs from the selected map year.':value===null?'The profile does not report a separate value for this partner. This is an evidence gap; it does not mean the state has no trade with that market.':T('{0} reports {1} in goods exports to {2} in {3}. This records a commercial connection, not the effect of an agreement.',row.name,usd(value),T(state.partner),row.year);
-  return `<section class="usstate-panel" aria-labelledby="usstate-panel-title"><p class="hub-eyebrow">${tx('Selected state')}</p><h3 id="usstate-panel-title">${E(row.name)}</h3><div class="usstate-metrics">${['Canada','China'].map(partner=>{
+  return `<section class="usstate-panel" aria-labelledby="usstate-panel-title"><p class="hub-eyebrow">${tx('Selected state')}</p><h3 id="usstate-panel-title">${E(row.name)}</h3><div class="usstate-metrics">${partners().map(partner=>{
    const value=numeric(row,partner),pct=share(row,partner);
    return `<div><h4>${tx('Goods exports to {0}',T(partner))}</h4><strong>${E(usd(value))}</strong><p>${pct===null?'':E(percent(pct))+' · '+tx('Calculated from rounded profile values.')}</p></div>`;
   }).join('')}</div><dl class="usstate-reading"><div><dt>${tx('What is the connection?')}</dt><dd>${tx(connection)}</dd></div><div><dt>${tx('Why does it matter to Canada?')}</dt><dd>${tx(industry(row))}</dd></div><div><dt>${tx('What does the evidence establish?')}</dt><dd>${row.year?tx('This is a {0} annual goods-export snapshot. The profile identifies leading markets and a manufacturing category; it is not a complete country-by-product table.',row.year):tx('No quantified profile retrieved for this jurisdiction.')}</dd></div><div><dt>${tx('What remains uncertain?')}</dt><dd>${tx('Origin-of-movement exports can differ from the place of manufacture. These figures do not establish imports, services, jobs, new investment or a causal policy effect.')}</dd></div></dl>
   <details class="usstate-source"><summary>${tx('Source and measurement')}</summary><p><strong>${tx('Total goods exports to the world')}:</strong> ${E(usd(row.year===Number(state.year)?row.totalExports:null))}</p>${row.leadingManufacturingCategory?`<p><strong>${tx('Leading manufacturing export category')}:</strong> ${tx(row.leadingManufacturingCategory)} · ${E(usd(row.leadingManufacturingValue))} (${row.year})<br>${tx('All destinations; not a bilateral sector total.')}</p>`:''}<p class="impact-meta">${tx('Profile reference year')}: ${E(row.year||'—')} · ${tx('Baseline source review')}: ${E(date(row.reviewedAt))}${row.retrievedAt?' · '+tx('Source retrieved')+': '+E(date(row.retrievedAt)):''}</p>${row.lastReadStatus==='failed'?`<p class="impact-caution">${tx('Source check failed; previously published values retained.')}</p>`:''}<p>${source(row)}</p></details>
-  <div class="usstate-links"><a href="#us-trade?view=sectors&partner=both&topic=all" data-hub="us-trade?view=sectors&partner=both&topic=all">${tx('Read the national policy comparison')} →</a><a href="#canada-implications?relationship=Canada-USA" data-hub="canada-implications?relationship=Canada-USA">${tx('Compare Canada’s provincial exposure')} →</a></div></section>`;
+  <div class="usstate-links"><a href="#${window.BilateralHub?.active?window.BilateralHub.target('compare'):'us-trade?view=sectors&partner=both&topic=all'}" data-hub="${window.BilateralHub?.active?window.BilateralHub.target('compare'):'us-trade?view=sectors&partner=both&topic=all'}">${tx('Read the national policy comparison')} →</a><a href="#canada-implications?relationship=Canada-USA" data-hub="canada-implications?relationship=Canada-USA">${tx('Compare Canada’s provincial exposure')} →</a></div></section>`;
  }
  function table(){
-  return `<details class="usstate-register"><summary>${tx('All states: reported market connections')}</summary><div class="impact-comparison-scroll"><table class="impact-statistics"><thead><tr><th scope="col">${tx('State')}</th><th scope="col">${tx('Profile reference year')}</th><th scope="col">${tx('Goods exports to {0}',T('Canada'))}</th><th scope="col">${tx('Goods exports to {0}',T('China'))}</th><th scope="col">${tx('Leading manufacturing export category')}</th></tr></thead><tbody>${[...data.rows].sort((a,b)=>a.name.localeCompare(b.name)).map(r=>{
+  return `<details class="usstate-register"><summary>${tx('All states: reported market connections')}</summary><div class="impact-comparison-scroll"><table class="impact-statistics"><thead><tr><th scope="col">${tx('State')}</th><th scope="col">${tx('Profile reference year')}</th>${partners().map(p=>`<th scope="col">${tx('Goods exports to {0}',T(p))}</th>`).join('')}<th scope="col">${tx('Leading manufacturing export category')}</th></tr></thead><tbody>${[...data.rows].sort((a,b)=>a.name.localeCompare(b.name)).map(r=>{
    const paint=M.paint(r,state);
-   return `<tr><th scope="row"><button type="button" data-usstate="${r.code}" class="usstate-row-button"><i style="background:${paint.fill}" aria-hidden="true"></i>${E(r.name)}</button></th><td>${E(r.year||'—')}</td><td>${E(usd(numeric(r,'Canada')))}</td><td>${E(usd(numeric(r,'China')))}</td><td>${tx(r.leadingManufacturingCategory||'Not reported in the profile')}</td></tr>`;
+   return `<tr><th scope="row"><button type="button" data-usstate="${r.code}" class="usstate-row-button"><i style="background:${paint.fill}" aria-hidden="true"></i>${E(r.name)}</button></th><td>${E(r.year||'—')}</td>${partners().map(p=>`<td>${E(usd(numeric(r,p)))}</td>`).join('')}<td>${tx(r.leadingManufacturingCategory||'Not reported in the profile')}</td></tr>`;
   }).join('')}</tbody></table></div></details>`;
  }
  function render(){
   if(!host||host.isConnected===false)return;
   if(!data||!geometry){host.innerHTML=`<p role="status">${tx(error?'The U.S. state map could not load.':'Loading U.S. state map and profiles…')}</p>${error?`<button type="button" data-usstate-retry>${tx('Retry')}</button>`:''}`;return;}
-  state=M.normalize(data,state);
+  state=M.normalize(data,{...state,...(lockedPartner?{partner:lockedPartner}:{})});
   const years=[...new Set(data.rows.map(r=>r.year).filter(Boolean))].sort((a,b)=>b-a).map(y=>[String(y),String(y)]);
   const count=data.rows.filter(r=>M.measure(r,state)!==null).length;
   const open=new Set(Array.from(host.querySelectorAll('details[open]'),el=>el.className));
   host.innerHTML=`<section class="usstate-shell" data-no-translate><div class="impact-section-title"><div><p class="hub-eyebrow">${tx('State trade map')}</p><h2>${tx('U.S. states: export ties with Canada and China')}</h2><p>${tx('Select a state to compare its reported export markets, examine its leading manufacturing category and read the implications for Canada.')}</p></div></div>
-  <div class="usstate-controls">${select('state','State',data.rows.map(r=>[r.code,r.name]))}${select('partner','Trading partner',[['Canada','Canada'],['China','China']])}${select('metric','Map layer',[['share','Approximate export market share'],['value','Reported export value']])}${select('year','Profile reference year',years)}</div>
+  <div class="usstate-controls">${select('state','State',data.rows.map(r=>[r.code,r.name]))}${select('partner','Trading partner',partners().map(p=>[p,p]))}${select('metric','Map layer',[['share','Approximate export market share'],['value','Reported export value']])}${select('year','Profile reference year',years)}</div>
   <p class="impact-meta">${tx('All 50 states and Washington, D.C. are selectable. Colour shows export exposure, not a policy gain or loss.')}</p><p class="impact-meta" role="status" aria-live="polite">${tx('Published values available for {0} of 51 jurisdictions for this selection. Missing values are not zero.',count)} · ${tx('Selected state')}: ${E(selected().name)}</p>
   <div class="usstate-layout"><section class="usstate-map-card">${map()}</section>${panel()}</div>${table()}
   <details class="usstate-methods"><summary>${tx('Evidence & Methods')}</summary><p>${tx('The source profiles do not provide complete imports or monthly partner figures. This map therefore shows reported annual export exposure only.')}</p><p>${tx('Calculated from rounded profile values.')} ${tx('Origin-of-movement exports can differ from the place of manufacture. These figures do not establish imports, services, jobs, new investment or a causal policy effect.')}</p><p><a href="https://www.census.gov/foreign-trade/guide/sec2.html" target="_blank" rel="noopener noreferrer">${tx('How state exports are measured')} ↗</a></p><p><a href="us-trade-statistics.json" download>${tx('Source data (JSON)')} ↓</a></p><p><a href="${E(geometry.sourceURL)}" target="_blank" rel="noopener noreferrer">${tx('Geometry: U.S. Census Bureau, 2022 generalized boundaries.')} ↗</a></p></details></section>`;
@@ -77,12 +78,13 @@
  }
  function mount(target,config={}){
   host=typeof target==='string'?document.getElementById(target):target;
+  lockedPartner=['Canada','China'].includes(config.lockedPartner)?config.lockedPartner:null;
   if(config.partner==='Canada'||config.partner==='China')state.partner=config.partner;
   onPartnerChange=config.onPartnerChange||null;
   render();if(!promise)promise=load();
  }
  function set(key,value,focus){
-  state=M.normalize(data,{...state,[key]:value});
+  state=M.normalize(data,{...state,[key]:value,...(lockedPartner?{partner:lockedPartner}:{})});
   if(key==='partner')onPartnerChange?.(state.partner);
   render();host.querySelector(focus)?.focus({preventScroll:true});
  }

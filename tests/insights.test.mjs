@@ -66,7 +66,7 @@ test('embed renders all workspaces, changes language, escapes sources, and survi
  const languageAPI={get language(){return language.value;},get locale(){return language.value==='fr'?'fr-CA':language.value==='zh-Hans'?'zh-CN':'en-CA';},t(s){return I18n.t(s,language.value);},setLanguage(s){language.value=s;windowEvents['dashboard-language-changed']?.();}};
  let outage=false;
  const window={DashboardI18n:languageAPI,addEventListener(k,f){windowEvents[k]=f;}};window.parent=window;
- const ctx={window,document,location,Intl,Number,Date,URL,AbortSignal,setInterval:f=>intervals.push(f),fetch:async file=>{
+ const ctx={window,document,location,Intl,Number,Date,URL,URLSearchParams,AbortSignal,setInterval:f=>intervals.push(f),fetch:async file=>{
   if(outage&&file==='policy-updates.json')throw Error('Fixture outage');
   const data=JSON.parse(read('app/'+file));
   if(file==='evidence-records.json'){
@@ -105,4 +105,28 @@ test('embed renders all workspaces, changes language, escapes sources, and survi
  assert.equal(config.routes.find(r=>r.route==='/insights.html').headers['X-Frame-Options'],'');
  assert(config.routes.find(r=>r.route==='/api/llm').allowedRoles.includes('authenticated'));
  assert(!read('app/insights.js').includes('/api/llm'));
+});
+
+test('relationship-scoped embeds restrict datasets, partners, policies and updates',async()=>{
+ for(const [relationship,pair]of [['Canada-China','canada-china'],['USA-China','us-china'],['Canada-USA','us-canada']]){
+  const nodes=new Map(),events={};const node=id=>{if(!nodes.has(id))nodes.set(id,{innerHTML:'',textContent:'',listeners:{},value:'',addEventListener(k,f){this.listeners[k]=f;},querySelectorAll(){return[];},focus(){},scrollIntoView(){}});return nodes.get(id);};
+  const location={hash:'#trends',search:'?relationship='+relationship,origin:'https://dashboard.test',href:'https://dashboard.test/insights.html?relationship='+relationship};
+  const document={referrer:'https://dashboard.test/',documentElement:{},body:{},getElementById:node,addEventListener(){}};
+  const window={DashboardI18n:{language:'en',locale:'en-CA',t:I18n.t},addEventListener(k,f){events[k]=f;}};window.parent=window;
+  const ctx={window,document,location,URL,URLSearchParams,Intl,Number,Date,AbortSignal,setInterval(){},fetch:async file=>({ok:true,json:async()=>JSON.parse(read('app/'+file))})};vm.createContext(ctx);
+  for(const p of ['research-register.js','dashboard-guide.js','explorer-inventory.js','explorer-catalog.js','regional-trade-model.js','us-trade-model.js','impact-model.js','policy-narrative.js','insights-copy.js','insights-model.js','insights.js'])vm.runInContext(read('app/'+p),ctx,{filename:p});
+  await new Promise(r=>setImmediate(r));
+  const html=node('insights-view').innerHTML;
+  const select=id=>html.match(new RegExp('<select id="insight-'+id+'"[^>]*>([\\s\\S]*?)</select>'))?.[1];
+  assert.equal((select('partner').match(/<option /g)||[]).length,1);
+  assert(select('partner').includes(relationship==='Canada-USA'?'United States':'China'));
+  if(relationship==='Canada-China')assert(!select('dataset').includes('value="us"'));
+  if(relationship==='USA-China')assert(!select('dataset').includes('value="canada"'));
+  assert(node('insights-full').href.endsWith('#'+pair));
+  location.hash='#policies';events.hashchange();
+  const full=M.records({canadian:json('evidence-records'),american:json('us-trade-evidence'),daily:json('policy-updates')},research,ctx.window.EXPLORER_INVENTORY);
+  for(const id of node('insights-view').innerHTML.matchAll(/data-insight-detail="([^"]+)"/g))assert(full.find(r=>r.id===id[1]).relationships.includes(relationship));
+  assert(node('insights-view').innerHTML.includes('data-insight-filter="relationship" disabled'));
+  location.hash='#updates';events.hashchange();assert(!node('insights-view').innerHTML.includes('<h2>Weekly briefings</h2>'));
+ }
 });

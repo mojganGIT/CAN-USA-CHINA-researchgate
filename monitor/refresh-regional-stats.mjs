@@ -23,7 +23,7 @@ try{
   });
   if(members.some(x=>!x))throw Error('A table dimension could not be matched safely: '+dimensions.map((d,i)=>members[i]?d.dimensionNameEn+'='+members[i].memberNameEn:d.dimensionNameEn+'=UNRESOLVED').join('; '));
   const coords=Array(10).fill(0);dimensions.forEach((d,i)=>coords[d.dimensionPositionId-1]=members[i].memberId);
-  requests.push({productId:12100175,coordinate:coords.join('.'),latestN:24});labels.push({region,partner,topic,commodity,selection:dimensions.map((d,i)=>({dimension:d.dimensionNameEn,member:members[i].memberNameEn})),coordinate:coords.join('.')});
+  requests.push({productId:12100175,coordinate:coords.join('.'),latestN:120});labels.push({region,partner,topic,commodity,selection:dimensions.map((d,i)=>({dimension:d.dimensionNameEn,member:members[i].memberNameEn})),coordinate:coords.join('.')});
  }
  const series=[],byCoordinate=new Map(labels.map(l=>[l.coordinate,l])),seen=new Set();
  const coordinate=value=>String(value).split('.').map(Number).concat(Array(10).fill(0)).slice(0,10).join('.');

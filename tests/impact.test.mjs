@@ -79,5 +79,13 @@ test('rendered explorer loads its two assets, escapes records and retains filter
  assert(html.includes('How confidently can we connect it?'));assert(html.includes('30%'));assert(html.includes('S07'));
  window.CanadaImpact.show('compare');assert.equal(window.CanadaImpact.state.region,'ON');assert.equal(window.CanadaImpact.state.topic,'vehicles');assert(node('canada-impact-root').innerHTML.includes('Canada–U.S.'));
  events.change({target:{matches:()=>true,dataset:{impactFilter:'region'},value:'BC'}});assert(location.hash.includes('region=BC'));
+ window.BilateralHub={active:{canadian:true,relationship:'Canada-China'},target(view,extra){return 'canada-china?'+new URLSearchParams({...extra,view});}};
+ location.hash='#canada-china?view=map&relationship=Canada-USA';window.CanadaImpact.mount('overview','target');
+ assert.equal(window.CanadaImpact.state.relationship,'Canada-China');
+ events.change({target:{matches:()=>true,dataset:{impactFilter:'relationship'},value:'Canada-USA'}});
+ assert.equal(window.CanadaImpact.state.relationship,'Canada-China');assert(location.hash.includes('view=map'));assert(location.hash.includes('relationship=Canada-China'));
+ assert(node('target').innerHTML.includes('id="impact-relationship" data-impact-filter="relationship" disabled'));
+ assert(node('target').innerHTML.includes('data-hub="canada-china?'));
+
 });
 

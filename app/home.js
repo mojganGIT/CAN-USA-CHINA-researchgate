@@ -4,12 +4,19 @@
  const D=window.POLICY_MASTER,C=window.EXPLORER_CATALOG;
  const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const guide=window.PolicyGuide,L=guide.labels;
- const primaryTabs=[['home','Home'],['compare-topics','Compare Topics'],['policy-tracker','Policy Tracker'],['us-trade',L.us],['research-search',L.search],['your-llm',L.llm],['weekly-updates',L.subscribe],['daily-updates','Daily Updates']];
+ const BM=window.BilateralModel;
+ const primaryTabs=[['home','Home'],...Object.values(BM.pairs).map(p=>[p.id,p.title]),['research-search',L.search],['your-llm',L.llm],['daily-updates','Daily Updates']];
  const homeMenu=[['categories',L.categories],['countries',L.countries],['comparative',L.comparative]];
  const compareMenu=[['findings-trends',L.insights],['evidence-methods','Evidence & Methods'],['relationship-explorer',L.relationship]];
- const menus={home:{label:L.homeMenu,items:homeMenu},'compare-topics':{label:L.compareMenu,items:compareMenu}};
- const tabs=[...primaryTabs,...homeMenu,...compareMenu,['executive-summary','Executive Summary'],['briefing-overview','Changes across Canada'],['canada-implications','Canada Implications Explorer'],['policy-map','Policy Product Map'],['research-tools','Research Tools']];
- const tools=homeMenu.map(([id,title],i)=>[id,String(i+1).padStart(2,'0'),title,guide.guideNotes[id]]);
+ const menus={home:{label:L.homeMenu,items:homeMenu}};
+ for(const p of Object.values(BM.pairs))menus[p.id]={label:p.title,items:[...BM.views,...BM.mapViews(p.id)].map(([view,label])=>[BM.target(p,view),label])};
+ const tabs=[...primaryTabs,...homeMenu,...compareMenu,['weekly-updates','Subscribe to weekly updates'],['compare-topics','Compare Topics'],['policy-tracker','Policy Tracker'],['us-trade',L.us],['executive-summary','Executive Summary'],['briefing-overview','Changes across Canada'],['canada-implications','Canada Implications Explorer'],['policy-map','Policy Product Map'],['research-tools','Research Tools']];
+ const descriptions={
+  'canada-china':'Market access, sourcing and security choices connect Canadian firms to Chinese buyers and suppliers.',
+  'us-china':'Follow how U.S.–China trade and security decisions can shape Canadian competition and policy choices.',
+  'us-canada':'Examine cross-border production, energy trade and the rules facing Canadian firms and provinces.'
+ };
+ const tools=Object.values(BM.pairs).map((p,i)=>[p.id,String(i+1).padStart(2,'0'),p.title,descriptions[p.id]]);
  const researchTools=[
   ['executive-summary','Executive Summary','Understand the dashboard, its Canadian purpose and how to use it.'],
   ['canada-implications','Canada Implications Explorer','Open the provincial map, export statistics and regional evidence.'],
@@ -56,17 +63,32 @@
   const height=navigation.getBoundingClientRect?.().height;
   if(Number.isFinite(height))document.documentElement?.style?.setProperty('--dashboard-nav-height',Math.ceil(height)+'px');
  }
+ function updateSubscriptionDock(){
+  const dock=document.getElementById('subscription-dock');if(!dock)return;
+  dock.innerHTML='<div><span>Weekly policy briefing</span><a href="#weekly-updates" data-hub="weekly-updates" '+(routeId()==='weekly-updates'?'aria-current="page"':'')+'>Subscribe to weekly updates <span aria-hidden="true">→</span></a></div>';
+  updateSubscriptionOffset();
+ }
+ function updateSubscriptionOffset(){
+  const height=document.getElementById('subscription-dock')?.getBoundingClientRect?.().height;
+  if(Number.isFinite(height))document.documentElement?.style?.setProperty('--subscription-dock-height',Math.ceil(height)+'px');
+ }
  function updateNavigation(){
-  const active=routeId();
-  const legacyParents={'executive-summary':'home','briefing-overview':'home','canada-implications':'home','research-tools':'home','policy-map':'compare-topics'};
+  const active=routeId(),params=new URLSearchParams(location.hash.split('?')[1]||'');
+  const legacyParents={'executive-summary':'home','briefing-overview':'canada-china','canada-implications':'canada-china','research-tools':'home','policy-map':'canada-china','compare-topics':'canada-china','policy-tracker':'canada-china','evidence-methods':'canada-china','relationship-explorer':'canada-china','findings-trends':'canada-china','us-trade':params.get('partner')==='Canada'?'us-canada':'us-china'};
   const parent=legacyParents[active]||Object.keys(menus).find(key=>menus[key].items.some(([id])=>id===active))||active;
-  const navLink=(id,label,current)=>{const target=id==='us-trade'?'us-trade?partner=China&view=states&topic=all':id;return `<a href="#${E(target)}" data-hub="${E(target)}"${current?' aria-current="'+current+'"':''}>${E(label)}</a>`;};
+  const navLink=(target,label,current)=>`<a href="#${E(target)}" data-hub="${E(target)}"${current?' aria-current="'+current+'"':''}>${E(label)}</a>`;
+  const currentItem=target=>{
+   const [id,q='']=target.split('?');if(id!==active)return false;
+   if(!BM.pairs[id])return true;
+   const test=new URLSearchParams(q);return (test.get('view')||'overview')===(params.get('view')||'overview')&&!test.get('topic')&&(!params.get('topic')||params.get('topic')==='all');
+  };
   navigation.innerHTML=`<nav class="hub-main-nav" aria-label="Main dashboard navigation">${primaryTabs.map(([id,label])=>{
-   const menu=menus[id];
-   const top=navLink(id,label,id===active?'page':legacyParents[active]===id?'location':'');
-   return menu?`<div class="hub-nav-group" ${parent===id?'data-section-active':''}>${top}<details class="hub-nav-menu"><summary aria-label="${E(menu.label)}"><span aria-hidden="true">▾</span></summary><ul>${menu.items.map(([key,title])=>`<li>${navLink(key,title,key===active?'page':'')}</li>`).join('')}</ul></details></div>`:top;
+   const menu=menus[id],top=navLink(id,label,id===active?(BM.pairs[id]?'location':'page'):legacyParents[active]===id?'location':'');
+   if(!menu)return top;
+   const topics=BM.pairs[id]?`<li><details class="hub-topic-dropdown"><summary>Eight topic comparisons</summary><ul>${C.topics.map(t=>'<li>'+navLink(BM.target(id,'compare',{topic:t.id}),t.name,active===id&&params.get('view')==='compare'&&params.get('topic')===t.id?'page':'')+'</li>').join('')}</ul></details></li>`:'';
+   return `<div class="hub-nav-group" ${parent===id?'data-section-active':''}>${top}<details class="hub-nav-menu"><summary aria-label="${E(menu.label)}"><span aria-hidden="true">▾</span></summary><ul>${menu.items.map(([key,title])=>'<li>'+navLink(key,title,currentItem(key)?'page':'')+'</li>').join('')}${topics}</ul></details></div>`;
   }).join('')}</nav>`;
-  updateTitle();updateNavigationOffset();
+  updateSubscriptionDock();updateTitle();updateNavigationOffset();
  }
  function closeMenus(except=null){
   for(const menu of navigation.querySelectorAll('details.hub-nav-menu[open]'))if(menu!==except)menu.open=false;
@@ -106,13 +128,15 @@
  function syncInsightsLanguage(){
   const frame=document.getElementById('policy-insights-frame'),language=window.DashboardI18n?.language||'en';
   frame?.contentWindow?.postMessage({type:'policy-insights-language',language},location.origin);
-  const link=document.getElementById('insight-frame-open');if(link)link.href='insights.html?lang='+encodeURIComponent(language);
+  const link=document.getElementById('insight-frame-open');if(link){const u=new URL(link.href,location.href);u.searchParams.set('lang',language);link.href=u.href;}
   const code=document.getElementById('policy-embed-code');
   if(code&&link)code.value='<iframe src="'+new URL(link.href,location.href).href+'" title="Canada–U.S.–China Findings and Trends" width="100%" height="1100" style="border:0" loading="lazy"></iframe>';
  }
  function evidencePage(){window.CanadaImpact.show('evidence');}
 
  function route(focus=false){let id=routeId();
+  if(BM.pairs[id])window.BilateralHub.show(id);
+  else {window.BilateralHub?.clear();
   if(id==='home')root.innerHTML=homeHTML();
   else if(homeMenu.some(([key])=>key===id))root.innerHTML=guide.page(id,C);
   else if(id==='findings-trends')insightsPage();
@@ -130,14 +154,15 @@
   else if(id==='research-search')searchPage();
   else if(id==='evidence-methods')evidencePage();
   else {id='home';history.replaceState(null,'','#home');root.innerHTML=homeHTML();}
+  }
   updateNavigation();if(focus){root.focus({preventScroll:true});root.scrollIntoView({block:'start',behavior:'instant'});}
  }
  function navigate(target='home'){const [id,incoming='']=target.split('?');if(['home','briefing-overview','canada-implications','compare-topics','policy-tracker','evidence-methods'].includes(id)){const params=new URLSearchParams(window.CanadaImpact?.data?window.CanadaImpact.filterQuery():location.hash.split('?')[1]||'');for(const [key,value]of new URLSearchParams(incoming))params.set(key,value);target=id+(params.toString()?'?'+params:'');}history.pushState(null,'','#'+target);route(true);}
  document.addEventListener('click',e=>{const a=e.target.closest('a[data-hub]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();navigate(a.dataset.hub);});
  function refreshLiveSections(){const latest=document.getElementById('hub-latest'),status=document.getElementById('hub-live-status'),health=document.getElementById('hub-source-health');if(latest)latest.innerHTML=routeId()==='home'?homeLatestHTML():latestHTML(feed(),routeId()==='executive-summary'?5:3);if(status)status.innerHTML=routeId()==='home'?homeStatusHTML():statusHTML();if(health){const open=health.querySelector('details')?.open;health.innerHTML=healthHTML();if(open)health.querySelector('details').open=true;}}
- if(window.ResizeObserver)new window.ResizeObserver(updateNavigationOffset).observe(navigation);
- window.addEventListener('resize',updateNavigationOffset);
- window.addEventListener('dashboard-language-changed',()=>{updateTitle();syncInsightsLanguage();updateNavigationOffset();});
+ if(window.ResizeObserver){new window.ResizeObserver(updateNavigationOffset).observe(navigation);const dock=document.getElementById('subscription-dock');if(dock)new window.ResizeObserver(updateSubscriptionOffset).observe(dock);}
+ window.addEventListener('resize',()=>{updateNavigationOffset();updateSubscriptionDock();});
+ window.addEventListener('dashboard-language-changed',()=>{updateTitle();syncInsightsLanguage();updateNavigationOffset();updateSubscriptionDock();});
  window.addEventListener('hashchange',()=>route());window.addEventListener('policy-updates-loaded',refreshLiveSections);
  window.HomeHub={navigate,route,updateNavigation,primaryTabs,homeMenu,compareMenu,homeHTML,executiveSummaryHTML,homeStatusHTML,homeLatestHTML,statusHTML,latestHTML,topicsHTML,refreshLiveSections,tabs,tools,researchTools};
  route();

@@ -72,6 +72,11 @@ test('rendered state map, labels and accessible table retain exact state-to-data
    assert(table>=0);assert(html.slice(table,table+250).includes('background:'+paint.fill),shape.code+' table');
   }
  }
+ window.USStates.mount('map',{partner:'China',lockedPartner:'China'});
+ assert(node('map').innerHTML.includes('id="usstate-partner" data-usstate-filter="partner" disabled'));
+ assert(!node('map').innerHTML.includes('Goods exports to Canada'));
+ events.change({target:{closest(){return {id:'usstate-partner',value:'Canada',dataset:{usstateFilter:'partner'}};}}});
+ assert.equal(window.USStates.state.partner,'China');
  language.value='fr';events['dashboard-language-changed']();assert(node('map').innerHTML.includes('États américains'));
  language.value='zh-Hans';events['dashboard-language-changed']();assert(node('map').innerHTML.includes('美国各州'));
 });

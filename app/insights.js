@@ -15,10 +15,14 @@
   weekly:['weekly-updates.json','Weekly briefings','issues']
  };
  const regions=['Canada','Newfoundland and Labrador','Prince Edward Island','Nova Scotia','New Brunswick','Quebec','Ontario','Manitoba','Saskatchewan','Alberta','British Columbia','Yukon','Northwest Territories','Nunavut'];
+ const requestedRelationship=new URLSearchParams(location.search).get('relationship');
+ const lockedRelationship=['Canada-USA','Canada-China','USA-China'].includes(requestedRelationship)?requestedRelationship:null;
+ const pairID=lockedRelationship&&({'Canada-China':'canada-china','USA-China':'us-china','Canada-USA':'us-canada'})[lockedRelationship];
  const rels={'Canada-USA':'Canada–U.S.','Canada-China':'Canada–China','USA-China':'U.S.–China'};
  const sets={canada:{region:'Canada',topic:'all',partner:'United States',year:'latest'},us:{partner:'China',measure:'imports',year:'latest'},investment:{partner:'China',direction:'outward',measure:'stock',year:'latest'}};
  const datasetLabels={canada:'Canadian domestic exports',us:'U.S. goods trade',investment:'U.S. direct investment'};
  const data={},state={dataset:'canada',topic:'all',relationship:'all',kind:'all',set:'all',query:'',page:0};
+ function scope(){if(!lockedRelationship)return;state.relationship=lockedRelationship;sets.canada.partner=lockedRelationship==='Canada-China'?'China':'United States';sets.us.partner=sets.investment.partner=lockedRelationship==='Canada-USA'?'Canada':'China';if(lockedRelationship==='Canada-China')state.dataset='canada';if(lockedRelationship==='USA-China'&&state.dataset==='canada')state.dataset='us';}
  const lang=()=>window.DashboardI18n?.language||'en';
  const locale=()=>window.DashboardI18n?.locale||'en-CA';
  const number=(n,options={})=>new Intl.NumberFormat(locale(),{maximumFractionDigits:1,...options}).format(n);
@@ -36,9 +40,9 @@
  const navURL=(route='home')=>'./?lang='+encodeURIComponent(lang())+'#'+route;
  const url=s=>{try{const u=new URL(s);return u.protocol==='https:'&&!u.username&&!u.password?u.href:'';}catch{return '';}};
  function source(s,label){const href=url(s);return href?`<a href="${e(href)}" target="_blank" rel="noopener noreferrer">${tx(label)} <span aria-hidden="true">↗</span></a>`:'';}
- function jump(route,label){return `<a href="${e(navURL(route))}" target="_blank" rel="noopener noreferrer">${tx(label)} <span aria-hidden="true">↗</span></a>`;}
+ function jump(route,label){if(pairID&&!route.startsWith('weekly-updates')){const view=route.startsWith('canada-implications')?'map':route.includes('view=states')?'states':route.includes('evidence')?'evidence':route.startsWith('us-trade')?'compare':'overview';route=pairID+'?view='+view;}return `<a href="${e(navURL(route))}" target="_blank" rel="noopener noreferrer">${tx(label)} <span aria-hidden="true">↗</span></a>`;}
  function select(key,label,options,value,trend=false){
-  return `<label for="insight-${key}"><span>${tx(label)}</span><select id="insight-${key}" data-insight-filter="${key}" ${trend?'data-insight-trend':''}>${options.map(([k,l])=>`<option value="${e(k)}" ${k===value?'selected':''}>${tx(l)}</option>`).join('')}</select></label>`;
+  return `<label for="insight-${key}"><span>${tx(label)}</span><select id="insight-${key}" data-insight-filter="${key}" ${lockedRelationship&&['relationship','partner'].includes(key)?'disabled':''} ${trend?'data-insight-trend':''}>${options.map(([k,l])=>`<option value="${e(k)}" ${k===value?'selected':''}>${tx(l)}</option>`).join('')}</select></label>`;
  }
  const options=values=>values.map(x=>[x,x]);
  const chartColours=['#006b75','#936015'];
@@ -81,13 +85,13 @@
  }
  function trends(){
   const ds=state.dataset,s=sets[ds],r=ds==='canada'?M.canada(data.regional,s):ds==='us'?M.us(data.us,s):M.investment(data.investment,s);
-  const partner=ds==='canada'?['United States','China','All countries']:['China','Canada'];
-  const fields=[select('dataset','Data series',Object.entries(datasetLabels),ds,true)];
+  const partner=lockedRelationship?[s.partner]:ds==='canada'?['United States','China','All countries']:['China','Canada'];
+  const fields=[select('dataset','Data series',Object.entries(datasetLabels).filter(([id])=>!lockedRelationship||(lockedRelationship==='Canada-China'?id==='canada':lockedRelationship==='USA-China'?id!=='canada':true)),ds,true)];
   if(ds==='canada')fields.push(select('region','Province / territory',options(regions),s.region,true),select('topic','Topic',Object.entries(window.RegionalTradeModel.groups),s.topic,true));
   if(ds==='investment')fields.push(select('direction','Direction',[['outward','U.S. investment abroad'],['inward','Foreign investment in the U.S.']],s.direction,true));
   fields.push(select('partner',ds==='canada'?'Destination':'Trading partner',options(partner),s.partner,true));
   if(ds!=='canada')fields.push(select('measure','Evidence measure',ds==='us'?[['imports','Imports'],['exports','Exports'],['balance','Trade balance']]:[['stock','Investment position'],['financial_flow','Net financial transactions'],['affiliate_income','Investment income']],s.measure,true));
-  fields.push(select('year','Reporting year',[['latest','Latest available period'],...options(r?.available||[])],s.year,true));
+  fields.push(select('year','Reporting year',[['latest','Latest available period'],...options((r?.available||[]).filter(y=>!lockedRelationship||y>='2018'&&y<='2026'))],s.year,true));
   const controls=`<div class="insight-filters">${fields.join('')}</div>`;
   if(!r)return controls+`<p class="insight-muted">${tx('No complete, comparable value is available for this selection. Missing or suppressed values are not zero.')}</p>`;
   const tiles=[['Selected period',compact(r.current,r.unit),period(r,r.year)],['Same period a year earlier',compact(r.prior,r.unit),period(r,String(Number(r.year)-1))],
@@ -126,9 +130,9 @@
   const kinds=view==='policies'?['policy','memo','amendment']:view==='updates'?['update']:Object.keys(M.labels).filter(k=>k!=='update');
   const fields=[
    select('topic','Topic',[['all','All topics'],...(window.EXPLORER_CATALOG?.topics||[]).map(t=>[t.id,t.name])],state.topic),
-   select('relationship','Relationship',[['all','All relationships'],...Object.entries(rels)],state.relationship)
+   select('relationship','Relationship',lockedRelationship?[[lockedRelationship,rels[lockedRelationship]]]:[['all','All relationships'],...Object.entries(rels)],state.relationship)
   ];
-  if(view!=='updates')fields.push(select('kind','Record type',[['all','All record types'],...kinds.map(k=>[k,M.labels[k]])],state.kind),select('set','Source collection',[['all','All source collections'],...options([...new Set(all.filter(r=>view==='policies'?['policy','memo','amendment'].includes(r.kind):r.kind!=='update').map(r=>r.set))])],state.set));
+  if(view!=='updates')fields.push(select('kind','Record type',[['all','All record types'],...kinds.map(k=>[k,M.labels[k]])],state.kind),select('set','Source collection',[['all','All source collections'],...options([...new Set(all.filter(r=>(!lockedRelationship||r.relationships?.includes(lockedRelationship))&&(view==='policies'?['policy','memo','amendment'].includes(r.kind):r.kind!=='update')).map(r=>r.set))])],state.set));
   const count=10,pages=Math.ceil(rows.length/count);state.page=Math.min(state.page,Math.max(0,pages-1));
   const shown=rows.slice(state.page*count,(state.page+1)*count);
   const info=rows.length?T('Showing {0}–{1} of {2} records',state.page*count+1,state.page*count+shown.length,rows.length):T('No records match this selection.');
@@ -136,14 +140,15 @@
   const status=view==='updates'?`<p class="insight-meta">${tx('Latest source check')}: ${e(prettyDate(data.daily?.lastAttempt))} · ${tr(data.daily?.lastRunStatus||'Not available')}<br>${tx('Last successful source check')}: ${e(prettyDate(data.daily?.lastSuccessfulRun))} · ${tx('Source errors')}: ${e(data.daily?.sourceFailures?.length??T('Not available'))}</p>`:'';
   return `<h2>${tx(labels[view])}</h2><p>${tx(note)}</p>${status}<div class="insight-filters">${fields.join('')}</div><form id="insight-search" class="insight-search"><label class="sr-only" for="insight-query">${tx('Search titles, findings or dates')}</label><input id="insight-query" type="search" value="${e(state.query)}" placeholder="${tx('Search titles, findings or dates')}"><button type="submit">${tx('Search')}</button></form><p role="status">${e(info)}</p>
   <div>${shown.map(record).join('')}</div>${pages>1?`<nav class="insight-pagination" aria-label="${tx('Pagination')}"><button type="button" data-insight-page="-1" ${state.page===0?'disabled':''}>${tx('Previous')}</button><span>${state.page+1} / ${pages}</span><button type="button" data-insight-page="1" ${state.page+1>=pages?'disabled':''}>${tx('Next')}</button></nav>`:''}
-  ${view==='updates'?weekly():''}`;
+  ${view==='updates'&&!lockedRelationship?weekly():''}`;
  }
  function render(){
+  scope();
   const open=new Set(Array.from(main.querySelectorAll('details[data-insight-detail][open]'),n=>n.dataset.insightDetail));
   const view=currentView();
   document.getElementById('insights-title').textContent=T('Findings & Trends');
   document.getElementById('insights-intro').textContent=T('Explore the numbers, then check the policies and sources behind them.');
-  document.getElementById('insights-full').href=navURL('home');
+  document.getElementById('insights-full').href=navURL(pairID||'home');
   document.getElementById('insights-full').textContent=T('Open dashboard')+' ↗';
   document.getElementById('insights-nav').innerHTML=Object.entries(labels).map(([id,label])=>`<a href="#${id}" ${view===id?'aria-current="page"':''}>${tx(label)}</a>`).join('');
   const navHeight=document.getElementById('insights-nav').getBoundingClientRect?.().height;

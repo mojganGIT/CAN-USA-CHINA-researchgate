@@ -73,3 +73,15 @@ legacyCtx.window.showMap();assert.equal((node('root').innerHTML.match(/class="ma
 const index=fs.readFileSync(dir+'/index.html','utf8');
 for(const src of index.matchAll(/(?:src|href)="([^"#]+\.(?:js|css))"/g))assert(fs.existsSync(dir+'/'+src[1]));
 console.log(JSON.stringify({passed:true,topics:8,subtopics:24,relationshipBriefings:views,explicitEvidenceGaps:gaps,sourceRecords:37,checks:'data integrity, 4-question content, identifiers, ARIA links, escaping, URL safety, topic/subtopic/country/relationship controls, evidence trail, source dialog, navigation, printing',browserQA:'not run; no browser automation tool available'}));
+
+// Bilateral mounting preserves its surrounding portal and uses the locked relationship.
+vm.runInContext(fs.readFileSync(dir+'/bilateral-model.js','utf8'),ctx);
+const visited=[];ctx.window.HomeHub={navigate(target){visited.push(target);},updateNavigation(){}};
+ctx.window.BilateralHub={active:{relationship:'Canada-China'},target(view,extra){return ctx.window.BilateralModel.target('canada-china',view,extra);}};
+ctx.location.hash='#canada-china?view=relationship&topic=agriculture&issue=canola';
+const outer=node('root').innerHTML;ctx.window.showExplorer();
+assert.equal(node('root').innerHTML,outer);assert(node('bilateral-body').innerHTML.includes('Relationship Explorer'));
+assert.equal(api.state.relationship,1);assert(ctx.location.hash.includes('view=relationship'));
+click({country:'us'});assert.equal(api.state.relationship,1);
+click({relationship:'0'});assert(visited.at(-1).startsWith('us-canada?'));
+click({labView:'map'});assert(visited.at(-1).includes('view=products'));
