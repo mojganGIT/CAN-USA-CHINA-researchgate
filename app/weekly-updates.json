@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-09T12:09:31.321Z",
+  "generatedAt": "2026-11-16T12:28:00.654Z",
   "cadence": "Weekly, Monday after the daily monitor; GitHub scheduling may be delayed.",
   "feedURL": "https://ambitious-field-09c66cd10.1.azurestaticapps.net/weekly-updates.xml",
   "recordSignatures": {
@@ -228,9 +228,143 @@
   "statisticalSignatures": {
     "goods": "27b184b1cdfa608b042b5f680380c4d5be67a39092611ef57e3f3faac359dd38",
     "investment": "00042ac4df8992d2038d3388f854caeb4d12ed9164885fd71fe293b557740f5b",
-    "regional": "a93ff2cd3e743843db1ba72df5703e1f591e074867e850bf91c612617e195885"
+    "regional": "d5009bb3e79e03e29d454616317045991c354f223d210363865f39e2fcdee335"
   },
   "issues": [
+    {
+      "id": "week-2026-11-16",
+      "publishedAt": "2026-11-16T12:28:00.654Z",
+      "windowStart": "2026-11-09T12:28:00.654Z",
+      "windowEnd": "2026-11-16T12:28:00.654Z",
+      "title": "Canada policy briefing · week of 2026-11-16",
+      "lead": "Follow this week’s source developments, then ask whether implemented rules or measured Canadian outcomes changed.",
+      "sourceStatus": "partial",
+      "sourceLastSuccessfulRun": "2026-11-16T12:26:55.064Z",
+      "sourceFailures": 27,
+      "observationCount": 8,
+      "observations": [
+        {
+          "id": "auto-a5406b290b2e072d696a",
+          "title": "China",
+          "url": "https://fas-prod.azureedge.us/regions/china",
+          "detectedAt": "2026-11-14T11:52:09.180Z",
+          "publicationDate": null,
+          "kind": "Source revision · substantive review pending",
+          "story": {
+            "changed": "Source revision detected 2026-11-14T11:52:09.180Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is whether Canadian growers and processors retain buyers, and whether higher-value processing stays in Canada.",
+            "regions": "Prairie growers and processors, and relevant food and seafood communities elsewhere, may face different demand and tariff effects; provincial magnitudes need local data. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-bd00781a469e8b826fc5",
+          "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
+          "url": "https://www.eia.gov/todayinenergy/detail.php?id=67904",
+          "detectedAt": "2026-11-13T12:06:55.494Z",
+          "publicationDate": null,
+          "kind": "Source revision · substantive review pending",
+          "story": {
+            "changed": "Source revision detected 2026-11-13T12:06:55.494Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is how reliable export demand and alternative buyers affect Canadian producers’ options. Prices, volumes and operating capacity tell different stories.",
+            "regions": "Check producing regions and transport routes separately, including Alberta, Saskatchewan, British Columbia and Newfoundland and Labrador; national totals do not allocate local benefits. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-36cbd87310f9c6cf2eaa",
+          "title": "China",
+          "url": "https://fas-prod.azureedge.us/regions/china",
+          "detectedAt": "2026-11-13T12:06:55.494Z",
+          "publicationDate": null,
+          "kind": "Source revision · substantive review pending",
+          "story": {
+            "changed": "Source revision detected 2026-11-13T12:06:55.494Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is whether Canadian growers and processors retain buyers, and whether higher-value processing stays in Canada.",
+            "regions": "Prairie growers and processors, and relevant food and seafood communities elsewhere, may face different demand and tariff effects; provincial magnitudes need local data. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-68d8a1f08247030c722c",
+          "title": "China",
+          "url": "https://fas-prod.azureedge.us/regions/china",
+          "detectedAt": "2026-11-12T12:09:33.489Z",
+          "publicationDate": null,
+          "kind": "Source revision · substantive review pending",
+          "story": {
+            "changed": "Source revision detected 2026-11-12T12:09:33.489Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is whether Canadian growers and processors retain buyers, and whether higher-value processing stays in Canada.",
+            "regions": "Prairie growers and processors, and relevant food and seafood communities elsewhere, may face different demand and tariff effects; provincial magnitudes need local data. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-a83606eeaaac2c974384",
+          "title": "U.S. Energy Information Administration - EIA - Independent Statistics and Analysis",
+          "url": "https://www.eia.gov/todayinenergy/detail.php?id=67904",
+          "detectedAt": "2026-11-10T23:58:15.350Z",
+          "publicationDate": null,
+          "kind": "Source revision · substantive review pending",
+          "story": {
+            "changed": "Source revision detected 2026-11-10T23:58:15.350Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is how reliable export demand and alternative buyers affect Canadian producers’ options. Prices, volumes and operating capacity tell different stories.",
+            "regions": "Check producing regions and transport routes separately, including Alberta, Saskatchewan, British Columbia and Newfoundland and Labrador; national totals do not allocate local benefits. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-e756fd6250452b9e0f68",
+          "title": "China",
+          "url": "https://fas-prod.azureedge.us/regions/china",
+          "detectedAt": "2026-11-10T11:59:55.307Z",
+          "publicationDate": null,
+          "kind": "Source revision · substantive review pending",
+          "story": {
+            "changed": "Source revision detected 2026-11-10T11:59:55.307Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is whether Canadian growers and processors retain buyers, and whether higher-value processing stays in Canada.",
+            "regions": "Prairie growers and processors, and relevant food and seafood communities elsewhere, may face different demand and tariff effects; provincial magnitudes need local data. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-e0107cd25f21df259e82",
+          "title": "Canada",
+          "url": "https://fas-prod.azureedge.us/regions/canada",
+          "detectedAt": "2026-11-10T11:59:55.307Z",
+          "publicationDate": null,
+          "kind": "Source revision · substantive review pending",
+          "story": {
+            "changed": "Source revision detected 2026-11-10T11:59:55.307Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is whether Canadian growers and processors retain buyers, and whether higher-value processing stays in Canada.",
+            "regions": "Prairie growers and processors, and relevant food and seafood communities elsewhere, may face different demand and tariff effects; provincial magnitudes need local data. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-fad50eab88a043851b17",
+          "title": "List of Equipment and Services Covered By Section 2 of The Secure Networks Act",
+          "url": "https://www.fcc.gov/supplychain/coveredlist",
+          "detectedAt": "2026-11-10T11:59:55.307Z",
+          "publicationDate": null,
+          "kind": "Source revision · substantive review pending",
+          "story": {
+            "changed": "Source revision detected 2026-11-10T11:59:55.307Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is whether market access sustains Canadian assembly and parts production, or changes competition for Canadian producers.",
+            "regions": "Watch assembly and battery communities in Ontario and Quebec; a national trade total cannot establish their local jobs result. Geographic effects still require substantive review."
+          }
+        }
+      ],
+      "reviewedChangeCount": 0,
+      "reviewed": [],
+      "statisticalUpdates": [
+        {
+          "key": "regional",
+          "title": "Canadian provincial exports",
+          "baseline": false,
+          "periods": [
+            "2026-09"
+          ],
+          "status": "success",
+          "url": "https://ambitious-field-09c66cd10.1.azurestaticapps.net/#canada-implications?layer=trade",
+          "note": "Collected statistical values or coverage changed. Compare the source vintages before treating this as an economic change; revisions may affect earlier periods."
+        }
+      ],
+      "watch": "For comparative analysis, match units, scope and reference periods. For policy analysis, check the operative instrument. For trend analysis, separate revisions and price changes from volumes and outcomes."
+    },
     {
       "id": "week-2026-11-09",
       "publishedAt": "2026-11-09T12:09:31.321Z",
