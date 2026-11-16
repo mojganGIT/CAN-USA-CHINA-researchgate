@@ -58,13 +58,30 @@
    S('Canada announced an agreement to continue favourable access for canola meal, peas, lobster and crab through the end of 2028. Canada also announced that it would extend certain steel and aluminum remissions through 2028.','Le Canada a annoncé une entente maintenant l’accès préférentiel pour le tourteau de canola, les pois, le homard et le crabe jusqu’à la fin de 2028. Il a aussi annoncé la prolongation de certaines remises sur l’acier et l’aluminium jusqu’à la fin de 2028.','加拿大宣布达成协议，将菜籽粕、豌豆、龙虾和蟹的优惠准入延长至2028年底。加拿大还宣布将部分钢铝附加税减免延长至2028年底。'),
    S('Prairie crop exporters and coastal seafood producers gain a longer planning window. Track shipments and producer prices separately to see whether the opportunity is realized.','Les exportateurs de cultures des Prairies et les producteurs côtiers de fruits de mer disposent d’un horizon de planification plus long. Suivez séparément les expéditions et les prix à la production pour voir si le débouché se concrétise.','草原省份农产品出口商与沿海海产生产商拥有更长的规划窗口。应分别跟踪出货量和生产者价格，判断机会是否转化为成果。'),
    S('The announcement concerns specified measures. It does not extend the canola-seed tariff rate or establish new sales, jobs or customs implementation of the extension.','L’annonce vise des mesures précises. Elle ne prolonge pas le taux applicable aux graines de canola et n’établit ni ventes, ni emplois, ni mise en œuvre douanière de la prolongation.','该公告仅涉及指定措施，未延长油菜籽适用税率，也不能证明新增销售、就业或延期措施已经海关执行。'),
-   [source('Global Affairs Canada',relief)],{through:'2028-12-31',regions:['AB','SK','MB','BC','NB','NS','PE','NL','QC']}),
+   [source('Global Affairs Canada',relief)],{
+    through:'2028-12-31',regions:['AB','SK','MB','BC','NB','NS','PE','NL','QC'],
+    followUp:S(
+     'Confirm customs implementation, then compare monthly shipment volumes for the covered products with the same months a year earlier.',
+     'Confirmer la mise en œuvre douanière, puis comparer les volumes mensuels expédiés des produits visés avec les mêmes mois de l’année précédente.',
+     '确认海关实施情况，再将适用产品的月度出货量与上年同月比较。')
+   }),
   record('canada-september-merchandise','2026-11-04','statistics','Canada',['agreements'],
    S('September 2026: Canadian goods trade with the U.S. and China','Septembre 2026 : commerce canadien de biens avec les États-Unis et la Chine','2026年9月加拿大与美国及中国的货物贸易'),
    S('Canadian merchandise exports reached C$55.170 billion to the U.S. and C$4.448 billion to China, up 20.4% and 67.3% respectively from September 2025. Imports were C$42.837 billion from the U.S. and C$5.916 billion from China.','Les exportations canadiennes de marchandises ont atteint 55,170 G$ CA vers les États-Unis et 4,448 G$ CA vers la Chine, en hausse respective de 20,4 % et de 67,3 % par rapport à septembre 2025. Les importations ont atteint 42,837 G$ CA des États-Unis et 5,916 G$ CA de Chine.','加拿大对美货物出口为551.70亿加元、对华为44.48亿加元，较2025年9月分别增长20.4%和67.3%。自美国进口428.37亿加元，自中国进口59.16亿加元。'),
    S('China grew faster in percentage terms, while the U.S. remained the much larger destination by value. A brief on diversification should report both scale and growth.','La Chine a progressé plus rapidement en pourcentage, tandis que les États-Unis demeuraient un débouché beaucoup plus important en valeur. Une note sur la diversification devrait présenter les deux dimensions.','对华出口增速较高，但按金额计美国仍是远大于中国的出口市场。多元化政策简报应同时报告规模和增速。'),
    S('September only; seasonally adjusted balance-of-payments data in current Canadian dollars. Do not mix with provincial customs data or January–August totals. This release does not establish causation.','Septembre seulement; données désaisonnalisées sur la base de la balance des paiements, en dollars canadiens courants. Ne pas mélanger avec les données douanières provinciales ou les cumuls de janvier à août. La publication n’établit pas de causalité.','仅为9月，按国际收支口径经季节调整，以当期加元计。不可与省级海关数据或1至8月累计值混用；该发布不证明因果关系。'),
-   [source('Statistics Canada','https://www150.statcan.gc.ca/n1/daily-quotidien/261104/t001a-eng.htm')],{period:'2026-09'}),
+   [source('Statistics Canada','https://www150.statcan.gc.ca/n1/daily-quotidien/261104/t001a-eng.htm')],{
+    period:'2026-09',
+    watchDates:[{
+     date:'2026-12-08',
+     title:S('October Canadian merchandise trade', 'Commerce canadien de marchandises en octobre', '加拿大10月货物贸易'),
+     detail:S(
+      'Compare October exports to the U.S. and China with the same month a year earlier and check revisions to September.',
+      'Comparer les exportations d’octobre vers les États-Unis et la Chine avec celles du même mois de l’année précédente et vérifier les révisions de septembre.',
+      '比较10月对美国和中国的出口与上年同月，并查看9月数据的修订。'),
+     source:source('Statistics Canada','https://www150.statcan.gc.ca/n1/daily-quotidien/261104/dq261104a-eng.htm')
+    }]
+   }),
   record('canada-september-energy','2026-11-04','statistics','Canada',['energy'],
    S('September energy export growth and the price effect','Exportations d’énergie en septembre et effet des prix','9月能源出口增长与价格效应'),
    S('Canadian energy product export values rose 8.2% from August to September; crude oil and bitumen rose 10.2%, driven by higher prices. Energy exports fell 5.0% over the third quarter.','La valeur des exportations canadiennes de produits énergétiques a augmenté de 8,2 % entre août et septembre; celle du pétrole brut et du bitume a progressé de 10,2 %, sous l’effet des prix. Les exportations d’énergie ont reculé de 5,0 % au troisième trimestre.','8月至9月加拿大能源产品出口额增长8.2%；原油和沥青出口额受价格上涨推动增长10.2%。第三季度能源出口额下降5.0%。'),

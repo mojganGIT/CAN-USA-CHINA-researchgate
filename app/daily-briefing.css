@@ -1,0 +1,131 @@
+.daily-briefing {
+ max-width: 1200px;
+ color: var(--office-navy, #122b49);
+ line-height: 1.6;
+}
+.daily-briefing .daily-heading {
+ padding: 0;
+ margin: 0 0 16px;
+ color: inherit;
+ background: none;
+}
+.daily-heading h2 {
+ font-size: clamp(28px, 4vw, 42px);
+ font-weight: 650;
+ letter-spacing: -.025em;
+ line-height: 1.2;
+ margin: 0 0 4px;
+}
+.daily-briefing h3,
+.daily-briefing h4 {
+ line-height: 1.35;
+ margin: 0 0 10px;
+}
+.daily-briefing h3 { font-size: 20px; }
+.daily-briefing h4 { font-size: 17px; }
+.daily-briefing p { margin: 0 0 12px; }
+.daily-heading p, .daily-meta { color: var(--office-muted, #475b6d); }
+.daily-meta { font-size: 13px; }
+.daily-scan, .daily-story, .daily-watch, .daily-review, .daily-empty {
+ background: var(--office-paper, #fff);
+ border: 1px solid var(--office-line, #d6c7ac);
+ border-radius: 8px;
+ padding: 14px 18px;
+}
+.daily-scan .daily-scan-line, .daily-story .daily-meta, .daily-actions {
+ display: flex;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 6px 12px;
+}
+.daily-scan .daily-scan-line { font-size: 14px; margin: 0; }
+.daily-scan-result { font-weight: 600; }
+.daily-tag, .daily-count {
+ display: inline-block;
+ background: #e8edf1;
+ color: #173a53;
+ font-size: 12px;
+ font-weight: 650;
+ padding: 2px 8px;
+ border-radius: 5px;
+}
+.daily-tag[data-status="partial"] { background: #f2e5c8; color: #643d0a; }
+.daily-tag[data-status="failed"],
+.daily-tag[data-status="unavailable"] { background: #f4e1dc; color: #7c2b24; }
+.daily-range {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 8px;
+ margin: 18px 0 6px;
+}
+.daily-range button {
+ border: 1px solid var(--office-line, #b6c7d1);
+ background: var(--office-paper, #fff);
+ color: var(--office-navy, #122b49);
+ min-height: 44px;
+ border-radius: 6px;
+ padding: 8px 14px;
+ cursor: pointer;
+ font-weight: 600;
+}
+.daily-range button[aria-pressed="true"] {
+ background: var(--office-navy, #122b49);
+ color: var(--office-paper, #fff);
+ border-color: var(--office-navy, #122b49);
+}
+.daily-briefing a {
+ color: #19547a;
+ text-underline-offset: .18em;
+ overflow-wrap: anywhere;
+}
+.daily-columns {
+ display: grid;
+ grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+ gap: 20px;
+ align-items: start;
+ margin-top: 22px;
+}
+.daily-story { margin-bottom: 10px; border-left: 3px solid var(--office-ink-gold, #805a18); }
+.daily-story .daily-actions { margin: 12px 0 4px; }
+.daily-questions {
+ display: grid;
+ grid-template-columns: minmax(125px, 155px) minmax(0, 1fr);
+ gap: 8px 14px;
+ margin: 12px 0;
+}
+.daily-questions dt { font-weight: 650; }
+.daily-questions dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.daily-detail summary { cursor: pointer; font-weight: 600; padding: 7px 0; }
+.daily-detail[open] > summary { margin-bottom: 6px; }
+.daily-detail .daily-story { margin-top: 8px; }
+.daily-errors { max-height: 15rem; overflow-y: auto; overflow-wrap: anywhere; padding-left: 20px; }
+.daily-errors li + li, .daily-revision-list li + li { margin-top: 8px; }
+.daily-region-links { display: flex; flex-wrap: wrap; gap: 5px 14px; list-style: none; padding: 0; margin: 0 0 14px; }
+.daily-watch { border-top: 3px solid var(--office-ink-gold, #805a18); }
+.daily-watch ul { list-style: none; margin: 0; padding: 0; }
+.daily-watch-item { border-top: 1px solid var(--office-line, #d6c7ac); padding-top: 10px; }
+.daily-watch-item .daily-meta { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.daily-watch-item p:last-child { margin-bottom: 0; }
+.daily-review { margin-top: 18px; }
+.daily-source {
+ border-top: 1px solid var(--office-line, #d6c7ac);
+ padding-top: 5px;
+}
+.daily-count { margin-inline-start: 4px; font-variant-numeric: tabular-nums; }
+.daily-revision-list { margin: 8px 0 15px; padding-left: 22px; }
+.daily-revision-list li { padding-left: 3px; }
+.daily-revision-list .daily-meta { display: flex; flex-wrap: wrap; column-gap: 6px; }
+.daily-briefing .daily-footer { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 17px 0 0; }
+@media (max-width: 760px) {
+ .daily-columns { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+}
+@media (max-width: 500px) {
+ .daily-questions { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+ .daily-questions dd { margin-bottom: 7px; }
+ .daily-scan, .daily-story, .daily-watch, .daily-review, .daily-empty { padding: 12px; }
+}
+@media print {
+ .daily-range, .daily-review, .daily-footer { display: none; }
+ .daily-columns { display: block; }
+ .daily-story, .daily-watch { break-inside: avoid; }
+}

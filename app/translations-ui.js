@@ -7322,5 +7322,193 @@
  "INSPECT THE EVIDENCE AND METHODS": [
   "EXAMINER LES DONNÉES ET MÉTHODES",
   "查看证据与方法"
+ ],
+ "Daily briefing": [
+  "Note quotidienne",
+  "每日简报"
+ ],
+ "What changed and why it matters to Canada.": [
+  "Ce qui a changé et ce que cela signifie pour le Canada.",
+  "发生了什么变化，以及为什么与加拿大有关。"
+ ],
+ "Today": [
+  "Aujourd’hui",
+  "今天"
+ ],
+ "Since my last visit": [
+  "Depuis ma dernière visite",
+  "自上次访问以来"
+ ],
+ "Last seven days": [
+  "Sept derniers jours",
+  "过去七天"
+ ],
+ "Briefing period": [
+  "Période de la note",
+  "简报时段"
+ ],
+ "Briefing window": [
+  "Période couverte",
+  "覆盖时段"
+ ],
+ "First visit. Showing the last seven days.": [
+  "Première visite. Affichage des sept derniers jours.",
+  "首次访问。显示过去七天。"
+ ],
+ "Reviewed developments": [
+  "Évolutions examinées",
+  "已审阅的动态"
+ ],
+ "No reviewed developments recorded for this period.": [
+  "Aucune évolution examinée n’est consignée pour cette période.",
+  "本时段没有已审阅的动态。"
+ ],
+ "More reviewed developments": [
+  "Autres évolutions examinées",
+  "更多已审阅动态"
+ ],
+ "Earlier reviewed developments": [
+  "Évolutions examinées antérieures",
+  "较早的已审阅动态"
+ ],
+ "What to watch next": [
+  "À surveiller",
+  "下一步关注"
+ ],
+ "What should I watch next?": [
+  "Que faut-il surveiller ensuite?",
+  "接下来应关注什么？"
+ ],
+ "Later dates": [
+  "Dates ultérieures",
+  "后续日期"
+ ],
+ "No upcoming dates are recorded in the reviewed sources.": [
+  "Les sources examinées ne signalent aucune date à venir.",
+  "已审阅的来源中没有记录即将到来的日期。"
+ ],
+ "Latest scan": [
+  "Dernière vérification",
+  "最近一次扫描"
+ ],
+ "New observations": [
+  "Nouvelles observations",
+  "新观察"
+ ],
+ "No new observations recorded": [
+  "Aucune nouvelle observation consignée",
+  "未记录到新观察"
+ ],
+ "Source coverage and scan details": [
+  "Couverture des sources et détails de la vérification",
+  "来源覆盖与扫描详情"
+ ],
+ "Source pages read": [
+  "Pages sources consultées",
+  "已读取的来源页面"
+ ],
+ "Source changes to review": [
+  "Changements de sources à examiner",
+  "待审阅的来源变动"
+ ],
+ "These observations await review. Expand a source to see its revision history.": [
+  "Ces observations sont en attente d’examen. Développez une source pour consulter son historique de révision.",
+  "这些观察有待审阅。展开来源可查看修订历史。"
+ ],
+ "No source changes recorded for this period.": [
+  "Aucun changement de source consigné pour cette période.",
+  "本时段未记录到来源变动。"
+ ],
+ "Earlier monitored sources": [
+  "Sources suivies antérieurement",
+  "较早监测的来源"
+ ],
+ "Open the research archive": [
+  "Ouvrir les archives de recherche",
+  "打开研究档案"
+ ],
+ "Open monitored source": [
+  "Ouvrir la source suivie",
+  "打开监测来源"
+ ],
+ "Explore on the Canada map": [
+  "Explorer sur la carte du Canada",
+  "在加拿大地图上查看"
+ ],
+ "Sources, dates and evidence limits": [
+  "Sources, dates et limites des données",
+  "来源、日期与证据局限"
+ ],
+ "Record date": [
+  "Date de l’événement",
+  "事件日期"
+ ],
+ "Recorded effective date": [
+  "Date d’entrée en vigueur consignée",
+  "记录的生效日期"
+ ],
+ "Announced end date": [
+  "Date de fin annoncée",
+  "宣布的结束日期"
+ ],
+ "Announced deadline": [
+  "Échéance annoncée",
+  "宣布的截止日期"
+ ],
+ "Scheduled data release": [
+  "Publication de données prévue",
+  "计划发布的数据"
+ ],
+ "Regional exposure": [
+  "Exposition régionale",
+  "地区敞口"
+ ],
+ "Content hash": [
+  "Empreinte du contenu",
+  "内容哈希"
+ ],
+ "Took effect": [
+  "Entrée en vigueur",
+  "已生效"
+ ],
+ "Data released": [
+  "Données publiées",
+  "数据已发布"
+ ],
+ "Proposal or framework": [
+  "Proposition ou cadre",
+  "提案或框架"
+ ],
+ "Research published": [
+  "Recherche publiée",
+  "研究已发表"
+ ],
+ "Policy update": [
+  "Mise à jour de politique",
+  "政策更新"
+ ],
+ "Scan status unavailable": [
+  "État de la vérification indisponible",
+  "扫描状态不可用"
+ ],
+ "Update feed unavailable": [
+  "Flux de mises à jour indisponible",
+  "更新列表暂不可用"
+ ],
+ "Compare matching reference periods and check revisions in the next release.": [
+  "Comparer des périodes de référence équivalentes et vérifier les révisions dans la prochaine publication.",
+  "比较相同参考期，并在下次发布时查看修订。"
+ ],
+ "Check the implementation guidance and the next Canadian trade or production figures for the affected products or sectors.": [
+  "Vérifier les directives d’application et les prochains chiffres canadiens du commerce ou de la production pour les produits ou secteurs concernés.",
+  "查看实施指引及受影响产品或行业的下一批加拿大贸易或生产数据。"
+ ],
+ "Check how the next release changes the indicators discussed in the research.": [
+  "Vérifier comment la prochaine publication modifie les indicateurs examinés dans la recherche.",
+  "查看下次发布如何改变研究讨论的指标。"
+ ],
+ "Watch for a published measure that specifies the effective date and coverage.": [
+  "Surveiller la publication d’une mesure précisant la date d’entrée en vigueur et la portée.",
+  "关注明确生效日期和适用范围的正式措施。"
  ]
 };if(typeof module!=="undefined"&&module.exports)module.exports=data;if(g)g.POLICY_TRANSLATIONS_UI=data;})(typeof window==="undefined"?null:window);
