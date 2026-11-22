@@ -82,3 +82,14 @@ test('a summit location in a heading is not a bilateral relationship and data re
  const stats=documentOf('<article><h1>Canadian international merchandise trade, September 2026</h1><p>Canada and the United States traded goods during the month. Canada and China also traded goods. The release reports measured exports and imports.</p></article>',url);
  const reports=makeBriefings(stats,{url,detectedAt:date},'Statistics Canada');assert.equal(reports[0].kind,'statistics');assert(reports.every(x=>x.relationship.startsWith('Canada-')));
 });
+
+test('frameworks and readouts do not become MOUs because they refer to an earlier instrument',()=>{
+ const body='Canada and the United States agreed to cooperate on trade and energy policy. The roadmap refers to a memorandum of understanding signed by the countries in an earlier year.';
+ const item={url,detectedAt:date,id:'framework-version',changeType:'source_revision'};
+ const framework=makeBriefings({title:'Roadmap for a Renewed U.S.-Canada Partnership',text:body,publicationDate:'2021-02-23'},item,'Canada');
+ assert.equal(framework[0].kind,'recommendation');assert.equal(framework[0].status,'Statement or framework');
+ const readout=makeBriefings({title:'Readout of Canada and United States energy dialogue',text:body,publicationDate:'2026-11-21'},item,'Canada');
+ assert.equal(readout[0].kind,'meeting');assert(!readout[0].status.includes('MOU'));
+ const actual=makeBriefings({title:'Memorandum of Understanding between Canada and the United States on energy',text:body,publicationDate:'2026-11-21'},item,'Canada');
+ assert.equal(actual[0].kind,'MOU');assert.equal(actual[0].reviewState,'source_reported');
+});

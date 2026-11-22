@@ -23,13 +23,18 @@ export function makeBriefings(doc,item,issuer){
  if(issuer==='China')tags.relationships=tags.relationships.filter(r=>r.endsWith('-China'));
  // A publication must name another monitored country and a policy subject.
  if(!tags.relationships.length||!tags.topics.length||!/(?:memorandum|\bmou\b|agreement|tariff|regulat|policy|dialogue|consult|readout|export|investment|joint statement|declaration|market access|trade|cooperation|contract|procurement|award)/i.test(lead))return [];
- const mou=/memorand(?:um|a) of understanding|\bMOU\b/i.test(body);
  const contract=/contract|procurement/i.test(doc.title)&&/awarded|signed|contract award/i.test(body);
- const kind=contract?'contract':mou?'MOU':/monthly trade report|foreign direct investment,|international merchandise trade|trade in goods with/i.test(doc.title)?'statistics':/declaration|joint statement/i.test(doc.title)?'recommendation':/readout|press conference|dialogue|consultation|\bmeets?\b|\bmeeting\b/i.test(lead)?'meeting':'policy';
- const status=contract?'Contract award reported · review pending':mou?'MOU reported':kind==='meeting'?'Dialogue or readout':kind==='recommendation'?'Statement or framework':kind==='statistics'?'Data released':'Official announcement';
+ const mou=/memorand(?:um|a) of understanding|\bMOU\b/i.test(doc.title);
+ const framework=/declaration|joint (?:statement|outcomes)|roadmap|framework/i.test(doc.title);
+ const meeting=/readout|press conference|dialogue|consultation|\bmeets?\b|\bmeeting\b/i.test(doc.title);
+ const statistics=/monthly trade report|foreign direct investment,|international merchandise trade|trade in goods with/i.test(doc.title);
+ // A framework or readout can mention many instruments. Its own document
+ // type takes precedence; the mention does not verify a new MOU signature.
+ const kind=contract?'contract':mou?'MOU':statistics?'statistics':framework?'recommendation':meeting?'meeting':'policy';
+ const status=contract?'Contract award reported · review pending':kind==='MOU'?'MOU reported':kind==='meeting'?'Dialogue or readout':kind==='recommendation'?'Statement or framework':kind==='statistics'?'Data released':'Official announcement';
  const sentences=body.split(/(?<=[.!?])\s+/).filter(s=>s.split(/\s+/).length>=8);
  const relevant=sentences.filter(s=>/memorandum|\bmou\b|signed|tariff|agreed|implementation|dialogue|declaration/i.test(s));
- const passage=(relevant.find(s=>/memorandum|\bmou\b/i.test(s))||relevant[0]||sentences[0]||body);
+ const passage=(kind==='MOU'?relevant.find(s=>/memorandum|\bmou\b/i.test(s)):kind==='contract'?sentences.find(s=>/contract|awarded/i.test(s)):null)||relevant[0]||sentences[0]||body;
  // One contiguous excerpt per source version, capped at 25 words.
  const quote=normalize(passage.split(/\s+/).slice(0,25).join(' '));
  const topic=tags.topics.find(t=>t!=='agreements')||'agreements';
