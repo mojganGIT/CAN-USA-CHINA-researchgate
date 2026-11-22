@@ -17,9 +17,9 @@ In **GitHub repository → Settings → Secrets and variables → Actions**:
 3. Optionally add variable `POLICY_MONITOR_PROVIDER`: `openai` (default) or `anthropic`.
 4. Run **Actions → Daily Policy Monitor → Run workflow** to test.
 
-Without these settings, source observation still runs and the dashboard reports AI extraction as off. With them, the agent classifies topic/relationship/subtopic, extracts a concise finding and uncertainty, and must supply an exact source quotation of at most 25 words. Source bodies are untrusted data and cannot choose tools or endpoints. Invalid quotations/classifications are rejected; automated findings remain visibly unreviewed and do not overwrite the curated inventory. A matching topic, subtopic and relationship lets an automated extraction appear in question 3 of the Relationship Explorer.
+Without these settings, source observation and deterministic source-backed analyst briefings still run. AI extraction is optional. With them, the agent classifies topic/relationship/subtopic, extracts a concise finding and uncertainty, and must supply an exact source quotation of at most 25 words. Source bodies are untrusted data and cannot choose tools or endpoints. Invalid quotations/classifications are rejected; automated findings remain visibly unreviewed and do not overwrite the curated inventory. A matching topic, subtopic and relationship lets an automated extraction appear in question 3 of the Relationship Explorer.
 
-The default budget is eight model requests and thirty newly discovered pages per run. Registry limits are editable in `monitor/sources.json`. Model use is billed by the configured provider. No API key is present in source, output files or logs.
+The default budget is eight model requests and sixty newly discovered pages per run. Registry limits are editable in `monitor/sources.json`. Model use is billed by the configured provider. No API key is present in source, output files or logs.
 
 ## Customers: Bring Your Own LLM
 
@@ -51,3 +51,16 @@ After the daily scan, the monitor prepares a weekly source-linked edition on Mon
 ## Validation across new statistical releases
 
 The test suite validates live Census vintages by period coverage, unique monthly observations, source-total reconciliation and same-month comparisons. Exact numerical and rendering expectations use synthetic test fixtures, so a valid new month or source revision does not fail deployment by changing an old row count or dollar amount. The daily workflow reruns validation after refreshing the statistical feeds and before publishing them.
+
+
+## Daily policy decision support (22 November 2026)
+
+`#daily-updates` combines dated reviewed records with `policy-updates.json.briefings`. New official publications can enter the visible daily briefing without an owner model key. Each source report retains its publication and detection dates, issuing source, bounded verbatim excerpt, hash, reported instrument type, Canadian decision question and next verification action. Automated source reports remain marked **analyst review pending**; they do not change the reviewed Canada outcome assessments.
+
+The page keeps the latest evidence for Canada–China, Canada–U.S. and U.S.–China visible on quiet days. Relationship, subject and evidence-type filters apply to the comparisons, developments, agreement watch and upcoming dates. MOUs are distinct from dialogues, proposals, regulations and measured data. Newly reviewed evidence is labelled as added to the briefing on its review date, with the original event/publication date retained.
+
+Discovery supports official HTML, Canada.ca embedded JSON/Atom news feeds, PM news RSS, dated USTR release pages, White House releases and MOFCOM/State Council publications. Requests and redirects stay inside the fixed HTTPS allowlist. Issuing-country discovery status, failed sources and the last successful discovery survive outages. Scans older than 36 hours show an overdue warning. Historical first reads are baselines, not newly implemented policies; unknown publication dates stay in the source-review queue.
+
+The nine additional reviewed records cover the November finance MOU, business/university MOUs, expanded future China tariff relief, the updated realized-shipment backgrounder, both sides’ implementation readouts, Canada’s trade advisory meeting, the gazetted U.S. surtax-remission amendment, and the distinct trilateral security declaration. The source register records publication, event, modification and effective dates separately.
+
+Validate with `npm test` and `npm run evidence:validate`. Offline integration tests cover all-country discovery, no-key publication, a second revision and a complete source outage. Live source availability remains a monitored dependency; a successful workflow does not imply complete policy coverage.

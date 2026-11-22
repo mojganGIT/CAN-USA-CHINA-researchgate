@@ -129,3 +129,36 @@
  .daily-columns { display: block; }
  .daily-story, .daily-watch { break-inside: avoid; }
 }
+
+.daily-eyebrow { text-transform: uppercase; letter-spacing: .09em; font-size: .85rem; font-weight: 650; }
+.daily-country-coverage { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin-top: 14px; border-top: 1px solid var(--office-line,#d6c7ac); padding-top: 12px; }
+.daily-country-coverage strong { display: block; margin-bottom: 5px; }
+.daily-country-coverage .daily-meta { margin: 5px 0 0; }
+.daily-cadence { margin-top: 7px !important; }
+.daily-stale { border-left: 3px solid #9a5a1b; background: #fff2da; color: #5b3913; padding: 10px 12px; }
+.daily-tag[data-status="pending"] { background: #f2e5c8; color: #643d0a; }
+.daily-filters { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: end; margin: 22px 0; }
+.daily-filters label { display: grid; gap: 5px; flex: 1 1 210px; font-size: .9rem; font-weight: 600; }
+.daily-filters select { width: 100%; min-height: 44px; border: 1px solid var(--office-line,#b6c7d1); border-radius: 5px; color: var(--office-navy,#122b49); background: #fff; font: inherit; padding: 8px 34px 8px 10px; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23122b49' stroke-width='1.5'/%3E%3C/svg%3E"); background-position: right 10px center; background-repeat: no-repeat; }
+.daily-filters button { min-height: 44px; border: 1px solid var(--office-line,#b6c7d1); padding: 8px 14px; border-radius: 5px; background: #fff; color: inherit; cursor: pointer; font: inherit; }
+.daily-briefing :is(button,select,a,summary):focus-visible { outline: 3px solid #346b92; outline-offset: 3px; }
+.daily-relationships { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
+.daily-relationship { background: #fff; border: 1px solid var(--office-line,#d6c7ac); border-top: 3px solid #805a18; border-radius: 7px; padding: 18px; min-width: 0; }
+.daily-relationship > h4:first-child { color: #805a18; font-size: 1rem; }
+.daily-relationship .daily-story { padding: 12px; }
+.daily-relationship .daily-questions { display: block; }
+.daily-relationship .daily-questions dt { margin-top: 10px; }
+.daily-relationship-section { margin-top: 22px; }
+.daily-instruments { margin-top: 24px; }
+.daily-table-scroll { overflow-x: auto; border: 1px solid var(--office-line,#d6c7ac); border-radius: 7px; }
+.daily-instruments table { width: 100%; min-width: 660px; border-collapse: collapse; background: #fff; font-size: .93rem; }
+.daily-instruments :is(th,td) { text-align: left; padding: 14px; vertical-align: top; border-bottom: 1px solid var(--office-line,#d6c7ac); }
+.daily-instruments th { background: #e8edf1; font-weight: 650; }
+.daily-instruments td:first-child { width: 37%; }
+.daily-instruments td:nth-child(2) { width: 24%; }
+.daily-instruments td:last-child { width: 39%; }
+.daily-evidence-limit { border-left: 3px solid #9a6c2d; padding-left: 12px; }
+.daily-story blockquote { margin: 10px 0; padding: 9px 12px; border-left: 3px solid #b4c4d0; font-size: .95rem; }
+@media(max-width: 850px) { .daily-relationships { grid-template-columns: 1fr; } }
+@media(max-width: 540px) { .daily-country-coverage { grid-template-columns: 1fr; gap: 10px; } }
+@media print { .daily-filters { display: none; } .daily-relationships { grid-template-columns: 1fr; } .daily-table-scroll { overflow: visible; } }

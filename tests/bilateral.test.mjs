@@ -38,8 +38,8 @@ test('bilateral collections isolate relationships and keep broad Canadian contex
  assert.equal(B.normalize('us-china',{view:'map'}).view,'overview');
 });
 
-test('30 added primary-source records retain all three readings, real dates and source-status distinctions',()=>{
- const added=research.records.filter(r=>/^(cc-|uc-|ca-us-)/.test(r.id));assert.equal(added.length,30);
+test('original 30 primary-source records retain all three readings, real dates and source-status distinctions',()=>{
+ const added=research.records.filter(r=>/^(cc-|uc-|ca-us-)/.test(r.id)&&r.reviewedAt==='2026-11-10');assert.equal(added.length,30);
  for(const r of added){
   assert.equal(r.reviewedAt,'2026-11-10');assert(r.dateType);
   for(const lang of ['fr','zh-Hans'])for(const k of ['title','changed','canada','limit'])assert.notEqual(I18n.t(r[k],lang),r[k]);
@@ -96,3 +96,4 @@ test('every relationship renders eight topics, scoped policy and evidence, maps,
  assert(node('root').innerHTML.includes('Some published datasets could not be refreshed'));
  assert(node('root').innerHTML.includes('bilateral-stat'),'previous valid values retained');
 });
+

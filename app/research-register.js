@@ -185,7 +185,456 @@
    S('This is the initial tranche, not today’s tariff rate or a measured Canadian trade effect.','Il s’agit de la première tranche, et non du taux actuel ou d’un effet mesuré sur le commerce canadien.','这是首批措施，并非当前税率或已衡量的加拿大贸易效应。'),
    [source('U.S. Trade Representative','https://www.ustr.gov/issue-areas/enforcement/dispute-settlement-proceedings/wto-dispute-settlement/pending-wto-disputes/tariff-measures-certain-goods-china')])
  ];
- const api={reviewedAt:'2026-11-10',records,labels,translations};
+
+ // Current primary-source records: reviewed 22 November 2026.
+ const currentRecords=[
+  {
+    "id": "cc-finance-mou-november-2026",
+    "date": "2026-11-09",
+    "kind": "MOU",
+    "relationship": "Canada-China",
+    "topics": [
+      "finance",
+      "agreements"
+    ],
+    "title": [
+      "Canada–China finance MOU and regulatory dialogue",
+      "Protocole financier Canada–Chine et dialogue réglementaire",
+      "加中金融谅解备忘录与监管对话"
+    ],
+    "changed": [
+      "At the November 8–9 Vancouver dialogue, authorities signed a finance-ministry cooperation MOU, a financial-supervision dialogue agreement and financial working-group terms of reference.",
+      "Au dialogue de Vancouver des 8 et 9 novembre, les autorités ont signé un protocole de coopération des ministères des Finances, un accord de dialogue de supervision et le mandat d’un groupe financier.",
+      "在11月8日至9日的温哥华对话中，双方主管部门签署财政部门合作谅解备忘录、金融监管对话合作协议及金融工作组职权范围。"
+    ],
+    "canada": [
+      "Canadian financial firms should watch for specific service approvals and practical regulatory access.",
+      "Les entreprises financières canadiennes peuvent surveiller les autorisations de services et l’accès réglementaire concret.",
+      "加拿大金融企业应关注具体服务批准与实际监管准入。"
+    ],
+    "limit": [
+      "Signature establishes a cooperation mechanism; it does not establish new licences, Canadian services sales or completed investment.",
+      "La signature crée un mécanisme de coopération; elle ne prouve ni nouveaux permis, ni ventes de services, ni investissements achevés.",
+      "签署确立合作机制，不能证明已获新牌照、加拿大服务销售增加或投资完成。"
+    ],
+    "sources": [
+      {
+        "publisher": "Department of Finance Canada",
+        "url": "https://www.canada.ca/en/department-finance/news/2026/11/joint-factsheet-second-canadachina-economic-and-financial-strategic-dialogue.html",
+        "publicationDate": "2026-11-09"
+      }
+    ],
+    "reviewedAt": "2026-11-22",
+    "status": "Signature reported",
+    "followUp": [
+      "Obtain the MOU and working-group outputs; verify licensing decisions and actual Canadian transactions.",
+      "Obtenir le protocole et les résultats des groupes; vérifier les décisions de permis et les opérations canadiennes réelles.",
+      "获取备忘录及工作组成果；核实牌照决定与实际加拿大交易。"
+    ]
+  },
+  {
+    "id": "cc-ceo-education-mous-november-2026",
+    "date": "2026-11-17",
+    "kind": "MOU",
+    "relationship": "Canada-China",
+    "topics": [
+      "investment",
+      "finance",
+      "agreements"
+    ],
+    "title": [
+      "New Canada–China business and university MOUs",
+      "Nouveaux protocoles Canada–Chine pour les entreprises et les universités",
+      "加中新企业及大学谅解备忘录"
+    ],
+    "changed": [
+      "The Prime Minister’s release reports a CEO Roundtable MOU led by the Canada-China Business Council and Bank of China, and a uOttawa–SISU dual-degree MOU.",
+      "Le communiqué du premier ministre présente un protocole de table ronde des dirigeants, pilotée par le Conseil d’affaires Canada-Chine et la Banque de Chine, et un protocole de double diplôme Ottawa–SISU.",
+      "总理新闻稿报告由加中贸易理事会和中国银行牵头的首席执行官圆桌会议备忘录，以及渥太华大学与上海外国语大学的双学位备忘录。"
+    ],
+    "canada": [
+      "Track whether business contacts become Canadian supplier contracts and whether the academic program actually opens.",
+      "Vérifier si les échanges d’affaires deviennent des contrats pour des fournisseurs canadiens et si le programme universitaire ouvre.",
+      "跟踪企业接触是否转化为加拿大供应商合同，以及学术项目是否实际开办。"
+    ],
+    "limit": [
+      "These are business and university arrangements, not a new bilateral free-trade agreement or proof of investment spending.",
+      "Ces ententes d’affaires et universitaires ne constituent ni un nouvel accord de libre-échange, ni une preuve de dépenses d’investissement.",
+      "这些是商业与大学安排，不是新的双边自由贸易协定，也不能证明投资支出已经发生。"
+    ],
+    "sources": [
+      {
+        "publisher": "Prime Minister of Canada",
+        "url": "https://www.pm.gc.ca/en/news/news-releases/2026/11/17/prime-minister-carney-advances-canadas-strategic-partnership-china",
+        "publicationDate": "2026-11-17"
+      }
+    ],
+    "reviewedAt": "2026-11-22",
+    "regions": [
+      "ON"
+    ],
+    "status": "MOUs reported",
+    "followUp": [
+      "Verify the signed texts, first roundtable outputs, awarded Canadian contracts and program approvals.",
+      "Vérifier les textes signés, les premiers résultats de la table ronde, les contrats canadiens attribués et les autorisations des programmes.",
+      "核实已签署文本、首轮圆桌会议成果、已授予的加拿大合同及项目批准。"
+    ]
+  },
+  {
+    "id": "cc-expanded-tariff-arrangement-november-2026",
+    "date": "2026-11-17",
+    "kind": "extension",
+    "relationship": "Canada-China",
+    "topics": [
+      "agriculture",
+      "investment",
+      "agreements"
+    ],
+    "title": [
+      "Expanded China tariff relief: next implementation gate is January 2027",
+      "Allégement tarifaire chinois élargi : prochaine étape en janvier 2027",
+      "扩大对华关税减免：下一实施节点为2027年1月"
+    ],
+    "changed": [
+      "Canada announced additional relief for covered pork and seafood and longer steel/aluminum remissions. The updated backgrounder specifies removal of China’s additional 25% tariffs on listed products from January 1, 2027 through December 31, 2028.",
+      "Le Canada a annoncé un allégement pour certains produits du porc et de la mer et la prolongation des remises sur l’acier et l’aluminium. Le document précise le retrait des droits chinois additionnels de 25 % sur les produits visés du 1er janvier 2027 au 31 décembre 2028.",
+      "加拿大宣布对涵盖的猪肉和海产品增加减免，并延长钢铝关税豁免。更新的背景资料规定，自2027年1月1日至2028年12月31日，取消中国对清单产品加征的25%关税。"
+    ],
+    "canada": [
+      "Prairie producers and Atlantic and Pacific seafood exporters have potential access gains; downstream manufacturers need the exact remission schedules.",
+      "Les producteurs des Prairies et les exportateurs de produits de la mer des côtes pourraient obtenir un meilleur accès; les fabricants ont besoin des listes précises de remise.",
+      "草原省份生产者及大西洋、太平洋沿岸海产品出口商可能获得更多准入；下游制造商需要核对具体豁免清单。"
+    ],
+    "limit": [
+      "Historic trade values describe covered products, not new sales. The future relief and its Canadian employment effects are not established as realized outcomes.",
+      "Les valeurs historiques décrivent les produits visés, pas de nouvelles ventes. L’allégement futur et ses effets sur l’emploi ne sont pas des résultats réalisés.",
+      "历史贸易额描述的是涵盖产品，而不是新增销售。未来减免及其加拿大就业影响尚不能视为已实现成果。"
+    ],
+    "sources": [
+      {
+        "publisher": "Prime Minister of Canada",
+        "url": "https://www.pm.gc.ca/en/news/news-releases/2026/11/17/prime-minister-carney-advances-canadas-strategic-partnership-china",
+        "publicationDate": "2026-11-17"
+      },
+      {
+        "publisher": "Global Affairs Canada",
+        "url": "https://www.international.gc.ca/country_news-pays_nouvelles/2026-11-16-china-chine.aspx?lang=eng",
+        "modifiedDate": "2026-11-20"
+      }
+    ],
+    "reviewedAt": "2026-11-22",
+    "regions": [
+      "AB",
+      "SK",
+      "MB",
+      "BC",
+      "NB",
+      "NS",
+      "PE",
+      "NL"
+    ],
+    "through": "2028-12-31",
+    "announcedDeadlines": [
+      {
+        "date": "2027-01-01",
+        "description": "Announced start of additional pork and seafood tariff relief"
+      }
+    ],
+    "followUp": [
+      "Verify Chinese customs implementation, Canadian remission schedules and subsequent product-level shipments.",
+      "Vérifier l’application douanière chinoise, les listes de remise canadiennes et les expéditions ultérieures par produit.",
+      "核实中国海关实施、加拿大豁免清单及后续分产品出货。"
+    ]
+  },
+  {
+    "id": "cc-november-backgrounder-realized-trade",
+    "date": "2026-11-20",
+    "kind": "statistics",
+    "relationship": "Canada-China",
+    "topics": [
+      "agriculture",
+      "vehicles",
+      "agreements"
+    ],
+    "title": [
+      "Updated Canadian backgrounder reports shipments and EV arrivals",
+      "Le document canadien mis à jour présente les expéditions et arrivées de VÉ",
+      "加拿大更新背景资料，报告实际出货与电动车进口"
+    ],
+    "changed": [
+      "The backgrounder updated November 20 reports C$1.74 billion in canola-seed exports in March–August 2026, up 43% from the same 2025 period, and 16,211 EV imports since March.",
+      "Le document mis à jour le 20 novembre rapporte 1,74 milliard de dollars d’exportations de graines de canola de mars à août 2026, soit 43 % de plus qu’en 2025, et 16 211 VÉ importés depuis mars.",
+      "11月20日更新的资料报告，2026年3至8月油菜籽出口额为17.4亿加元，比2025年同期增长43%；3月以来进口电动车16,211辆。"
+    ],
+    "canada": [
+      "These provide realized trade indicators to compare with Canadian production and regional employment. EV arrivals are different from permit allocations.",
+      "Ces indicateurs réalisés peuvent être comparés à la production et à l’emploi régional. Les arrivées de VÉ diffèrent des permis attribués.",
+      "这些是可与加拿大生产及区域就业比较的已实现贸易指标。电动车实际进口与配额许可分配不同。"
+    ],
+    "limit": [
+      "The source attributes growth to the arrangement; a before/after comparison alone does not isolate causation. The November 20 date is a page update, not a November trade reference period.",
+      "La source attribue la hausse à l’entente; une comparaison avant-après ne démontre pas la causalité. Le 20 novembre est une mise à jour de page, pas une période commerciale.",
+      "来源将增长归因于该安排，但前后比较本身无法识别因果关系。11月20日是页面更新日期，不是11月贸易参考期。"
+    ],
+    "sources": [
+      {
+        "publisher": "Global Affairs Canada",
+        "url": "https://www.international.gc.ca/country_news-pays_nouvelles/2026-11-16-china-chine.aspx?lang=eng",
+        "modifiedDate": "2026-11-20"
+      }
+    ],
+    "reviewedAt": "2026-11-22",
+    "dateType": "source_modified",
+    "referencePeriod": "Canola: March–August 2026; EVs: cumulative since March, as reported in the November update",
+    "followUp": [
+      "Reconcile with customs-based quantities and values; test prices, seasonality and comparable provincial employment before attributing gains.",
+      "Rapprocher les quantités et valeurs douanières; examiner les prix, la saisonnalité et l’emploi provincial comparable avant toute attribution.",
+      "与海关数量及金额核对；归因收益前检验价格、季节性及可比省级就业。"
+    ]
+  },
+  {
+    "id": "uc-greer-implementation-call-november-2026",
+    "date": "2026-11-06",
+    "kind": "meeting",
+    "relationship": "USA-China",
+    "topics": [
+      "agriculture",
+      "energy",
+      "agreements"
+    ],
+    "title": [
+      "USTR presses China on purchases and critical-mineral commitments",
+      "L’USTR insiste sur les achats chinois et les engagements sur les minéraux critiques",
+      "美国贸易代表督促中国落实采购及关键矿产承诺"
+    ],
+    "changed": [
+      "USTR’s November 6 readout says Greer and Bessent discussed implementation with He Lifeng, focusing on agricultural purchases, rare earths and other critical minerals.",
+      "Le compte rendu de l’USTR du 6 novembre indique que Greer et Bessent ont discuté de mise en œuvre avec He Lifeng, notamment des achats agricoles et des terres rares et autres minéraux critiques.",
+      "美国贸易代表11月6日的通报称，格里尔和贝森特与何立峰讨论承诺落实，重点涉及农产品采购、稀土及其他关键矿产。"
+    ],
+    "canada": [
+      "Canadian agriculture and mineral suppliers should track actual U.S.–China flows and Canadian customer contracts for signs of competition or sourcing changes.",
+      "Les fournisseurs agricoles et miniers canadiens peuvent suivre les flux réels États-Unis–Chine et les contrats canadiens pour repérer des changements de concurrence ou d’approvisionnement.",
+      "加拿大农业及矿产供应商应跟踪实际美中贸易流量及加拿大客户合同，判断竞争或采购变化。"
+    ],
+    "limit": [
+      "This is a call readout, not a new signed MOU or independent evidence that purchase and export commitments were fulfilled.",
+      "Il s’agit d’un compte rendu d’appel, pas d’un nouveau protocole signé ni d’une preuve indépendante du respect des engagements.",
+      "这是通话通报，不是新签署的备忘录，也不是采购及出口承诺已履行的独立证据。"
+    ],
+    "sources": [
+      {
+        "publisher": "U.S. Trade Representative",
+        "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/november/readout-ambassador-greers-call-chinas-vice-premier-he-lifeng",
+        "publicationDate": "2026-11-06"
+      }
+    ],
+    "reviewedAt": "2026-11-22",
+    "followUp": [
+      "Compare U.S. customs and USDA deliveries with Canadian shipments; verify mineral export licensing and delivery data.",
+      "Comparer les livraisons douanières américaines et de l’USDA aux expéditions canadiennes; vérifier les permis et livraisons de minéraux.",
+      "将美国海关及农业部交付数据与加拿大出货比较；核实矿产出口许可与交付数据。"
+    ]
+  },
+  {
+    "id": "uc-mofcom-implementation-position-november-2026",
+    "date": "2026-11-17",
+    "kind": "meeting",
+    "relationship": "USA-China",
+    "topics": [
+      "agriculture",
+      "finance",
+      "agreements"
+    ],
+    "title": [
+      "China’s ministry reports its position on U.S.–China implementation",
+      "Le ministère chinois expose sa position sur la mise en œuvre États-Unis–Chine",
+      "中国商务部报告其对美中落实情况的立场"
+    ],
+    "changed": [
+      "In a November 12 press-conference response listed November 17, MOFCOM said China had implemented earlier consultation consensus and remained willing to manage differences through the consultation mechanism.",
+      "Dans une réponse du 12 novembre répertoriée le 17 novembre, le MOFCOM a déclaré que la Chine avait appliqué les consensus antérieurs et souhaitait gérer les différends par le mécanisme de consultation.",
+      "商务部在11月17日列出的11月12日发布会答问中表示，中国已落实此前磋商共识，并愿通过磋商机制管控分歧。"
+    ],
+    "canada": [
+      "Compare China’s account with the U.S. call readout and realized deliveries before changing a Canadian sector assessment.",
+      "Comparer la position chinoise au compte rendu américain et aux livraisons réelles avant de modifier une évaluation sectorielle canadienne.",
+      "调整加拿大行业评估前，应将中方立场与美方通报及实际交付情况比较。"
+    ],
+    "limit": [
+      "This is the issuing ministry’s claim, not independently verified compliance. The conference and publication dates differ; no new MOU is established.",
+      "Il s’agit d’une affirmation ministérielle, pas d’une vérification indépendante. Les dates de conférence et de publication diffèrent; aucun nouveau protocole n’est établi.",
+      "这是发布部门的主张，并非独立核实的履约情况。发布会与刊登日期不同，也不能据此认定有新备忘录。"
+    ],
+    "sources": [
+      {
+        "publisher": "China Ministry of Commerce",
+        "url": "https://english.mofcom.gov.cn/News/PressConference/art/2026/art_63ad1064241e4f45b46e299fdff44d90.html",
+        "publicationDate": "2026-11-17"
+      }
+    ],
+    "reviewedAt": "2026-11-22",
+    "eventDate": "2026-11-12",
+    "followUp": [
+      "Reconcile both official accounts with shipment and licensing records; flag unresolved compliance differences.",
+      "Rapprocher les deux versions officielles des données d’expéditions et de permis; signaler les divergences non résolues.",
+      "将双方官方说法与出货及许可记录核对；标明尚未解决的履约分歧。"
+    ]
+  },
+  {
+    "id": "ca-us-advisory-monitoring-november-2026",
+    "date": "2026-11-19",
+    "kind": "meeting",
+    "relationship": "Canada-USA",
+    "topics": [
+      "agreements",
+      "investment"
+    ],
+    "title": [
+      "Canada’s trade advisory committee reviews tariffs and business support",
+      "Le comité consultatif canadien examine les tarifs et le soutien aux entreprises",
+      "加拿大贸易咨询委员会审议关税及企业支持"
+    ],
+    "changed": [
+      "The November 19 committee readout reports discussion of ongoing U.S. trade talks, regional business pressures and the effectiveness of federal tariff-related supports.",
+      "Le compte rendu du 19 novembre porte sur les discussions commerciales avec les États-Unis, les pressions régionales et l’efficacité du soutien fédéral lié aux tarifs.",
+      "11月19日的委员会通报报告，讨论涉及对美贸易谈判、区域企业压力及联邦关税相关支持的效果。"
+    ],
+    "canada": [
+      "Analysts can test whether support reaches exposed firms and workers and whether negotiating changes alter their access.",
+      "Les analystes peuvent vérifier si le soutien atteint les entreprises et travailleurs exposés et si les négociations modifient leur accès.",
+      "分析人员可检验支持是否覆盖受影响企业与劳动者，以及谈判变化是否改变市场准入。"
+    ],
+    "limit": [
+      "A committee discussion does not implement a new agreement, remove U.S. tariffs or establish that support has offset losses.",
+      "Une réunion ne met pas en œuvre un nouvel accord, ne supprime pas les tarifs américains et ne prouve pas que le soutien compense les pertes.",
+      "委员会讨论不等于实施新协议、取消美国关税或证明支持已抵消损失。"
+    ],
+    "sources": [
+      {
+        "publisher": "Global Affairs Canada",
+        "url": "https://www.canada.ca/en/global-affairs/news/2026/11/advisory-committee-on-canada-us-economic-relations-meets-to-discuss-trade-priorities-and-support-for-canadian-businesses.html",
+        "publicationDate": "2026-11-19"
+      }
+    ],
+    "reviewedAt": "2026-11-22",
+    "followUp": [
+      "Check uptake, payments and eligibility for tariff supports alongside affected-sector employment and exports.",
+      "Vérifier le recours au soutien, les paiements et l’admissibilité, ainsi que l’emploi et les exportations des secteurs touchés.",
+      "核查关税支持的使用、支付及资格，并比较受影响行业就业与出口。"
+    ]
+  },
+  {
+    "id": "ca-us-remission-amendment-november-2026",
+    "date": "2026-11-18",
+    "kind": "policy",
+    "relationship": "Canada-USA",
+    "topics": [
+      "agriculture",
+      "energy",
+      "investment",
+      "agreements"
+    ],
+    "title": [
+      "Canada implements expanded U.S. surtax remission",
+      "Le Canada applique un élargissement des remises de surtaxe américaines",
+      "加拿大实施扩大对美国商品的附加税豁免"
+    ],
+    "changed": [
+      "SOR/2026-235 was registered November 5, took effect November 9 and was published in the November 18 Gazette. It extends and expands eligible remission, including public education and specified mining and energy uses. Finance identifies later exclusions for certain trailers and aluminum/paperboard products.",
+      "Le DORS/2026-235, enregistré le 5 novembre, est entré en vigueur le 9 novembre et a été publié le 18. Il élargit les remises admissibles, dont l’éducation publique et certains usages miniers et énergétiques. Finances précise des exclusions ultérieures pour certaines remorques et certains produits d’aluminium et de carton.",
+      "SOR/2026-235于11月5日注册、11月9日生效，并于11月18日刊登。该法规延长并扩大符合条件的豁免，涵盖公共教育及指定采矿、能源用途。财政部还列明部分拖车、铝及纸板产品随后被排除。"
+    ],
+    "canada": [
+      "Canadian importers should check tariff classification, end-use eligibility and the transition dates before changing sourcing decisions.",
+      "Les importateurs canadiens doivent vérifier le classement tarifaire, l’utilisation admissible et les dates de transition avant de modifier leurs achats.",
+      "加拿大进口商在改变采购决策前，应核实税号、最终用途资格及过渡日期。"
+    ],
+    "limit": [
+      "The order establishes legal relief subject to conditions. It does not measure realized importer savings, Canadian substitution or protected jobs.",
+      "Le décret établit un allégement juridique conditionnel. Il ne mesure ni économies réalisées, ni substitution canadienne, ni emplois protégés.",
+      "该法规确立附条件的法律减免，并不衡量进口商实际节省、加拿大替代采购或受保护就业。"
+    ],
+    "sources": [
+      {
+        "publisher": "Canada Gazette",
+        "url": "https://gazette.gc.ca/rp-pr/p2/2026/2026-11-18/html/sor-dors235-eng.html",
+        "publicationDate": "2026-11-18"
+      },
+      {
+        "publisher": "Department of Finance Canada",
+        "url": "https://www.canada.ca/en/department-finance/news/2026/11/canada-modifies-tariff-relief-measures-to-better-support-workers-and-businesses.html",
+        "publicationDate": "2026-11-09"
+      }
+    ],
+    "reviewedAt": "2026-11-22",
+    "effectiveDate": "2026-11-09",
+    "through": "2028-06-30",
+    "status": "In force · eligibility conditions apply",
+    "announcedDeadlines": [
+      {
+        "date": "2026-12-01",
+        "description": "Announced removal of horizontal relief for specified trailers"
+      },
+      {
+        "date": "2027-02-01",
+        "description": "Announced removal of horizontal relief for specified aluminum and paperboard products"
+      }
+    ],
+    "followUp": [
+      "Match importer tariff lines and end uses to the remission list; check December 1 and February 1 exclusions, actual claims and supplier capacity.",
+      "Rapprocher les lignes tarifaires et les utilisations de la liste de remise; vérifier les exclusions des 1er décembre et 1er février, les demandes réelles et la capacité des fournisseurs.",
+      "将进口商税号及用途与豁免清单核对；检查12月1日及2月1日的排除项目、实际申领与供应商产能。"
+    ]
+  },
+  {
+    "id": "uc-trilateral-declaration-november-2026",
+    "date": "2026-11-19",
+    "kind": "recommendation",
+    "relationship": "USA-China",
+    "topics": [
+      "security",
+      "energy",
+      "agreements"
+    ],
+    "title": [
+      "U.S., Russia and China issue a security declaration",
+      "Les États-Unis, la Russie et la Chine publient une déclaration de sécurité",
+      "美俄中发布安全声明"
+    ],
+    "changed": [
+      "The White House published a trilateral declaration covering dialogue on strategic security, nuclear risks and other cooperation.",
+      "La Maison-Blanche a publié une déclaration trilatérale sur le dialogue de sécurité stratégique, les risques nucléaires et d’autres coopérations.",
+      "白宫发布三边声明，涉及战略安全、核风险对话及其他合作。"
+    ],
+    "canada": [
+      "Canada should assess implications for allied coordination and energy policy against subsequent binding measures.",
+      "Le Canada peut évaluer les conséquences pour la coordination alliée et l’énergie à la lumière des mesures contraignantes ultérieures.",
+      "加拿大应结合后续具有约束力的措施，评估盟友协调及能源政策影响。"
+    ],
+    "limit": [
+      "This is a trilateral political statement, not a new bilateral commercial MOU or evidence of Canadian economic gains.",
+      "Il s’agit d’une déclaration politique trilatérale, pas d’un protocole commercial bilatéral ni d’une preuve de gains canadiens.",
+      "这是三边政治声明，不是新的双边商业备忘录，也不能证明加拿大经济获益。"
+    ],
+    "sources": [
+      {
+        "publisher": "White House",
+        "url": "https://www.whitehouse.gov/briefings-statements/2026/11/u-s-russia-china-heads-of-state-declaration-toward-peace/",
+        "publicationDate": "2026-11-19"
+      }
+    ],
+    "reviewedAt": "2026-11-22",
+    "followUp": [
+      "Monitor implementing decisions and allied responses; keep political commitments separate from measured trade and investment.",
+      "Surveiller les décisions d’application et les réactions alliées; distinguer les engagements politiques du commerce et des investissements mesurés.",
+      "监测实施决定与盟友反应；区分政治承诺与实测贸易、投资。"
+    ]
+  }
+];
+ for(const r of currentRecords){r.dateType||={MOU:'signature_reported',meeting:'statement_published',policy:'publication_date',extension:'announcement',recommendation:'statement_published',statistics:'statistical_release'}[r.kind];r.originalStatus||=r.kind==='MOU'?'mou_reported':r.effectiveDate?'in_force':'source_reported';for(const key of ["title","changed","canada","limit","followUp"])r[key]=S(...r[key]);records.push(r);}
+ const api={reviewedAt:'2026-11-22',records,labels,translations};
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
  if(g)g.PolicyResearchRegister=api;
 })(typeof window==='undefined'?null:window);
+

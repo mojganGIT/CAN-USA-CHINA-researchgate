@@ -27,3 +27,8 @@ Policy explanations and weekly subscriptions: see [POLICY_READING_AND_WEEKLY_UPD
 The navy/gold/beige dashboard supports English, French and Simplified Chinese. See [TRILINGUAL_DASHBOARD.md](TRILINGUAL_DASHBOARD.md) for language selection, translation maintenance, data preservation and verification.
 
 Weekly feeds are available in [English](https://ambitious-field-09c66cd10.1.azurestaticapps.net/weekly-updates.xml), [French](https://ambitious-field-09c66cd10.1.azurestaticapps.net/weekly-updates.fr.xml) and [Simplified Chinese](https://ambitious-field-09c66cd10.1.azurestaticapps.net/weekly-updates.zh.xml). The dashboard selects the matching feed automatically.
+
+
+## Daily policy briefing
+
+Daily Updates now combines automatic official-source reports with reviewed evidence, three relationship comparisons, MOU/policy filters, implementation dates, Canadian decision questions and next analyst actions. Country-level discovery status and overdue warnings expose coverage gaps. Core briefings run without an LLM key. See [AUTOMATION_SETUP.md](AUTOMATION_SETUP.md#daily-policy-decision-support-22-november-2026).

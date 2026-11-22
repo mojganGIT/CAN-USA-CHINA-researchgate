@@ -341,11 +341,11 @@
  ],
  "Relationship": [
   "Relation",
-  "关系"
+  "双边关系"
  ],
  "All relationships": [
   "Toutes les relations",
-  "所有关系"
+  "所有双边关系"
  ],
  "Evidence period": [
   "Période des données",
@@ -7510,5 +7510,228 @@
  "Watch for a published measure that specifies the effective date and coverage.": [
   "Surveiller la publication d’une mesure précisant la date d’entrée en vigueur et la portée.",
   "关注明确生效日期和适用范围的正式措施。"
- ]
+ ],
+ "Daily policy briefing": [
+  "Note quotidienne de politique",
+  "每日政策简报"
+ ],
+ "Policy changes, agreements and implementation evidence for Canadian decisions.": [
+  "Changements de politique, accords et preuves de mise en œuvre pour les décisions canadiennes.",
+  "为加拿大决策提供政策变化、协议与实施证据。"
+ ],
+ "Scheduled daily at 11:17 UTC. Publication follows source checks; source failures remain visible.": [
+  "Prévu chaque jour à 11 h 17 UTC. La publication suit la vérification des sources; les échecs restent visibles.",
+  "计划每天UTC 11:17运行。核查来源后发布，并显示来源读取失败。"
+ ],
+ "Issuing-country coverage": [
+  "Couverture par pays émetteur",
+  "发布国家覆盖情况"
+ ],
+ "Discovery checked": [
+  "Repérage vérifié",
+  "已检查新发布检索"
+ ],
+ "Discovery failed": [
+  "Échec du repérage",
+  "新发布检索失败"
+ ],
+ "Coverage not yet recorded": [
+  "Couverture pas encore enregistrée",
+  "尚未记录覆盖情况"
+ ],
+ "Last successful discovery": [
+  "Dernier repérage réussi",
+  "上次成功检索"
+ ],
+ "Policy monitoring filters": [
+  "Filtres de veille des politiques",
+  "政策监测筛选"
+ ],
+ "Sector or subject": [
+  "Secteur ou sujet",
+  "行业或主题"
+ ],
+ "Evidence type": [
+  "Type de preuve",
+  "证据类型"
+ ],
+ "All sectors and subjects": [
+  "Tous les secteurs et sujets",
+  "所有行业与主题"
+ ],
+ "All evidence": [
+  "Toutes les preuves",
+  "所有证据"
+ ],
+ "MOUs": [
+  "Protocoles d’entente",
+  "谅解备忘录"
+ ],
+ "Policy and tariffs": [
+  "Politiques et tarifs",
+  "政策与关税"
+ ],
+ "Dialogues and readouts": [
+  "Dialogues et comptes rendus",
+  "对话与通报"
+ ],
+ "Measured data": [
+  "Données mesurées",
+  "实测数据"
+ ],
+ "Statements and frameworks": [
+  "Déclarations et cadres",
+  "声明与框架"
+ ],
+ "Agreements and MOUs": [
+  "Accords et protocoles d’entente",
+  "协议及谅解备忘录"
+ ],
+ "Vehicles and batteries": [
+  "Véhicules et batteries",
+  "车辆与电池"
+ ],
+ "Agriculture and seafood": [
+  "Agriculture et produits de la mer",
+  "农业与海产品"
+ ],
+ "Energy and minerals": [
+  "Énergie et minéraux",
+  "能源与矿产"
+ ],
+ "Latest evidence by relationship": [
+  "Dernières preuves par relation",
+  "各双边关系最新证据"
+ ],
+ "Latest dated records remain visible on quiet days. Dates below are source or event dates, not today’s news.": [
+  "Les dernières fiches datées restent visibles les jours calmes. Les dates sont celles des sources ou événements, pas les nouvelles du jour.",
+  "没有新进展时仍显示最新日期记录。以下为来源或事件日期，并非今日新闻日期。"
+ ],
+ "Evidence and next action": [
+  "Preuves et prochaine action",
+  "证据与下一步行动"
+ ],
+ "No matching dated evidence is recorded.": [
+  "Aucune preuve datée correspondante n’est enregistrée.",
+  "未记录符合条件的注明日期证据。"
+ ],
+ "Reviewed primary source": [
+  "Source primaire examinée",
+  "已审核的一手来源"
+ ],
+ "Reviewed research source": [
+  "Source de recherche examinée",
+  "已审核的研究来源"
+ ],
+ "Official source · analyst review pending": [
+  "Source officielle · examen analytique en attente",
+  "官方来源 · 等待分析人员审核"
+ ],
+ "Analyst review pending": [
+  "Examen analytique en attente",
+  "等待分析人员审核"
+ ],
+ "Evidence added to briefing": [
+  "Preuve ajoutée à la note",
+  "证据加入简报"
+ ],
+ "Developments and analyst actions": [
+  "Faits nouveaux et actions analytiques",
+  "进展与分析行动"
+ ],
+ "No matching developments recorded for this period. Use the latest evidence above and check country coverage before concluding that nothing changed.": [
+  "Aucun fait nouveau correspondant pour cette période. Consulter les preuves ci-dessus et vérifier la couverture avant de conclure à l’absence de changement.",
+  "此期间未记录符合条件的进展。请查看上方最新证据并检查国家覆盖情况，再判断是否没有变化。"
+ ],
+ "Monitoring is overdue or has not run. Coverage must be checked before using this briefing.": [
+  "La veille est en retard ou n’a pas été exécutée. Vérifier la couverture avant d’utiliser cette note.",
+  "监测已逾期或尚未运行。使用简报前须检查覆盖情况。"
+ ],
+ "Agreements and implementation watch": [
+  "Suivi des accords et de leur mise en œuvre",
+  "协议与实施监测"
+ ],
+ "A signed MOU, a proposed measure and an implemented tariff have different evidence requirements.": [
+  "Un protocole signé, une mesure proposée et un tarif appliqué nécessitent des preuves différentes.",
+  "已签署的备忘录、拟议措施及已实施关税需要不同证据。"
+ ],
+ "Agreement and implementation records": [
+  "Fiches des accords et de leur mise en œuvre",
+  "协议及实施记录"
+ ],
+ "Instrument / relationship": [
+  "Instrument / relation",
+  "政策文件／双边关系"
+ ],
+ "Evidence stage": [
+  "Stade de preuve",
+  "证据阶段"
+ ],
+ "Next analyst action": [
+  "Prochaine action analytique",
+  "分析人员下一步行动"
+ ],
+ "No matching instrument is recorded.": [
+  "Aucun instrument correspondant n’est enregistré.",
+  "未记录符合条件的政策文件。"
+ ],
+ "Source modified": [
+  "Source modifiée",
+  "来源修改日期"
+ ],
+ "Meeting date": [
+  "Date de la réunion",
+  "会议日期"
+ ],
+ "Review status": [
+  "État de l’examen",
+  "审核状态"
+ ],
+ "Canadian outcome attribution requires shipment, investment or employment evidence and a comparison that addresses other causes.": [
+  "L’attribution des résultats canadiens exige des preuves d’expéditions, d’investissement ou d’emploi et une comparaison tenant compte des autres causes.",
+  "归因加拿大成效需要出货、投资或就业证据，并通过比较考虑其他原因。"
+ ],
+ "Signature reported": [
+  "Signature rapportée",
+  "来源报告已签署"
+ ],
+ "MOUs reported": [
+  "Protocoles rapportés",
+  "来源报告备忘录"
+ ],
+ "MOU reported": [
+  "Protocole rapporté",
+  "来源报告备忘录"
+ ],
+ "In force · eligibility conditions apply": [
+  "En vigueur · conditions d’admissibilité applicables",
+  "已生效 · 适用资格条件"
+ ],
+ "Dialogue or readout": [
+  "Dialogue ou compte rendu",
+  "对话或通报"
+ ],
+ "Statement or framework": [
+  "Déclaration ou cadre",
+  "声明或框架"
+ ],
+ "Official announcement": [
+  "Annonce officielle",
+  "官方公告"
+ ],
+ "Source text revised": [
+  "Texte source révisé",
+  "来源文本已修改"
+ ],
+ "The issuing authority published this policy record. Read the source excerpt for the reported development.": [
+  "L’autorité émettrice a publié cette fiche. L’extrait présente le fait nouveau rapporté.",
+  "发布机构公布了该政策记录。请阅读来源摘录以了解所报告的进展。"
+ ],
+ "Automatic source report; analyst review pending. The excerpt establishes what the authority reports. Legal effect, compliance and Canadian gains or losses require separate evidence.": [
+  "Compte rendu automatique; examen analytique en attente. L’extrait établit ce que rapporte l’autorité. L’effet juridique, le respect des engagements et les gains ou pertes canadiens exigent des preuves distinctes.",
+  "自动来源报告，等待分析人员审核。摘录说明发布机构报告的内容；法律效力、履约情况及加拿大得失需要另行提供证据。"
+ ],
+ "More developments": ["Autres faits nouveaux", "更多进展"],
+ "Earlier evidence": ["Preuves antérieures", "较早证据"]
 };if(typeof module!=="undefined"&&module.exports)module.exports=data;if(g)g.POLICY_TRANSLATIONS_UI=data;})(typeof window==="undefined"?null:window);
+

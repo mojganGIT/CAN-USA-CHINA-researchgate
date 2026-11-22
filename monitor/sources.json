@@ -1,6 +1,6 @@
 {
   "scheduleUTC": "11:17 daily",
-  "maxNewPagesPerRun": 30,
+  "maxNewPagesPerRun": 60,
   "maxTrackedPagesPerRun": 20,
   "maxAICallsPerRun": 8,
   "allowedHosts": [
@@ -57,44 +57,53 @@
     "www.help.cbp.gov",
     "trumpwhitehouse.archives.gov",
     "www.ised-isde.canada.ca",
-    "www.wto.org"
+    "www.wto.org",
+    "api.io.canada.ca",
+    "gazette.gc.ca",
+    "pm.gc.ca"
   ],
   "hubs": [
     {
       "name": "Global Affairs Canada news",
       "url": "https://www.canada.ca/en/global-affairs/news.html",
       "issuer": "Canada",
-      "path": "/en/global-affairs/news/"
+      "path": "/en/global-affairs/news/",
+      "fallbackURL": "https://www.canada.ca/en/news/advanced-news-search/news-results.html?dprtmnt=departmentofforeignaffairstradeanddevelopment"
     },
     {
       "name": "Finance Canada news",
       "url": "https://www.canada.ca/en/department-finance/news.html",
       "issuer": "Canada",
-      "path": "/en/department-finance/news/"
+      "path": "/en/department-finance/news/",
+      "fallbackURL": "https://www.canada.ca/en/news/advanced-news-search/news-results.html?dprtmnt=departmentfinance"
     },
     {
       "name": "Public Safety Canada news",
       "url": "https://www.canada.ca/en/public-safety-canada/news.html",
       "issuer": "Canada",
-      "path": "/en/public-safety-canada/news/"
+      "path": "/en/public-safety-canada/news/",
+      "fallbackURL": "https://www.canada.ca/en/news/advanced-news-search/news-results.html?dprtmnt=departmentofpublicsafetyandemergencypreparedness"
     },
     {
       "name": "ISED Canada news",
       "url": "https://www.canada.ca/en/innovation-science-economic-development/news.html",
       "issuer": "Canada",
-      "path": "/en/innovation-science-economic-development/news/"
+      "path": "/en/innovation-science-economic-development/news/",
+      "fallbackURL": "https://www.canada.ca/en/news/advanced-news-search/news-results.html?dprtmnt=departmentofindustry"
     },
     {
       "name": "Natural Resources Canada news",
       "url": "https://www.canada.ca/en/natural-resources-canada/news.html",
       "issuer": "Canada",
-      "path": "/en/natural-resources-canada/news/"
+      "path": "/en/natural-resources-canada/news/",
+      "fallbackURL": "https://www.canada.ca/en/news/advanced-news-search/news-results.html?dprtmnt=naturalresourcescanada"
     },
     {
       "name": "USTR press releases",
-      "url": "https://ustr.gov/about-us/policy-offices/press-office/press-releases",
+      "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/{year}/{month}",
       "issuer": "United States",
-      "path": "/about-us/policy-offices/press-office/press-releases/"
+      "path": "/about/policy-offices/press-office/press-releases/",
+      "previousMonth": true
     },
     {
       "name": "U.S. Treasury press releases",
@@ -110,9 +119,10 @@
     },
     {
       "name": "China MOFCOM English news",
-      "url": "https://english.mofcom.gov.cn/News/",
+      "url": "https://english.mofcom.gov.cn/",
       "issuer": "China",
-      "path": "/"
+      "path": "/News/",
+      "articlePattern": "/art/20[0-9]{2}/"
     },
     {
       "name": "CBSA customs notices",
@@ -125,6 +135,32 @@
       "url": "https://www.federalregister.gov/agencies/industry-and-security-bureau",
       "issuer": "United States",
       "path": "/documents/"
+    },
+    {
+      "name": "Prime Minister of Canada news",
+      "url": "https://www.pm.gc.ca/en/news.rss",
+      "issuer": "Canada",
+      "path": "/en/news/",
+      "articleHosts": [
+        "www.pm.gc.ca",
+        "pm.gc.ca"
+      ],
+      "articlePattern": "/en/news/(?:news-releases|statements|readouts)/20[0-9]{2}/"
+    },
+    {
+      "name": "White House policy releases",
+      "url": "https://www.whitehouse.gov/news/",
+      "issuer": "United States",
+      "path": "/",
+      "articlePattern": "/(?:fact-sheets|briefings-statements|presidential-actions|releases)/20[0-9]{2}/",
+      "pages": 2
+    },
+    {
+      "name": "State Council of China English news",
+      "url": "https://english.www.gov.cn/news/",
+      "issuer": "China",
+      "path": "/",
+      "articlePattern": "/20[0-9]{4}(?:/|[0-9]{2}/)|/20[0-9]{2}/"
     }
   ]
 }
