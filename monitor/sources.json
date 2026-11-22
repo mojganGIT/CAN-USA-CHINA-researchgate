@@ -61,7 +61,8 @@
     "api.io.canada.ca",
     "gazette.gc.ca",
     "pm.gc.ca",
-    "publications.gc.ca"
+    "publications.gc.ca",
+    "www.ccc.ca"
   ],
   "hubs": [
     {
@@ -162,6 +163,12 @@
       "issuer": "China",
       "path": "/",
       "articlePattern": "/20[0-9]{4}(?:/|[0-9]{2}/)|/20[0-9]{2}/"
+    },
+    {
+      "name": "Canadian Commercial Corporation award and MOU reports",
+      "url": "https://www.ccc.ca/en/announcements/",
+      "issuer": "Canada",
+      "path": "/en/announcements/"
     }
   ]
 }

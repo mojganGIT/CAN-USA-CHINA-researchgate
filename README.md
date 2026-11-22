@@ -31,7 +31,7 @@ Weekly feeds are available in [English](https://ambitious-field-09c66cd10.1.azur
 
 ## Daily policy briefing
 
-Daily Updates now combines automatic official-source reports with reviewed evidence, three relationship comparisons, MOU/policy filters, implementation dates, Canadian decision questions and next analyst actions. Country-level discovery status and overdue warnings expose coverage gaps. Core briefings run without an LLM key. See [AUTOMATION_SETUP.md](AUTOMATION_SETUP.md#daily-policy-decision-support-22-november-2026).
+Daily Updates uses the supplied seven-section briefing structure: executive summary, priority developments, sector updates, country/relationship updates, the four Stronger Canada dimensions, monitoring and Canadian policy implications. It combines automatic primary-source reports with reviewed evidence, agreements/MOUs/contract-award filters, implementation stages, separate claim confidence and attribution, source-check timestamps and next analyst actions. Interactive Statistics Canada charts support all 13 jurisdictions, exact data tables, export values and destination shares. A 45-edition archive supports exact comparisons with yesterday; missing calendar-day baselines are disclosed. Country-level discovery status and overdue warnings expose coverage gaps. Core briefings run without an LLM key. See [AUTOMATION_SETUP.md](AUTOMATION_SETUP.md#daily-policy-decision-support-22-november-2026).
 
 ## Stronger Canada
 

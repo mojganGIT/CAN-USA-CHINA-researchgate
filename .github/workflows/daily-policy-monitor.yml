@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['monitor/**', 'app/evidence-records.json', '.github/workflows/daily-policy-monitor.yml']
+    paths: ['monitor/**', 'app/research-register.js', 'app/daily-policy-data.js', 'app/daily-intelligence.js', 'app/stronger-canada-data.js', 'app/stronger-canada-framework.js', 'app/evidence-records.json', '.github/workflows/daily-policy-monitor.yml']
 permissions:
   contents: write
 concurrency:
@@ -49,6 +49,7 @@ jobs:
         run: |
           git config user.name 'Policy Monitor'
           git config user.email 'policy-monitor@users.noreply.github.com'
+          git add app/daily-editions.json
           git add app/weekly-updates.json app/weekly-updates*.xml
           git add monitor/state.json app/policy-updates.json api/policy-updates.json app/regional-statistics.json app/us-trade-statistics.json app/us-investment-statistics.json
           if [ -f monitor/regional-series-metadata.json ]; then git add monitor/regional-series-metadata.json; fi
@@ -61,4 +62,5 @@ jobs:
       - name: Report source outage
         if: steps.scan.outcome == 'failure'
         run: echo 'No monitored source could be read. Failure status was saved without advancing the last successful check.'
+
 

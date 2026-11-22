@@ -1,6 +1,10 @@
 (function dailyBriefing(global) {
  'use strict';
 
+ const common=typeof module!=='undefined'&&module.exports;
+ const I=common?require('./daily-intelligence.js'):global.DailyIntelligence;
+ const F=common?require('./stronger-canada-framework.js'):global.StrongerCanadaFramework;
+ const RM=common?require('./regional-trade-model.js'):null;
  const timeZone = 'America/Toronto';
  const visitKey = 'policy-dashboard-daily-visit';
  const calendar = new Intl.DateTimeFormat('en-CA', {
@@ -9,7 +13,7 @@
  const ranges = {today: 'Today', since: 'Since my last visit', week: 'Last seven days'};
  const relationships = {'Canada-China': 'Canada–China', 'Canada-USA': 'Canada–U.S.', 'USA-China': 'U.S.–China'};
  const topics = {agreements:'Agreements and MOUs',vehicles:'Vehicles and batteries',agriculture:'Agriculture and seafood',energy:'Energy and minerals',finance:'Finance',technology:'Technology',security:'Security',investment:'Investment'};
- const stages = {all:'All evidence',MOU:'MOUs',policy:'Policy and tariffs',meeting:'Dialogues and readouts',statistics:'Measured data',recommendation:'Statements and frameworks'};
+ const stages = {all:'All evidence',MOU:'MOUs',contract:'Signed contracts and awards',policy:'Policy and tariffs',meeting:'Dialogues and readouts',statistics:'Measured data',recommendation:'Statements and frameworks'};
  const provinces = {
   AB: 'Alberta', BC: 'British Columbia', MB: 'Manitoba', NB: 'New Brunswick',
   NL: 'Newfoundland and Labrador', NS: 'Nova Scotia', NT: 'Northwest Territories',
@@ -47,7 +51,7 @@
  }
 
  function recordStatus(record, day) {
-  if (record.kind === 'policy' && record.effectiveDate === day) return 'Took effect';
+  if (record.kind === 'policy' && record.effectiveDate === day) return I.stage(record,day).label;
   if(record.status)return record.status;
   return ({
    extension: 'Extension announced',
@@ -77,7 +81,7 @@
   const canada = record.relationship !== 'USA-China';
   const effectiveSoon = record.kind === 'policy' && record.effectiveDate >= today &&
    timestamp(record.effectiveDate) - timestamp(today) <= 30 * 86_400_000;
-  if (canada && (event.status === 'Took effect' || effectiveSoon)) return 0;
+  if (canada && (I.stage(record,today).id === 'in_force' || effectiveSoon)) return 0;
   if (canada && record.kind !== 'analysis' && record.kind !== 'statistics') return 1;
   if (canada && record.kind === 'statistics') return 2;
   if (event.status === 'Took effect') return 3;
@@ -129,7 +133,7 @@
  function automaticEvents(feed, register, today) {
   const known=new Map();
   for(const r of register?.records||[])for(const source of r.sources||[]){const url=sourceURL(source.url);if(url)known.set(url,[...(known.get(url)||[]),r]);}
-  return (feed.briefings||[]).filter(r=>r.reviewState==='source_reported' && r.sources?.some(x=>sourceURL(x.url))).flatMap(record=>{
+  return (feed.briefings||[]).filter(r=>r.reviewState==='source_reported' && r.changeType!=='parser_refresh' && r.sources?.some(x=>sourceURL(x.url))).flatMap(record=>{
    const day=dayKey(record.detectedAt),published=dayKey(record.publicationDate);
    if(!day||day>today||!published||published>today)return [];
    const reviewed=(known.get(sourceURL(record.sources[0].url))||[]).some(r=>r.reviewedAt>=day);
@@ -140,21 +144,22 @@
   });
  }
 
- function buildBriefing({feed = {}, register, range = 'today', previousVisit, filters = {}, now = Date.now()}) {
+ function buildBriefing({feed = {}, register, range = 'today', previousVisit, filters = {}, now = Date.now(),history,tradeData,framework=F}) {
   const today = dayKey(now);
   const visitTime = timestamp(previousVisit?.at);
   const since = range === 'since' && visitTime < now;
   const firstVisit = range === 'since' && !since;
   const start = since ? dayKey(visitTime) : range === 'today' ? today : previousDay(today, 6);
   const seen = new Set(since && Array.isArray(previousVisit?.events) ? previousVisit.events : []);
-  const selected={relationship:filters.relationship||'all',topic:filters.topic||'all',stage:filters.stage||'all'};
+  const selected={relationship:filters.relationship||'all',topic:filters.topic||'all',stage:filters.stage||'all',priority:Object.hasOwn(I.dimensions,filters.priority)?filters.priority:'all',region:Object.hasOwn(provinces,filters.region)?filters.region:'CA',chart:filters.chart==='share'?'share':'value'};
   const matches=event=>{
    const r=event.record;
    return (selected.relationship==='all'||r.relationship===selected.relationship)&&
     (selected.topic==='all'||r.topics?.includes(selected.topic))&&
-    (selected.stage==='all'||r.kind===selected.stage||(selected.stage==='policy'&&r.kind==='extension'));
+    (selected.stage==='all'||r.kind===selected.stage||(selected.stage==='policy'&&r.kind==='extension'))&&
+    (selected.priority==='all'||I.priorities(r,framework).includes(selected.priority));
   };
-  const allEvents=[...reviewedEvents(register),...automaticEvents(feed,register,today)].filter(event=>event.day<=today);
+  const allEvents=[...reviewedEvents(register),...automaticEvents(feed,register,today)].filter(event=>event.day<=today&&(!event.record.reviewedAt||dayKey(event.record.reviewedAt)<=today));
   const events=allEvents.filter(matches);
   const inWindow=events.filter(event => event.day >= start && !seen.has(event.key));
   const featured=inWindow.sort((a,b)=>b.day.localeCompare(a.day)).filter((e,i,a)=>a.findIndex(x=>x.record.id===e.record.id)===i)
@@ -162,10 +167,12 @@
   const latest=Object.keys(relationships).map(relationship=>({relationship,event:events.filter(e=>e.record.relationship===relationship)
    .sort((a,b)=>(b.record.date||b.record.publicationDate||'').localeCompare(a.record.date||a.record.publicationDate||'')||
     Number(!!a.record.reviewState)-Number(!!b.record.reviewState)||b.day.localeCompare(a.day))[0]}));
-  const instruments=[...new Map(events.filter(e=>['MOU','policy','extension','recommendation'].includes(e.record.kind))
+  const instruments=[...new Map(events.filter(e=>['MOU','contract','policy','extension','recommendation'].includes(e.record.kind))
    .sort((a,b)=>(b.record.date||'').localeCompare(a.record.date||''))
-   .map(e=>[e.record.id,e])).values()].slice(0,10);
-  const changes = (Array.isArray(feed.changes) ? feed.changes : []).filter(item => timestamp(item.detectedAt) <= now);
+   .map(e=>[e.record.id,e])).values()];
+  const matchingURLs=new Set(events.flatMap(e=>(e.record.sources||[]).map(s=>sourceURL(s.url))));
+  const changes = (Array.isArray(feed.changes) ? feed.changes : []).filter(item => timestamp(item.detectedAt) <= now)
+   .filter(item=>(selected.relationship==='all'||item.relationships?.includes(selected.relationship))&&(selected.topic==='all'||item.topics?.includes(selected.topic))&&(selected.stage==='all'||item.sourceReport?.kind===selected.stage||matchingURLs.has(sourceURL(item.url)))&&(selected.priority==='all'||matchingURLs.has(sourceURL(item.url))));
   const groups = groupedObservations(changes, item => {
    const detected = timestamp(item.detectedAt);
    return since ? detected > visitTime : dayKey(item.detectedAt) >= start;
@@ -176,7 +183,9 @@
   const freshness=Number.isFinite(runTime)&&now-runTime<=36*3600000;
   return {
    today, range, start, firstVisit, previousVisit: since ? previousVisit.at : null,filters:selected,
-   featured, latest, instruments, stale:!freshness,
+   featured, latest, instruments, stale:!freshness,framework,
+   comparison:I.compare(history,today,selected),trade:I.trade(tradeData,selected,RM||global?.RegionalTradeModel),
+   sectorRows:Object.entries(topics).map(([topic,name])=>({topic,name,events:events.filter(e=>e.record.topics?.includes(topic)),fresh:featured.filter(e=>e.record.topics?.includes(topic))})),
    earlier: [...new Map(events.filter(event=>event.day<start).sort((a,b)=>b.day.localeCompare(a.day)).map(e=>[e.record.id,e])).values()].slice(0,8),
    groups, scanCount, next:nextDates({records:(register?.records||[]).filter(r=>matches({record:r}))},today)
   };
@@ -197,7 +206,7 @@
  function officialLink(url, label) {
   const href = sourceURL(url);
   if (!href) return '';
-  return `<a href="${escape(href)}" target="_blank" rel="noopener noreferrer">${escape(label)} <span aria-hidden="true">↗</span><span class="sr-only"> (new tab)</span></a>`;
+  return `<a href="${escape(href)}" target="_blank" rel="noopener noreferrer">${escape(label)} <span class="sr-only"> (new tab)</span></a>`;
  }
 
  function mapLink(record, label, region = 'CA') {
@@ -220,25 +229,29 @@
   return 'Watch for a published measure that specifies the effective date and coverage.';
  }
 
- function reviewedCard(event, language) {
+ function reviewedCard(event, language,feed={},framework=F) {
   const {record, day, key, status} = event;
+  const proof=I.evidence(record,feed,dayKey(Date.now())),priorityIds=I.priorities(record,framework);
   const regions = (record.regions || []).filter(code => Object.hasOwn(provinces, code));
   const sources = record.sources.filter(source => sourceURL(source.url));
   return `<article class="daily-story" data-evidence="${record.reviewState?'source-reported':'reviewed'}">
    <p class="daily-meta"><span class="daily-tag">${escape(status)}</span> ${event.entryType==='review'?'<span>Evidence added to briefing</span>':record.reviewState?'<span>Detected</span>':''} ${formatDate(day, language)}
     <span>${escape(relationships[record.relationship] || record.relationship)}</span></p>
    <h4>${escape(record.title)}</h4>
-   <p class="daily-meta"><span class="daily-tag">${record.reviewState?'Official source · analyst review pending':record.kind==='analysis'?'Reviewed research source':'Reviewed primary source'}</span><span>${escape(record.status||recordStatus(record,record.date))}</span></p>
+   <div class="daily-proof-grid"><div><span>Implementation status</span><strong class="daily-tag" data-stage="${escape(proof.stage.id)}">${escape(proof.stage.label)}</strong></div><div><span>Evidence confidence</span><strong>${escape(proof.observationConfidence)}</strong><span>${escape(proof.confidence)}</span></div><div><span>Last source check</span>${formatDate(proof.checkedAt,language)||'<strong>Not recorded</strong>'}<span>${escape(proof.freshness)}</span></div><div><span>Analyst reviewed</span>${formatDate(proof.reviewedAt,language)||'<strong>Analyst review pending</strong>'}</div></div>
+   <p class="daily-meta">${record.reviewState?'Official source · analyst review pending':record.kind==='analysis'?'Reviewed research source':'Reviewed primary source'} · ${escape(proof.attribution)}</p>
+   ${proof.changed?'<p class="daily-stale">The linked source changed after the recorded review date. Reassess the claim before relying on it.</p>':''}
+   ${priorityIds.length?`<p class="daily-priority-tags">${priorityIds.map(id=>`<span class="daily-tag">${escape(I.dimensions[id])}</span>`).join('')}</p>`:'<p class="daily-meta">Policy-priority classification awaits analyst review.</p>'}
    <dl class="daily-questions">
     <dt>What changed?</dt><dd>${escape(record.changed)}${record.quote?`<blockquote data-no-translate>${escape(record.quote)}</blockquote>`:''}</dd>
     <dt>Why does it matter to Canada?</dt><dd>${escape(record.canada)}</dd>
-    <dt>What should I watch next?</dt><dd>${escape(watchText(record))}</dd>
+    <dt>Next analyst action</dt><dd>${escape(watchText(record))}</dd>
    </dl>
    <p class="daily-actions">${officialLink(sources[0].url, 'Open original source')}
     ${mapLink(record, 'Explore on the Canada map')}</p>
    <details class="daily-detail" data-daily-detail="${escape(`evidence-${key}`)}">
     <summary>Sources, dates and evidence limits</summary>
-    ${record.limit ? `<p class="daily-evidence-limit">${escape(record.limit)}</p>` : ''}
+    ${record.limit ? `<p class="daily-evidence-limit">${escape(record.limit)}</p>` : ''}<p><strong>Confidence basis</strong>: ${escape(proof.confidenceReason)}</p>
     <p class="daily-meta">Canadian outcome attribution requires shipment, investment or employment evidence and a comparison that addresses other causes.</p>
     <dl class="daily-questions">
      <dt>Record date</dt><dd>${formatDate(record.date, language)}</dd>
@@ -252,7 +265,7 @@
     ${regions.length ? `<p class="daily-meta">Regional exposure</p><ul class="daily-region-links">${regions.map(code =>
      `<li>${mapLink(record, provinces[code], code)}</li>`).join('')}</ul>` : ''}
     <ul>${sources.map(source => `<li>${officialLink(source.url, source.publisher)}
-     ${source.publicationDate ? `<span class="daily-meta">Source publication</span> ${formatDate(source.publicationDate, language)}` : ''}${source.modifiedDate?` <span class="daily-meta">Source modified</span> ${formatDate(source.modifiedDate,language)}`:''}</li>`).join('')}</ul>
+     ${source.publicationDate ? `<span class="daily-meta">Source publication</span> ${formatDate(source.publicationDate, language)}` : ''}${source.modifiedDate?` <span class="daily-meta">Source modified</span> ${formatDate(source.modifiedDate,language)}`:''}${source.documentType?` <span class="daily-tag">${escape(source.documentType)}</span>`:''}${source.identifier?` <span translate="no">${escape(source.identifier)}</span>`:''}</li>`).join('')}</ul>
    </details>
   </article>`;
  }
@@ -321,24 +334,24 @@
     <p class="daily-meta"><span>Last successful discovery</span> ${formatDate(c?.lastSuccessfulDiscovery,language)||'Pending'}</p></div>`;
   }).join('')}</div>`;
  }
- function comparisonPanel(model,language){
-  return `<section class="daily-relationship-section" aria-labelledby="daily-relationships-title"><h3 id="daily-relationships-title">Latest evidence by relationship</h3>
+ function comparisonPanel(model,language,feed){
+  return `<section class="daily-relationship-section" aria-labelledby="daily-relationships-title"><h3 id="daily-relationships-title">Country and relationship updates</h3>
    <p class="daily-meta">Latest dated records remain visible on quiet days. Dates below are source or event dates, not today’s news.</p>
    <div class="daily-relationships">${model.latest.map(({relationship,event})=>`<article class="daily-relationship">
-    <h4>${escape(relationships[relationship])}</h4>${event?`<p class="daily-meta">${formatDate(event.record.date,language)} <span class="daily-tag">${escape(event.record.status||recordStatus(event.record,event.record.date))}</span></p>
+    <h4><img class="daily-flag" src="flags/${relationship==='USA-China'?'us':'ca'}.svg" alt=""><span aria-hidden="true"> / </span><img class="daily-flag" src="flags/${relationship==='Canada-USA'?'us':'cn'}.svg" alt=""> ${escape(relationships[relationship])}</h4>${event?`<p class="daily-meta">${formatDate(event.record.date,language)} <span class="daily-tag">${escape(event.record.status||recordStatus(event.record,event.record.date))}</span></p>
      <h4>${escape(event.record.title)}</h4><p>${escape(event.record.canada)}</p>
      <p class="daily-meta">${event.record.reviewState?'Official source · analyst review pending':event.record.kind==='analysis'?'Reviewed research source':'Reviewed primary source'}</p>
-     <details class="daily-detail" data-daily-detail="latest-${relationship}"><summary>Evidence and next action</summary>${reviewedCard(event,language)}</details>`:'<p>No matching dated evidence is recorded.</p>'}</article>`).join('')}</div>
+     <details class="daily-detail" data-daily-detail="latest-${relationship}"><summary>Evidence and next action</summary>${reviewedCard(event,language,feed,model.framework)}</details>`:'<p>No matching dated evidence is recorded.</p>'}</article>`).join('')}</div>
   </section>`;
  }
  function filterPanel(model){
   const select=(id,label,options)=>`<label>${label}<select data-daily-filter="${id}">${Object.entries(options).map(([value,name])=>`<option value="${value}"${model.filters[id]===value?' selected':''}>${escape(name)}</option>`).join('')}</select></label>`;
-  return `<div class="daily-filters" role="group" aria-label="Policy monitoring filters">${select('relationship','Relationship',{all:'All relationships',...relationships})}${select('topic','Sector or subject',{all:'All sectors and subjects',...topics})}${select('stage','Evidence type',stages)}<button type="button" data-daily-reset>Reset filters</button></div>`;
+  return `<div class="daily-filters" role="group" aria-label="Policy monitoring filters">${select('relationship','Relationship',{all:'All relationships',...relationships})}${select('topic','Sector or subject',{all:'All sectors and subjects',...topics})}${select('stage','Evidence type',stages)}${select('priority','Policy priority',{all:'All priorities',...I.dimensions})}<button type="button" data-daily-reset>Reset filters</button></div>`;
  }
  function instrumentPanel(model,language){
   return `<section class="daily-instruments" aria-labelledby="daily-instruments-title"><h3 id="daily-instruments-title">Agreements and implementation watch</h3>
    <p class="daily-meta">A signed MOU, a proposed measure and an implemented tariff have different evidence requirements.</p>
-   <div class="daily-table-scroll" tabindex="0" role="region" aria-label="Agreement and implementation records"><table><thead><tr><th scope="col">Instrument / relationship</th><th scope="col">Evidence stage</th><th scope="col">Next analyst action</th></tr></thead><tbody>${model.instruments.slice(0,6).map(({record:r})=>`<tr><td>${officialLink(r.sources[0].url,r.title)}<p class="daily-meta">${escape(relationships[r.relationship]||r.relationship)} · ${formatDate(r.date,language)}</p></td><td><span class="daily-tag">${escape(r.status||recordStatus(r,r.date))}</span><p class="daily-meta">${r.reviewState?'Analyst review pending':'Reviewed primary source'}</p>${r.effectiveDate?`<p class="daily-meta"><span>Recorded effective date</span> ${formatDate(r.effectiveDate,language)}</p>`:''}</td><td>${escape(watchText(r))}</td></tr>`).join('')||'<tr><td colspan="3">No matching instrument is recorded.</td></tr>'}</tbody></table></div>
+   <div class="daily-table-scroll" tabindex="0" role="region" aria-label="Agreement and implementation records"><table><thead><tr><th scope="col">Instrument / relationship</th><th scope="col">Evidence stage</th><th scope="col">Next analyst action</th></tr></thead><tbody>${model.instruments.map(({record:r})=>`<tr><td>${officialLink(r.sources[0].url,r.title)}<p class="daily-meta">${escape(relationships[r.relationship]||r.relationship)} · ${formatDate(r.date,language)}</p></td><td><span class="daily-tag">${escape(I.stage(r,model.today).label)}</span><p class="daily-meta">${r.reviewState?'Analyst review pending':'Reviewed primary source'}</p>${r.effectiveDate?`<p class="daily-meta"><span>Recorded effective date</span> ${formatDate(r.effectiveDate,language)}</p>`:''}</td><td>${escape(watchText(r))}</td></tr>`).join('')||'<tr><td colspan="3">No matching instrument is recorded.</td></tr>'}</tbody></table></div>
   </section>`;
  }
 
@@ -355,54 +368,109 @@
   </aside>`;
  }
 
+ function deltaPanel(model,language){
+  const c=model.comparison;
+  return `<section class="daily-delta" aria-labelledby="daily-delta-title"><h3 id="daily-delta-title">What changed since yesterday?</h3>
+   ${c.ready?`<p class="daily-meta">${formatDate(c.previous.generatedAt,language)} <span>compared with</span> ${formatDate(c.current.generatedAt,language)} · Toronto calendar editions</p>
+    <div class="daily-metrics">${[['Newly added evidence',c.newRecords.length],['Reviewed records amended',c.updatedRecords.length],['Monitored source revisions',c.sourceRevisions.length],['Newly indexed sources',c.newSources.length]].map(([name,value])=>`<div><strong translate="no">${value}</strong><span>${name}</span></div>`).join('')}</div>
+    <p class="daily-meta">Newly indexed sources are discoveries, not proof that a policy changed yesterday. A source revision requires review before an instrument or outcome is changed.</p>
+    <details class="daily-detail" data-daily-detail="yesterday-comparison"><summary>Inspect the comparison evidence</summary>
+     ${c.newRecords.length?`<h4>Newly added evidence</h4><ul>${c.newRecords.map(r=>`<li>${officialLink(r.sourceURLs[0],r.title)} · ${formatDate(r.date,language)}</li>`).join('')}</ul>`:''}
+     ${c.updatedRecords.length?`<h4>Reviewed records amended</h4>${c.updatedRecords.map(({before,after})=>`<article class="daily-diff"><h4>${escape(after.title)}</h4><dl class="daily-questions"><dt>Yesterday</dt><dd>${escape(before.changed)} <span class="daily-tag">${escape(before.stage)}</span></dd><dt>Current edition</dt><dd>${escape(after.changed)} <span class="daily-tag">${escape(after.stage)}</span></dd></dl>${officialLink(after.sourceURLs[0],'Open original source')}</article>`).join('')}`:''}
+     ${c.sourceRevisions.length?`<h4>Monitored source revisions</h4><ul>${c.sourceRevisions.map(r=>`<li>${officialLink(r.url,new URL(r.url).hostname)} · ${formatDate(r.checkedAt,language)}<details><summary>Content hashes</summary><p class="daily-hash" translate="no">${escape(r.beforeDigest)} / ${escape(r.digest)}</p></details></li>`).join('')}</ul>`:''}
+     ${c.newSources.length?`<h4>Newly indexed sources</h4><ul>${c.newSources.map(r=>`<li>${officialLink(r.url,new URL(r.url).hostname)} · ${formatDate(r.checkedAt,language)}</li>`).join('')}</ul>`:''}
+     ${!c.newRecords.length&&!c.updatedRecords.length&&!c.sourceRevisions.length?'<p>No differences in matched reviewed records or previously checked source hashes. Check coverage before concluding that no external policy changed.</p>':''}
+    </details>`:`<p class="daily-stale"><strong>Comparison baseline pending</strong> · ${escape(c.reason)}. The first saved edition establishes a baseline; an exact comparison requires a saved edition for the preceding Toronto calendar day.</p>`}
+  </section>`;
+ }
+
+ function executivePanel(model,feed,language){
+  const lead=model.featured[0];
+  return `<div class="daily-takeaway"><p class="daily-eyebrow">Executive takeaway</p><p>${lead?`<strong>${escape(lead.record.title)}</strong><br>${escape(lead.record.canada)}`:'No new matching evidence in this window. Use the retained context and verify monitoring coverage before drawing a policy conclusion.'}</p><p class="daily-meta">${lead?`${escape(lead.entryType==='review'?'Evidence added to briefing':lead.status)} · ${formatDate(lead.record.date,language)} · `:''}Commercial gains require observed shipments, completed investment or employment evidence.</p></div>
+   <section class="daily-section" id="daily-summary" aria-labelledby="daily-summary-title"><h3 id="daily-summary-title">Executive summary</h3>
+    ${model.featured.length?`<ul class="daily-summary-list">${model.featured.slice(0,3).map(e=>`<li><strong>${escape(relationships[e.record.relationship]||e.record.relationship)}</strong> · ${officialLink(e.record.sources[0].url,e.record.title)}<p class="daily-meta">${escape(I.stage(e.record,model.today).label)} · ${formatDate(e.record.date,language)}${e.entryType==='review'?' · Evidence added to briefing':''}</p></li>`).join('')}</ul>`:'<p>No new matching evidence in this window.</p>'}
+    ${deltaPanel(model,language)}
+   </section>`;
+ }
+
+ function sectorPanel(model,language){
+  return `<section class="daily-section" id="daily-sectors" aria-labelledby="daily-sectors-title"><h3 id="daily-sectors-title">Sector updates</h3><p class="daily-meta">All eight categories use the same evidence register. A report may concern several sectors; record counts are not additive economic effects.</p>
+   <div class="daily-sector-grid">${model.sectorRows.map(row=>{const latest=[...row.events].sort((a,b)=>b.record.date.localeCompare(a.record.date))[0];return `<article class="daily-sector"><h4>${escape(model.framework?.sectors[row.topic]?.name||row.name)}</h4><p class="daily-tag">${row.fresh.length?'Evidence in selected window':'Retained context'}</p>${latest?`<p>${officialLink(latest.record.sources[0].url,latest.record.title)}</p><p class="daily-meta">${formatDate(latest.record.date,language)} · ${escape(I.stage(latest.record,model.today).label)}</p>`:'<p>No matching dated evidence is recorded.</p>'}<button type="button" class="daily-text-button" data-daily-topic="${row.topic}">Focus this sector</button></article>`;}).join('')}</div>
+   ${tradePanel(model,language)}
+  </section>`;
+ }
+
+ function tradePanel(model,language){
+  const s=model.trade,selected=model.filters;
+  const select=(id,label,options)=>`<label>${label}<select data-daily-filter="${id}">${Object.entries(options).map(([value,name])=>`<option value="${value}"${selected[id]===value?' selected':''}>${escape(name)}</option>`).join('')}</select></label>`;
+  const money=n=>n===null?'Not available':new Intl.NumberFormat({fr:'fr-CA','zh-Hans':'zh-CN'}[language]||'en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0}).format(n);
+  const number=n=>n===null?'Not available':new Intl.NumberFormat('en-CA',{maximumFractionDigits:1}).format(n);
+  const month=p=>new Intl.DateTimeFormat({fr:'fr-CA','zh-Hans':'zh-CN'}[language]||'en-CA',{month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(p+'-01'));
+  let chart='';
+  if(s.available){
+   if(selected.chart==='share'){
+    const world=s.partners[2].current,us=s.partners[0].current,china=s.partners[1].current;
+    const rows=[s.partners[0],s.partners[1]];
+    chart=`<div class="daily-share-bars" role="img" aria-label="Export destination shares from the same complete year-to-date period">${rows.map(p=>`<div><p><strong>${escape(p.partner)}</strong><span>${p.share===null?'Not available':number(p.share)+'%'}</span></p><div class="daily-share-track"><span style="width:${p.share!==null&&p.share>=0&&p.share<=100?p.share:0}%" class="${p.partner==='China'?'daily-china':'daily-us'}"></span></div></div>`).join('')}</div><p class="daily-meta">${world!==null&&us!==null&&china!==null&&world>=us+china?`Other destinations: ${number((world-us-china)/world*100)}% · `:''}Shares use all-destination domestic exports as the denominator.</p>`;
+   }else{
+    const values=s.points.flatMap(p=>p.values).filter(n=>n!==null),max=Math.max(...values,1),scale=max>=1e9?1e9:max>=1e6?1e6:max>=1e3?1e3:1,unit=scale===1e9?'CAD billion':scale===1e6?'CAD million':scale===1e3?'CAD thousand':'CAD',x=i=>58+i*62,y=n=>242-n/max*194;
+    const line=index=>{let d='',started=false;for(let i=0;i<s.points.length;i++){const n=s.points[i].values[index];if(n===null){started=false;continue;}d+=(started?' L':' M')+x(i)+' '+y(n);started=true;}return d;};
+    chart=`<div class="daily-chart-scroll" tabindex="0" role="region" aria-label="Monthly export chart; exact values follow in the data table"><svg class="daily-line-chart" viewBox="0 0 780 292" role="img" aria-labelledby="daily-chart-title daily-chart-desc"><title id="daily-chart-title">Monthly Canadian domestic exports</title><desc id="daily-chart-desc">${escape(s.region)} · ${escape(s.commodity)} · current CAD. Missing values create gaps; exact values are in the expandable table.</desc>${[0,.5,1].map(t=>`<line x1="58" x2="740" y1="${y(t*max)}" y2="${y(t*max)}" class="daily-grid-line"/><text x="49" y="${y(t*max)+5}" text-anchor="end">${number(t*max/scale)}</text>`).join('')}<text x="58" y="23">${unit}</text><path d="${line(0)}" class="daily-line-us"/><path d="${line(1)}" class="daily-line-china"/>${s.points.map((p,i)=>`${[0,1].map(k=>p.values[k]===null?'':`<circle cx="${x(i)}" cy="${y(p.values[k])}" r="4" tabindex="0" class="${k?'daily-point-china':'daily-point-us'}" aria-label="${escape(s.partners[k].partner+' · '+month(p.period)+' · '+money(p.values[k]))}"><title>${escape(s.partners[k].partner+' · '+month(p.period)+' · '+money(p.values[k]))}</title></circle>`).join('')}${i%3===0||i===11?`<text x="${x(i)}" y="274" text-anchor="middle">${escape(month(p.period))}</text>`:''}`).join('')}</svg></div><div class="daily-chart-legend"><span class="daily-legend-us">United States</span><span class="daily-legend-china">China</span></div>`;
+   }
+  }
+  return `<section class="daily-chart-panel" aria-labelledby="daily-chart-heading"><h4 id="daily-chart-heading">Monthly Canadian domestic exports</h4><div class="daily-filters">${select('region','Province / territory',{CA:'Canada — all regions',...provinces})}${select('chart','Chart view',{value:'Export value',share:'Destination share'})}</div>
+   ${s.available?`<p><strong>${escape(s.region)} · ${escape(s.commodity)}</strong> · ${selected.chart==='share'?'January–'+escape(month(s.year+'-'+String(s.month).padStart(2,'0'))):escape(month(s.points[0].period)+'–'+month(s.points.at(-1).period))}</p>${s.contextOnly?'<p class="daily-stale">All-merchandise context: this table does not separately measure the selected services, investment, defence or digital sector.</p>':''}${s.status!=='success'?'<p class="daily-stale">Latest statistical refresh did not complete successfully. Values retain their previous retrieval date.</p>':''}${chart}<details class="daily-detail" data-daily-detail="chart-data"><summary>Show chart data</summary><div class="daily-table-scroll" tabindex="0" role="region" aria-label="Exact monthly exports"><table><caption>${escape(s.region)} · ${escape(s.commodity)} · CAD · monthly, unadjusted</caption><thead><tr><th scope="col">Month</th><th scope="col">United States</th><th scope="col">China</th></tr></thead><tbody>${s.points.map(p=>`<tr><th scope="row">${escape(month(p.period))}</th>${p.values.map(n=>`<td>${money(n)}</td>`).join('')}</tr>`).join('')}</tbody></table><table><caption>Complete year-to-date comparison · same months of prior year · CAD</caption><thead><tr><th scope="col">Destination</th><th scope="col">Current period</th><th scope="col">Prior period</th><th scope="col">Destination share</th></tr></thead><tbody>${s.partners.map(p=>`<tr><th scope="row">${escape(p.partner)}</th><td>${money(p.current)}</td><td>${money(p.prior)}</td><td>${p.share===null?'Not available':number(p.share)+'%'}</td></tr>`).join('')}</tbody></table></div></details><p class="daily-meta">Data checked: ${formatDate(s.retrievedAt,language)} · ${officialLink(s.url,'Statistics Canada 12-10-0175-01')}</p><p class="daily-meta">${escape(s.basis)}</p>`:`<p class="daily-empty">${escape(s.reason||'A complete comparable period is unavailable. Missing values are not replaced with zero.')}</p>`}
+   <p class="daily-evidence-limit">Monthly releases do not become daily observations. Export values do not establish net Canadian benefit, local employment or a causal effect of an agreement.</p></section>`;
+ }
+
+ function strategicPanel(model,language){
+  const sectors=Object.entries(model.framework?.sectors||{}).filter(([id])=>model.filters.topic==='all'||id===model.filters.topic);
+  return `<section class="daily-section" id="daily-strategy" aria-labelledby="daily-strategy-title"><h3 id="daily-strategy-title">Strategic outlook | Building Canada Strong</h3><p class="daily-meta">Assessment framework, not an official four-priority government classification. New source reports do not automatically change reviewed findings.</p><p class="daily-meta">Retained cross-relationship context: these national sector assessments cover Canada’s wider relationships. Daily filters do not create a new sector finding.</p><div class="daily-lenses">${Object.entries(I.dimensions).filter(([id])=>model.filters.priority==='all'||id===model.filters.priority).map(([id,name])=>`<article><h4>${name}</h4><details class="daily-detail" data-daily-detail="lens-${id}"><summary>Evidence and assessment</summary>${sectors.map(([topic,s])=>{const a=s.assessments[id];return `<div class="daily-lens-finding"><h5>${escape(s.name)}</h5><p><strong>Decision question</strong>: ${escape(a.question)}</p><p>${escape(a.finding)}</p><p class="daily-meta">Reviewed: ${formatDate(a.reviewedAt,language)} · National assessment; regional outcomes require local evidence.</p><a href="#stronger-canada?view=directions&amp;topic=${topic}&amp;region=${escape(model.filters.region)}&amp;dimension=${id}" data-hub="stronger-canada?view=directions&amp;topic=${topic}&amp;region=${escape(model.filters.region)}&amp;dimension=${id}">Inspect linked assessment and sources</a></div>`;}).join('')||'<p>No reviewed assessment available for this selection.</p>'}</details></article>`).join('')}</div></section>`;
+ }
+
+ function implicationsPanel(model,language){
+  const records=[...new Map([...model.featured,...model.latest.map(x=>x.event).filter(Boolean)].map(e=>[e.record.id,e.record])).values()];
+  return `<section class="daily-section" id="daily-implications" aria-labelledby="daily-implications-title"><h3 id="daily-implications-title">Implications for Canadian policy</h3><div class="daily-policy-implications"><article><h4>Economic</h4><p>Test whether changed access or awarded work produces Canadian shipments, completed spending, supplier participation and employment. Compare matching periods and separate prices from quantities.</p></article><article><h4>Diplomatic</h4><p>Compare the parties’ official texts, signatories, scope and implementation notices. A dialogue or MOU records cooperation; it does not establish regulatory permission or fulfilled purchases.</p></article><article><h4>Strategic</h4><p>Assess market concentration, substitute suppliers and Canadian productive capacity. Additional access to one market may change exposure without reducing overall dependence.</p></article></div>
+   <h4>Next analyst action</h4>${records.length?`<ol class="daily-action-list">${records.slice(0,4).map(r=>`<li><strong>${escape(r.title)}</strong><p>${escape(watchText(r))}</p><p class="daily-meta">${officialLink(r.sources[0].url,'Open original source')} · ${escape(I.evidence(r).attribution)}</p></li>`).join('')}</ol>`:'<p>Verify country coverage and collect an operative instrument before drawing a Canadian policy conclusion.</p>'}
+   <p class="daily-evidence-limit">These are analyst questions and monitoring directions, not adopted government recommendations. Observation confidence and attribution are assessed separately.</p></section>`;
+ }
+
  function renderBriefing(model, feed, language = 'en') {
-  const newGroups = model.groups.filter(group => group.count);
-  const olderGroups = model.groups.filter(group => !group.count);
-  return `<header class="daily-heading">
-   <p class="daily-eyebrow">Canada · United States · China</p>
-   <h2 id="daily-heading">Daily policy briefing</h2>
-   <p>Policy changes, agreements and implementation evidence for Canadian decisions.</p>
-  </header>
-  ${monitorSummary(model, feed, language)}
-  ${filterPanel(model)}
-  ${comparisonPanel(model,language)}
-  <div class="daily-range" role="group" aria-label="Briefing period">
-   ${Object.entries(ranges).map(([id, label]) => `<button type="button" data-daily-range="${id}" aria-pressed="${id === model.range}">${label}</button>`).join('')}
-  </div>
-  <p class="daily-meta" role="status">${model.firstVisit ? '<span>First visit. Showing the last seven days.</span> ' : ''}
-   <span>Briefing window</span> ${formatDate(model.previousVisit || model.start, language)}
-   ${model.start !== model.today || model.previousVisit ? ` <span aria-hidden="true">–</span> ${formatDate(model.today, language)}` : ''}
-  </p>
-  <div class="daily-columns">
-   <section class="daily-lead" aria-labelledby="daily-reviewed-title">
-    <h3 id="daily-reviewed-title">Developments and analyst actions</h3>
-    ${model.featured.length ? model.featured.slice(0, 3).map(event => reviewedCard(event, language)).join('') :
-     '<p class="daily-empty">No matching developments recorded for this period. Use the latest evidence above and check country coverage before concluding that nothing changed.</p>'}
-    ${model.featured.length > 3 ? `<details class="daily-detail" data-daily-detail="more-reviewed"><summary>More developments</summary>
-     ${model.featured.slice(3).map(event => reviewedCard(event, language)).join('')}</details>` : ''}
-    ${model.earlier.length ? `<details class="daily-detail" data-daily-detail="earlier-reviewed"><summary>Earlier evidence</summary>
-     ${model.earlier.map(event => reviewedCard(event, language)).join('')}</details>` : ''}
+  const newGroups=model.groups.filter(group=>group.count),olderGroups=model.groups.filter(group=>!group.count);
+  const sections={summary:'Executive summary',developments:'Priority developments',sectors:'Sector updates',relationships:'Country and relationship updates',strategy:'Strategic outlook',watch:'What to watch next',implications:'Implications for Canadian policy'};
+  return `<header class="daily-heading"><p class="daily-eyebrow">Canada · United States · China</p><h2 id="daily-heading">Daily policy intelligence brief</h2><p>Verified source records, implementation monitoring and Canadian decision questions.</p>
+   <p class="daily-verification-strip" role="status"><strong>Daily source checks</strong> · ${escape(feed.lastRunStatus||'not_run')} · ${formatDate(feed.lastAttempt,language)||'Not recorded'}${model.stale?' · Monitoring is overdue':''}</p>
+   <div class="daily-edition-meta"><p><strong>Briefing date</strong> ${formatDate(model.today,language)}</p><p><strong>Assessment scope</strong> ${escape(relationships[model.filters.relationship]||'All relationships')} · ${escape(topics[model.filters.topic]||'All sectors and subjects')} · ${escape(I.dimensions[model.filters.priority]||'All priorities')}</p></div>
+   <div class="daily-toolbar"><button type="button" data-daily-refresh>Refresh monitored evidence</button><button type="button" data-daily-print>Print briefing</button><a href="daily-editions.json" download>Download edition data</a></div></header>
+   ${filterPanel(model)}
+   <div class="daily-range" role="group" aria-label="Briefing period">${Object.entries(ranges).map(([id,label])=>`<button type="button" data-daily-range="${id}" aria-pressed="${id===model.range}">${label}</button>`).join('')}</div>
+   <p class="daily-meta" role="status">${model.firstVisit?'<span>First visit. Showing the last seven days.</span> ':''}<span>Briefing window</span> ${formatDate(model.previousVisit||model.start,language)} ${model.start!==model.today||model.previousVisit?`– ${formatDate(model.today,language)}`:''}</p>
+   ${executivePanel(model,feed,language)}
+   ${monitorSummary(model,feed,language)}
+   <nav class="daily-jump" aria-label="Jump to a briefing section">${Object.entries(sections).map(([id,name])=>`<button type="button" data-daily-jump="${id}">${name}</button>`).join('')}</nav>
+   <section class="daily-section" id="daily-developments" aria-labelledby="daily-reviewed-title"><h3 id="daily-reviewed-title">Priority developments</h3>
+    ${model.featured.length?model.featured.slice(0,3).map(e=>reviewedCard(e,language,feed,model.framework)).join(''):'<p class="daily-empty">No matching developments recorded for this period. Use the latest evidence below and check country coverage before concluding that nothing changed.</p>'}
+    ${model.featured.length>3?`<details class="daily-detail" data-daily-detail="more-reviewed"><summary>More developments</summary>${model.featured.slice(3).map(e=>reviewedCard(e,language,feed,model.framework)).join('')}</details>`:''}
+    ${model.earlier.length?`<details class="daily-detail" data-daily-detail="earlier-reviewed"><summary>Earlier evidence</summary>${model.earlier.map(e=>reviewedCard(e,language,feed,model.framework)).join('')}</details>`:''}
+    <details class="daily-detail" data-daily-detail="instruments"><summary>Agreements and implementation watch</summary>${instrumentPanel(model,language)}</details>
    </section>
-   ${watchPanel(model, language)}
-  </div>
-  ${instrumentPanel(model,language)}
-  <details class="daily-detail daily-review" data-daily-detail="review-queue">
-   <summary>Source changes to review <span class="daily-count" translate="no">${newGroups.reduce((total, group) => total + group.count, 0)}</span></summary>
-   <p>These observations await review. Expand a source to see its revision history.</p>
-   ${newGroups.map(group => groupCard(group, language)).join('') || '<p>No source changes recorded for this period.</p>'}
-   ${olderGroups.length ? `<details class="daily-detail" data-daily-detail="source-archive">
-    <summary>Earlier monitored sources <span class="daily-count" translate="no">${olderGroups.length}</span></summary>
-    ${olderGroups.map(group => groupCard(group, language)).join('')}</details>` : ''}
-  </details>
-  <p class="daily-footer"><a href="#findings-trends" data-hub="findings-trends">Open the research archive</a>
-   <a href="#weekly-updates" data-hub="weekly-updates">Subscribe to weekly updates</a></p>`;
+   ${sectorPanel(model,language)}
+   <section class="daily-section" id="daily-relationships">${comparisonPanel(model,language,feed)}</section>
+   ${strategicPanel(model,language)}
+   <section class="daily-section" id="daily-watch">${watchPanel(model,language)}<p class="daily-meta">A scheduled date requests verification; it does not establish that a measure entered into force or a contract was fulfilled.</p></section>
+   ${implicationsPanel(model,language)}
+   <details class="daily-detail daily-review" data-daily-detail="review-queue"><summary>Source changes to review <span class="daily-count" translate="no">${newGroups.reduce((total,group)=>total+group.count,0)}</span></summary><p>These observations await review. Expand a source to see its revision history.</p>${newGroups.map(group=>groupCard(group,language)).join('')||'<p>No source changes recorded for this period.</p>'}${olderGroups.length?`<details class="daily-detail" data-daily-detail="source-archive"><summary>Earlier monitored sources <span class="daily-count" translate="no">${olderGroups.length}</span></summary>${olderGroups.map(group=>groupCard(group,language)).join('')}</details>`:''}</details>
+   <details class="daily-detail" data-daily-detail="methods"><summary>Evidence and verification method</summary><p>Automatic retrieval verifies access to a registered source and compares its content hash. It does not establish that every statement is accurate or that a policy is legally operative. Analyst review, source checks, publication dates and statistical reference periods remain separate.</p><p>First indexing and parser refreshes are not new policy events. A signed MOU, a contract award, implementation and realized commercial outcomes are separate evidence stages. PDFs and unpublished executed contracts require document review.</p><p>Observation confidence and attribution are assessed separately. No gains or losses are inferred from news counts, agreement counts or export concentration alone.</p><p>Confidence concerns the stated source claim: High for a reviewed published legal record; Moderate for other reviewed reports; Unassessed for pending or changed sources. It does not rate Canadian economic gains.</p></details>
+   <p class="daily-footer"><a href="#findings-trends" data-hub="findings-trends">Open the research archive</a><a href="#weekly-updates" data-hub="weekly-updates">Subscribe to weekly updates</a></p>`;
  }
 
  let page = null;
  let currentFeed = {};
  let previousVisit = null;
  let range = 'today';
- let filters = {relationship:'all',topic:'all',stage:'all'};
+ let filters = {relationship:'all',topic:'all',stage:'all',priority:'all',region:'CA',chart:'value'};
+ let resources={history:null,tradeData:null},resourcesLoading=false,resourcesAt=0;
+ async function refreshResources(){if(resourcesLoading||Date.now()-resourcesAt<60000)return;resourcesLoading=true;const rs=await Promise.allSettled(['daily-editions.json','regional-statistics.json'].map(async path=>{const response=await fetch(path,{cache:'no-store'});if(!response.ok)throw Error();return response.json();}));resources={history:rs[0].status==='fulfilled'?rs[0].value:null,tradeData:rs[1].status==='fulfilled'?rs[1].value:null};resourcesAt=Date.now();resourcesLoading=false;render();}
  let displayedDay = '';
 
  function readVisit() {
@@ -416,7 +484,7 @@
  function render() {
   if (!page?.isConnected) return;
   const now = Date.now();
-  const model = buildBriefing({feed: currentFeed, register: global.PolicyResearchRegister, previousVisit, range, filters, now});
+  const model = buildBriefing({feed: currentFeed, register: global.PolicyResearchRegister, previousVisit, range, filters, now,...resources});
   displayedDay = model.today;
   const language = global.DashboardI18n?.language || 'en';
   const open = new Set([...page.querySelectorAll('details[open][data-daily-detail]')].map(item => item.dataset.dailyDetail));
@@ -433,7 +501,7 @@
   const unchanged = JSON.stringify(feed) === JSON.stringify(currentFeed);
   currentFeed = feed;
   if (page?.isConnected && page.parentNode === root) {
-   if (!unchanged || displayedDay !== dayKey(Date.now())) render();
+   if (!unchanged || displayedDay !== dayKey(Date.now())){render();if(global.fetch||typeof fetch==='function')refreshResources();}
    return;
   }
   previousVisit = readVisit();
@@ -446,12 +514,18 @@
    // The period controls still work when a browser blocks site storage.
   }
   range = 'today';
-  filters = {relationship:'all',topic:'all',stage:'all'};
+  filters = {relationship:'all',topic:'all',stage:'all',priority:'all',region:'CA',chart:'value'};
   root.innerHTML = '<section class="wrap daily-briefing" aria-labelledby="daily-heading"></section>';
   page = root.querySelector('.daily-briefing');
   page.addEventListener('change',event=>{const id=event.target.dataset.dailyFilter;if(!Object.hasOwn(filters,id))return;filters[id]=event.target.value;render();page.querySelector(`[data-daily-filter="${id}"]`)?.focus({preventScroll:true});});
   page.addEventListener('click', event => {
-   if(event.target.closest('[data-daily-reset]')?.dataset?.dailyReset!==undefined){filters={relationship:'all',topic:'all',stage:'all'};render();return;}
+   const jump=event.target.closest('[data-daily-jump]')?.dataset.dailyJump;
+   if(jump){const section=page.querySelector('#daily-'+jump);section?.scrollIntoView({block:'start',behavior:'smooth'});const h=section?.querySelector('h3');if(h){h.tabIndex=-1;h.focus({preventScroll:true});}return;}
+   if(event.target.closest('[data-daily-print]')){global.print?.();return;}
+   if(event.target.closest('[data-daily-refresh]')){resourcesAt=0;global.PolicyLive?.refresh?.();refreshResources();return;}
+   const topic=event.target.closest('[data-daily-topic]')?.dataset.dailyTopic;
+   if(topic&&Object.hasOwn(topics,topic)){filters.topic=topic;render();page.querySelector('[data-daily-filter="topic"]')?.focus({preventScroll:true});return;}
+   if(event.target.closest('[data-daily-reset]')?.dataset?.dailyReset!==undefined){filters={relationship:'all',topic:'all',stage:'all',priority:'all',region:'CA',chart:'value'};render();return;}
    const button = event.target.closest('[data-daily-range]');
    const next = button?.dataset.dailyRange;
    if (!Object.hasOwn(ranges, next) || next === range) return;
@@ -459,6 +533,7 @@
    render();
   });
   render();
+  if(global.fetch||typeof fetch==='function')refreshResources();
  }
 
  const api = {buildBriefing, renderBriefing, show};
@@ -466,6 +541,7 @@
  if (global) {
   global.DailyBriefing = api;
   global.addEventListener('dashboard-language-changed', render);
+  global.addEventListener('regional-statistics-loaded',()=>{if(global.RegionalTrade?.data){resources.tradeData=global.RegionalTrade.data;render();}});
  }
 })(typeof window === 'undefined' ? null : window);
 

@@ -42,7 +42,7 @@ test('a newly discovered policy appears in the daily briefing with decisions, so
  const feed={briefings:auto(),changes:[],lastAttempt:date,lastRunStatus:'success'};
  const m=briefing.buildBriefing({feed,register:{records:[]},now:Date.parse(date)});
  assert.equal(m.featured.length,1);assert.equal(m.latest[0].event.record.kind,'MOU');
- const html=briefing.renderBriefing(m,feed);assert.match(html,/Official source · analyst review pending/);assert.match(html,/What changed\?/);assert.match(html,/What should I watch next/);assert.match(html,/financial cooperation dialogue/);assert.match(html,/Agreements and implementation watch/);
+ const html=briefing.renderBriefing(m,feed);assert.match(html,/Official source · analyst review pending/);assert.match(html,/What changed\?/);assert.match(html,/Next analyst action/);assert.match(html,/financial cooperation dialogue/);assert.match(html,/Agreements and implementation watch/);
  assert.doesNotMatch(html,/Signed MOU/);
 });
 

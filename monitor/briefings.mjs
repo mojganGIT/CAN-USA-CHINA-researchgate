@@ -22,10 +22,11 @@ export function makeBriefings(doc,item,issuer){
  if(issuer==='United States')tags.relationships=tags.relationships.filter(r=>r==='Canada-USA'||r==='USA-China');
  if(issuer==='China')tags.relationships=tags.relationships.filter(r=>r.endsWith('-China'));
  // A publication must name another monitored country and a policy subject.
- if(!tags.relationships.length||!tags.topics.length||!/(?:memorandum|\bmou\b|agreement|tariff|regulat|policy|dialogue|consult|readout|export|investment|joint statement|declaration|market access|trade|cooperation)/i.test(lead))return [];
+ if(!tags.relationships.length||!tags.topics.length||!/(?:memorandum|\bmou\b|agreement|tariff|regulat|policy|dialogue|consult|readout|export|investment|joint statement|declaration|market access|trade|cooperation|contract|procurement|award)/i.test(lead))return [];
  const mou=/memorand(?:um|a) of understanding|\bMOU\b/i.test(body);
- const kind=mou?'MOU':/monthly trade report|foreign direct investment,|international merchandise trade|trade in goods with/i.test(doc.title)?'statistics':/declaration|joint statement/i.test(doc.title)?'recommendation':/readout|press conference|dialogue|consultation|\bmeets?\b|\bmeeting\b/i.test(lead)?'meeting':'policy';
- const status=mou?'MOU reported':kind==='meeting'?'Dialogue or readout':kind==='recommendation'?'Statement or framework':kind==='statistics'?'Data released':'Official announcement';
+ const contract=/contract|procurement/i.test(doc.title)&&/awarded|signed|contract award/i.test(body);
+ const kind=contract?'contract':mou?'MOU':/monthly trade report|foreign direct investment,|international merchandise trade|trade in goods with/i.test(doc.title)?'statistics':/declaration|joint statement/i.test(doc.title)?'recommendation':/readout|press conference|dialogue|consultation|\bmeets?\b|\bmeeting\b/i.test(lead)?'meeting':'policy';
+ const status=contract?'Contract award reported · review pending':mou?'MOU reported':kind==='meeting'?'Dialogue or readout':kind==='recommendation'?'Statement or framework':kind==='statistics'?'Data released':'Official announcement';
  const sentences=body.split(/(?<=[.!?])\s+/).filter(s=>s.split(/\s+/).length>=8);
  const relevant=sentences.filter(s=>/memorandum|\bmou\b|signed|tariff|agreed|implementation|dialogue|declaration/i.test(s));
  const passage=(relevant.find(s=>/memorandum|\bmou\b/i.test(s))||relevant[0]||sentences[0]||body);
@@ -38,7 +39,7 @@ export function makeBriefings(doc,item,issuer){
   date:doc.publicationDate,dateType:doc.publicationDate?'source_publication':'publication_unknown',
   publicationDate:doc.publicationDate,modifiedDate:doc.modifiedDate||null,
   detectedAt:item.detectedAt,checkedAt:item.detectedAt,changeType:item.changeType,
-  kind,relationship,topics:tags.topics,title:doc.title,
+  kind,relationship,topics:tags.topics,title:doc.title,implementationStatus:'unverified',
   changed:'The issuing authority published this policy record. Read the source excerpt for the reported development.',
   quote,canada:decisionQuestion,decisionQuestion,followUp,status,
   limit:'Automatic source report; analyst review pending. The excerpt establishes what the authority reports. Legal effect, compliance and Canadian gains or losses require separate evidence.',

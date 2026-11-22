@@ -5,6 +5,7 @@ import path from 'node:path';
 import {complete} from '../api/src/lib/llm.js';
 import {assessmentReview} from './assessment-review.mjs';
 import research from '../app/research-register.js';
+import intelligence from '../app/daily-intelligence.js';
 import {makeBriefings} from './briefings.mjs';
 import {hash,documentOf,safeURL,discoverCandidates,embeddedFeeds,classify,validateExtraction,fetchOfficial} from './core.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -14,8 +15,9 @@ const usEvidence=await read('app/us-trade-evidence.json',null),usInvestment=awai
 const c={window:{}};vm.createContext(c);vm.runInContext(await fs.readFile(path.join(root,'app/explorer-catalog.js'),'utf8'),c);const catalog=c.window.EXPLORER_CATALOG;
 const now=new Date().toISOString(),state=await read('monitor/state.json',{version:1,pages:{}}),previous=await read('app/policy-updates.json',{changes:[],lastSuccessfulRun:null});
 const feed={...previous,lastAttempt:now,scheduleUTC:config.scheduleUTC,aiEnabled:!!(process.env.POLICY_MONITOR_API_KEY&&process.env.POLICY_MONITOR_MODEL),sourcesChecked:0,sourceFailures:[],changes:previous.changes||[],briefings:previous.briefings||[],workflowURL:process.env.GITHUB_SERVER_URL&&process.env.GITHUB_RUN_ID?process.env.GITHUB_SERVER_URL+'/'+process.env.GITHUB_REPOSITORY+'/actions/runs/'+process.env.GITHUB_RUN_ID:null};
-const rebuildBriefings=previous.briefingSchemaVersion!==4;
-feed.briefingSchemaVersion=4;if(rebuildBriefings)feed.briefings=[];
+const sourceChecks=new Map((previous.sourceChecks||[]).map(c=>[c.url,c]));
+const rebuildBriefings=previous.briefingSchemaVersion!==5;
+feed.briefingSchemaVersion=5;if(rebuildBriefings)feed.briefings=[];
 const pages=new Map(),hosts=config.allowedHosts;
 for(const r of inventory.records){try{const url=safeURL(r.url,hosts);pages.set(url,{issuer:r.relationship.startsWith('Canada')?'Canada':'United States',known:true});}catch{}}
 if(evidence)for(const source of Object.values(evidence.sources)){try{const url=safeURL(source.url,hosts);if(!/\.(?:pdf|xlsx)(?:$|\?)/i.test(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}}
@@ -80,6 +82,7 @@ for(let offset=0;offset<entries.length;offset+=6){
   const doc=documentOf(page.html,page.url);doc.publicationDate||=meta.publicationDate||null;if(doc.text.length<180)throw new Error('Insufficient source content.');successfulPages++;feed.sourcesChecked++;if(coverage[meta.issuer])coverage[meta.issuer].pagesRead++;
   const digest=hash(doc.text),before=state.pages[url];
   state.pages[url]={digest,lastChecked:now,lastChanged:before?.digest===digest?before.lastChanged:now,title:doc.title,issuer:meta.issuer};
+  sourceChecks.set(url,{url:page.url,checkedAt:now,lastAttempt:now,lastChanged:state.pages[url].lastChanged,digest,status:'success',baseline:!before||before.digest===digest&&sourceChecks.get(url)?.baseline===true});
   if(!before&&meta.known)continue; // Baseline existing research, never report old records as a new policy.
   const last=feed.changes.find(x=>x.url===url&&x.digest===digest);
   if(rebuildBriefings&&last){last.title=doc.title;last.publicationDate=doc.publicationDate||last.publicationDate;}
@@ -106,9 +109,11 @@ for(let offset=0;offset<entries.length;offset+=6){
    if(index>=0)feed.briefings[index]={...briefing,firstDetectedAt:feed.briefings[index].firstDetectedAt||feed.briefings[index].detectedAt};
    else feed.briefings.push({...briefing,firstDetectedAt:briefing.detectedAt});
   }
- }catch(e){feed.sourceFailures.push({url,error:e.message});}
+ }catch(e){feed.sourceFailures.push({url,error:e.message});const old=state.pages[url];sourceChecks.set(url,{url,checkedAt:old?.lastChecked||null,lastAttempt:now,lastChanged:old?.lastChanged||null,digest:old?.digest||null,status:'failed'});}
  }
 }
+feed.sourceChecks=[...sourceChecks.values()];
+for(const b of feed.briefings){const check=sourceChecks.get(b.sources?.[0]?.url);if(check?.status==='success')b.checkedAt=check.checkedAt;}
 feed.briefings=feed.briefings.sort((a,b)=>b.detectedAt.localeCompare(a.detectedAt)).slice(0,180);
 for(const c of Object.values(coverage))c.status=c.hubsRead===0?'failed':c.failures.length?'partial':'success';
 feed.coverage=coverage;
@@ -117,6 +122,8 @@ if(evidence)feed.assessmentReview=assessmentReview(evidence,state,feed.sourceFai
 if(usEvidence)feed.usTradeReview=assessmentReview(usEvidence,state,feed.sourceFailures,previous.usTradeReview);
 feed.aiCalls=calls;feed.lastRunStatus=successfulPages===0?'failed':feed.sourceFailures.length?'partial':'success';
 if(successfulPages>0)feed.lastSuccessfulRun=now;
+const editions=intelligence.saveEdition(await read('app/daily-editions.json',{schemaVersion:1,editions:[]}),intelligence.snapshot({feed,register:research,now:Date.parse(now)}));
+await fs.writeFile(path.join(root,'app/daily-editions.json'),JSON.stringify(editions,null,2)+'\n');
 await fs.mkdir(path.join(root,'monitor'),{recursive:true});
 for(const [p,v]of [['monitor/state.json',state],['app/policy-updates.json',feed],['api/policy-updates.json',feed]])await fs.writeFile(path.join(root,p),JSON.stringify(v,null,2)+'\n');
 console.log(JSON.stringify({status:feed.lastRunStatus,sourcesChecked:feed.sourcesChecked,failures:feed.sourceFailures.length,totalObservations:feed.changes.length,briefings:feed.briefings.length,coverage,aiEnabled:feed.aiEnabled,aiCalls:calls}));

@@ -54,7 +54,7 @@ test('since last visit respects exact detection times and includes new date-only
  const since = briefing.buildBriefing({feed, register: data, range: 'since', previousVisit, now});
  assert.equal(since.groups[0].count, 1);
  assert.deepEqual(since.featured.map(item => item.record.id), ['added-same-day']);
- assert.equal(since.featured[0].status, 'Took effect');
+ assert.equal(since.featured[0].status, 'Effective date reached · verification needed');
  const firstVisit = briefing.buildBriefing({feed, register: data, range: 'since', now});
  assert.equal(firstVisit.firstVisit, true);
  assert.equal(firstVisit.start, '2026-11-10');
@@ -109,9 +109,10 @@ test('the normal updates entry point keeps the date selection through a feed ref
   localStorage: {getItem: key => stored.get(key) || null, setItem: (key, value) => stored.set(key, value)}
  };
  const context = vm.createContext({window, URL, URLSearchParams, Date: class extends Date { static now() { return now; } }});
+ vm.runInContext(fs.readFileSync(new URL('../app/daily-intelligence.js', import.meta.url), 'utf8'), context);
  vm.runInContext(fs.readFileSync(new URL('../app/daily-briefing.js', import.meta.url), 'utf8'), context);
  window.DailyBriefing.show(root, {changes: [], lastRunStatus: 'loading'});
- pageClick({target: {closest: () => ({dataset: {dailyRange: 'week'}})}});
+ pageClick({target: {closest: selector => selector === '[data-daily-range]' ? ({dataset: {dailyRange: 'week'}}) : null}});
  window.DailyBriefing.show(root, {changes: [], lastRunStatus: 'partial'});
  assert.match(page.innerHTML, /data-daily-range="week" aria-pressed="true"/);
  assert.match(page.innerHTML, /Partial coverage/);
@@ -121,3 +122,4 @@ test('the normal updates entry point keeps the date selection through a feed ref
  const agent = fs.readFileSync(new URL('../app/agent-tools.js', import.meta.url), 'utf8');
  assert(agent.includes('function updates(){window.DailyBriefing.show(root,feed);}'));
 });
+
