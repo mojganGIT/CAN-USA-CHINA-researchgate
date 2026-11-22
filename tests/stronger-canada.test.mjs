@@ -8,6 +8,7 @@ import R from '../app/research-register.js';
 import Impact from '../app/impact-model.js';
 import Regional from '../app/regional-trade-model.js';
 import I18n from '../app/i18n.js';
+const outcomes=JSON.parse(fs.readFileSync(new URL('../app/evidence-records.json',import.meta.url),'utf8'));
 
 test('all eight directions resolve to the shared register and preserve evidence identity',()=>{
  assert.equal(Object.keys(D.topics).length,8);assert.equal(D.capabilities.length,8);
@@ -21,7 +22,7 @@ test('all eight directions resolve to the shared register and preserve evidence 
 });
 
 test('invalid route values are normalized and all thirteen jurisdictions round-trip',()=>{
- const invalid=M.normalize(D,{topic:'<script>',region:'US',view:'unsafe'});assert.deepEqual(invalid,{topic:'finance',region:'CA',view:'directions'});
+ const invalid=M.normalize(D,{topic:'<script>',region:'US',view:'unsafe'});assert.deepEqual(invalid,{topic:'finance',region:'CA',view:'overview',dimension:'all',dependency:'all'});
  assert.equal(M.regions.length,14);
  for(const region of M.regions)for(const view of M.views){const state=M.normalize(D,{topic:'energy',region,view});assert.deepEqual(M.normalize(D,Object.fromEntries(new URLSearchParams(M.query(state).split('?')[1]))),state);}
 });
@@ -70,8 +71,79 @@ test('source failure and stale monitoring are visible independently of substanti
 test('production loads shared data before the register and mounts the tab after its dependencies',()=>{
  const html=fs.readFileSync(new URL('../app/index.html',import.meta.url),'utf8');
  for(const file of ['stronger-canada-data.js','stronger-canada-copy.js','stronger-canada-model.js','stronger-canada.js','stronger-canada.css'])assert(html.includes(file));
- assert(html.indexOf('stronger-canada-data.js')<html.indexOf('research-register.js'));assert(html.indexOf('stronger-canada.js')<html.indexOf('home.js'));
+ assert(html.indexOf('stronger-canada-framework.js')<html.indexOf('stronger-canada-data.js'));assert(html.indexOf('stronger-canada-data.js')<html.indexOf('research-register.js'));assert(html.indexOf('stronger-canada.js')<html.indexOf('home.js'));
  const home=fs.readFileSync(new URL('../app/home.js',import.meta.url),'utf8');assert(home.includes("['stronger-canada','Stronger Canada']"));
+});
+
+test('all thirty-two assessments resolve typed shared records and have translated questions and findings',()=>{
+ const F=D.framework;assert.equal(Object.keys(F.sectors).length,8);assert.equal(Object.keys(F.dimensions).length,4);
+ for(const [topic,sector]of Object.entries(F.sectors)){
+  assert.equal(Object.keys(sector.assessments).length,4);assert.equal(sector.watch.length,4);
+  for(const dim of Object.keys(F.dimensions)){
+   const a=M.assessment(D,R,outcomes,topic,dim);assert.equal(a.missing.length,0,topic+' '+dim);assert(Object.hasOwn(F.signals,a.signal));
+   for(const ref of a.refs)assert(ref.type==='research'?R.records.includes(ref.record):outcomes.records.includes(ref.record));
+   for(const lang of ['fr','zh-Hans'])for(const field of ['question','finding'])assert.notEqual(I18n.t(a.definition[field],lang),a.definition[field]);
+  }
+  for(const w of sector.watch)assert(w.dimensions.every(id=>Object.hasOwn(F.dimensions,id)));
+ }
+});
+
+test('project signals cannot be allocated to other provinces, future headcount or foreign-affiliate activity',()=>{
+ assert.equal(M.assessment(D,R,outcomes,'energy','capacity','SK').signal,'favourable');
+ assert.equal(M.assessment(D,R,outcomes,'energy','capacity','BC').signal,'favourable');
+ for(const region of ['ON','QC','NU'])assert.equal(M.assessment(D,R,outcomes,'energy','capacity',region).signal,'insufficient');
+ const sk=M.assessment(D,R,outcomes,'energy','capacity','SK');assert.deepEqual(sk.local.map(x=>x.id),['sc-mcilvenna-production-2026']);
+ const mine=sk.local[0].record;assert.equal(mine.statistics.reportedFullTimeWorkersApprox,380);assert(!Object.values(mine.statistics).includes(450));assert.match(mine.limit,/forecast/);
+ assert.equal(M.assessment(D,R,outcomes,'vehicles','capacity','ON').signal,'mixed');
+ const finance=M.assessment(D,R,outcomes,'finance','capacity','ON');assert.equal(finance.signal,'insufficient');assert.equal(finance.local.length,0);assert(finance.context.some(x=>x.id==='manulife-china'));
+ const broken={...outcomes,records:outcomes.records.filter(r=>r.id!=='lng-operating')};const a=M.assessment(D,R,broken,'energy','capacity');assert.equal(a.signal,'insufficient');assert(a.review.required);
+ assert.equal(M.assessment(D,R,null,'energy','capacity').pending,true);
+});
+
+test('dimension review flags follow linked sources without overwriting findings or guessing new-source relevance',()=>{
+ const now='2026-11-23T12:00:00Z',before=JSON.stringify(D.framework),url=R.records.find(r=>r.id==='sc-mcilvenna-production-2026').sources[0].url;
+ const feed={changes:[{url,topics:['energy'],changeType:'source_revision',detectedAt:'2026-11-23T08:00:00Z'}]};
+ assert(M.dimensionReview(D,R,outcomes,'energy','capacity',feed,now).required);
+ assert(M.dimensionReview(D,R,outcomes,'energy','resilience',feed,now).required);
+ assert.equal(M.dimensionReview(D,R,outcomes,'energy','diversification',feed,now).required,false);
+ const first={changes:[{...feed.changes[0],changeType:'new_source'}]};assert.equal(M.dimensionReview(D,R,outcomes,'energy','capacity',first,now).required,false);
+ const unassigned={changes:[{...feed.changes[0],url:'https://www.canada.ca/new-sector-measure'}]};assert.equal(M.unassignedActivity(D,R,outcomes,'energy',unassigned,now).length,1);
+ for(const dim of Object.keys(D.framework.dimensions))assert.equal(M.dimensionReview(D,R,outcomes,'energy',dim,unassigned,now).required,false);
+ assert.equal(M.unassignedActivity(D,R,outcomes,'energy',feed,now).length,0);
+ assert.equal(JSON.stringify(D.framework),before);
+});
+
+test('a previously flagged statistical source stays pending until its evidence is reviewed',()=>{
+ const id=outcomes.records.find(r=>r.id==='vehicles-exports-ytd').sourceIds[0];
+ const feed={assessmentReview:{dataVersion:outcomes.version,checks:[{sourceId:id,reviewRequired:true,changedAt:'2026-11-07T12:00:00Z'}]}};
+ assert(M.dimensionReview(D,R,outcomes,'vehicles','diversification',feed,'2026-11-23T12:00:00Z').required);
+ const wrongVersion={assessmentReview:{...feed.assessmentReview,dataVersion:'different-vintage'}};
+ assert.equal(M.dimensionReview(D,R,outcomes,'vehicles','diversification',wrongVersion,'2026-11-23T12:00:00Z').required,false);
+});
+
+test('matrix links preserve regional scope and shared dependencies without averaging signals',()=>{
+ const state=M.normalize(D,{view:'compare',region:'SK',dependency:'all'}),rows=M.matrix(D,R,outcomes,state);assert.equal(rows.length,8);assert.equal(rows.flatMap(r=>r.assessments).length,32);
+ const mineral=M.matrix(D,R,outcomes,{...state,dependency:'mineral_inputs'});assert.deepEqual(mineral.map(r=>r.topic),['vehicles','energy','technology','security']);
+ for(const row of rows)for(const a of row.assessments){assert.equal(a.region,'SK');const selected={...state,view:'directions',topic:row.topic,dimension:a.dimension};assert.deepEqual(M.normalize(D,Object.fromEntries(new URLSearchParams(M.query(selected).split('?')[1]))),selected);}
+ const invalid=M.normalize(D,{view:'compare',dimension:'<script>',dependency:'bad'});assert.equal(invalid.dimension,'all');assert.equal(invalid.dependency,'all');
+ const next=M.upcoming(D,R,'agreements','2026-11-22T12:00:00Z');assert(next.some(x=>x.record.id==='sc-indonesia-scheduled-entry-2026'&&x.date==='2026-12-01'));
+ assert.equal(M.review(D,R,'agreements',{},'2026-11-22T12:00:00Z').milestones.length,0);
+});
+
+test('all sector pages render five sections, four linked assessments and a safe monitoring queue',()=>{
+ const host={innerHTML:'',querySelectorAll:()=>[]},location={hash:'#stronger-canada?view=overview'},events={};
+ const feed={briefings:[{id:'unclassified',reviewState:'source_reported',topics:['finance'],title:'<script>unsafe</script>',publicationDate:'2026-11-22',detectedAt:'2026-11-22T01:00:00Z',sources:[{url:'https://www.canada.ca/new-financial-measure',publisher:'Official source'}]}]};
+ const window={StrongerCanadaData:D,StrongerCanadaModel:M,PolicyResearchRegister:R,ImpactModel:Impact,CanadaImpact:{data:outcomes,ensureData:async()=>true},PolicyLive:{feed},DashboardI18n:{t:s=>s,locale:'en-CA',translateTree(){}},addEventListener(type,fn){events[type]=fn;}};
+ const document={activeElement:null,getElementById:()=>host,addEventListener(){}};
+ const context=vm.createContext({window,document,location,Intl,URLSearchParams,Date});
+ vm.runInContext(fs.readFileSync(new URL('../app/stronger-canada.js',import.meta.url),'utf8'),context);
+ window.StrongerCanada.render();assert.equal((host.innerHTML.match(/class="sc-sector-card"/g)||[]).length,8);
+ for(const topic of Object.keys(D.topics)){
+  location.hash='#'+M.query(M.normalize(D,{view:'directions',topic}));window.StrongerCanada.render();
+  assert.equal((host.innerHTML.match(/class="sc-page-section"/g)||[]).length,5,topic);assert.equal((host.innerHTML.match(/class="sc-assessment"/g)||[]).length,4,topic);assert(host.innerHTML.includes('Confidence in policy attribution'));
+ }
+ location.hash='#stronger-canada?view=compare';window.StrongerCanada.render();assert.equal((host.innerHTML.match(/class="sc-matrix-link"/g)||[]).length,32);assert.equal((host.innerHTML.match(/<option value="(?:CA|AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT)"/g)||[]).length,14);
+ location.hash='#stronger-canada?view=directions&topic=finance&dimension=capacity';window.StrongerCanada.render();assert(host.innerHTML.includes('data-sc-detail="assessment-finance-capacity" open'));assert(host.innerHTML.includes('&lt;script&gt;unsafe&lt;/script&gt;'));assert(!host.innerHTML.includes('<script>unsafe'));
 });
 
 test('shared evidence loads once before a map host is mounted and reports recoverable failures',async()=>{

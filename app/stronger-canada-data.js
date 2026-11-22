@@ -151,7 +151,9 @@
   ['screening','Investment Canada Act','Innovation, Science and Economic Development Canada',S('Framework overview','Aperçu du cadre','制度概览'),S('Review depends on the transaction; the overview is not an approval decision.','L’examen dépend de la transaction; cet aperçu ne constitue pas une approbation.','审查取决于具体交易；概览并非批准决定。')],
   ['cyber',S('National Cyber Security Strategy','Stratégie nationale de cybersécurité','国家网络安全战略'),'Public Safety Canada','2025-02-06',S('A strategy is not evidence of fewer incidents or completed mitigations.','Une stratégie ne prouve pas une baisse des incidents ni des mesures achevées.','战略并非事故减少或缓解措施完成的证据。')]
  ].map(([id,title,publisher,date,limit])=>({id,title,publisher,date,limit,url:urls[id]}));
- const api={reviewedAt,translations,urls,records,topics,capabilities,references};
+ const framework=typeof module!=='undefined'&&module.exports?require('./stronger-canada-framework.js'):g?.StrongerCanadaFramework;
+ if(framework){records.push(...framework.records);Object.assign(translations,framework.translations);topics.energy.basis.push('sc-mcilvenna-production-2026');topics.investment.basis.push('sc-mcilvenna-production-2026');}
+ const api={reviewedAt,translations,urls,records,topics,capabilities,references,framework};
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
  if(g)g.StrongerCanadaData=api;
 })(typeof window==='undefined'?null:window);
