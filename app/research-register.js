@@ -633,6 +633,8 @@
   }
 ];
  for(const r of currentRecords){r.dateType||={MOU:'signature_reported',meeting:'statement_published',policy:'publication_date',extension:'announcement',recommendation:'statement_published',statistics:'statistical_release'}[r.kind];r.originalStatus||=r.kind==='MOU'?'mou_reported':r.effectiveDate?'in_force':'source_reported';for(const key of ["title","changed","canada","limit","followUp"])r[key]=S(...r[key]);records.push(r);}
+ const stronger=typeof module!=='undefined'&&module.exports?require('./stronger-canada-data.js'):g?.StrongerCanadaData;
+ if(stronger){records.push(...stronger.records);Object.assign(translations,stronger.translations);}
  const api={reviewedAt:'2026-11-22',records,labels,translations};
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
  if(g)g.PolicyResearchRegister=api;

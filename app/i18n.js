@@ -6,7 +6,8 @@
  const guide=common?require('./dashboard-guide.js'):global.PolicyGuide;
  const register=common?require('./research-register.js'):global.PolicyResearchRegister;
  const bilateral=common?require('./bilateral-copy.js'):global.BilateralCopy;
- const dictionaries={...(ui||{}),...(content||{}),...(guide?.translations||{}),...(register?.translations||{}),...(bilateral?.strings||{})};
+ const stronger=common?require('./stronger-canada-copy.js'):global.StrongerCanadaCopy;
+ const dictionaries={...(ui||{}),...(content||{}),...(guide?.translations||{}),...(register?.translations||{}),...(bilateral?.strings||{}),...(stronger?.strings||{})};
  const normalize=s=>{const code=String(s??'').replaceAll('_','-').toLowerCase();return /^fr(?:-|$)/.test(code)?'fr':['zh','zh-cn','zh-hans','zh-hans-cn'].includes(code)?'zh-Hans':'en';};
  let language='en';const textCache=new Map();const originals=new WeakMap(),attributes=new WeakMap();
  const clean=s=>String(s??'').replace(/\s+/g,' ').trim();
@@ -102,3 +103,4 @@
  const api={t:translate,setLanguage,translateTree,normalize,dictionaries,searchQuery,get language(){return language;},get locale(){return language==='fr'?'fr-CA':language==='zh-Hans'?'zh-CN':'en-CA';}};
  if(common)module.exports=api;if(global){global.DashboardI18n=api;mount();}
 })(typeof window==='undefined'?null:window);
+

@@ -23,7 +23,7 @@ if(usInvestment)for(const source of usInvestment.sources||[])if(source.status===
 if(usEvidence)for(const source of Object.values(usEvidence.sources)){try{const url=safeURL(source.url,hosts);if(!/\.(?:pdf|xlsx)(?:$|\?)/i.test(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}}
 // Monitor linked official releases; independent analysis remains curated reading.
 for(const record of research.records.filter(r=>r.kind!=='analysis'))for(const source of record.sources){
- try{const url=safeURL(source.url,hosts);if(!pages.has(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}
+ try{const url=safeURL(source.url,hosts);if(!/\.(?:pdf|xlsx)(?:$|\?)/i.test(url)&&!pages.has(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}
 }
 // A parser migration must revisit existing source reports before replacing them.
 // Otherwise the routine 20-page revisit budget can silently drop a fresh release.

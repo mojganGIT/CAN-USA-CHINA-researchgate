@@ -5,7 +5,7 @@
  const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const guide=window.PolicyGuide,L=guide.labels;
  const BM=window.BilateralModel;
- const primaryTabs=[['home','Home'],...Object.values(BM.pairs).map(p=>[p.id,p.title]),['research-search',L.search],['your-llm',L.llm],['daily-updates','Daily Updates']];
+ const primaryTabs=[['home','Home'],...Object.values(BM.pairs).map(p=>[p.id,p.title]),['stronger-canada','Stronger Canada'],['research-search',L.search],['your-llm',L.llm],['daily-updates','Daily Updates']];
  const homeMenu=[['categories',L.categories],['countries',L.countries],['comparative',L.comparative]];
  const compareMenu=[['findings-trends',L.insights],['evidence-methods','Evidence & Methods'],['relationship-explorer',L.relationship]];
  const menus={home:{label:L.homeMenu,items:homeMenu}};
@@ -19,6 +19,7 @@
  const tools=Object.values(BM.pairs).map((p,i)=>[p.id,String(i+1).padStart(2,'0'),p.title,descriptions[p.id]]);
  const researchTools=[
   ['executive-summary','Executive Summary','Understand the dashboard, its Canadian purpose and how to use it.'],
+  ['stronger-canada','Stronger Canada','Connect national priorities to commercial results and defensible policy directions.'],
   ['canada-implications','Canada Implications Explorer','Open the provincial map, export statistics and regional evidence.'],
   ['policy-map','Policy Product Map','Browse policy fields across the three relationships.'],
   ['relationship-explorer',L.relationship,'Explore topic connections and their significance for Canada.'],
@@ -143,6 +144,7 @@
   else if(homeMenu.some(([key])=>key===id))root.innerHTML=guide.page(id,C);
   else if(id==='findings-trends')insightsPage();
   else if(id==='executive-summary')summaryPage();
+  else if(id==='stronger-canada')window.StrongerCanada.show();
   else if(id==='briefing-overview'||id==='canada-implications')window.CanadaImpact.show('overview');
   else if(id==='compare-topics')window.CanadaImpact.show('compare');
   else if(id==='policy-tracker')window.CanadaImpact.show('policy');
@@ -159,7 +161,7 @@
   }
   updateNavigation();if(focus){root.focus({preventScroll:true});root.scrollIntoView({block:'start',behavior:'instant'});}
  }
- function navigate(target='home'){const [id,incoming='']=target.split('?');if(['home','briefing-overview','canada-implications','compare-topics','policy-tracker','evidence-methods'].includes(id)){const params=new URLSearchParams(window.CanadaImpact?.data?window.CanadaImpact.filterQuery():location.hash.split('?')[1]||'');for(const [key,value]of new URLSearchParams(incoming))params.set(key,value);target=id+(params.toString()?'?'+params:'');}history.pushState(null,'','#'+target);route(true);}
+ function navigate(target='home'){const [id,incoming='']=target.split('?');if(id==='stronger-canada'){const current=new URLSearchParams(location.hash.split('?')[1]||''),next=new URLSearchParams(incoming);for(const key of ['topic','region'])if(!next.has(key)&&current.has(key))next.set(key,current.get(key));target=id+(next.toString()?'?'+next:'');}if(['home','briefing-overview','canada-implications','compare-topics','policy-tracker','evidence-methods'].includes(id)){const params=new URLSearchParams(window.CanadaImpact?.data?window.CanadaImpact.filterQuery():location.hash.split('?')[1]||'');for(const [key,value]of new URLSearchParams(incoming))params.set(key,value);target=id+(params.toString()?'?'+params:'');}history.pushState(null,'','#'+target);route(true);}
  document.addEventListener('click',e=>{const a=e.target.closest('a[data-hub]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();navigate(a.dataset.hub);});
  function refreshLiveSections(){const latest=document.getElementById('hub-latest'),status=document.getElementById('hub-live-status'),health=document.getElementById('hub-source-health');if(latest)latest.innerHTML=routeId()==='home'?homeLatestHTML():latestHTML(feed(),routeId()==='executive-summary'?5:3);if(status)status.innerHTML=routeId()==='home'?homeStatusHTML():statusHTML();if(health){const open=health.querySelector('details')?.open;health.innerHTML=healthHTML();if(open)health.querySelector('details').open=true;}}
  if(window.ResizeObserver){new window.ResizeObserver(updateNavigationOffset).observe(navigation);const dock=document.getElementById('subscription-dock');if(dock)new window.ResizeObserver(updateSubscriptionOffset).observe(dock);}

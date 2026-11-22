@@ -32,3 +32,11 @@ Weekly feeds are available in [English](https://ambitious-field-09c66cd10.1.azur
 ## Daily policy briefing
 
 Daily Updates now combines automatic official-source reports with reviewed evidence, three relationship comparisons, MOU/policy filters, implementation dates, Canadian decision questions and next analyst actions. Country-level discovery status and overdue warnings expose coverage gaps. Core briefings run without an LLM key. See [AUTOMATION_SETUP.md](AUTOMATION_SETUP.md#daily-policy-decision-support-22-november-2026).
+
+## Stronger Canada
+
+`#stronger-canada` links proposed policy directions across all eight dashboard categories to the shared reviewed research register. Its five views cover directions, sector evidence, diversification comparisons, the government plan crosswalk and original sources. Province/territory selections carry into the Canada map; national observations retain their original geography. Provincial goods statistics are used only for the three matching goods categories.
+
+`app/stronger-canada-data.js` stores direction text, linked research IDs, primary references and the review date. Additional records are merged into `PolicyResearchRegister`, rather than copied into a separate evidence register. The national-security plan’s eight capabilities are explicitly distinguished from the dashboard’s eight categories, including the pharmaceuticals/biotech coverage gap. The April 2026 fiscal update remains a dated commitment baseline.
+
+The existing daily monitor checks linked HTML sources. New reports, linked source revisions and reached milestones request analyst reassessment without changing a reviewed direction or upgrading a signed agreement to implemented access. Monitoring failures and stale coverage remain visible; PDFs require separate document review. After substantive review, update the affected records and direction review date together. No new LLM credentials, hosting resources or domain changes are required.

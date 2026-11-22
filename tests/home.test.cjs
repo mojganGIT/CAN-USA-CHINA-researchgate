@@ -11,12 +11,13 @@ window.PolicyLive={feed,show(view){location.hash=view==='llm'?'#your-llm':'#dail
 window.BilateralHub={show(id){node('root').innerHTML='BILATERAL '+id;},clear(){}};
 window.USTrade={show(){node('root').innerHTML='US TRADE VIEW';}};
 window.WeeklyUpdates={show(){node('root').innerHTML='WEEKLY UPDATES VIEW';}};
+window.StrongerCanada={show(){node('root').innerHTML='STRONGER CANADA VIEW';}};
 window.showExplorer=()=>{location.hash='#relationship-explorer?topic=agriculture';node('root').innerHTML='EXPLORER VIEW';};
 const mounts=[],impactViews=[];window.CanadaImpact={data:null,mount(view,id){mounts.push(id);node(id).innerHTML='IMPACT '+view;},show(view){impactViews.push(view);node('root').innerHTML='IMPACT '+view;}};
 vm.runInContext(fs.readFileSync(path.join(dir,'home.js'),'utf8'),ctx,{filename:'home.js'});
 const hub=window.HomeHub;
 assert(hub);assert.equal(hub.tools.length,3);
-const primary=['home','canada-china','us-china','us-canada','research-search','your-llm','daily-updates'];
+const primary=['home','canada-china','us-china','us-canada','stronger-canada','research-search','your-llm','daily-updates'];
 const initialNav=node('site-navigation').innerHTML;
 assert.deepEqual(Array.from(initialNav.matchAll(/data-hub="([^"?]+)"/g),m=>m[1]).filter(id=>primary.includes(id)),primary);
 assert.deepEqual(Array.from(hub.homeMenu,([id])=>id),['categories','countries','comparative']);
@@ -50,7 +51,8 @@ for(const [id]of hub.tabs){
  if(id==='policy-tracker')assert.equal(node('root').innerHTML,'IMPACT policy');
  if(id==='us-trade')assert.equal(node('root').innerHTML,'US TRADE VIEW');
  if(id==='weekly-updates')assert.equal(node('root').innerHTML,'WEEKLY UPDATES VIEW');
- if(id==='research-tools'){assert.equal((node('root').innerHTML.match(/class="hub-research-card"/g)||[]).length,7);for(const [tool]of hub.researchTools)assert(node('root').innerHTML.includes('data-hub="'+tool+'"'));}
+ if(id==='stronger-canada')assert.equal(node('root').innerHTML,'STRONGER CANADA VIEW');
+ if(id==='research-tools'){assert.equal((node('root').innerHTML.match(/class="hub-research-card"/g)||[]).length,8);for(const [tool]of hub.researchTools)assert(node('root').innerHTML.includes('data-hub="'+tool+'"'));}
  if(['categories','countries','comparative'].includes(id)){
   const html=node('root').innerHTML;assert(html.includes('Why does it matter to Canada?'));assert(html.includes('How can it help policy analysis?'));assert(html.includes('What changed?'));
   if(id==='categories')assert.equal((html.match(/data-hub="compare-topics\?topic=/g)||[]).length,8);
@@ -78,5 +80,6 @@ input.value='龙虾';window.ask();assert(node('ans').innerHTML.includes('data-gu
 
 const index=fs.readFileSync(path.join(dir,'index.html'),'utf8');assert(index.includes('id="site-navigation"'));assert(index.includes('id="root" tabindex="-1"'));assert(index.includes('home.js'));assert(index.includes('home.css'));
 const live=fs.readFileSync(path.join(dir,'agent-tools.js'),'utf8');assert(live.includes('5*60*1000'));assert(live.includes("cache:'no-store'"));assert(live.includes("'visibilitychange'"));assert(!/localStorage|sessionStorage/.test(live));
-console.log(JSON.stringify({passed:true,navigationTabs:hub.tabs.length,primaryTabs:7,dropdowns:4,homeSections:3,topicViews:8,routes:'all home destinations',daily:'home shows at most three source-title rows and a compact status; detailed records stay in their tools',preservation:'curated executive assessment and 22 original records retained',browserQA:'live and preview access restricted by network/saved browser permissions'}));
+console.log(JSON.stringify({passed:true,navigationTabs:hub.tabs.length,primaryTabs:8,dropdowns:4,homeSections:3,topicViews:8,routes:'all home destinations',daily:'home shows at most three source-title rows and a compact status; detailed records stay in their tools',preservation:'curated executive assessment and 22 original records retained',browserQA:'live and preview access restricted by network/saved browser permissions'}));
+
 
