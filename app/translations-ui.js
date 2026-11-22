@@ -83,9 +83,9 @@
   "Mises à jour quotidiennes des politiques",
   "每日政策更新"
  ],
- "Canada–U.S.–China Policy Intelligence": [
-  "Veille stratégique Canada–États-Unis–Chine",
-  "加拿大—美国—中国政策观察"
+ "policyintelligence": [
+  "policyintelligence",
+  "policyintelligence"
  ],
  "Canada, U.S. and China policy research with interactive relationships, source-linked findings and Canadian implications.": [
   "Recherche sur les politiques du Canada, des États-Unis et de la Chine : relations interactives, résultats documentés et implications canadiennes.",
@@ -7239,9 +7239,9 @@
   "QU’EST-CE QUE CE TABLEAU DE BORD ?",
   "这个仪表板是什么？"
  ],
- "Canada–U.S.–China Policy Intelligence is a research dashboard that compares three relationships: Canada–China, U.S.–China, and Canada–U.S. It brings together evidence from 2018–2026 to answer a central question: How do Canada’s close ties with the United States and its economic relationship with China shape its opportunities, constraints, and policy choices?": [
-  "Le tableau de bord de recherche Veille stratégique Canada–États-Unis–Chine compare trois relations : Canada–Chine, États-Unis–Chine et Canada–États-Unis. Il rassemble des données et des sources de 2018 à 2026 pour répondre à une question centrale : comment les liens étroits du Canada avec les États-Unis et sa relation économique avec la Chine façonnent-ils ses possibilités, ses contraintes et ses choix de politique publique ?",
-  "“加拿大—美国—中国政策观察”是一个研究仪表板，比较加中、美中和加美三组关系。它汇集2018至2026年的证据，探讨一个核心问题：加拿大与美国的紧密联系及其与中国的经济关系，如何影响加拿大的机遇、约束和政策选择？"
+ "policyintelligence is a research dashboard that compares three relationships: Canada–China, U.S.–China, and Canada–U.S. It brings together evidence from 2018–2026 to answer a central question: How do Canada’s close ties with the United States and its economic relationship with China shape its opportunities, constraints, and policy choices?": [
+  "Le tableau de bord de recherche policyintelligence compare trois relations : Canada–Chine, États-Unis–Chine et Canada–États-Unis. Il rassemble des données et des sources de 2018 à 2026 pour répondre à une question centrale : comment les liens étroits du Canada avec les États-Unis et sa relation économique avec la Chine façonnent-ils ses possibilités, ses contraintes et ses choix de politique publique ?",
+  "“policyintelligence”是一个研究仪表板，比较加中、美中和加美三组关系。它汇集2018至2026年的证据，探讨一个核心问题：加拿大与美国的紧密联系及其与中国的经济关系，如何影响加拿大的机遇、约束和政策选择？"
  ],
  "The same policy change can have different effects across Canada. Improved access to China can open opportunities for Prairie canola exporters, while changes to U.S. vehicle rules can affect Ontario manufacturers that rely on cross-border supply chains. The dashboard helps users identify which industries and regions are exposed, what has been measured, and where the effects are still uncertain.": [
   "Un même changement de politique peut avoir des effets différents selon les régions du Canada. Un meilleur accès au marché chinois peut ouvrir des débouchés aux exportateurs de canola des Prairies, tandis qu’une modification des règles américaines sur les véhicules peut toucher les fabricants ontariens qui dépendent de chaînes d’approvisionnement transfrontalières. Le tableau de bord aide à repérer les secteurs et les régions exposés, à voir ce qui a été mesuré et à cerner les effets qui restent incertains.",

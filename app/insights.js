@@ -156,7 +156,7 @@
   main.innerHTML=view==='trends'?trends():register(view);
   for(const el of main.querySelectorAll('details[data-insight-detail]'))if(open.has(el.dataset.insightDetail))el.open=true;
   document.getElementById('insights-files').innerHTML=`<summary>${tx('Published data files')}</summary><ul>${Object.values(feeds).map(([file,label])=>`<li><a href="${e(file)}" target="_blank" rel="noopener" download>${tx(label)} · ${tx('Download JSON')}</a></li>`).join('')}</ul>`;
-  document.title=T('Findings & Trends')+' | Canada–U.S.–China';
+  document.title='policyintelligence | '+T('Findings & Trends');
   feedback.textContent=!loaded?T('Loading published data…'):failures.length?T('Some feeds did not load. Where available, the last loaded figures remain visible.')+' '+failures.map(x=>T(x)).join(' · '):T('Published feeds loaded');
  }
  let busy=false,loaded=false,failures=[];
@@ -200,4 +200,5 @@
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
  render();refresh();
 })();
+
 

@@ -58,7 +58,7 @@
  function weeklyBriefingActive(){return routeId()==='weekly-updates'&&new URLSearchParams(location.hash.split('?')[1]||'').get('view')==='briefing';}
  function updateTitle(){
   const title=weeklyBriefingActive()?'Weekly policy briefing':tabs.find(t=>t[0]===routeId())?.[1]||'Policy Research';
-  document.title=(window.DashboardI18n?.t(title)||title)+' | Canada–U.S.–China';
+  document.title=routeId()==='home'?'policyintelligence':'policyintelligence | '+(window.DashboardI18n?.t(title)||title);
  }
  function updateNavigationOffset(){
   const height=navigation.getBoundingClientRect?.().height;
@@ -101,7 +101,7 @@
  function researchToolsPage(){root.innerHTML=`<div class="wrap hub-home"><div class="hub-page-heading"><p class="hub-eyebrow">RESEARCH TOOLS</p><h2>Choose a research tool.</h2><p>Start with a question, follow the relationship and open its evidence. Each tool supports a different step in preparing a Canadian policy brief.</p></div><div class="hub-research-grid">${researchTools.map(([id,title,description])=>`<a class="hub-research-card" href="#${id}" data-hub="${id}"><h3>${E(title)} <span aria-hidden="true">→</span></h3><p>${E(description)}</p></a>`).join('')}</div></div>`;}
  function executiveSummaryHTML(){
   const questions=[
-   ["What is this dashboard?", "Canada–U.S.–China Policy Intelligence is a research dashboard that compares three relationships: Canada–China, U.S.–China, and Canada–U.S. It brings together evidence from 2018–2026 to answer a central question: How do Canada’s close ties with the United States and its economic relationship with China shape its opportunities, constraints, and policy choices?"],
+   ["What is this dashboard?", "policyintelligence is a research dashboard that compares three relationships: Canada–China, U.S.–China, and Canada–U.S. It brings together evidence from 2018–2026 to answer a central question: How do Canada’s close ties with the United States and its economic relationship with China shape its opportunities, constraints, and policy choices?"],
    ["Why does it matter to Canada?", "The same policy change can have different effects across Canada. Improved access to China can open opportunities for Prairie canola exporters, while changes to U.S. vehicle rules can affect Ontario manufacturers that rely on cross-border supply chains. The dashboard helps users identify which industries and regions are exposed, what has been measured, and where the effects are still uncertain."],
    ["What is it used for?", "Use it to prepare policy briefs, compare sectors, and follow a measure from announcement to implementation. For example, when a tariff changes, you can check which products are covered and when the change takes effect, then look at shipment or employment data to see what followed. The dashboard helps you distinguish what happened after a policy change from what the evidence shows the policy caused."],
    ["Who can use it?", "Policy advisors and government officials can use it to brief decision-makers and assess policy options. Chambers of commerce, industry associations, and businesses can use it to identify market opportunities and questions to investigate before making decisions. Researchers and students can trace findings to their original sources and build their own comparisons."],
@@ -169,4 +169,5 @@
  window.HomeHub={navigate,route,updateNavigation,primaryTabs,homeMenu,compareMenu,homeHTML,executiveSummaryHTML,homeStatusHTML,homeLatestHTML,statusHTML,latestHTML,topicsHTML,refreshLiveSections,tabs,tools,researchTools};
  route();
 })();
+
 
