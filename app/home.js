@@ -63,8 +63,17 @@
   document.title=routeId()==='home'?'policyintelligence':'policyintelligence | '+(window.DashboardI18n?.t(title)||title);
  }
  function updateNavigationOffset(){
-  const height=navigation.getBoundingClientRect?.().height;
-  if(Number.isFinite(height))document.documentElement?.style?.setProperty('--dashboard-nav-height',Math.ceil(height)+'px');
+  const rect=navigation.getBoundingClientRect?.();
+  if(!rect)return;
+  document.documentElement?.style?.setProperty('--dashboard-nav-height',Math.ceil(rect.height)+'px');
+  document.documentElement?.style?.setProperty('--dashboard-nav-bottom',Math.ceil(rect.bottom)+'px');
+  const viewport=document.documentElement?.clientWidth||window.innerWidth;
+  if(!Number.isFinite(viewport))return;
+  for(const menu of navigation.querySelectorAll('details.hub-nav-menu[open]')){
+   const width=menu.querySelector('ul')?.getBoundingClientRect?.().width||315;
+   const left=menu.parentElement?.getBoundingClientRect?.().left||8;
+   menu.style.setProperty('--dashboard-menu-left',Math.round(Math.max(8,Math.min(left,viewport-width-8)))+'px');
+  }
  }
  function updateSubscriptionDock(){
   const dock=document.getElementById('subscription-dock');if(!dock)return;
@@ -99,6 +108,8 @@
   for(const menu of navigation.querySelectorAll('details.hub-nav-menu[open]'))if(menu!==except)menu.open=false;
  }
  navigation.addEventListener('click',e=>{const summary=e.target.closest('.hub-nav-menu > summary');if(summary)closeMenus(summary.parentElement);});
+ navigation.addEventListener('toggle',e=>{if(e.target.classList?.contains('hub-nav-menu'))updateNavigationOffset();},true);
+ navigation.addEventListener('scroll',updateNavigationOffset,true);
  document.addEventListener('click',e=>{if(!e.target.closest('.hub-nav-menu'))closeMenus();});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'){const menu=navigation.querySelector('details.hub-nav-menu[open]');if(menu){closeMenus();menu.querySelector('summary').focus();}}});
  function researchToolsPage(){root.innerHTML=`<div class="wrap hub-home"><div class="hub-page-heading"><p class="hub-eyebrow">RESEARCH TOOLS</p><h2>Choose a research tool.</h2><p>Start with a question, follow the relationship and open its evidence. Each tool supports a different step in preparing a Canadian policy brief.</p></div><div class="hub-research-grid">${researchTools.map(([id,title,description])=>`<a class="hub-research-card" href="#${id}" data-hub="${id}"><h3>${E(title)} <span aria-hidden="true">→</span></h3><p>${E(description)}</p></a>`).join('')}</div></div>`;}
@@ -169,6 +180,7 @@
  function refreshLiveSections(){const latest=document.getElementById('hub-latest'),status=document.getElementById('hub-live-status'),health=document.getElementById('hub-source-health');if(latest)latest.innerHTML=routeId()==='home'?homeLatestHTML():latestHTML(feed(),routeId()==='executive-summary'?5:3);if(status)status.innerHTML=routeId()==='home'?homeStatusHTML():statusHTML();if(health){const open=health.querySelector('details')?.open;health.innerHTML=healthHTML();if(open)health.querySelector('details').open=true;}}
  if(window.ResizeObserver){new window.ResizeObserver(updateNavigationOffset).observe(navigation);const dock=document.getElementById('subscription-dock');if(dock)new window.ResizeObserver(updateSubscriptionOffset).observe(dock);}
  window.addEventListener('resize',()=>{updateNavigationOffset();updateSubscriptionDock();});
+ window.addEventListener('scroll',()=>{if(navigation.querySelector('details.hub-nav-menu[open]'))updateNavigationOffset();},{passive:true});
  window.addEventListener('dashboard-language-changed',()=>{updateTitle();syncInsightsLanguage();updateNavigationOffset();updateSubscriptionDock();});
  window.addEventListener('hashchange',()=>route());window.addEventListener('policy-updates-loaded',refreshLiveSections);
  window.HomeHub={navigate,route,updateNavigation,primaryTabs,homeMenu,compareMenu,homeHTML,executiveSummaryHTML,homeStatusHTML,homeLatestHTML,statusHTML,latestHTML,topicsHTML,refreshLiveSections,tabs,tools,researchTools};

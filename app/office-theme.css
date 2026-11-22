@@ -89,6 +89,10 @@ html[lang=fr] .hub-main-nav a{font-size:12px}html[lang=zh-Hans] body{font-family
 
 @media screen{
  #site-navigation{position:sticky;top:0;z-index:50;background:var(--office-navy);box-shadow:0 4px 12px #0b203920}
+ .hub-main-nav{display:flex;flex-wrap:nowrap;gap:3px;max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin;scrollbar-color:var(--office-gold) var(--office-navy)}
+ .hub-main-nav>.hub-nav-group,.hub-main-nav>a{flex:0 0 auto}
+ .hub-main-nav>a,.hub-main-nav .hub-nav-group>a{white-space:nowrap;padding-inline:6px}
+ .hub-main-nav .hub-nav-menu>ul,.hub-main-nav [data-daily-navigation] .hub-nav-menu>ul{position:fixed;top:calc(var(--dashboard-nav-bottom,70px) + 4px);left:var(--dashboard-menu-left,8px);right:auto;max-height:calc(100dvh - var(--dashboard-nav-bottom,70px) - var(--subscription-dock-height,60px) - 20px)}
  html{scroll-padding-top:var(--dashboard-nav-height,0px)}
  #root{scroll-margin-top:12px}
 }
