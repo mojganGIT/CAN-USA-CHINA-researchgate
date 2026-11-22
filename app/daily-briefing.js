@@ -240,7 +240,7 @@
    <h4>${escape(record.title)}</h4>
    <div class="daily-proof-grid"><div><span>Implementation status</span><strong class="daily-tag" data-stage="${escape(proof.stage.id)}">${escape(proof.stage.label)}</strong></div><div><span>Evidence confidence</span><strong>${escape(proof.observationConfidence)}</strong><span>${escape(proof.confidence)}</span></div><div><span>Last source check</span>${formatDate(proof.checkedAt,language)||'<strong>Not recorded</strong>'}<span>${escape(proof.freshness)}</span></div><div><span>Analyst reviewed</span>${formatDate(proof.reviewedAt,language)||'<strong>Analyst review pending</strong>'}</div></div>
    <p class="daily-meta">${record.reviewState?'Official source · analyst review pending':record.kind==='analysis'?'Reviewed research source':'Reviewed primary source'} · ${escape(proof.attribution)}</p>
-   ${proof.changed?'<p class="daily-stale">The linked source changed after the recorded review date. Reassess the claim before relying on it.</p>':''}
+   ${proof.changed?`<p class="daily-stale">${escape(proof.confidenceReason)}</p>`:''}
    ${priorityIds.length?`<p class="daily-priority-tags">${priorityIds.map(id=>`<span class="daily-tag">${escape(I.dimensions[id])}</span>`).join('')}</p>`:'<p class="daily-meta">Policy-priority classification awaits analyst review.</p>'}
    <dl class="daily-questions">
     <dt>What changed?</dt><dd>${escape(record.changed)}${record.quote?`<blockquote data-no-translate>${escape(record.quote)}</blockquote>`:''}</dd>
