@@ -6,7 +6,7 @@ import B from '../app/daily-briefing.js';
 import R from '../app/research-register.js';
 import F from '../app/stronger-canada-framework.js';
 import RM from '../app/regional-trade-model.js';
-import {makeBriefings} from '../monitor/briefings.mjs';
+import {makeBriefings,sourceSummary} from '../monitor/briefings.mjs';
 const now=Date.parse('2026-11-22T18:30:00Z'),source={publisher:'Official fixture',url:'https://www.canada.ca/policy'};
 const record=(id,extra={})=>({id,date:'2026-11-20',kind:'policy',relationship:'Canada-China',topics:['agriculture'],sources:[source],reviewedAt:'2026-11-22',title:id,changed:'Documented policy claim.',canada:'A Canadian decision question.',...extra});
 const scan=(digest='one',status='success',date='2026-11-22T12:00:00Z')=>({lastAttempt:date,lastRunStatus:status,sourceChecks:[{url:source.url,digest,status,checkedAt:date,lastChanged:date}]});
@@ -85,4 +85,49 @@ test('the seven briefing sections follow the supplied structure and retain manda
 test('an automatic procurement report identifies an award without upgrading it to executed deliveries',()=>{
  const doc={title:'CCC and Canadian supplier awarded U.S. military contract',text:'Canada and the United States maintain defence trade cooperation. The Canadian supplier was awarded a five-year contract for aircraft engine parts. Deliveries will follow the terms of the contract.',publicationDate:'2026-11-21'};
  const rows=makeBriefings(doc,{url:source.url,detectedAt:'2026-11-22T12:00:00Z',id:'v1',changeType:'new_source'},'Canada');assert.equal(rows[0].kind,'contract');assert.equal(rows[0].implementationStatus,'unverified');assert.equal(rows[0].reviewState,'source_reported');assert.equal(I.stage(rows[0],'2026-11-22').id,'reported');
+});
+
+test('automatic source summaries select factual source sentences without a model key or invented implementation',()=>{
+ const title='Canada and China discuss agricultural trade policy';
+ const sentence='Canada and China will consider expanding agricultural market access after further technical discussions.';
+ const doc={title,text:title+' November 21, 2026 '+sentence+' Officials noted that further implementation details would need to be verified before exporters could use new preferences.',publicationDate:'2026-11-21'};
+ const item={url:source.url,detectedAt:'2026-11-22T12:00:00Z',digest:'summary-one',id:'s1',changeType:'new_source'};
+ const s=sourceSummary(doc,item,'policy');assert.equal(s.method,'source_excerpt');assert.equal(s.text,sentence);assert(doc.text.includes(s.quote));assert(s.quote.split(/\s+/).length<=25);
+ const r=makeBriefings(doc,item,'Canada')[0];assert.equal(r.changed,sentence);assert.equal(r.sourceSummary.sourceDigest,'summary-one');assert.equal(r.reviewState,'source_reported');
+ const abbreviation='The U.S. and Canada agreed to consult on energy trade without changing existing tariff rules.';
+ const a=sourceSummary({title:'Energy policy',text:abbreviation},item,'policy');assert.equal(a.quote,abbreviation);
+ const assisted=sourceSummary(doc,{...item,ai:{summary:'The authority reports further agricultural access discussions, with implementation still pending.'}},'policy');assert.equal(assisted.method,'validated_extraction');assert.equal(assisted.reviewState,'source_reported');
+});
+
+test('both overview sections display automatic summaries, and summary provenance cannot cross source versions',()=>{
+ const text='Canada and China will consider expanding agricultural market access after further technical discussions.';
+ const r=record('auto-summary',{reviewState:'source_reported',reviewedAt:undefined,date:'2026-11-21',publicationDate:'2026-11-21',detectedAt:'2026-11-22T12:00:00Z',versionId:'v1',changeType:'new_source',digest:'one',quote:text,changed:'The issuing authority published this policy record. Read the source excerpt for the reported development.',sourceSummary:{text,method:'source_excerpt',sourceURL:source.url,sourceDigest:'one'}});
+ assert.equal(I.summary(r).text,text);assert.equal(I.summary(r).automatic,true);
+ assert.equal(I.summary({...r,sourceSummary:{...r.sourceSummary,text:'WRONG SOURCE VERSION',sourceDigest:'two'}}).text,text);
+ const f={...scan(),briefings:[r]};const html=B.renderBriefing(B.buildBriefing({feed:f,register:{records:[]},now}),f);
+ const executive=html.slice(html.indexOf('id="daily-summary"'),html.indexOf('class="daily-delta"'));
+ assert(executive.includes(text));assert(executive.includes('Automatic source summary'));assert(executive.includes('Canadian relevance'));
+ const changes=html.slice(html.indexOf('class="daily-delta"'),html.indexOf('class="daily-scan"'));assert(changes.includes(text));assert(changes.includes('A comparison with yesterday is not available yet.'));
+ assert(!executive.includes('Read the source excerpt for the reported development.'));
+ const hostile={...r,sourceSummary:{...r.sourceSummary,text:'<img src=x onerror=bad()>'}};const safe=B.renderBriefing(B.buildBriefing({feed:{briefings:[hostile]},register:{records:[]},now}),{});assert(!safe.includes('<img src=x'));assert(safe.includes('&lt;img'));
+});
+
+test('saved editions carry source summaries into before-and-after change briefings',()=>{
+ const report=(digest,text)=>({id:'auto',title:'Official agricultural policy',relationship:'Canada-China',topics:['agriculture'],kind:'policy',reviewState:'source_reported',digest,quote:text,sourceSummary:{text,method:'source_excerpt',sourceURL:source.url,sourceDigest:digest},sources:[source]});
+ const oldText='The authority will consult on market access before any tariff change is implemented.';
+ const newText='The authority reports a scheduled tariff suspension subject to the published eligibility requirements.';
+ const before=I.snapshot({feed:{...scan('one'),briefings:[report('one',oldText)]},register:{records:[]},now:Date.parse('2026-11-21T14:00:00Z')});
+ const after=I.snapshot({feed:{...scan('two'),briefings:[report('two',newText)]},register:{records:[]},now});
+ const history=I.saveEdition(I.saveEdition(null,before),after),c=I.compare(history,'2026-11-22');
+ assert.equal(c.sourceRevisions[0].before.summary.text,oldText);assert.equal(c.sourceRevisions[0].after.summary.text,newText);
+ const html=B.renderBriefing(B.buildBriefing({feed:scan('two'),register:{records:[]},history,now}),scan('two'));
+ assert(html.includes(oldText));assert(html.includes(newText));assert(html.includes('Yesterday’s source summary'));assert(html.includes('Current source summary'));assert(html.includes('A changed page does not by itself establish changed obligations'));
+});
+
+test('briefing navigation appears above content with dynamic sticky offsets and title case',()=>{
+ const html=B.renderBriefing(B.buildBriefing({register:R,now}),{});
+ assert(html.includes('<h2 id="daily-heading">Daily Policy Intelligence Brief</h2>'));
+ assert(html.indexOf('class="daily-jump"')<html.indexOf('class="daily-filters"'));
+ assert.equal((html.match(/data-daily-jump=/g)||[]).length,7);
+ const css=fs.readFileSync(new URL('../app/daily-briefing.css',import.meta.url),'utf8');assert(css.includes('position:sticky;top:var(--daily-main-nav-height'));assert(css.includes('scroll-margin-top:var(--daily-scroll-offset'));
 });

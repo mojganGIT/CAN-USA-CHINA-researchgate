@@ -16,8 +16,8 @@ const c={window:{}};vm.createContext(c);vm.runInContext(await fs.readFile(path.j
 const now=new Date().toISOString(),state=await read('monitor/state.json',{version:1,pages:{}}),previous=await read('app/policy-updates.json',{changes:[],lastSuccessfulRun:null});
 const feed={...previous,lastAttempt:now,scheduleUTC:config.scheduleUTC,aiEnabled:!!(process.env.POLICY_MONITOR_API_KEY&&process.env.POLICY_MONITOR_MODEL),sourcesChecked:0,sourceFailures:[],changes:previous.changes||[],briefings:previous.briefings||[],workflowURL:process.env.GITHUB_SERVER_URL&&process.env.GITHUB_RUN_ID?process.env.GITHUB_SERVER_URL+'/'+process.env.GITHUB_REPOSITORY+'/actions/runs/'+process.env.GITHUB_RUN_ID:null};
 const sourceChecks=new Map((previous.sourceChecks||[]).map(c=>[c.url,c]));
-const rebuildBriefings=previous.briefingSchemaVersion!==6;
-feed.briefingSchemaVersion=6;if(rebuildBriefings)feed.briefings=[];
+const rebuildBriefings=previous.briefingSchemaVersion!==7;
+feed.briefingSchemaVersion=7;if(rebuildBriefings)feed.briefings=[];
 const pages=new Map(),hosts=config.allowedHosts;
 for(const r of inventory.records){try{const url=safeURL(r.url,hosts);pages.set(url,{issuer:r.relationship.startsWith('Canada')?'Canada':'United States',known:true});}catch{}}
 if(evidence)for(const source of Object.values(evidence.sources)){try{const url=safeURL(source.url,hosts);if(!/\.(?:pdf|xlsx)(?:$|\?)/i.test(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}}
@@ -102,9 +102,10 @@ for(let offset=0;offset<entries.length;offset+=6){
   }
   if(!last)feed.changes.unshift(item);
   const reports=makeBriefings(doc,item,meta.issuer);
-  if(reports.length)item.sourceReport={quote:reports[0].quote,status:reports[0].status,kind:reports[0].kind};
+  if(reports.length)item.sourceReport={quote:reports[0].quote,status:reports[0].status,kind:reports[0].kind,summary:reports[0].sourceSummary};
   for(const briefing of reports){
    briefing.checkedAt=now;
+   if(briefing.sourceSummary)briefing.sourceSummary.generatedAt=now;
    const index=feed.briefings.findIndex(x=>x.id===briefing.id);
    if(index>=0)feed.briefings[index]={...briefing,firstDetectedAt:feed.briefings[index].firstDetectedAt||feed.briefings[index].detectedAt};
    else feed.briefings.push({...briefing,firstDetectedAt:briefing.detectedAt});

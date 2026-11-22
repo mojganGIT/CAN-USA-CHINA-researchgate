@@ -43,10 +43,26 @@
   const ids=Object.entries(framework?.sectors||{}).flatMap(([,s])=>Object.entries(s.assessments||{}).filter(([,a])=>a.researchIds?.includes(r.id)).map(([d])=>d));
   return [...new Set([...(r.priorityIds||[]),...ids])].filter(x=>Object.hasOwn(dimensions,x));
  }
+ function summary(r,feed={}){
+  const automatic=r.reviewState==='source_reported';
+  const clean=value=>typeof value==='string'?value.trim():'';
+  const placeholder=/^The issuing authority published this policy record\./;
+  const changed=clean(r.changed);
+  if(!automatic&&changed&&!placeholder.test(changed))return {text:changed,method:'reviewed',label:'Reviewed source summary',automatic:false,truncated:false};
+  const s=r.sourceSummary;
+  const bound=s&&clean(s.text)&&url(s.sourceURL)&&(r.sources||[]).some(x=>url(x.url)===url(s.sourceURL))&&typeof r.digest==='string'&&r.digest&&s.sourceDigest===r.digest;
+  if(bound)return {text:clean(s.text),method:s.method,label:'Automatic source summary',automatic:true,truncated:!!s.truncated};
+  const item=(feed.changes||[]).find(x=>x.digest===r.digest&&(r.sources||[]).some(s=>url(s.url)===url(x.url)));
+  if(item?.ai?.summary)return {text:clean(item.ai.summary),method:'validated_extraction',label:'Automatic source summary',automatic:true,truncated:false};
+  if(clean(r.quote))return {text:clean(r.quote),method:'source_excerpt',label:'Automatic source summary',automatic:true,truncated:r.quote.split(/\s+/).length>=25};
+  if(changed&&!placeholder.test(changed))return {text:changed,method:automatic?'source_reported':'reviewed',label:automatic?'Automatic source summary':'Reviewed source summary',automatic,truncated:false};
+  return {text:'Source summary unavailable. Open the original source for its full text.',method:'unavailable',label:'Source summary',automatic:true,truncated:false};
+ }
  function snapshot({feed={},register={records:[]},now=Date.now()}){
   const today=day(now),known=new Map();
   for(const r of register.records||[])if(r.reviewedAt&&day(r.reviewedAt)<=today&&day(r.date)<=today&&r.sources?.some(s=>url(s.url)))known.set(r.id,{id:r.id,title:r.title,date:r.date,relationship:r.relationship,topics:r.topics||[],priorityIds:priorities(r,typeof module!=='undefined'&&module.exports?require('./stronger-canada-framework.js'):g?.StrongerCanadaFramework),kind:r.kind,stage:stage(r,today).id,reviewedAt:r.reviewedAt,changed:r.changed||'',sourceURLs:r.sources.map(s=>url(s.url)).filter(Boolean)});
-  return {date:today,generatedAt:new Date(now).toISOString(),scanAt:feed.lastAttempt||null,status:feed.lastRunStatus||'not_run',records:[...known.values()],sourceChecks:(feed.sourceChecks||[]).filter(c=>url(c.url)).map(c=>({url:url(c.url),digest:c.digest||null,status:c.status,checkedAt:c.checkedAt,lastChanged:c.lastChanged||null})),countryCoverage:Object.fromEntries(countries.map(c=>[c,feed.coverage?.[c]?.status||'pending']))};
+  const sourceSummaries=(feed.briefings||[]).filter(r=>r.sources?.some(s=>url(s.url))).map(r=>({id:r.id,title:r.title,relationship:r.relationship,topics:r.topics||[],kind:r.kind,reviewState:'source_reported',url:url(r.sources[0].url),digest:r.digest||null,date:r.publicationDate||r.date||null,checkedAt:r.checkedAt||null,summary:summary(r,feed)}));
+  return {date:today,generatedAt:new Date(now).toISOString(),scanAt:feed.lastAttempt||null,status:feed.lastRunStatus||'not_run',records:[...known.values()],sourceSummaries,sourceChecks:(feed.sourceChecks||[]).filter(c=>url(c.url)).map(c=>({url:url(c.url),digest:c.digest||null,status:c.status,checkedAt:c.checkedAt,lastChanged:c.lastChanged||null})),countryCoverage:Object.fromEntries(countries.map(c=>[c,feed.coverage?.[c]?.status||'pending']))};
  }
  function saveEdition(history,current){
   const editions=Array.isArray(history?.editions)?history.editions:[];
@@ -61,10 +77,11 @@
   const newRecords=current.records.filter(r=>matches(r)&&!old.has(r.id));
   const updatedRecords=current.records.filter(r=>matches(r)&&old.has(r.id)&&JSON.stringify({...r,reviewedAt:null})!==JSON.stringify({...old.get(r.id),reviewedAt:null})).map(r=>({before:old.get(r.id),after:r}));
   const oldSources=new Map(previous.sourceChecks.filter(c=>c.digest).map(c=>[c.url,c]));
-  const allowed=new Set(current.records.filter(matches).flatMap(r=>r.sourceURLs));
+  const allowed=new Set([...current.records.filter(matches).flatMap(r=>r.sourceURLs),...(current.sourceSummaries||[]).filter(matches).map(r=>r.url)]);
   const limited=filters.relationship&&filters.relationship!=='all'||filters.topic&&filters.topic!=='all'||filters.stage&&filters.stage!=='all'||filters.priority&&filters.priority!=='all';
   const checked=current.sourceChecks.filter(c=>c.status==='success'&&c.digest&&(!limited||allowed.has(c.url)));
-  return {ready:true,current,previous,newRecords,updatedRecords,sourceRevisions:checked.filter(c=>oldSources.has(c.url)&&oldSources.get(c.url).digest!==c.digest).map(c=>({...c,beforeDigest:oldSources.get(c.url).digest})),newSources:checked.filter(c=>!oldSources.has(c.url))};
+  const source=(edition,c)=>edition.sourceSummaries?.find(s=>s.url===c.url&&s.digest===c.digest&&matches(s))||null;
+  return {ready:true,current,previous,newRecords,updatedRecords,sourceRevisions:checked.filter(c=>oldSources.has(c.url)&&oldSources.get(c.url).digest!==c.digest).map(c=>({...c,beforeDigest:oldSources.get(c.url).digest,before:source(previous,oldSources.get(c.url)),after:source(current,c)})),newSources:checked.filter(c=>!oldSources.has(c.url)).map(c=>({...c,after:source(current,c)}))};
  }
  function trade(data,{topic='all',region='CA',relationship='all'}={},model){
   if(!model||data?.mappingVersion!==2)return {available:false,reason:'Official trade series unavailable'};
@@ -77,7 +94,7 @@
   const points=Array.from({length:12},(_,i)=>{const d=new Date(Date.UTC(year,month-12+i,1));const p=d.toISOString().slice(0,7);return {period:p,values:s.partners.slice(0,2).map(partner=>model.amount(partner.series?.points.find(x=>x.period?.slice(0,7)===p)))};});
   return {...s,points,retrievedAt:data.retrievedAt,lastAttempt:data.lastAttempt,status:data.status,url:url(data.url),basis:data.basis};
  }
- const api={countries,dimensions,day,priorDay,url,stage,evidence,priorities,snapshot,saveEdition,compare,trade};
+ const api={countries,dimensions,day,priorDay,url,stage,evidence,priorities,summary,snapshot,saveEdition,compare,trade};
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
  if(g)g.DailyIntelligence=api;
 })(typeof window==='undefined'?null:window);

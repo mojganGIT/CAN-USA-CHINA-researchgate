@@ -77,3 +77,12 @@ Each development shows implementation stage, last source check, analyst-review d
 The seven briefing sections share relationship, sector, instrument-type and policy-priority controls. Province and chart controls apply to the Canadian trade context, with twelve monthly observations, exact table alternatives and complete same-month YTD comparisons. Suppressed or missing values stay unavailable; U.S.–China trade is not allocated to Canadian provinces, and unsupported services topics explicitly retain all-merchandise context. Daily checking does not change a statistical reference period. Source outages and pending analyst classifications remain visible. Core briefings and charts do not require an LLM.
 
 Validation: `npm run evidence:validate && npm test`. The offline monitor integration exercises successful retrieval, parser migration, source revision, outage preservation and persisted edition writing; the pure-model tests cover Toronto day boundaries, missing baselines, contract stages, source confidence and chart suppression.
+
+
+### Automatic summaries in the daily overview
+
+The executive summary and change briefing now display the linked source's content. Reviewed records use their curated `changed` summary and Canadian relevance. Automatic reports store a source-bound `sourceSummary` with method, content digest, URL, generation time and pending review status. Without a model key, the collector automatically selects one relevant source passage of at most 25 words, preserving proposals, conditions and negation; it is labelled as an extracted source passage. Existing validated model extractions can supply a longer summary when the owner has already enabled that path. No new model service or key is required.
+
+Daily editions retain these summaries by source URL and content digest. A recorded source revision can therefore show yesterday's and the current summary. Missing earlier summaries and missing calendar-day editions remain explicit. First indexing, source-text revisions and reviewed policy changes stay distinct. Parser version 7 backfills summaries from re-fetched sources; it does not label parser-only indexing as a new policy event.
+
+The seven briefing section buttons sit above the filters and stay below the main site navigation while scrolling. Resize observers measure both navigation bars to keep section targets clear at different screen widths. Small screens use a horizontally scrollable section bar.
