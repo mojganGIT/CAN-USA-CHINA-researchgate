@@ -11,6 +11,7 @@
   timeZone, year: 'numeric', month: '2-digit', day: '2-digit'
  });
  const ranges = {today: 'Today', since: 'Since my last visit', week: 'Last seven days'};
+ const sections = Object.freeze({summary:'Executive summary',developments:'Priority developments',sectors:'Sector updates',relationships:'Country and relationship updates',strategy:'Strategic outlook',watch:'What to watch next',implications:'Implications for Canadian policy'});
  const relationships = {'Canada-China': 'Canada–China', 'Canada-USA': 'Canada–U.S.', 'USA-China': 'U.S.–China'};
  const topics = {agreements:'Agreements and MOUs',vehicles:'Vehicles and batteries',agriculture:'Agriculture and seafood',energy:'Energy and minerals',finance:'Finance',technology:'Technology',security:'Security',investment:'Investment'};
  const stages = {all:'All evidence',MOU:'MOUs',contract:'Signed contracts and awards',policy:'Policy and tariffs',meeting:'Dialogues and readouts',statistics:'Measured data',recommendation:'Statements and frameworks'};
@@ -151,7 +152,7 @@
   const firstVisit = range === 'since' && !since;
   const start = since ? dayKey(visitTime) : range === 'today' ? today : previousDay(today, 6);
   const seen = new Set(since && Array.isArray(previousVisit?.events) ? previousVisit.events : []);
-  const selected={relationship:filters.relationship||'all',topic:filters.topic||'all',stage:filters.stage||'all',priority:Object.hasOwn(I.dimensions,filters.priority)?filters.priority:'all',region:Object.hasOwn(provinces,filters.region)?filters.region:'CA',chart:filters.chart==='share'?'share':'value'};
+  const selected={relationship:filters.relationship||'all',topic:filters.topic||'all',stage:filters.stage||'all',priority:Object.hasOwn(I.dimensions,filters.priority)?filters.priority:'all',region:Object.hasOwn(provinces,filters.region)?filters.region:'CA',chart:filters.chart==='share'?'share':'value',partner:['United States','China'].includes(filters.partner)?filters.partner:'all'};
   const matches=event=>{
    const r=event.record;
    return (selected.relationship==='all'||r.relationship===selected.relationship)&&
@@ -427,23 +428,27 @@
  function tradePanel(model,language){
   const s=model.trade,selected=model.filters;
   const select=(id,label,options)=>`<label>${label}<select data-daily-filter="${id}">${Object.entries(options).map(([value,name])=>`<option value="${value}"${selected[id]===value?' selected':''}>${escape(name)}</option>`).join('')}</select></label>`;
-  const money=n=>n===null?'Not available':new Intl.NumberFormat({fr:'fr-CA','zh-Hans':'zh-CN'}[language]||'en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0}).format(n);
-  const number=n=>n===null?'Not available':new Intl.NumberFormat('en-CA',{maximumFractionDigits:1}).format(n);
-  const month=p=>new Intl.DateTimeFormat({fr:'fr-CA','zh-Hans':'zh-CN'}[language]||'en-CA',{month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(p+'-01'));
-  let chart='';
+  const locale={fr:'fr-CA','zh-Hans':'zh-CN'}[language]||'en-CA';
+  const money=n=>n===null?'Not available':new Intl.NumberFormat(locale,{style:'currency',currency:'CAD',maximumFractionDigits:0}).format(n);
+  const number=n=>n===null?'Not available':new Intl.NumberFormat(locale,{maximumFractionDigits:1}).format(n);
+  const percent=n=>n===null?'Not available':number(n)+'%';
+  const month=p=>new Intl.DateTimeFormat(locale,{month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(p+'-01'));
+  const indices=selected.partner==='United States'?[0]:selected.partner==='China'?[1]:[0,1];
+  const name=i=>i===0?'USA':'China';
+  let chart='',cards='';
   if(s.available){
+   cards=`<div class="daily-trade-countries">${indices.map(i=>{const p=s.partners[i],latest=s.points.at(-1);return `<article class="daily-trade-country" data-daily-trade-country="${escape(p.partner)}"><h5><img class="daily-flag" src="flags/${i?'cn':'us'}.svg" alt=""> ${name(i)}</h5><p class="daily-meta">Canadian domestic exports to ${escape(p.partner)}</p><dl><div><dt>Latest month</dt><dd>${money(latest.values[i])}<span class="daily-meta">${escape(month(latest.period))}</span></dd></div><div><dt>Year-to-date exports</dt><dd>${money(p.current)}<span class="daily-meta">January–${escape(month(s.year+'-'+String(s.month).padStart(2,'0')))}</span></dd></div><div><dt>Change from prior year</dt><dd>${p.change===null?'Not available':(p.change>0?'+':'')+percent(p.change)}<span class="daily-meta">Same complete months</span></dd></div><div><dt>Share of all destinations</dt><dd>${percent(p.share)}<span class="daily-meta">Year-to-date</span></dd></div></dl></article>`;}).join('')}</div>`;
    if(selected.chart==='share'){
     const world=s.partners[2].current,us=s.partners[0].current,china=s.partners[1].current;
-    const rows=[s.partners[0],s.partners[1]];
-    chart=`<div class="daily-share-bars" role="img" aria-label="Export destination shares from the same complete year-to-date period">${rows.map(p=>`<div><p><strong>${escape(p.partner)}</strong><span>${p.share===null?'Not available':number(p.share)+'%'}</span></p><div class="daily-share-track"><span style="width:${p.share!==null&&p.share>=0&&p.share<=100?p.share:0}%" class="${p.partner==='China'?'daily-china':'daily-us'}"></span></div></div>`).join('')}</div><p class="daily-meta">${world!==null&&us!==null&&china!==null&&world>=us+china?`Other destinations: ${number((world-us-china)/world*100)}% · `:''}Shares use all-destination domestic exports as the denominator.</p>`;
+    chart=`<div class="daily-share-bars" role="img" aria-label="Export destination shares from the same complete year-to-date period">${indices.map(i=>{const p=s.partners[i];return `<div><p><strong>${name(i)}</strong><span>${percent(p.share)}</span></p><div class="daily-share-track"><span style="width:${p.share!==null&&p.share>=0&&p.share<=100?p.share:0}%" class="${i?'daily-china':'daily-us'}"></span></div></div>`;}).join('')}</div><p class="daily-meta">${world!==null&&us!==null&&china!==null&&world>0&&world>=us+china?`Other destinations: ${number((world-us-china)/world*100)}% · `:''}Shares use all-destination domestic exports as the denominator.</p>`;
    }else{
-    const values=s.points.flatMap(p=>p.values).filter(n=>n!==null),max=Math.max(...values,1),scale=max>=1e9?1e9:max>=1e6?1e6:max>=1e3?1e3:1,unit=scale===1e9?'CAD billion':scale===1e6?'CAD million':scale===1e3?'CAD thousand':'CAD',x=i=>58+i*62,y=n=>242-n/max*194;
+    const values=s.points.flatMap(p=>indices.map(i=>p.values[i])).filter(n=>n!==null),max=Math.max(...values,1),scale=max>=1e9?1e9:max>=1e6?1e6:max>=1e3?1e3:1,unit=scale===1e9?'CAD billion':scale===1e6?'CAD million':scale===1e3?'CAD thousand':'CAD',x=i=>58+i*62,y=n=>242-n/max*194;
     const line=index=>{let d='',started=false;for(let i=0;i<s.points.length;i++){const n=s.points[i].values[index];if(n===null){started=false;continue;}d+=(started?' L':' M')+x(i)+' '+y(n);started=true;}return d;};
-    chart=`<div class="daily-chart-scroll" tabindex="0" role="region" aria-label="Monthly export chart; exact values follow in the data table"><svg class="daily-line-chart" viewBox="0 0 780 292" role="img" aria-labelledby="daily-chart-title daily-chart-desc"><title id="daily-chart-title">Monthly Canadian domestic exports</title><desc id="daily-chart-desc">${escape(s.region)} · ${escape(s.commodity)} · current CAD. Missing values create gaps; exact values are in the expandable table.</desc>${[0,.5,1].map(t=>`<line x1="58" x2="740" y1="${y(t*max)}" y2="${y(t*max)}" class="daily-grid-line"/><text x="49" y="${y(t*max)+5}" text-anchor="end">${number(t*max/scale)}</text>`).join('')}<text x="58" y="23">${unit}</text><path d="${line(0)}" class="daily-line-us"/><path d="${line(1)}" class="daily-line-china"/>${s.points.map((p,i)=>`${[0,1].map(k=>p.values[k]===null?'':`<circle cx="${x(i)}" cy="${y(p.values[k])}" r="4" tabindex="0" class="${k?'daily-point-china':'daily-point-us'}" aria-label="${escape(s.partners[k].partner+' · '+month(p.period)+' · '+money(p.values[k]))}"><title>${escape(s.partners[k].partner+' · '+month(p.period)+' · '+money(p.values[k]))}</title></circle>`).join('')}${i%3===0||i===11?`<text x="${x(i)}" y="274" text-anchor="middle">${escape(month(p.period))}</text>`:''}`).join('')}</svg></div><div class="daily-chart-legend"><span class="daily-legend-us">United States</span><span class="daily-legend-china">China</span></div>`;
+    chart=`<div class="daily-chart-scroll" tabindex="0" role="region" aria-label="Monthly export chart; exact values follow in the data table"><svg class="daily-line-chart" viewBox="0 0 780 292" role="img" aria-labelledby="daily-chart-title daily-chart-desc"><title id="daily-chart-title">Monthly Canadian domestic exports · ${indices.map(name).join(' / ')}</title><desc id="daily-chart-desc">${escape(s.region)} · ${escape(s.commodity)} · current CAD. Missing values create gaps; exact values are in the expandable table.</desc>${[0,.5,1].map(t=>`<line x1="58" x2="740" y1="${y(t*max)}" y2="${y(t*max)}" class="daily-grid-line"/><text x="49" y="${y(t*max)+5}" text-anchor="end">${number(t*max/scale)}</text>`).join('')}<text x="58" y="23">${unit}</text>${indices.map(i=>`<path d="${line(i)}" class="daily-line-${i?'china':'us'}"/>`).join('')}${s.points.map((p,i)=>`${indices.map(k=>p.values[k]===null?'':`<circle cx="${x(i)}" cy="${y(p.values[k])}" r="4" tabindex="0" class="${k?'daily-point-china':'daily-point-us'}" aria-label="${escape(name(k)+' · '+month(p.period)+' · '+money(p.values[k]))}"><title>${escape(name(k)+' · '+month(p.period)+' · '+money(p.values[k]))}</title></circle>`).join('')}${i%3===0||i===11?`<text x="${x(i)}" y="274" text-anchor="middle">${escape(month(p.period))}</text>`:''}`).join('')}</svg></div><div class="daily-chart-legend">${indices.map(i=>`<span class="daily-legend-${i?'china':'us'}">${name(i)}</span>`).join('')}</div>`;
    }
   }
-  return `<section class="daily-chart-panel" aria-labelledby="daily-chart-heading"><h4 id="daily-chart-heading">Monthly Canadian domestic exports</h4><div class="daily-filters">${select('region','Province / territory',{CA:'Canada — all regions',...provinces})}${select('chart','Chart view',{value:'Export value',share:'Destination share'})}</div>
-   ${s.available?`<p><strong>${escape(s.region)} · ${escape(s.commodity)}</strong> · ${selected.chart==='share'?'January–'+escape(month(s.year+'-'+String(s.month).padStart(2,'0'))):escape(month(s.points[0].period)+'–'+month(s.points.at(-1).period))}</p>${s.contextOnly?'<p class="daily-stale">All-merchandise context: this table does not separately measure the selected services, investment, defence or digital sector.</p>':''}${s.status!=='success'?'<p class="daily-stale">Latest statistical refresh did not complete successfully. Values retain their previous retrieval date.</p>':''}${chart}<details class="daily-detail" data-daily-detail="chart-data"><summary>Show chart data</summary><div class="daily-table-scroll" tabindex="0" role="region" aria-label="Exact monthly exports"><table><caption>${escape(s.region)} · ${escape(s.commodity)} · CAD · monthly, unadjusted</caption><thead><tr><th scope="col">Month</th><th scope="col">United States</th><th scope="col">China</th></tr></thead><tbody>${s.points.map(p=>`<tr><th scope="row">${escape(month(p.period))}</th>${p.values.map(n=>`<td>${money(n)}</td>`).join('')}</tr>`).join('')}</tbody></table><table><caption>Complete year-to-date comparison · same months of prior year · CAD</caption><thead><tr><th scope="col">Destination</th><th scope="col">Current period</th><th scope="col">Prior period</th><th scope="col">Destination share</th></tr></thead><tbody>${s.partners.map(p=>`<tr><th scope="row">${escape(p.partner)}</th><td>${money(p.current)}</td><td>${money(p.prior)}</td><td>${p.share===null?'Not available':number(p.share)+'%'}</td></tr>`).join('')}</tbody></table></div></details><p class="daily-meta">Data checked: ${formatDate(s.retrievedAt,language)} · ${officialLink(s.url,'Statistics Canada 12-10-0175-01')}</p><p class="daily-meta">${escape(s.basis)}</p>`:`<p class="daily-empty">${escape(s.reason||'A complete comparable period is unavailable. Missing values are not replaced with zero.')}</p>`}
+  return `<section class="daily-chart-panel" aria-labelledby="daily-chart-heading"><h4 id="daily-chart-heading">Monthly Canadian domestic exports</h4><div class="daily-filters">${select('region','Province / territory',{CA:'Canada — all regions',...provinces})}${select('partner','Chart view',{all:'USA and China', 'United States':'USA',China:'China'})}${select('chart','Measure',{value:'Export value',share:'Destination share'})}</div>
+   ${s.available?`<p><strong>${escape(s.region)} · ${escape(s.commodity)}</strong> · ${selected.chart==='share'?'January–'+escape(month(s.year+'-'+String(s.month).padStart(2,'0'))):escape(month(s.points[0].period)+'–'+month(s.points.at(-1).period))}</p>${s.contextOnly?'<p class="daily-stale">All-merchandise context: this table does not separately measure the selected services, investment, defence or digital sector.</p>':''}${s.status!=='success'?'<p class="daily-stale">Latest statistical refresh did not complete successfully. Values retain their previous retrieval date.</p>':''}${cards}${chart}<details class="daily-detail" data-daily-detail="chart-data"><summary>Show chart data</summary><div class="daily-table-scroll" tabindex="0" role="region" aria-label="Exact monthly exports"><table><caption>${escape(s.region)} · ${escape(s.commodity)} · CAD · monthly, unadjusted</caption><thead><tr><th scope="col">Month</th>${indices.map(i=>`<th scope="col">${name(i)}</th>`).join('')}</tr></thead><tbody>${s.points.map(p=>`<tr><th scope="row">${escape(month(p.period))}</th>${indices.map(i=>`<td>${money(p.values[i])}</td>`).join('')}</tr>`).join('')}</tbody></table><table><caption>Complete year-to-date comparison · same months of prior year · CAD</caption><thead><tr><th scope="col">Destination</th><th scope="col">Current period</th><th scope="col">Prior period</th><th scope="col">Destination share</th></tr></thead><tbody>${[...indices.map(i=>s.partners[i]),s.partners[2]].map(p=>`<tr><th scope="row">${escape(p.partner)}</th><td>${money(p.current)}</td><td>${money(p.prior)}</td><td>${percent(p.share)}</td></tr>`).join('')}</tbody></table></div></details><p class="daily-meta">Data checked: ${formatDate(s.retrievedAt,language)} · ${officialLink(s.url,'Statistics Canada 12-10-0175-01')}</p><p class="daily-meta">${escape(s.basis)}</p>`:`<p class="daily-empty">${escape(s.reason||'A complete comparable period is unavailable. Missing values are not replaced with zero.')}</p>`}
    <p class="daily-evidence-limit">Monthly releases do not become daily observations. Export values do not establish net Canadian benefit, local employment or a causal effect of an agreement.</p></section>`;
  }
 
@@ -461,12 +466,8 @@
 
  function renderBriefing(model, feed, language = 'en') {
   const newGroups=model.groups.filter(group=>group.count),olderGroups=model.groups.filter(group=>!group.count);
-  const sections={summary:'Executive summary',developments:'Priority developments',sectors:'Sector updates',relationships:'Country and relationship updates',strategy:'Strategic outlook',watch:'What to watch next',implications:'Implications for Canadian policy'};
-  return `<header class="daily-heading"><p class="daily-eyebrow">Canada · United States · China</p><h2 id="daily-heading">Daily Policy Intelligence Brief</h2><p>Verified source records, implementation monitoring and Canadian decision questions.</p>
-   <p class="daily-verification-strip" role="status"><strong>Daily source checks</strong> · ${escape(feed.lastRunStatus||'not_run')} · ${formatDate(feed.lastAttempt,language)||'Not recorded'}${model.stale?' · Monitoring is overdue':''}</p>
-   <div class="daily-edition-meta"><p><strong>Briefing date</strong> ${formatDate(model.today,language)}</p><p><strong>Assessment scope</strong> ${escape(relationships[model.filters.relationship]||'All relationships')} · ${escape(topics[model.filters.topic]||'All sectors and subjects')} · ${escape(I.dimensions[model.filters.priority]||'All priorities')}</p></div>
-   <div class="daily-toolbar"><button type="button" data-daily-refresh>Refresh monitored evidence</button><button type="button" data-daily-print>Print briefing</button><a href="daily-editions.json" download>Download edition data</a></div></header>
-   <nav class="daily-jump" aria-label="Jump to a briefing section">${Object.entries(sections).map(([id,name])=>`<button type="button" data-daily-jump="${id}">${name}</button>`).join('')}</nav>
+  return `<header class="daily-heading"><p class="daily-eyebrow">Canada · United States · China</p><h2 id="daily-heading">Daily Policy Intelligence Brief</h2><p>Verified source records, implementation monitoring and Canadian decision questions.</p></header>
+   <nav class="daily-jump" aria-label="Jump to a briefing section">${Object.entries(sections).map(([id,name])=>`<button type="button" data-daily-jump="${id}"${id===(model.activeSection||'summary')?' aria-current="location"':''}>${name}</button>`).join('')}</nav>
    ${filterPanel(model)}
    <div class="daily-range" role="group" aria-label="Briefing period">${Object.entries(ranges).map(([id,label])=>`<button type="button" data-daily-range="${id}" aria-pressed="${id===model.range}">${label}</button>`).join('')}</div>
    <p class="daily-meta" role="status">${model.firstVisit?'<span>First visit. Showing the last seven days.</span> ':''}<span>Briefing window</span> ${formatDate(model.previousVisit||model.start,language)} ${model.start!==model.today||model.previousVisit?`– ${formatDate(model.today,language)}`:''}</p>
@@ -485,17 +486,41 @@
    ${implicationsPanel(model,language)}
    <details class="daily-detail daily-review" data-daily-detail="review-queue"><summary>Source changes to review <span class="daily-count" translate="no">${newGroups.reduce((total,group)=>total+group.count,0)}</span></summary><p>These observations await review. Expand a source to see its revision history.</p>${newGroups.map(group=>groupCard(group,language)).join('')||'<p>No source changes recorded for this period.</p>'}${olderGroups.length?`<details class="daily-detail" data-daily-detail="source-archive"><summary>Earlier monitored sources <span class="daily-count" translate="no">${olderGroups.length}</span></summary>${olderGroups.map(group=>groupCard(group,language)).join('')}</details>`:''}</details>
    <details class="daily-detail" data-daily-detail="methods"><summary>Evidence and verification method</summary><p>Automatic retrieval verifies access to a registered source and compares its content hash. It does not establish that every statement is accurate or that a policy is legally operative. Analyst review, source checks, publication dates and statistical reference periods remain separate.</p><p>First indexing and parser refreshes are not new policy events. A signed MOU, a contract award, implementation and realized commercial outcomes are separate evidence stages. PDFs and unpublished executed contracts require document review.</p><p>Observation confidence and attribution are assessed separately. No gains or losses are inferred from news counts, agreement counts or export concentration alone.</p><p>Confidence concerns the stated source claim: High for a reviewed published legal record; Moderate for other reviewed reports; Unassessed for pending or changed sources. It does not rate Canadian economic gains.</p></details>
-   <p class="daily-footer"><a href="#findings-trends" data-hub="findings-trends">Open the research archive</a><a href="#weekly-updates" data-hub="weekly-updates">Subscribe to weekly updates</a></p>`;
+   <p class="daily-footer"><a href="#findings-trends" data-hub="findings-trends">Open the research archive</a><a href="#weekly-updates" data-hub="weekly-updates">Subscribe to weekly updates</a></p>
+   <footer class="daily-edition-footer"><p class="daily-verification-strip" role="status"><strong>Daily source checks</strong> · ${escape(feed.lastRunStatus||'not_run')} · ${formatDate(feed.lastAttempt,language)||'Not recorded'}${model.stale?' · Monitoring is overdue':''}</p>
+   <div class="daily-edition-meta"><p><strong>Briefing date</strong> ${formatDate(model.today,language)}</p><p><strong>Assessment scope</strong> ${escape(relationships[model.filters.relationship]||'All relationships')} · ${escape(topics[model.filters.topic]||'All sectors and subjects')} · ${escape(I.dimensions[model.filters.priority]||'All priorities')}</p></div>
+   <div class="daily-toolbar"><button type="button" data-daily-refresh>Refresh monitored evidence</button><button type="button" data-daily-print>Print briefing</button><a href="daily-editions.json" download>Download edition data</a></div></footer>`;
  }
 
  let page = null;
  let stickyObserver=null;
- function updateStickyLayout(){if(!page?.isConnected)return;const main=global.document?.getElementById?.('site-navigation'),tabs=page.querySelector('.daily-jump');const top=main?.offsetHeight||0;page.style?.setProperty('--daily-main-nav-height',top+'px');page.style?.setProperty('--daily-scroll-offset',(top+(tabs?.offsetHeight||60)+20)+'px');}
+ let activeSection='summary',sectionFrame=null;
+ function highlightSection(id,reveal=false){
+  if(!Object.hasOwn(sections,id))return;
+  activeSection=id;
+  for(const button of page?.querySelectorAll('[data-daily-jump]')||[]){if(button.dataset.dailyJump===id)button.setAttribute('aria-current','location');else button.removeAttribute('aria-current');}
+  for(const link of global?.document?.querySelectorAll?.('[data-daily-section]')||[]){if(link.dataset.dailySection===id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');}
+  if(reveal){const bar=page?.querySelector('.daily-jump'),button=page?.querySelector(`[data-daily-jump="${id}"]`),bounds=bar?.getBoundingClientRect?.(),rect=button?.getBoundingClientRect?.();if(bounds&&rect){const left=rect.left<bounds.left?rect.left-bounds.left-8:rect.right>bounds.right?rect.right-bounds.right+8:0;if(left)bar.scrollBy?.({left,behavior:'smooth'});}}
+ }
+ function syncSection(){
+  sectionFrame=null;if(!page?.isConnected)return;
+  const main=global.document?.getElementById?.('site-navigation'),bar=page.querySelector('.daily-jump'),edge=(main?.offsetHeight||0)+(bar?.offsetHeight||0)+40;
+  let current='summary';for(const id of Object.keys(sections)){const rect=page.querySelector('#daily-'+id)?.getBoundingClientRect?.();if(rect&&rect.top<=edge)current=id;}
+  if(current!==activeSection)highlightSection(current,true);
+ }
+ function queueSectionSync(){if(!sectionFrame&&page?.isConnected&&global?.requestAnimationFrame)sectionFrame=global.requestAnimationFrame(syncSection);}
+ function updateStickyLayout(){if(!page?.isConnected)return;const main=global.document?.getElementById?.('site-navigation'),tabs=page.querySelector('.daily-jump');const top=main?.offsetHeight||0;page.style?.setProperty('--daily-main-nav-height',top+'px');page.style?.setProperty('--daily-scroll-offset',((tabs?.offsetHeight||60)+20)+'px');}
  function observeStickyLayout(){stickyObserver?.disconnect();updateStickyLayout();if(global.ResizeObserver&&page?.isConnected){stickyObserver=new global.ResizeObserver(updateStickyLayout);for(const el of [global.document?.getElementById?.('site-navigation'),page.querySelector('.daily-jump')])if(el)stickyObserver.observe(el);}}
+ function jumpToSection(id,{behavior='smooth'}={}){
+  if(!Object.hasOwn(sections,id)||!page?.isConnected)return false;
+  const section=page.querySelector('#daily-'+id);if(!section)return false;
+  updateStickyLayout();highlightSection(id,true);section.scrollIntoView({block:'start',behavior});
+  const heading=section.querySelector('h3');if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}return true;
+ }
  let currentFeed = {};
  let previousVisit = null;
  let range = 'today';
- let filters = {relationship:'all',topic:'all',stage:'all',priority:'all',region:'CA',chart:'value'};
+ let filters = {relationship:'all',topic:'all',stage:'all',priority:'all',region:'CA',chart:'value',partner:'all'};
  let resources={history:null,tradeData:null},resourcesLoading=false,resourcesAt=0;
  async function refreshResources(){if(resourcesLoading||Date.now()-resourcesAt<60000)return;resourcesLoading=true;const rs=await Promise.allSettled(['daily-editions.json','regional-statistics.json'].map(async path=>{const response=await fetch(path,{cache:'no-store'});if(!response.ok)throw Error();return response.json();}));resources={history:rs[0].status==='fulfilled'?rs[0].value:null,tradeData:rs[1].status==='fulfilled'?rs[1].value:null};resourcesAt=Date.now();resourcesLoading=false;render();}
  let displayedDay = '';
@@ -512,6 +537,7 @@
   if (!page?.isConnected) return;
   const now = Date.now();
   const model = buildBriefing({feed: currentFeed, register: global.PolicyResearchRegister, previousVisit, range, filters, now,...resources});
+  model.activeSection=activeSection;
   displayedDay = model.today;
   const language = global.DashboardI18n?.language || 'en';
   const open = new Set([...page.querySelectorAll('details[open][data-daily-detail]')].map(item => item.dataset.dailyDetail));
@@ -523,6 +549,7 @@
   if (focused && Object.hasOwn(ranges, focused)) page.querySelector(`[data-daily-range="${focused}"]`)?.focus({preventScroll: true});
   global.DashboardI18n?.translateTree(page);
   observeStickyLayout();
+  highlightSection(activeSection);
  }
 
  function show(root, feed) {
@@ -542,18 +569,19 @@
    // The period controls still work when a browser blocks site storage.
   }
   range = 'today';
-  filters = {relationship:'all',topic:'all',stage:'all',priority:'all',region:'CA',chart:'value'};
+  const requested=new URLSearchParams(global.location?.hash?.split('?')[1]||'').get('section');activeSection=Object.hasOwn(sections,requested)?requested:'summary';
+  filters = {relationship:'all',topic:'all',stage:'all',priority:'all',region:'CA',chart:'value',partner:'all'};
   root.innerHTML = '<section class="wrap daily-briefing" aria-labelledby="daily-heading"></section>';
   page = root.querySelector('.daily-briefing');
   page.addEventListener('change',event=>{const id=event.target.dataset.dailyFilter;if(!Object.hasOwn(filters,id))return;filters[id]=event.target.value;render();page.querySelector(`[data-daily-filter="${id}"]`)?.focus({preventScroll:true});});
   page.addEventListener('click', event => {
    const jump=event.target.closest('[data-daily-jump]')?.dataset.dailyJump;
-   if(jump){const section=page.querySelector('#daily-'+jump);section?.scrollIntoView({block:'start',behavior:'smooth'});const h=section?.querySelector('h3');if(h){h.tabIndex=-1;h.focus({preventScroll:true});}return;}
+   if(jump){jumpToSection(jump);return;}
    if(event.target.closest('[data-daily-print]')){global.print?.();return;}
    if(event.target.closest('[data-daily-refresh]')){resourcesAt=0;global.PolicyLive?.refresh?.();refreshResources();return;}
    const topic=event.target.closest('[data-daily-topic]')?.dataset.dailyTopic;
    if(topic&&Object.hasOwn(topics,topic)){filters.topic=topic;render();page.querySelector('[data-daily-filter="topic"]')?.focus({preventScroll:true});return;}
-   if(event.target.closest('[data-daily-reset]')?.dataset?.dailyReset!==undefined){filters={relationship:'all',topic:'all',stage:'all',priority:'all',region:'CA',chart:'value'};render();return;}
+   if(event.target.closest('[data-daily-reset]')?.dataset?.dailyReset!==undefined){filters={relationship:'all',topic:'all',stage:'all',priority:'all',region:'CA',chart:'value',partner:'all'};render();return;}
    const button = event.target.closest('[data-daily-range]');
    const next = button?.dataset.dailyRange;
    if (!Object.hasOwn(ranges, next) || next === range) return;
@@ -564,12 +592,13 @@
   if(global.fetch||typeof fetch==='function')refreshResources();
  }
 
- const api = {buildBriefing, renderBriefing, show};
+ const api = {buildBriefing, renderBriefing, show, sections, jumpToSection, get activeSection(){return activeSection;}};
  if (typeof module !== 'undefined' && module.exports) module.exports = api;
  if (global) {
   global.DailyBriefing = api;
   global.addEventListener('dashboard-language-changed', render);
   global.addEventListener('resize',updateStickyLayout);
+  global.addEventListener('scroll',queueSectionSync,{passive:true});
   global.addEventListener('regional-statistics-loaded',()=>{if(global.RegionalTrade?.data){resources.tradeData=global.RegionalTrade.data;render();}});
  }
 })(typeof window === 'undefined' ? null : window);

@@ -130,7 +130,21 @@ test('briefing navigation appears above content with dynamic sticky offsets and 
  assert(html.includes('<h2 id="daily-heading">Daily Policy Intelligence Brief</h2>'));
  assert(html.indexOf('class="daily-jump"')<html.indexOf('class="daily-filters"'));
  assert.equal((html.match(/data-daily-jump=/g)||[]).length,7);
+ assert(html.indexOf('class="daily-edition-footer"')>html.indexOf('data-daily-detail="methods"'));
+ const heading=html.slice(0,html.indexOf('</header>'));assert(!heading.includes('Daily source checks'));assert(!heading.includes('Refresh monitored evidence'));
+ const footer=html.slice(html.indexOf('class="daily-edition-footer"'));for(const label of ['Daily source checks','Briefing date','Assessment scope','Refresh monitored evidence','Print briefing','Download edition data'])assert(footer.includes(label));
  const css=fs.readFileSync(new URL('../app/daily-briefing.css',import.meta.url),'utf8');assert(css.includes('position:sticky;top:var(--daily-main-nav-height'));assert(css.includes('scroll-margin-top:var(--daily-scroll-offset'));
+});
+
+test('USA and China chart views select distinct measured series, cards and exact monthly data',()=>{
+ const points=scale=>Array.from({length:24},(_,i)=>({period:`${2025+Math.floor(i/12)}-${String(i%12+1).padStart(2,'0')}-01`,value:(i+1)*scale,scalarFactorCode:0,securityLevelCode:0,statusCode:0}));
+ const data={mappingVersion:2,status:'success',retrievedAt:'2026-11-22T12:00:00Z',url:source.url,series:[['All countries',5000],['United States',1000],['China',100]].map(([partner,scale])=>({region:'Canada',topic:'all',partner,points:points(scale)}))};
+ const chart=filters=>{const html=B.renderBriefing(B.buildBriefing({register:{records:[]},tradeData:data,filters,now}),{});return html.slice(html.indexOf('class="daily-chart-panel"'),html.indexOf('id="daily-strategy"'));};
+ const both=chart({});assert(both.includes('>USA and China</option>'));assert(both.includes('>USA</option>'));assert(both.includes('>China</option>'));assert(both.includes('daily-line-us'));assert(both.includes('daily-line-china'));
+ const us=chart({partner:'United States'});assert(us.includes('data-daily-trade-country="United States"'));assert(!us.includes('data-daily-trade-country="China"'));assert(us.includes('daily-point-us'));assert(!us.includes('daily-point-china'));assert(us.includes('<td>$24,000</td>'));assert(!us.includes('<td>$2,400</td>'));
+ const china=chart({partner:'China'});assert(china.includes('data-daily-trade-country="China"'));assert(china.includes('daily-point-china'));assert(!china.includes('daily-point-us'));assert(china.includes('<td>$2,400</td>'));assert(!china.includes('<td>$24,000</td>'));
+ const share=chart({partner:'China',chart:'share'});assert(share.includes('daily-share-bars'));assert(share.includes('2%'));assert(!share.includes('class="daily-us"'));
+ data.series[2].points[23].securityLevelCode=1;const suppressed=chart({partner:'China'});assert(suppressed.includes('Not available'));assert(!suppressed.includes('<td>$2,400</td>'));assert(!/NaN|Infinity|undefined/.test(suppressed));
 });
 
 test('automatic excerpts retain the main article statement without datelines, navigation or split initials',()=>{

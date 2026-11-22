@@ -7733,6 +7733,15 @@
  ],
  "Source re-indexed": ["Source réindexée", "来源已重新索引"],
  "More developments": ["Autres faits nouveaux", "更多进展"],
- "Earlier evidence": ["Preuves antérieures", "较早证据"]
+ "Earlier evidence": ["Preuves antérieures", "较早证据"],
+ "USA and China": ["États-Unis et Chine", "美国和中国"],
+ "USA": ["États-Unis", "美国"],
+ "Canadian domestic exports to": ["Exportations intérieures canadiennes vers", "加拿大本国产品出口至"],
+ "Latest month": ["Dernier mois", "最新月份"],
+ "Year-to-date exports": ["Exportations depuis janvier", "年初至今出口额"],
+ "Change from prior year": ["Variation par rapport à l’année précédente", "较上年变化"],
+ "Share of all destinations": ["Part de toutes les destinations", "占全部出口目的地的比重"],
+ "Same complete months": ["Mêmes mois complets", "相同完整月份"],
+ "Year-to-date": ["Cumul depuis janvier", "年初至今"]
 };if(typeof module!=="undefined"&&module.exports)module.exports=data;if(g)g.POLICY_TRANSLATIONS_UI=data;})(typeof window==="undefined"?null:window);
 

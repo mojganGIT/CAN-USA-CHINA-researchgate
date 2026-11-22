@@ -10,6 +10,7 @@
  const compareMenu=[['findings-trends',L.insights],['evidence-methods','Evidence & Methods'],['relationship-explorer',L.relationship]];
  const menus={home:{label:L.homeMenu,items:homeMenu}};
  for(const p of Object.values(BM.pairs))menus[p.id]={label:p.title,items:[...BM.views,...BM.mapViews(p.id)].map(([view,label])=>[BM.target(p,view),label])};
+ menus['daily-updates']={label:'Daily Updates',items:Object.entries(window.DailyBriefing?.sections||{}).map(([id,label])=>['daily-updates?section='+id,label])};
  const tabs=[...primaryTabs,...homeMenu,...compareMenu,['weekly-updates','Subscribe to weekly updates'],['compare-topics','Compare Topics'],['policy-tracker','Policy Tracker'],['us-trade',L.us],['executive-summary','Executive Summary'],['briefing-overview','Changes across Canada'],['canada-implications','Canada Implications Explorer'],['policy-map','Policy Product Map'],['research-tools','Research Tools']];
  const descriptions={
   'canada-china':'Market access, sourcing and security choices connect Canadian firms to Chinese buyers and suppliers.',
@@ -79,9 +80,10 @@
   const active=routeId(),params=new URLSearchParams(location.hash.split('?')[1]||'');
   const legacyParents={'executive-summary':'home','briefing-overview':'canada-china','canada-implications':'canada-china','research-tools':'home','policy-map':'canada-china','compare-topics':'canada-china','policy-tracker':'canada-china','evidence-methods':'canada-china','relationship-explorer':'canada-china','findings-trends':'canada-china','us-trade':params.get('partner')==='Canada'?'us-canada':'us-china'};
   const parent=legacyParents[active]||Object.keys(menus).find(key=>menus[key].items.some(([id])=>id===active))||active;
-  const navLink=(target,label,current)=>`<a href="#${E(target)}" data-hub="${E(target)}"${current?' aria-current="'+current+'"':''}>${E(label)}</a>`;
+  const navLink=(target,label,current)=>{const [id,q='']=target.split('?'),section=id==='daily-updates'?new URLSearchParams(q).get('section'):null;return `<a href="#${E(target)}" data-hub="${E(target)}"${section?' data-daily-section="'+E(section)+'"':''}${current?' aria-current="'+current+'"':''}>${E(label)}</a>`;};
   const currentItem=target=>{
    const [id,q='']=target.split('?');if(id!==active)return false;
+   if(id==='daily-updates')return new URLSearchParams(q).get('section')===(window.DailyBriefing?.activeSection||params.get('section')||'summary');
    if(!BM.pairs[id])return true;
    const test=new URLSearchParams(q);return (test.get('view')||'overview')===(params.get('view')||'overview')&&!test.get('topic')&&(!params.get('topic')||params.get('topic')==='all');
   };
@@ -89,7 +91,7 @@
    const menu=menus[id],top=navLink(id,label,id===active?(BM.pairs[id]?'location':'page'):legacyParents[active]===id?'location':'');
    if(!menu)return top;
    const topics=BM.pairs[id]?`<li><details class="hub-topic-dropdown"><summary>Eight topic comparisons</summary><ul>${C.topics.map(t=>'<li>'+navLink(BM.target(id,'compare',{topic:t.id}),t.name,active===id&&params.get('view')==='compare'&&params.get('topic')===t.id?'page':'')+'</li>').join('')}</ul></details></li>`:'';
-   return `<div class="hub-nav-group" ${parent===id?'data-section-active':''}>${top}<details class="hub-nav-menu"><summary aria-label="${E(menu.label)}"><span aria-hidden="true">▾</span></summary><ul>${menu.items.map(([key,title])=>'<li>'+navLink(key,title,currentItem(key)?'page':'')+'</li>').join('')}${topics}</ul></details></div>`;
+   return `<div class="hub-nav-group"${id==='daily-updates'?' data-daily-navigation':''} ${parent===id?'data-section-active':''}>${top}<details class="hub-nav-menu"><summary aria-label="${E(menu.label)}"><span aria-hidden="true">▾</span></summary><ul>${menu.items.map(([key,title])=>'<li>'+navLink(key,title,currentItem(key)?(id==='daily-updates'?'location':'page'):'')+'</li>').join('')}${topics}</ul></details></div>`;
   }).join('')}</nav>`;
   updateSubscriptionDock();updateTitle();updateNavigationOffset();
  }
@@ -160,6 +162,7 @@
   else {id='home';history.replaceState(null,'','#home');root.innerHTML=homeHTML();}
   }
   updateNavigation();if(focus){root.focus({preventScroll:true});root.scrollIntoView({block:'start',behavior:'instant'});}
+  if(id==='daily-updates'){const section=new URLSearchParams(location.hash.split('?')[1]||'').get('section');if(section)window.DailyBriefing?.jumpToSection(section,{behavior:'instant'});}
  }
  function navigate(target='home'){const [id,incoming='']=target.split('?');if(id==='stronger-canada'){const current=new URLSearchParams(location.hash.split('?')[1]||''),next=new URLSearchParams(incoming);for(const key of ['topic','region'])if(!next.has(key)&&current.has(key))next.set(key,current.get(key));target=id+(next.toString()?'?'+next:'');}if(['home','briefing-overview','canada-implications','compare-topics','policy-tracker','evidence-methods'].includes(id)){const params=new URLSearchParams(window.CanadaImpact?.data?window.CanadaImpact.filterQuery():location.hash.split('?')[1]||'');for(const [key,value]of new URLSearchParams(incoming))params.set(key,value);target=id+(params.toString()?'?'+params:'');}history.pushState(null,'','#'+target);route(true);}
  document.addEventListener('click',e=>{const a=e.target.closest('a[data-hub]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();navigate(a.dataset.hub);});

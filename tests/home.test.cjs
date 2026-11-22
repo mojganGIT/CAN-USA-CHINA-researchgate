@@ -7,7 +7,9 @@ const ctx={window,document,location,history:{replaceState(a,b,url){location.hash
 for(const file of ['bilateral-model.js','research-register.js','dashboard-guide.js','master-data.js','app.js','explorer-inventory.js','explorer-catalog.js'])vm.runInContext(fs.readFileSync(path.join(dir,file),'utf8'),ctx,{filename:file});
 const original=JSON.stringify(window.POLICY_MASTER.executiveSummary);
 const feed={lastSuccessfulRun:new Date().toISOString(),lastRunStatus:'partial',sourcesChecked:40,sourceFailures:[{url:'https://www.canada.ca/moved',error:'HTTP 404'}],aiEnabled:false,scheduleUTC:'11:17 daily',changes:[{id:'auto-test',title:'New EV customs source <script>x</script>',url:'https://www.canada.ca/test',source:'Canada',detectedAt:new Date().toISOString(),topics:['vehicles'],relationships:['Canada-USA'],changeType:'new_source'}]};
-window.PolicyLive={feed,show(view){location.hash=view==='llm'?'#your-llm':'#daily-updates';node('root').innerHTML='LIVE VIEW '+view;}};
+window.PolicyLive={feed,show(view){if(view==='llm')location.hash='#your-llm';else if(!location.hash.startsWith('#daily-updates'))location.hash='#daily-updates';node('root').innerHTML='LIVE VIEW '+view;}};
+const dailyJumps=[];
+window.DailyBriefing={sections:require('../app/daily-briefing.js').sections,jumpToSection(id){dailyJumps.push(id);}};
 window.BilateralHub={show(id){node('root').innerHTML='BILATERAL '+id;},clear(){}};
 window.USTrade={show(){node('root').innerHTML='US TRADE VIEW';}};
 window.WeeklyUpdates={show(){node('root').innerHTML='WEEKLY UPDATES VIEW';}};
@@ -22,7 +24,8 @@ const initialNav=node('site-navigation').innerHTML;
 assert.deepEqual(Array.from(initialNav.matchAll(/data-hub="([^"?]+)"/g),m=>m[1]).filter(id=>primary.includes(id)),primary);
 assert.deepEqual(Array.from(hub.homeMenu,([id])=>id),['categories','countries','comparative']);
 assert.deepEqual(Array.from(hub.compareMenu,([id])=>id),['findings-trends','evidence-methods','relationship-explorer']);
-assert.equal((initialNav.match(/<details class="hub-nav-menu">/g)||[]).length,4);
+assert.equal((initialNav.match(/<details class="hub-nav-menu">/g)||[]).length,5);
+for(const [id,label]of Object.entries(window.DailyBriefing.sections))assert(initialNav.includes('data-hub="daily-updates?section='+id+'" data-daily-section="'+id+'">'+label+'</a>'));
 assert(!initialNav.includes('data-hub="research-tools"'));
 
 const initialHome=hub.homeHTML();
@@ -35,6 +38,8 @@ assert(!initialHome.includes('hub-region-explorer'));assert(!initialHome.include
 for(const [id]of hub.tools)assert(initialHome.includes('data-hub="'+id+'"'));
 assert(initialHome.includes('data-hub="executive-summary"'));assert(!initialHome.includes('data-hub="canada-implications"'));assert(!initialHome.includes('Explore the Canada map'));
 assert(node('site-navigation').innerHTML.includes('data-hub="home" aria-current="page">Home</a>'));
+for(const id of Object.keys(window.DailyBriefing.sections)){hub.navigate('daily-updates?section='+id);assert.equal(location.hash,'#daily-updates?section='+id);assert.equal(dailyJumps.at(-1),id);assert(node('site-navigation').innerHTML.includes('data-daily-section="'+id+'" aria-current="location"'));}
+hub.navigate('home');
 assert(initialHome.includes('Source first indexed'));assert(!initialHome.includes('<script>x'));
 assert(hub.homeStatusHTML().includes('Partial coverage'));assert(!hub.homeStatusHTML().includes('<dl>'));assert(!hub.homeStatusHTML().includes('Scheduled'));
 assert(hub.homeStatusHTML({...feed,lastSuccessfulRun:'2000-01-01'}).includes('Check overdue'));
@@ -80,6 +85,6 @@ input.value='龙虾';window.ask();assert(node('ans').innerHTML.includes('data-gu
 
 const index=fs.readFileSync(path.join(dir,'index.html'),'utf8');assert(index.includes('id="site-navigation"'));assert(index.includes('id="root" tabindex="-1"'));assert(index.includes('home.js'));assert(index.includes('home.css'));
 const live=fs.readFileSync(path.join(dir,'agent-tools.js'),'utf8');assert(live.includes('5*60*1000'));assert(live.includes("cache:'no-store'"));assert(live.includes("'visibilitychange'"));assert(!/localStorage|sessionStorage/.test(live));
-console.log(JSON.stringify({passed:true,navigationTabs:hub.tabs.length,primaryTabs:8,dropdowns:4,homeSections:3,topicViews:8,routes:'all home destinations',daily:'home shows at most three source-title rows and a compact status; detailed records stay in their tools',preservation:'curated executive assessment and 22 original records retained',browserQA:'live and preview access restricted by network/saved browser permissions'}));
+console.log(JSON.stringify({passed:true,navigationTabs:hub.tabs.length,primaryTabs:8,dropdowns:5,homeSections:3,topicViews:8,routes:'all home destinations and seven daily briefing deep links',daily:'home shows at most three source-title rows and a compact status; detailed records stay in their tools',preservation:'curated executive assessment and 22 original records retained'}));
 
 
