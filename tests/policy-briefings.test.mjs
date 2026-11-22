@@ -65,3 +65,13 @@ test('a partial country scan is visible and old-source discoveries cannot masque
  const reviewed=register.records.find(x=>x.id==='cc-finance-mou-november-2026');assert.equal(reviewed.kind,'MOU');
  const tariff=register.records.find(x=>x.id==='ca-us-remission-amendment-november-2026');assert.equal(tariff.effectiveDate,'2026-11-09');assert.equal(tariff.date,'2026-11-18');assert(tariff.sources.some(s=>s.publisher==='Canada Gazette'));
 });
+
+test('hidden landmark headings and related navigation cannot replace the article or turn its location into a bilateral event',()=>{
+ const html='<main><h1 class="visually-hidden">Main Container</h1><nav>Canada and China signed an old memorandum of understanding.</nav><article><h1>Prime Minister Carney meets President of the United States</h1><p><span>November</span> 18, 2026</p><p>Shenzhen, China</p><p>Canada and the United States agreed to continue discussions about bilateral trade and economic cooperation.</p></article></main>';
+ const doc=documentOf(html,'https://www.pm.gc.ca/en/news/readouts/2026/11/18/meeting');
+ assert.equal(doc.title,'Prime Minister Carney meets President of the United States');assert.equal(doc.publicationDate,'2026-11-18');assert(!doc.text.includes('old memorandum'));
+ const records=makeBriefings(doc,{id:'v2',url,source:'Prime Minister of Canada',detectedAt:date,changeType:'new_source',digest:hash(doc.text)},'Canada');
+ assert.deepEqual(records.map(x=>x.relationship),['Canada-USA']);assert(!records.some(x=>x.kind==='MOU'));
+ const singapore=documentOf('<article><h1>Prime Minister Carney meets Prime Minister of Singapore</h1><p>Shenzhen, China</p><p>The leaders discussed trade, investment and agreed to enhance cooperation between their countries.</p></article>',url);
+ assert.equal(makeBriefings(singapore,{url,detectedAt:date},'Canada').length,0);
+});

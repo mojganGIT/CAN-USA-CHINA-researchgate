@@ -136,7 +136,7 @@
    if(reviewed)return [];
    // First discovery of an old release belongs in provenance, not today's policy developments.
    if(record.changeType!=='source_revision' && timestamp(today)-timestamp(published)>31*86400000)return [];
-   return [{key:`${record.id}@${record.versionId}`,day,status:record.changeType==='source_revision'?'Source text revised':record.status||'Official announcement',record}];
+   return [{key:`${record.id}@${record.versionId}`,day,status:record.changeType==='source_revision'?'Source text revised':record.changeType==='parser_refresh'?'Source re-indexed':record.status||'Official announcement',record}];
   });
  }
 
@@ -264,9 +264,10 @@
    <p class="daily-meta" translate="no">${escape(new URL(group.url).hostname)}</p>
    <p>${officialLink(group.url, 'Open monitored source')}</p>
    <ol class="daily-revision-list">${group.observations.map(item => `<li>
-    <p class="daily-meta"><span>${item.changeType === 'source_revision' ? 'Source page revised' : 'Source first indexed'}</span>
+    <p class="daily-meta"><span>${item.changeType === 'source_revision' ? 'Source page revised' : item.changeType==='parser_refresh'?'Source re-indexed':'Source first indexed'}</span>
      <span>Detected</span> ${formatDate(item.detectedAt, language)}
      ${item.publicationDate ? `<span>Source publication</span> ${formatDate(item.publicationDate, language)}` : ''}</p>
+    ${!item.ai&&item.sourceReport?`<p><strong>Official source · analyst review pending</strong></p><p>${escape(item.sourceReport.status)}</p><blockquote data-no-translate>${escape(item.sourceReport.quote)}</blockquote>`:''}
     ${item.ai ? `<p><strong>Automated extraction · unreviewed</strong></p><p>${escape(item.ai.summary)}</p>
      ${item.ai.quote ? `<blockquote>${escape(item.ai.quote)}</blockquote>` : ''}${item.ai.uncertainty ? `<p>${escape(item.ai.uncertainty)}</p>` : ''}` : ''}
     <details data-daily-detail="${escape(`version-${item.id}`)}"><summary>Version and provenance</summary>

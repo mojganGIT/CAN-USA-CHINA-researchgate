@@ -9,8 +9,14 @@ export function dateOf(value){
 }
 function attributes(tag){const out={};for(const m of tag.matchAll(/([\w:-]+)\s*=\s*["']([^"']*)["']/g))out[m[1].toLowerCase()]=decode(m[2]);return out;}
 export function documentOf(html,url){
- const main=html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1]||html.match(/<article\b[^>]*>([\s\S]*?)<\/article>/i)?.[1]||html;
- const text=textOf(main),title=textOf(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1]||html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]||new URL(url).hostname).slice(0,250);
+ const main=html.match(/<article\b[^>]*>([\s\S]*?)<\/article>/i)?.[1]||html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1]||html;
+ const headings=[...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)].map(m=>textOf(m[1]));
+ const meaningful=x=>x&&!/^(?:main container|main content|content|skip to .*)$/i.test(x);
+ let metaTitle='';for(const m of html.matchAll(/<meta\b[^>]*>/gi)){const a=attributes(m[0]);if(a.property==='og:title')metaTitle=a.content;}
+ const title=(headings.find(meaningful)||metaTitle||textOf(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]||new URL(url).hostname)).slice(0,250);
+ let text=textOf(main);
+ // Drop the page's search/nav preamble when the article heading occurs inside it.
+ const start=text.indexOf(title);if(start>=0&&start<1500)text=text.slice(start);
  let publicationDate=null,modifiedDate=null;
  for(const m of html.matchAll(/<meta\b[^>]*>/gi)){
   const a=attributes(m[0]),key=a.property||a.name||a.itemprop||'';
@@ -27,7 +33,10 @@ export function documentOf(html,url){
  // A standalone release dateline can supply a date. A date mentioned in a
  // headline or narrative could be the meeting date, so it is never used here.
  const visible=main.match(/<(?:p|span|div)\b[^>]*>\s*(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(20\d{2})\s*<\/(?:p|span|div)>/i);
- if(visible){const months=['january','february','march','april','may','june','july','august','september','october','november','december'];publicationDate||=dateOf(visible[3]+'-'+String(months.indexOf(visible[1].toLowerCase())+1).padStart(2,'0')+'-'+visible[2].padStart(2,'0'));}
+ const lead=text.startsWith(title)?text.slice(title.length).trim():text;
+ const leadingDate=lead.match(/^(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(20\d{2})\b/i);
+ const releaseDate=visible||leadingDate;
+ if(releaseDate){const months=['january','february','march','april','may','june','july','august','september','october','november','december'];publicationDate||=dateOf(releaseDate[3]+'-'+String(months.indexOf(releaseDate[1].toLowerCase())+1).padStart(2,'0')+'-'+releaseDate[2].padStart(2,'0'));}
  // Full day URL dates are a fallback, never use a footer's modification date as publication.
  const urlDate=new URL(url).pathname.match(/(?:^|\/)(\d{4})[/-](\d{2})[/-](\d{2})(?:[/-]|$)/);
  if(urlDate)publicationDate||=dateOf(urlDate.slice(1,4).join('-'));
@@ -78,7 +87,7 @@ export function classify(text,issuer=''){
  const t=text.toLowerCase(),countries={Canada:/\bcanad(?:a|ian)\b/i.test(t),US:/\b(?:united states|american|usmca|ustr)\b|\bu\.s\./i.test(t),China:/\b(?:china|chinese|prc)\b/i.test(t)};
  if(/Canada|Canadian/i.test(issuer))countries.Canada=true;if(/United States|USTR|U\.S\.|White House/i.test(issuer))countries.US=true;if(/China|Chinese|MOFCOM/i.test(issuer))countries.China=true;
  const relationships=[];if(countries.Canada&&countries.US)relationships.push('Canada-USA');if(countries.Canada&&countries.China)relationships.push('Canada-China');if(countries.US&&countries.China)relationships.push('USA-China');
- const lex={vehicles:/\b(?:electric vehicle|automotive|batter(?:y|ies)|evs?)\b/i,agriculture:/\b(?:agricultur|canola|seafood|food|soybean)/i,energy:/\b(?:energy|lng|oil|gas|electricity)\b/i,finance:/\b(?:financial|banking|insurance|money laundering)/i,technology:/\b(?:semiconductor|digital|cyber|quantum|artificial intelligence|telecom)/i,security:/\b(?:defen[cs]e|security|fentanyl|precursor|norad|military)/i,investment:/\b(?:investment|cfius|acquisition|screening)/i,agreements:/\b(?:memorandum|mou|agreement|amendment|treaty|dialogue|consultation)/i};
+ const lex={vehicles:/\b(?:electric vehicle|automotive|batter(?:y|ies)|evs?)\b/i,agriculture:/\b(?:agricultur|canola|seafood|food|soybean)/i,energy:/\b(?:energy|lng|oil|gas|electricity)\b/i,finance:/\b(?:financial|banking|insurance|money laundering)/i,technology:/\b(?:semiconductor|digital|cyber|quantum|artificial intelligence|telecom)/i,security:/\b(?:defen[cs]e|security|fentanyl|precursor|norad|military)/i,investment:/\b(?:investment|cfius|acquisition|screening)/i,agreements:/\b(?:memorandum|mou|agreement|amendment|treaty|dialogue|consultation|trade|cooperation)/i};
  return {relationships,topics:Object.keys(lex).filter(k=>lex[k].test(t))};
 }
 export function validateExtraction(result,document,catalog){

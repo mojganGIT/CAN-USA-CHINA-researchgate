@@ -12,11 +12,18 @@ const lenses={
 };
 export function makeBriefings(doc,item,issuer){
  const body=doc.text.slice(0,12000),lead=doc.title+' '+body.slice(0,3500);
- const tags=classify(lead,issuer);
+ const tags=classify(lead,issuer),headline=classify(doc.title,issuer);
+ // Location, navigation and third-country mentions do not establish a bilateral event.
+ const bilateral=/\b(?:Canada|Canadian)\s*(?:[-–—]|and|&)\s*(?:China|Chinese|the United States|United States|U\.S\.)|\b(?:China|Chinese)\s*(?:[-–—]|and|&)\s*(?:Canada|the United States|United States|U\.S\.)|\b(?:United States|U\.S\.)\s*(?:[-–—]|and|&)\s*(?:China|Canada)/i;
+ const explicit=[...body.matchAll(new RegExp(bilateral.source,'gi'))].map(m=>m[0]).join(' ');
+ tags.relationships=headline.relationships.length?headline.relationships:classify(explicit,issuer).relationships;
+ if(issuer==='Canada')tags.relationships=tags.relationships.filter(r=>r.startsWith('Canada-'));
+ if(issuer==='United States')tags.relationships=tags.relationships.filter(r=>r==='Canada-USA'||r==='USA-China');
+ if(issuer==='China')tags.relationships=tags.relationships.filter(r=>r.endsWith('-China'));
  // A publication must name another monitored country and a policy subject.
- if(!tags.relationships.length||!tags.topics.length||!/(?:memorandum|\bmou\b|agreement|tariff|regulat|policy|dialogue|consult|readout|export|investment|joint statement|declaration|market access)/i.test(lead))return [];
+ if(!tags.relationships.length||!tags.topics.length||!/(?:memorandum|\bmou\b|agreement|tariff|regulat|policy|dialogue|consult|readout|export|investment|joint statement|declaration|market access|trade|cooperation)/i.test(lead))return [];
  const mou=/memorand(?:um|a) of understanding|\bMOU\b/i.test(body);
- const kind=mou?'MOU':/readout|press conference|dialogue|consultation/i.test(lead)?'meeting':/declaration|joint statement/i.test(lead)?'recommendation':'policy';
+ const kind=mou?'MOU':/readout|press conference|dialogue|consultation|\bmeets?\b|\bmeeting\b/i.test(lead)?'meeting':/declaration|joint statement/i.test(lead)?'recommendation':'policy';
  const status=mou?'MOU reported':kind==='meeting'?'Dialogue or readout':kind==='recommendation'?'Statement or framework':'Official announcement';
  const sentences=body.split(/(?<=[.!?])\s+/).filter(s=>s.split(/\s+/).length>=8);
  const relevant=sentences.filter(s=>/memorandum|\bmou\b|signed|tariff|agreed|implementation|dialogue|declaration/i.test(s));

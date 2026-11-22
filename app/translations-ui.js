@@ -7731,6 +7731,7 @@
   "Compte rendu automatique; examen analytique en attente. L’extrait établit ce que rapporte l’autorité. L’effet juridique, le respect des engagements et les gains ou pertes canadiens exigent des preuves distinctes.",
   "自动来源报告，等待分析人员审核。摘录说明发布机构报告的内容；法律效力、履约情况及加拿大得失需要另行提供证据。"
  ],
+ "Source re-indexed": ["Source réindexée", "来源已重新索引"],
  "More developments": ["Autres faits nouveaux", "更多进展"],
  "Earlier evidence": ["Preuves antérieures", "较早证据"]
 };if(typeof module!=="undefined"&&module.exports)module.exports=data;if(g)g.POLICY_TRANSLATIONS_UI=data;})(typeof window==="undefined"?null:window);
