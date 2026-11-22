@@ -67,9 +67,9 @@ test('a partial country scan is visible and old-source discoveries cannot masque
 });
 
 test('hidden landmark headings and related navigation cannot replace the article or turn its location into a bilateral event',()=>{
- const html='<main><h1 class="visually-hidden">Main Container</h1><nav>Canada and China signed an old memorandum of understanding.</nav><article><h1>Prime Minister Carney meets President of the United States</h1><p><span>November</span> 18, 2026</p><p>Shenzhen, China</p><p>Canada and the United States agreed to continue discussions about bilateral trade and economic cooperation.</p></article></main>';
+ const html='<main><h1 class="visually-hidden">Main Container</h1><h1 class="visually-hidden">Navigation</h1><nav>Canada and China signed an old memorandum of understanding.</nav><article><h1>Prime Minister Carney meets President of the United States</h1><p><span>November</span> 18, 2026</p><p>Shenzhen, China</p><p>Canada and the United States agreed to continue discussions about bilateral trade and economic cooperation.</p></article></main>';
  const doc=documentOf(html,'https://www.pm.gc.ca/en/news/readouts/2026/11/18/meeting');
- assert.equal(doc.title,'Prime Minister Carney meets President of the United States');assert.equal(doc.publicationDate,'2026-11-18');assert(!doc.text.includes('old memorandum'));
+ assert.equal(doc.title,'Prime Minister Carney meets President of the United States');const og=documentOf('<meta property="og:title" content="Official Canada China finance MOU"><h1>Navigation</h1><main><h1>Article heading</h1></main>',url);assert.equal(og.title,'Official Canada China finance MOU');assert.equal(doc.publicationDate,'2026-11-18');assert(!doc.text.includes('old memorandum'));
  const records=makeBriefings(doc,{id:'v2',url,source:'Prime Minister of Canada',detectedAt:date,changeType:'new_source',digest:hash(doc.text)},'Canada');
  assert.deepEqual(records.map(x=>x.relationship),['Canada-USA']);assert(!records.some(x=>x.kind==='MOU'));
  const singapore=documentOf('<article><h1>Prime Minister Carney meets Prime Minister of Singapore</h1><p>Shenzhen, China</p><p>The leaders discussed trade, investment and agreed to enhance cooperation between their countries.</p></article>',url);

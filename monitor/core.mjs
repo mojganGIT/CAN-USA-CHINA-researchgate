@@ -10,10 +10,11 @@ export function dateOf(value){
 function attributes(tag){const out={};for(const m of tag.matchAll(/([\w:-]+)\s*=\s*["']([^"']*)["']/g))out[m[1].toLowerCase()]=decode(m[2]);return out;}
 export function documentOf(html,url){
  const main=html.match(/<article\b[^>]*>([\s\S]*?)<\/article>/i)?.[1]||html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1]||html;
- const headings=[...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)].map(m=>textOf(m[1]));
- const meaningful=x=>x&&!/^(?:main container|main content|content|skip to .*)$/i.test(x);
- let metaTitle='';for(const m of html.matchAll(/<meta\b[^>]*>/gi)){const a=attributes(m[0]);if(a.property==='og:title')metaTitle=a.content;}
- const title=(headings.find(meaningful)||metaTitle||textOf(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]||new URL(url).hostname)).slice(0,250);
+ const meaningful=x=>x&&!/^(?:main container|main content|content|navigation|site navigation|menu|skip to .*)$/i.test(x);
+ const headings=body=>[...body.matchAll(/<h1\b([^>]*)>([\s\S]*?)<\/h1>/gi)].filter(m=>!/visually-hidden|sr-only|screen-reader-only|wb-inv|aria-hidden\s*=\s*["']true/i.test(m[1])).map(m=>textOf(m[2])).filter(meaningful);
+ let metaTitle='';for(const m of html.matchAll(/<meta\b[^>]*>/gi)){const a=attributes(m[0]);if(a.property==='og:title'&&meaningful(a.content))metaTitle=a.content;}
+ const pageTitle=textOf(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]||'');
+ const title=(metaTitle||headings(main)[0]||pageTitle||headings(html)[0]||new URL(url).hostname).slice(0,250);
  let text=textOf(main);
  // Drop the page's search/nav preamble when the article heading occurs inside it.
  const start=text.indexOf(title);if(start>=0&&start<1500)text=text.slice(start);

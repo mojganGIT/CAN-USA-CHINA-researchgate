@@ -14,8 +14,8 @@ const usEvidence=await read('app/us-trade-evidence.json',null),usInvestment=awai
 const c={window:{}};vm.createContext(c);vm.runInContext(await fs.readFile(path.join(root,'app/explorer-catalog.js'),'utf8'),c);const catalog=c.window.EXPLORER_CATALOG;
 const now=new Date().toISOString(),state=await read('monitor/state.json',{version:1,pages:{}}),previous=await read('app/policy-updates.json',{changes:[],lastSuccessfulRun:null});
 const feed={...previous,lastAttempt:now,scheduleUTC:config.scheduleUTC,aiEnabled:!!(process.env.POLICY_MONITOR_API_KEY&&process.env.POLICY_MONITOR_MODEL),sourcesChecked:0,sourceFailures:[],changes:previous.changes||[],briefings:previous.briefings||[],workflowURL:process.env.GITHUB_SERVER_URL&&process.env.GITHUB_RUN_ID?process.env.GITHUB_SERVER_URL+'/'+process.env.GITHUB_REPOSITORY+'/actions/runs/'+process.env.GITHUB_RUN_ID:null};
-const rebuildBriefings=previous.briefingSchemaVersion!==3;
-feed.briefingSchemaVersion=3;if(rebuildBriefings)feed.briefings=[];
+const rebuildBriefings=previous.briefingSchemaVersion!==4;
+feed.briefingSchemaVersion=4;if(rebuildBriefings)feed.briefings=[];
 const pages=new Map(),hosts=config.allowedHosts;
 for(const r of inventory.records){try{const url=safeURL(r.url,hosts);pages.set(url,{issuer:r.relationship.startsWith('Canada')?'Canada':'United States',known:true});}catch{}}
 if(evidence)for(const source of Object.values(evidence.sources)){try{const url=safeURL(source.url,hosts);if(!/\.(?:pdf|xlsx)(?:$|\?)/i.test(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}}
@@ -82,6 +82,7 @@ for(let offset=0;offset<entries.length;offset+=6){
   state.pages[url]={digest,lastChecked:now,lastChanged:before?.digest===digest?before.lastChanged:now,title:doc.title,issuer:meta.issuer};
   if(!before&&meta.known)continue; // Baseline existing research, never report old records as a new policy.
   const last=feed.changes.find(x=>x.url===url&&x.digest===digest);
+  if(rebuildBriefings&&last){last.title=doc.title;last.publicationDate=doc.publicationDate||last.publicationDate;}
   if(before?.digest===digest&&!rebuildBriefings&&!(feed.aiEnabled&&last&&!last.ai&&Date.parse(last.detectedAt)>Date.now()-7*86400000))continue;
   if(before?.digest===digest&&rebuildBriefings&&!last)continue;
   const tags=classify(doc.title+' '+doc.text.slice(0,18000),meta.issuer);
