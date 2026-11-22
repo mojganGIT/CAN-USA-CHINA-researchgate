@@ -14,8 +14,8 @@ const usEvidence=await read('app/us-trade-evidence.json',null),usInvestment=awai
 const c={window:{}};vm.createContext(c);vm.runInContext(await fs.readFile(path.join(root,'app/explorer-catalog.js'),'utf8'),c);const catalog=c.window.EXPLORER_CATALOG;
 const now=new Date().toISOString(),state=await read('monitor/state.json',{version:1,pages:{}}),previous=await read('app/policy-updates.json',{changes:[],lastSuccessfulRun:null});
 const feed={...previous,lastAttempt:now,scheduleUTC:config.scheduleUTC,aiEnabled:!!(process.env.POLICY_MONITOR_API_KEY&&process.env.POLICY_MONITOR_MODEL),sourcesChecked:0,sourceFailures:[],changes:previous.changes||[],briefings:previous.briefings||[],workflowURL:process.env.GITHUB_SERVER_URL&&process.env.GITHUB_RUN_ID?process.env.GITHUB_SERVER_URL+'/'+process.env.GITHUB_REPOSITORY+'/actions/runs/'+process.env.GITHUB_RUN_ID:null};
-const rebuildBriefings=previous.briefingSchemaVersion!==2;
-feed.briefingSchemaVersion=2;if(rebuildBriefings)feed.briefings=[];
+const rebuildBriefings=previous.briefingSchemaVersion!==3;
+feed.briefingSchemaVersion=3;if(rebuildBriefings)feed.briefings=[];
 const pages=new Map(),hosts=config.allowedHosts;
 for(const r of inventory.records){try{const url=safeURL(r.url,hosts);pages.set(url,{issuer:r.relationship.startsWith('Canada')?'Canada':'United States',known:true});}catch{}}
 if(evidence)for(const source of Object.values(evidence.sources)){try{const url=safeURL(source.url,hosts);if(!/\.(?:pdf|xlsx)(?:$|\?)/i.test(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}}
@@ -24,6 +24,11 @@ if(usEvidence)for(const source of Object.values(usEvidence.sources)){try{const u
 // Monitor linked official releases; independent analysis remains curated reading.
 for(const record of research.records.filter(r=>r.kind!=='analysis'))for(const source of record.sources){
  try{const url=safeURL(source.url,hosts);if(!pages.has(url))pages.set(url,{issuer:source.publisher,known:true});}catch{}
+}
+// A parser migration must revisit existing source reports before replacing them.
+// Otherwise the routine 20-page revisit budget can silently drop a fresh release.
+if(rebuildBriefings)for(const item of [...(previous.changes||[]),...(previous.briefings||[]).flatMap(r=>(r.sources||[]).map(s=>({url:s.url})))]){
+ try{const url=safeURL(item.url,hosts);if(!pages.has(url))pages.set(url,{issuer:state.pages[url]?.issuer||'',known:true});}catch{}
 }
 // Revisit recently discovered publications so later amendments are observable too.
 for(const [url,old] of Object.entries(state.pages).filter(([url,p])=>!pages.has(url)&&Date.parse(p.lastChanged||0)>Date.now()-30*86400000).sort((a,b)=>(a[1].lastChecked||'').localeCompare(b[1].lastChecked||'')).slice(0,config.maxTrackedPagesPerRun||20)){

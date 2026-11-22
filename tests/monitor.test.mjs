@@ -74,8 +74,14 @@ test('full monitor run baselines old sources, publishes changes, enforces the AI
   assert(Object.keys(tracked).some(url=>url.includes('through-2028.html')));
   assert(!Object.keys(tracked).some(url=>url.includes('piie.com')));
   assert(!feed.changes.some(r=>r.url.includes('through-2028.html')),'A curated source should baseline before observing changes.');
-  run({FIXTURE_VERSION:'2',POLICY_MONITOR_API_KEY:'',POLICY_MONITOR_MODEL:''});feed=JSON.parse(fs.readFileSync(path.join(temp,'app/policy-updates.json')));assert(feed.changes.some(x=>x.changeType==='source_revision'&&x.previousDigest));assert.equal(feed.aiEnabled,false);assert(feed.briefings.some(x=>x.changeType==='source_revision'));assert(feed.briefings.every(x=>x.reviewState==='source_reported'));const chinaDiscovery=feed.coverage.China.lastSuccessfulDiscovery;
-  const success=feed.lastSuccessfulRun;assert.throws(()=>run({FIXTURE_FAIL:'1'}));feed=JSON.parse(fs.readFileSync(path.join(temp,'app/policy-updates.json')));assert.equal(feed.lastSuccessfulRun,success);assert.equal(feed.lastRunStatus,'failed');assert(feed.sourceFailures.length>0);assert.equal(feed.coverage.China.status,'failed');assert.equal(feed.coverage.China.lastSuccessfulDiscovery,chinaDiscovery);
+  run({FIXTURE_VERSION:'2',POLICY_MONITOR_API_KEY:'',POLICY_MONITOR_MODEL:''});feed=JSON.parse(fs.readFileSync(path.join(temp,'app/policy-updates.json')));assert(feed.changes.some(x=>x.changeType==='source_revision'&&x.previousDigest));assert.equal(feed.aiEnabled,false);assert(feed.briefings.some(x=>x.changeType==='source_revision'));assert(feed.briefings.every(x=>x.reviewState==='source_reported'));
+  const retainedReport=feed.briefings.find(x=>x.sources[0].url.includes('fixture-policy.html')&&x.sources[0].url.startsWith('https://www.canada.ca/')&&x.relationship==='Canada-China');assert(retainedReport);
+  const reportIds=[retainedReport.id];feed.briefings=[retainedReport];feed.changes=feed.changes.filter(x=>x.url===retainedReport.sources[0].url);feed.briefingSchemaVersion=0;
+  fs.writeFileSync(path.join(temp,'app/policy-updates.json'),JSON.stringify(feed));
+  const smallBudget=JSON.parse(fs.readFileSync(path.join(temp,'monitor/sources.json')));smallBudget.maxTrackedPagesPerRun=1;fs.writeFileSync(path.join(temp,'monitor/sources.json'),JSON.stringify(smallBudget));
+  run({FIXTURE_VERSION:'2',POLICY_MONITOR_API_KEY:'',POLICY_MONITOR_MODEL:''});feed=JSON.parse(fs.readFileSync(path.join(temp,'app/policy-updates.json')));
+  assert.deepEqual(reportIds.filter(id=>!feed.briefings.some(x=>x.id===id)).slice(0,3),[],'Parser migration retains reports: '+reportIds.length+' before / '+feed.briefings.length+' after');
+  const success=feed.lastSuccessfulRun;const lastChinaDiscovery=feed.coverage.China.lastSuccessfulDiscovery;assert.throws(()=>run({FIXTURE_FAIL:'1'}));feed=JSON.parse(fs.readFileSync(path.join(temp,'app/policy-updates.json')));assert.equal(feed.lastSuccessfulRun,success);assert.equal(feed.lastRunStatus,'failed');assert(feed.sourceFailures.length>0);assert.equal(feed.coverage.China.status,'failed');assert.equal(feed.coverage.China.lastSuccessfulDiscovery,lastChinaDiscovery);
  }finally{fs.rmSync(temp,{recursive:true,force:true});}
 });
 

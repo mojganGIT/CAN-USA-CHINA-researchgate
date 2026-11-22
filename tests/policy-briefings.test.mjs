@@ -75,3 +75,10 @@ test('hidden landmark headings and related navigation cannot replace the article
  const singapore=documentOf('<article><h1>Prime Minister Carney meets Prime Minister of Singapore</h1><p>Shenzhen, China</p><p>The leaders discussed trade, investment and agreed to enhance cooperation between their countries.</p></article>',url);
  assert.equal(makeBriefings(singapore,{url,detectedAt:date},'Canada').length,0);
 });
+
+test('a summit location in a heading is not a bilateral relationship and data releases retain their measurement stage',()=>{
+ const summit=documentOf('<article><h1>Joint statement by Australia, Canada and New Zealand on the APEC meeting, Shenzhen, China</h1><p>The three governments reaffirmed support for rules-based trade and economic cooperation at the summit.</p></article>',url);
+ assert.equal(makeBriefings(summit,{url,detectedAt:date},'Canada').length,0);
+ const stats=documentOf('<article><h1>Canadian international merchandise trade, September 2026</h1><p>Canada and the United States traded goods during the month. Canada and China also traded goods. The release reports measured exports and imports.</p></article>',url);
+ const reports=makeBriefings(stats,{url,detectedAt:date},'Statistics Canada');assert.equal(reports[0].kind,'statistics');assert(reports.every(x=>x.relationship.startsWith('Canada-')));
+});
