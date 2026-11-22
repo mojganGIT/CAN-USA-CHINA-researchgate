@@ -1,10 +1,10 @@
 {
-  "lastAttempt": "2026-11-22T22:11:55.392Z",
-  "lastSuccessfulRun": "2026-11-22T22:11:55.392Z",
+  "lastAttempt": "2026-11-22T22:16:08.435Z",
+  "lastSuccessfulRun": "2026-11-22T22:16:08.435Z",
   "lastRunStatus": "partial",
   "scheduleUTC": "11:17 daily",
   "aiEnabled": false,
-  "sourcesChecked": 202,
+  "sourcesChecked": 212,
   "sourceFailures": [
     {
       "url": "https://www.canada.ca/en/public-safety-canada/news.html",
@@ -169,6 +169,65 @@
   ],
   "changes": [
     {
+      "id": "auto-22a8b7d8bd5802e8e33e",
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/canada-invests-to-diversify-trade-create-jobs-and-lower-global-emissions-by-expanding-low-carbon-lng-exports.html",
+      "title": "Canada invests to diversify trade, create jobs and lower global emissions by expanding low-carbon LNG exports",
+      "source": "www.canada.ca",
+      "publicationDate": "2026-11-13",
+      "detectedAt": "2026-11-22T22:16:08.435Z",
+      "changeType": "new_source",
+      "digest": "bb1df8cfe7129416a7862438ff3bb6807cda551ced871c4224342afa51c3da29",
+      "previousDigest": null,
+      "relationships": [
+        "Canada-USA"
+      ],
+      "topics": [
+        "energy",
+        "security",
+        "investment",
+        "agreements"
+      ]
+    },
+    {
+      "id": "auto-6b881955b8c8fd03199b",
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/canada-invests-in-critical-mineral-mining-in-the-yukon.html",
+      "title": "Canada invests in critical mineral mining in the Yukon",
+      "source": "www.canada.ca",
+      "publicationDate": "2026-11-16",
+      "detectedAt": "2026-11-22T22:16:08.435Z",
+      "changeType": "new_source",
+      "digest": "db2ec224396c49ec5cd7b971c25191fa6d2e6b051fb42744a21429a549c6e213",
+      "previousDigest": null,
+      "relationships": [
+        "Canada-USA"
+      ],
+      "topics": [
+        "energy",
+        "security",
+        "investment",
+        "agreements"
+      ]
+    },
+    {
+      "id": "auto-7b5b6de74553c7fb29a9",
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/government-of-canada-invests-to-diversify-markets-and-economic-opportunities-for-canadas-forest-sector.html",
+      "title": "Government of Canada invests to diversify markets and economic opportunities for Canada’s forest sector",
+      "source": "www.canada.ca",
+      "publicationDate": "2026-11-19",
+      "detectedAt": "2026-11-22T22:16:08.435Z",
+      "changeType": "new_source",
+      "digest": "32fa78f7de867571363840c7c672d2e1fa246b0ff043ac5a14ab10c9724f63b5",
+      "previousDigest": null,
+      "relationships": [
+        "Canada-USA"
+      ],
+      "topics": [
+        "energy",
+        "investment",
+        "agreements"
+      ]
+    },
+    {
       "id": "auto-803a7f4a49a69899c0c0",
       "url": "https://www.pm.gc.ca/en/news/statements/2021/02/23/roadmap-renewed-us-canada-partnership",
       "title": "Roadmap for a Renewed U.S.-Canada Partnership",
@@ -193,9 +252,9 @@
         "agreements"
       ],
       "sourceReport": {
-        "quote": "To further advance climate priorities, they agreed to renew and update the existing Memorandum of Understanding (MOU) on energy between the U.S.",
-        "status": "MOU reported",
-        "kind": "MOU"
+        "quote": "They agreed to strengthen comprehensive and cross-sectoral efforts to control the pandemic, collaborate on public health responses, and build resilience against future outbreaks.",
+        "status": "Statement or framework",
+        "kind": "recommendation"
       }
     },
     {
@@ -239,8 +298,8 @@
       ],
       "sourceReport": {
         "quote": "These import duties were in addition to any duties imposed by China pursuant to its tariff commitments as set out in its GATT 1994 Schedule",
-        "status": "Dialogue or readout",
-        "kind": "meeting"
+        "status": "Official announcement",
+        "kind": "policy"
       }
     },
     {
@@ -264,8 +323,8 @@
       ],
       "sourceReport": {
         "quote": "On 24 September 2021, China and Canada informed the DSB that they had agreed to Procedures for Arbitration under Article 25 of the DSU in",
-        "status": "Dialogue or readout",
-        "kind": "meeting"
+        "status": "Official announcement",
+        "kind": "policy"
       }
     },
     {
@@ -674,8 +733,8 @@
       ],
       "sourceReport": {
         "quote": "Minister Anand to attend the 48th Session of the Francophonie Ministerial Conference, 20th Francophonie Summit and APEC From: Global Affairs Canada News release Today, the",
-        "status": "Dialogue or readout",
-        "kind": "meeting"
+        "status": "Official announcement",
+        "kind": "policy"
       }
     },
     {
@@ -1432,9 +1491,9 @@
         "agreements"
       ],
       "sourceReport": {
-        "quote": "Both sides welcome the signing of the memorandum of understanding between Canada’s Department of Finance and China’s Ministry of Finance to support regular dialogue and",
-        "status": "MOU reported",
-        "kind": "MOU"
+        "quote": "Joint Outcomes of the 2 nd Canada-China Economic and Financial Strategic Dialogue From: Department of Finance Canada Backgrounder Building on the commitments made by their",
+        "status": "Statement or framework",
+        "kind": "recommendation"
       }
     },
     {
@@ -1640,8 +1699,8 @@
       ],
       "sourceReport": {
         "quote": "At the Summit, the leaders renewed APEC’s Connectivity Blueprint to strengthen the infrastructure and supply chains that move our goods, advanced paperless trade to cut",
-        "status": "Dialogue or readout",
-        "kind": "meeting"
+        "status": "Official announcement",
+        "kind": "policy"
       }
     },
     {
@@ -2201,13 +2260,13 @@
         "agreements"
       ],
       "sourceReport": {
-        "quote": "Therefore, the goods may be eligible for full relief, if the CUSMA criteria is met, as outlined in CBSA’s Memorandum D7-4-3: CUSMA Requirements for the",
+        "quote": "’ imposition of Section 338 tariffs on goods imported into the U.S.",
         "status": "Official announcement",
         "kind": "policy"
       }
     }
   ],
-  "workflowURL": "https://github.com/mojganGIT/CAN-USA-CHINA-researchgate/actions/runs/45076290342",
+  "workflowURL": "https://github.com/mojganGIT/CAN-USA-CHINA-researchgate/actions/runs/45076694532",
   "aiCalls": 0,
   "assessmentReview": {
     "dataVersion": "2026-11-03.1",
@@ -2215,7 +2274,7 @@
     "checks": [
       {
         "sourceId": "S01",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "cb018e00c391811956d39e4c9fd8fa67c2d2493e5f035c2d65e16355ef6f8cb7",
         "status": "read",
         "reviewRequired": true,
@@ -2251,7 +2310,7 @@
       },
       {
         "sourceId": "S03",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "d6b8911041079155deb23e5ec9a7ed188485a697a0529633ad044568beccd238",
         "status": "read",
         "reviewRequired": false,
@@ -2264,7 +2323,7 @@
       },
       {
         "sourceId": "S04",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "6c9aec5ae01453a8834c0e16ecebd30159b7f92f38d443574147e5972078eb3e",
         "status": "read",
         "reviewRequired": true,
@@ -2275,7 +2334,7 @@
       },
       {
         "sourceId": "S05",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "e8f273e0d51cd54eee158a84433b76434b672f954235690f402996e4f86c9dde",
         "status": "read",
         "reviewRequired": false,
@@ -2302,7 +2361,7 @@
       },
       {
         "sourceId": "S07",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "c2392610741e7c3dfff8a2c5809fa249b5a982a7610c8b0254963c8181f4cdf7",
         "status": "read",
         "reviewRequired": true,
@@ -2326,7 +2385,7 @@
       },
       {
         "sourceId": "S09",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "086c90ddee534b9e407e848788c72caacb5845eed07af55c3029859c622468e4",
         "status": "read",
         "reviewRequired": true,
@@ -2338,7 +2397,7 @@
       },
       {
         "sourceId": "S10",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "779296ea4fdc157e974f0adc49dcac58edf1fe416ab6f7d652113ea15ae5cc79",
         "status": "read",
         "reviewRequired": true,
@@ -2372,7 +2431,7 @@
       },
       {
         "sourceId": "S13",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "1615d7c13a735d84e2825b573803eb12bfe5848c4e60b9c8afdfe1e42f8382ce",
         "status": "read",
         "reviewRequired": true,
@@ -2384,7 +2443,7 @@
       },
       {
         "sourceId": "S14",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "c472369f171db169363d2f33f76025c93addea21f7997b66ba749c91d82005f9",
         "status": "read",
         "reviewRequired": false,
@@ -2396,7 +2455,7 @@
       },
       {
         "sourceId": "S15",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "cc2e14c7dce6a1817257ec458d2d68ca9b1af2815abe54be8b6972312835a0e9",
         "status": "read",
         "reviewRequired": true,
@@ -2408,7 +2467,7 @@
       },
       {
         "sourceId": "S16",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "521bc8826c0a4187b1db0adbf4d2d0feb67ea0a459ae8e0663f56e3a6b7ee17a",
         "status": "read",
         "reviewRequired": false,
@@ -2419,7 +2478,7 @@
       },
       {
         "sourceId": "S17",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "cf1cdbfe0b79ac0b884cfb8585478f03e9508e7bf201e8a5b12c4e7ecc43992d",
         "status": "read",
         "reviewRequired": false,
@@ -2430,7 +2489,7 @@
       },
       {
         "sourceId": "S18",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "be5495e0423afbd96548d2d10d3cd56b20b680dd6c6d5e7d806a0acd0e2df496",
         "status": "read",
         "reviewRequired": true,
@@ -2441,7 +2500,7 @@
       },
       {
         "sourceId": "S19",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "839033b4d7fb137221a07920a3bf24df370ab10adbd6ca9ec0d62e9ea0cddf22",
         "status": "read",
         "reviewRequired": false,
@@ -2464,7 +2523,7 @@
       },
       {
         "sourceId": "S21",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "012eabb235460f63ea3d1e1d507dc1e99061931b225006c28c89e5fd353aa980",
         "status": "read",
         "reviewRequired": false,
@@ -2475,7 +2534,7 @@
       },
       {
         "sourceId": "S22",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "c893c9c7fef3536d32435053bf2051c1f2f6c72fc9f8c97efc72f8857854bd00",
         "status": "read",
         "reviewRequired": false,
@@ -2486,7 +2545,7 @@
       },
       {
         "sourceId": "S23",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "a3079d70bf46064f94cf29458d138e4968fa210111db71708c0bee656aa4e4c4",
         "status": "read",
         "reviewRequired": true,
@@ -2503,7 +2562,7 @@
       },
       {
         "sourceId": "S24",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "b4ce34f55c492f9a2f10c902e6afcd54921c311d95b33ca8f634c3085788104f",
         "status": "read",
         "reviewRequired": true,
@@ -2515,7 +2574,7 @@
       },
       {
         "sourceId": "S25",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "22eeb5b7eb611fbe36f331163046d2e2edf30640497677e018c739af0ad2861f",
         "status": "read",
         "reviewRequired": true,
@@ -2527,7 +2586,7 @@
       },
       {
         "sourceId": "S26",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "a325df5c6f03a5bc06a79473ef25af775d11b126c6d2ae6d523d8904cb8aed3a",
         "status": "read",
         "reviewRequired": true,
@@ -2536,7 +2595,7 @@
       },
       {
         "sourceId": "S27",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "4b9c1347511c9635c0a7ff6773f5532d205612a8fb91be53ed130c1ba937cdad",
         "status": "read",
         "reviewRequired": true,
@@ -2547,7 +2606,7 @@
       },
       {
         "sourceId": "S28",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "89b2340a076cba0ca078335ac2c46e474d19de4a9726ae35e7d71574b70ff998",
         "status": "read",
         "reviewRequired": false,
@@ -2564,7 +2623,7 @@
     "checks": [
       {
         "sourceId": "US01",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "e7ca52cec7785567645d6b4c75154b528b900bae9ac56a25a085c18863203f5f",
         "status": "read",
         "reviewRequired": true,
@@ -2573,7 +2632,7 @@
       },
       {
         "sourceId": "US02",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "d8dde73f032449217710e6554ac96329b3e5d56f1722661df00cf57fc4ba1faa",
         "status": "read",
         "reviewRequired": true,
@@ -2582,7 +2641,7 @@
       },
       {
         "sourceId": "US03",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "4ad40a5604360dc352e1ce6184a218604603d86f7650ec7688f3722363c06be1",
         "status": "read",
         "reviewRequired": false,
@@ -2597,7 +2656,7 @@
       },
       {
         "sourceId": "US04",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "54cb61a7b3b23f1bcfd7b530acb6de02d979eb1ee912e18f55852aa40f6b1ef2",
         "status": "read",
         "reviewRequired": false,
@@ -2681,7 +2740,7 @@
       },
       {
         "sourceId": "US08",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "d84b80cac7cccb8d7cf136ebe1989010832ab9cbda5b62580f2fca08c3fe9292",
         "status": "read",
         "reviewRequired": true,
@@ -2695,7 +2754,7 @@
       },
       {
         "sourceId": "US09",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "31953e23ea469decc928ece2f2a5294e2be7efb4b9c06191599b96354307043c",
         "status": "read",
         "reviewRequired": false,
@@ -2707,7 +2766,7 @@
       },
       {
         "sourceId": "US10",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "5c101dea209d24a99ac3939eba9b75bb491a10ece085b843f312c2c8ddef95b4",
         "status": "read",
         "reviewRequired": false,
@@ -2719,7 +2778,7 @@
       },
       {
         "sourceId": "US11",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "528923ec8147dbf742f2e489bf2fdd6b3d87ddd351cc1c072d4e4dccc1ec1824",
         "status": "read",
         "reviewRequired": false,
@@ -2731,7 +2790,7 @@
       },
       {
         "sourceId": "US12",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "d7a199a1c321ca49bff2a5ed78a458e8b249814d2c40d9b0dcbad03524a50d41",
         "status": "read",
         "reviewRequired": false,
@@ -2742,7 +2801,7 @@
       },
       {
         "sourceId": "US13",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "3d07b370e3c95596fa55d47b104ab8452d20d42676870e6ecff0713936f608b9",
         "status": "read",
         "reviewRequired": false,
@@ -2755,7 +2814,7 @@
       },
       {
         "sourceId": "US14",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "80b4b2a32dadd6d212513fe2e7527bed54959b3d4bdec4db16c75f153fc8ab4c",
         "status": "read",
         "reviewRequired": true,
@@ -2780,7 +2839,7 @@
       },
       {
         "sourceId": "US16",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "e3e367b3b28226120f4edc8a2e1329a5e6b519e8863b09ca556bcd6567403cfc",
         "status": "read",
         "reviewRequired": false,
@@ -2791,7 +2850,7 @@
       },
       {
         "sourceId": "US17",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "0d657a60e7216e8ebc59b226ff2be1d86b1a1b853c209afdaaddadf1f8ef6329",
         "status": "read",
         "reviewRequired": true,
@@ -2802,7 +2861,7 @@
       },
       {
         "sourceId": "US18",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "b4ed39836263536a3473ba3818cab980b688ba8bd527a7b7fac39ccb9abc6ca4",
         "status": "read",
         "reviewRequired": false,
@@ -2813,7 +2872,7 @@
       },
       {
         "sourceId": "US19",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "04e02042542fa9666e82f863a5a286c97adcdf99f266e53a1879828f2c16762c",
         "status": "read",
         "reviewRequired": false,
@@ -2824,7 +2883,7 @@
       },
       {
         "sourceId": "US20",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "aca96dfc7527dcae6a65b4318426a9cfbe29e4f936a4be37d2205066e679a3d4",
         "status": "read",
         "reviewRequired": false,
@@ -2835,7 +2894,7 @@
       },
       {
         "sourceId": "US21",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "0e8af4e8d2226a580519849daac897e4fc44e0b9c7f7fe39bc8ccbea787363e7",
         "status": "read",
         "reviewRequired": true,
@@ -2857,7 +2916,7 @@
       },
       {
         "sourceId": "US23",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "2d73b8ef20c45b9c0a1931fda88647a2c4d63271cef7ef5093aa4c525968321e",
         "status": "read",
         "reviewRequired": true,
@@ -2868,7 +2927,7 @@
       },
       {
         "sourceId": "US24",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "2d73b8ef20c45b9c0a1931fda88647a2c4d63271cef7ef5093aa4c525968321e",
         "status": "read",
         "reviewRequired": true,
@@ -2879,7 +2938,7 @@
       },
       {
         "sourceId": "US25",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "2d73b8ef20c45b9c0a1931fda88647a2c4d63271cef7ef5093aa4c525968321e",
         "status": "read",
         "reviewRequired": true,
@@ -2890,7 +2949,7 @@
       },
       {
         "sourceId": "US26",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "73422323cf04af47f6b49992b307f19c6d58a9cffce123a00dfdf5c15a3527bf",
         "status": "read",
         "reviewRequired": true,
@@ -2901,7 +2960,7 @@
       },
       {
         "sourceId": "US27",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "9115afde1d6527cfc7bc6642c22037b394022a50d4969145e3243b2416128fc7",
         "status": "read",
         "reviewRequired": true,
@@ -2912,7 +2971,7 @@
       },
       {
         "sourceId": "US28",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "5422be4eb60fb98f3c6cc9a24f51bfdbc3c3a4b6b4de0a2a7d67c6221abbb66d",
         "status": "read",
         "reviewRequired": true,
@@ -2923,7 +2982,7 @@
       },
       {
         "sourceId": "US29",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "f6c6ea2f7113a39d66396fa293c27fc554fa7e5084c1e639a4bb61929beed752",
         "status": "read",
         "reviewRequired": false,
@@ -2956,7 +3015,7 @@
       },
       {
         "sourceId": "US32",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "d7f1caa3987641d0204cee28c1463c7ae6e0e9ffea104a53541ae0a58d0ea7ef",
         "status": "read",
         "reviewRequired": false,
@@ -2967,7 +3026,7 @@
       },
       {
         "sourceId": "US33",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "f0d218199efbc29d6841fa441c39be75cd4b941636cd29ae290b24407fb3cf20",
         "status": "read",
         "reviewRequired": false,
@@ -3000,7 +3059,7 @@
       },
       {
         "sourceId": "US36",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "e16abd784ef7a5f81637c8471d6b6b6d29d48c797117e5662e3f31354442c037",
         "status": "read",
         "reviewRequired": false,
@@ -3011,7 +3070,7 @@
       },
       {
         "sourceId": "US37",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "0c2cefc49f96907a82365d58b715c3e4c24dd2f5313d8741df14c3fd58947306",
         "status": "read",
         "reviewRequired": false,
@@ -3022,7 +3081,7 @@
       },
       {
         "sourceId": "US38",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "be5495e0423afbd96548d2d10d3cd56b20b680dd6c6d5e7d806a0acd0e2df496",
         "status": "read",
         "reviewRequired": true,
@@ -3033,7 +3092,7 @@
       },
       {
         "sourceId": "US39",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "1f330e6408dff3ea5e97b6515571dd3474ee6037ba64d54423020cfa0cc3552d",
         "status": "read",
         "reviewRequired": false,
@@ -3044,7 +3103,7 @@
       },
       {
         "sourceId": "US40",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "c893c9c7fef3536d32435053bf2051c1f2f6c72fc9f8c97efc72f8857854bd00",
         "status": "read",
         "reviewRequired": false,
@@ -3075,7 +3134,7 @@
       },
       {
         "sourceId": "US43",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "b55348384c1deb48557212972991e50c3c5a3a0a003f0ee9ca912c29bd701d83",
         "status": "read",
         "reviewRequired": true,
@@ -3086,7 +3145,7 @@
       },
       {
         "sourceId": "US44",
-        "lastChecked": "2026-11-22T22:11:55.392Z",
+        "lastChecked": "2026-11-22T22:16:08.435Z",
         "digest": "492aa1a54ea9ec6470e4d495a6b0db0d8d4b65f8e9eab6c8f5205447990f03d6",
         "status": "read",
         "reviewRequired": true,
@@ -3098,7 +3157,7 @@
       },
       {
         "sourceId": "US45",
-        "lastChecked": "2026-11-22T22:11:47.682170+00:00",
+        "lastChecked": "2026-11-22T22:15:59.405636+00:00",
         "digest": "35627a9117698c818f01b0f0059e7ad6aebabe8799fd3d7b292dffb37c5c2ef3",
         "status": "read",
         "reviewRequired": false,
@@ -3144,7 +3203,7 @@
       },
       {
         "sourceId": "US46",
-        "lastChecked": "2026-11-22T22:11:47.682170+00:00",
+        "lastChecked": "2026-11-22T22:15:59.405636+00:00",
         "digest": "0e70a78e1b8e3a33f0aee45c6e710ceb70340fbec5d81d9bed344814d899de4e",
         "status": "read",
         "reviewRequired": false,
@@ -3199,9 +3258,9 @@
       "publicationDate": null,
       "modifiedDate": null,
       "detectedAt": "2026-11-22T15:27:03.879Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "parser_refresh",
-      "kind": "meeting",
+      "kind": "policy",
       "relationship": "Canada-China",
       "topics": [
         "agriculture",
@@ -3214,7 +3273,7 @@
       "canada": "Could Canadian growers, processors or seafood exporters gain or lose market access?",
       "decisionQuestion": "Could Canadian growers, processors or seafood exporters gain or lose market access?",
       "followUp": "Verify product coverage and customs guidance; compare shipment quantities and values for matching periods.",
-      "status": "Dialogue or readout",
+      "status": "Official announcement",
       "limit": "Automatic source report; analyst review pending. The excerpt establishes what the authority reports. Legal effect, compliance and Canadian gains or losses require separate evidence.",
       "confidence": "Official source · analyst review pending",
       "reviewState": "source_reported",
@@ -3237,9 +3296,9 @@
       "publicationDate": null,
       "modifiedDate": null,
       "detectedAt": "2026-11-22T15:27:03.879Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "parser_refresh",
-      "kind": "meeting",
+      "kind": "policy",
       "relationship": "Canada-China",
       "topics": [
         "agriculture",
@@ -3253,7 +3312,7 @@
       "canada": "Could Canadian growers, processors or seafood exporters gain or lose market access?",
       "decisionQuestion": "Could Canadian growers, processors or seafood exporters gain or lose market access?",
       "followUp": "Verify product coverage and customs guidance; compare shipment quantities and values for matching periods.",
-      "status": "Dialogue or readout",
+      "status": "Official announcement",
       "limit": "Automatic source report; analyst review pending. The excerpt establishes what the authority reports. Legal effect, compliance and Canadian gains or losses require separate evidence.",
       "confidence": "Official source · analyst review pending",
       "reviewState": "source_reported",
@@ -3276,9 +3335,9 @@
       "publicationDate": "2021-02-23",
       "modifiedDate": "2025-04-04",
       "detectedAt": "2026-11-22T15:27:03.879Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "parser_refresh",
-      "kind": "MOU",
+      "kind": "recommendation",
       "relationship": "Canada-USA",
       "topics": [
         "security",
@@ -3287,11 +3346,11 @@
       "title": "Roadmap for a Renewed U.S.-Canada Partnership",
       "implementationStatus": "unverified",
       "changed": "The issuing authority published this policy record. Read the source excerpt for the reported development.",
-      "quote": "To further advance climate priorities, they agreed to renew and update the existing Memorandum of Understanding (MOU) on energy between the U.S.",
+      "quote": "They agreed to strengthen comprehensive and cross-sectoral efforts to control the pandemic, collaborate on public health responses, and build resilience against future outbreaks.",
       "canada": "Does this change Canada’s security cooperation or compliance obligations?",
       "decisionQuestion": "Does this change Canada’s security cooperation or compliance obligations?",
       "followUp": "Check binding measures, procurement awards and operational implementation with the responsible authority.",
-      "status": "MOU reported",
+      "status": "Statement or framework",
       "limit": "Automatic source report; analyst review pending. The excerpt establishes what the authority reports. Legal effect, compliance and Canadian gains or losses require separate evidence.",
       "confidence": "Official source · analyst review pending",
       "reviewState": "source_reported",
@@ -3314,7 +3373,7 @@
       "publicationDate": "2022-07-25",
       "modifiedDate": "2026-05-08",
       "detectedAt": "2026-11-22T15:16:57.665Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "parser_refresh",
       "kind": "policy",
       "relationship": "Canada-China",
@@ -3351,7 +3410,7 @@
       "publicationDate": "2026-01-16",
       "modifiedDate": "2026-01-20",
       "detectedAt": "2026-11-22T15:16:57.665Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "parser_refresh",
       "kind": "MOU",
       "relationship": "Canada-China",
@@ -3391,7 +3450,7 @@
       "publicationDate": "2026-08-06",
       "modifiedDate": "2026-10-07",
       "detectedAt": "2026-11-22T15:16:57.665Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "parser_refresh",
       "kind": "statistics",
       "relationship": "Canada-USA",
@@ -3429,7 +3488,7 @@
       "publicationDate": "2026-04-29",
       "modifiedDate": "2026-04-29",
       "detectedAt": "2026-11-22T15:16:57.665Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "parser_refresh",
       "kind": "statistics",
       "relationship": "Canada-USA",
@@ -3468,7 +3527,7 @@
       "publicationDate": "2026-04-29",
       "modifiedDate": "2026-04-29",
       "detectedAt": "2026-11-22T15:16:57.665Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "parser_refresh",
       "kind": "statistics",
       "relationship": "Canada-China",
@@ -3507,7 +3566,7 @@
       "publicationDate": "2026-11-04",
       "modifiedDate": "2026-11-04",
       "detectedAt": "2026-11-22T15:16:57.665Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "parser_refresh",
       "kind": "statistics",
       "relationship": "Canada-USA",
@@ -3545,7 +3604,7 @@
       "publicationDate": "2026-11-04",
       "modifiedDate": "2026-11-04",
       "detectedAt": "2026-11-22T15:16:57.665Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "parser_refresh",
       "kind": "statistics",
       "relationship": "Canada-China",
@@ -3583,7 +3642,7 @@
       "publicationDate": "2026-11-19",
       "modifiedDate": "2026-11-19",
       "detectedAt": "2026-11-22T15:16:57.665Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "parser_refresh",
       "kind": "recommendation",
       "relationship": "USA-China",
@@ -3622,9 +3681,9 @@
       "publicationDate": "2026-11-13",
       "modifiedDate": "2026-11-13",
       "detectedAt": "2026-11-22T15:16:57.665Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "new_source",
-      "kind": "meeting",
+      "kind": "policy",
       "relationship": "Canada-China",
       "topics": [
         "investment",
@@ -3637,7 +3696,7 @@
       "canada": "Will this produce productive capacity or supplier work in Canada?",
       "decisionQuestion": "Will this produce productive capacity or supplier work in Canada?",
       "followUp": "Verify project location, financial close, actual spending and operating employment.",
-      "status": "Dialogue or readout",
+      "status": "Official announcement",
       "limit": "Automatic source report; analyst review pending. The excerpt establishes what the authority reports. Legal effect, compliance and Canadian gains or losses require separate evidence.",
       "confidence": "Official source · analyst review pending",
       "reviewState": "source_reported",
@@ -3660,7 +3719,7 @@
       "publicationDate": "2026-11-17",
       "modifiedDate": "2026-11-17",
       "detectedAt": "2026-11-22T15:16:57.665Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "new_source",
       "kind": "meeting",
       "relationship": "Canada-China",
@@ -3700,9 +3759,9 @@
       "publicationDate": "2026-11-17",
       "modifiedDate": "2026-11-17",
       "detectedAt": "2026-11-22T15:10:17.876Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "new_source",
-      "kind": "MOU",
+      "kind": "recommendation",
       "relationship": "Canada-China",
       "topics": [
         "finance",
@@ -3712,11 +3771,11 @@
       "title": "Joint Outcomes of the 2 nd Canada-China Economic and Financial Strategic Dialogue",
       "implementationStatus": "unverified",
       "changed": "The issuing authority published this policy record. Read the source excerpt for the reported development.",
-      "quote": "Both sides welcome the signing of the memorandum of understanding between Canada’s Department of Finance and China’s Ministry of Finance to support regular dialogue and",
+      "quote": "Joint Outcomes of the 2 nd Canada-China Economic and Financial Strategic Dialogue From: Department of Finance Canada Backgrounder Building on the commitments made by their",
       "canada": "Does this open an approved service or change Canadian financial risk?",
       "decisionQuestion": "Does this open an approved service or change Canadian financial risk?",
       "followUp": "Check regulator decisions, permitted services and completed transactions; a dialogue is not regulatory approval.",
-      "status": "MOU reported",
+      "status": "Statement or framework",
       "limit": "Automatic source report; analyst review pending. The excerpt establishes what the authority reports. Legal effect, compliance and Canadian gains or losses require separate evidence.",
       "confidence": "Official source · analyst review pending",
       "reviewState": "source_reported",
@@ -3739,7 +3798,7 @@
       "publicationDate": "2026-11-17",
       "modifiedDate": "2026-11-17",
       "detectedAt": "2026-11-22T15:10:17.876Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "new_source",
       "kind": "meeting",
       "relationship": "Canada-USA",
@@ -3780,7 +3839,7 @@
       "publicationDate": null,
       "modifiedDate": null,
       "detectedAt": "2026-11-22T15:10:17.876Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "new_source",
       "kind": "policy",
       "relationship": "Canada-USA",
@@ -3819,7 +3878,7 @@
       "publicationDate": null,
       "modifiedDate": null,
       "detectedAt": "2026-11-22T15:10:17.876Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "new_source",
       "kind": "policy",
       "relationship": "USA-China",
@@ -3858,7 +3917,7 @@
       "publicationDate": "2026-11-17",
       "modifiedDate": "2026-11-17",
       "detectedAt": "2026-11-22T15:10:17.876Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "new_source",
       "kind": "meeting",
       "relationship": "Canada-China",
@@ -3900,7 +3959,7 @@
       "publicationDate": "2026-11-18",
       "modifiedDate": "2026-11-18",
       "detectedAt": "2026-11-22T15:10:17.876Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "new_source",
       "kind": "meeting",
       "relationship": "Canada-USA",
@@ -3937,9 +3996,9 @@
       "publicationDate": "2026-11-19",
       "modifiedDate": "2026-11-19",
       "detectedAt": "2026-11-22T15:10:17.876Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "new_source",
-      "kind": "meeting",
+      "kind": "policy",
       "relationship": "Canada-China",
       "topics": [
         "agriculture",
@@ -3957,7 +4016,7 @@
       "canada": "Could Canadian growers, processors or seafood exporters gain or lose market access?",
       "decisionQuestion": "Could Canadian growers, processors or seafood exporters gain or lose market access?",
       "followUp": "Verify product coverage and customs guidance; compare shipment quantities and values for matching periods.",
-      "status": "Dialogue or readout",
+      "status": "Official announcement",
       "limit": "Automatic source report; analyst review pending. The excerpt establishes what the authority reports. Legal effect, compliance and Canadian gains or losses require separate evidence.",
       "confidence": "Official source · analyst review pending",
       "reviewState": "source_reported",
@@ -3980,7 +4039,7 @@
       "publicationDate": "2026-07-29",
       "modifiedDate": null,
       "detectedAt": "2026-11-21T11:57:00.586Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "source_revision",
       "kind": "policy",
       "relationship": "Canada-USA",
@@ -4018,7 +4077,7 @@
       "publicationDate": "2025-03-13",
       "modifiedDate": "2026-11-04",
       "detectedAt": "2026-11-04T19:08:39.406Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "source_revision",
       "kind": "policy",
       "relationship": "Canada-USA",
@@ -4057,7 +4116,7 @@
       "publicationDate": "2026-09-07",
       "modifiedDate": "2026-10-23",
       "detectedAt": "2026-11-03T20:25:46.807Z",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
       "changeType": "new_source",
       "kind": "policy",
       "relationship": "Canada-USA",
@@ -4067,7 +4126,7 @@
       "title": "Customs Notice 26-23: United States Surtax Order (2026)",
       "implementationStatus": "unverified",
       "changed": "The issuing authority published this policy record. Read the source excerpt for the reported development.",
-      "quote": "Therefore, the goods may be eligible for full relief, if the CUSMA criteria is met, as outlined in CBSA’s Memorandum D7-4-3: CUSMA Requirements for the",
+      "quote": "’ imposition of Section 338 tariffs on goods imported into the U.S.",
       "canada": "What changes for Canadian market access, obligations or negotiating options?",
       "decisionQuestion": "What changes for Canadian market access, obligations or negotiating options?",
       "followUp": "Obtain the instrument, signatories, product coverage and effective dates before treating access as implemented.",
@@ -4090,11 +4149,11 @@
   "coverage": {
     "Canada": {
       "country": "Canada",
-      "attemptedAt": "2026-11-22T22:11:55.392Z",
+      "attemptedAt": "2026-11-22T22:16:08.435Z",
       "hubs": 8,
       "hubsRead": 6,
       "candidates": 50,
-      "pagesRead": 40,
+      "pagesRead": 55,
       "failures": [
         {
           "url": "https://www.canada.ca/en/public-safety-canada/news.html",
@@ -4105,12 +4164,12 @@
           "error": "Official source returned HTTP 403"
         }
       ],
-      "lastSuccessfulDiscovery": "2026-11-22T22:11:55.392Z",
+      "lastSuccessfulDiscovery": "2026-11-22T22:16:08.435Z",
       "status": "partial"
     },
     "United States": {
       "country": "United States",
-      "attemptedAt": "2026-11-22T22:11:55.392Z",
+      "attemptedAt": "2026-11-22T22:16:08.435Z",
       "hubs": 5,
       "hubsRead": 3,
       "candidates": 58,
@@ -4125,12 +4184,12 @@
           "error": "Source URL is not allowed."
         }
       ],
-      "lastSuccessfulDiscovery": "2026-11-22T22:11:55.392Z",
+      "lastSuccessfulDiscovery": "2026-11-22T22:16:08.435Z",
       "status": "partial"
     },
     "China": {
       "country": "China",
-      "attemptedAt": "2026-11-22T22:11:55.392Z",
+      "attemptedAt": "2026-11-22T22:16:08.435Z",
       "hubs": 2,
       "hubsRead": 1,
       "candidates": 15,
@@ -4141,16 +4200,16 @@
           "error": "fetch failed"
         }
       ],
-      "lastSuccessfulDiscovery": "2026-11-22T22:11:55.392Z",
+      "lastSuccessfulDiscovery": "2026-11-22T22:16:08.435Z",
       "status": "partial"
     }
   },
-  "briefingSchemaVersion": 5,
+  "briefingSchemaVersion": 6,
   "sourceChecks": [
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/03/canada-secures-renewed-market-access-with-china-to-boost-exports-and-strengthen-economic-collaboration.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-03T20:25:46.807Z",
       "digest": "d6b8911041079155deb23e5ec9a7ed188485a697a0529633ad044568beccd238",
       "status": "success",
@@ -4158,8 +4217,8 @@
     },
     {
       "url": "https://www.canada.ca/en/department-finance/news/2024/08/surtax-on-chinese-made-electric-vehicles.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-03T20:25:46.807Z",
       "digest": "60d84e63a55cc870023d5dff6a7aa9bb5c8005396d79d309c07853b1e5fe7014",
       "status": "success",
@@ -4167,8 +4226,8 @@
     },
     {
       "url": "https://www.international.gc.ca/transparency-transparence/indo-pacific-indo-pacifique/index.aspx?lang=eng",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-03T20:25:46.807Z",
       "digest": "f3883e9fa7ddc16fe2ea7b096f8f9749e14d1f077c38d63d10e8a0a9eb3ea596",
       "status": "success",
@@ -4176,8 +4235,8 @@
     },
     {
       "url": "https://www.canada.ca/en/department-national-defence/corporate/reports-publications/north-strong-free-2024.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-03T20:25:46.807Z",
       "digest": "205dc67de22ddb3117823ef8f30c07181aea20ca3397694876794fed1780181f",
       "status": "success",
@@ -4185,8 +4244,8 @@
     },
     {
       "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2022/05/policy-statement--securing-canadas-telecommunications-system.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-03T20:25:46.807Z",
       "digest": "7d746f4db7a441eaf1420869616ed6b19d100ef9904d5b30f8547f6140ee6cf4",
       "status": "success",
@@ -4195,15 +4254,15 @@
     {
       "url": "https://www.cyber.gc.ca/en/guidance/cyber-threat-bulletin-peoples-republic-china-prc-state-sponsored-cyber-threat-activity",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
     },
     {
       "url": "https://international.canada.ca/en/global-affairs/consultations/trade/2026-04-07-electric-vehicules",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-03T20:25:46.807Z",
       "digest": "8b601685ac46af810ad7ffa44c48ebbd26e0ffa29ad68672fa7ae0a69923096e",
       "status": "success",
@@ -4211,8 +4270,8 @@
     },
     {
       "url": "https://inspection.canada.ca/en/exporting-food-plants-animals/food-exports/requirements-library/peoples-republic-china-cifer",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "806eb5bf7ca38e944404abef423c14b38f15d117e272adc691b65c938b904ccc",
       "status": "success",
@@ -4221,15 +4280,15 @@
     {
       "url": "https://www.canada.ca/en/department-finance/news/2026/04/canada-china-financial-working-group-joint-statement.html",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
     },
     {
       "url": "https://ised-isde.canada.ca/site/investment-canada-act/en/policy-regarding-foreign-investments-state-owned-enterprises-critical-minerals-under-investment",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "ce3883138cb59e54222c28aaeb4ca3e09c10867d11715508958d4a42dfc2c432",
       "status": "success",
@@ -4237,8 +4296,8 @@
     },
     {
       "url": "https://natural-resources.canada.ca/energy-sources/memorandum-understanding-between-department-natural-resources-canada-national-energy-administration-people-s-republic-china-strengthening-energy-cooperation",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "3edb1a376ba0a6cd3b889bc830b36d0cd9dc892f412e7cd0b3a03c4fac9b46d1",
       "status": "success",
@@ -4247,7 +4306,7 @@
     {
       "url": "https://international.canada.ca/en/global-affairs/campaigns/cusma-2026-review",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
@@ -4255,7 +4314,7 @@
     {
       "url": "https://www.whitehouse.gov/presidential-actions/2025/02/imposing-duties-to-address-the-flow-of-illicit-drugs-across-our-northern-border/",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
@@ -4263,7 +4322,7 @@
     {
       "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2020-jnt-ctn-pln-pds/index-en.aspx",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
@@ -4271,15 +4330,15 @@
     {
       "url": "https://www.canada.ca/en/public-safety-canada/news/2024/12/government-of-canadas-border-plan-significant-investments-to-strengthen-border-security-and-our-immigration-system.html",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
     },
     {
       "url": "https://www.canada.ca/en/privy-council/services/canada-fentanyl-czar/implementation-update.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-03T20:25:46.807Z",
       "digest": "0c6d2e1a26df9722d8502cb455d299577f1f0cf918387220ca9dfcf421ef04df",
       "status": "success",
@@ -4288,7 +4347,7 @@
     {
       "url": "https://www.canada.ca/en/department-national-defence/services/operations/allies-partners/norad/modernization.html",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
@@ -4296,15 +4355,15 @@
     {
       "url": "https://tc.canada.ca/en/road-transportation/innovative-technologies/zero-emission-vehicles/electric-vehicles-policies-regulations",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
     },
     {
       "url": "https://www.canada.ca/en/natural-resources-canada/news/2020/01/canada-and-us-finalize-joint-action-plan-on-critical-minerals-collaboration.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-03T20:25:46.807Z",
       "digest": "35482894390df5c9113548009ebe2677b537ec065d70c1ca04b11131d0f72cab",
       "status": "success",
@@ -4312,8 +4371,8 @@
     },
     {
       "url": "https://ustr.gov/issue-areas/enforcement/section-301-investigations/tariff-actions",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-03T20:25:46.807Z",
       "digest": "68adbfdd8db69eb348e734d3fe9c3ffbbb48b7a935fc957e04818c839a3cdd3d",
       "status": "success",
@@ -4322,7 +4381,7 @@
     {
       "url": "https://ustr.gov/sites/default/files/files/Press/Releases/2026/USTR%20301%20FRN%20Industrial%20Excess%20Capacity%20Final.pdf",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
@@ -4330,15 +4389,15 @@
     {
       "url": "https://www.defense.gov/National-Defense-Strategy/",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
     },
     {
       "url": "https://www.fcc.gov/supplychain/coveredlist",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-21T11:57:00.586Z",
       "digest": "1e174d4e3e62ff831ba1ac8fc9bad869ab62e7a18ad2c29b1cae475d62867564",
       "status": "success",
@@ -4347,7 +4406,7 @@
     {
       "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a",
       "checkedAt": "2026-11-22T15:10:17.876Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-03T20:25:46.807Z",
       "digest": "1ef7872a91e029cfe810535c1c5b15fffc619e4fa69f09b526c22623e960368a",
       "status": "failed"
@@ -4355,7 +4414,7 @@
     {
       "url": "https://www.bis.gov/press-release/commerce-implements-new-export-controls-advanced-computing-semiconductor-manufacturing-items",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
@@ -4363,15 +4422,15 @@
     {
       "url": "https://ustr.gov/issue-areas/enforcement/section-301-investigations/section-301-china-four-year-review",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
     },
     {
       "url": "https://ustr.gov/phase-one",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:27:03.879Z",
       "digest": "0d657a60e7216e8ebc59b226ff2be1d86b1a1b853c209afdaaddadf1f8ef6329",
       "status": "success",
@@ -4388,8 +4447,8 @@
     },
     {
       "url": "https://home.treasury.gov/policy-issues/international/outbound-investment-program",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "2d73b8ef20c45b9c0a1931fda88647a2c4d63271cef7ef5093aa4c525968321e",
       "status": "success",
@@ -4397,8 +4456,8 @@
     },
     {
       "url": "https://www.whitehouse.gov/presidential-actions/2025/03/immediate-measures-to-increase-american-mineral-production/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "30ef5dc1addf546fd27f323701ab8d736a5494aeb039f81dc7743ba6b68f479a",
       "status": "success",
@@ -4406,8 +4465,8 @@
     },
     {
       "url": "https://international.canada.ca/en/global-affairs/corporate/reports/chief-economist/monthly/2026-08",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "cb018e00c391811956d39e4c9fd8fa67c2d2493e5f035c2d65e16355ef6f8cb7",
       "status": "success",
@@ -4416,15 +4475,15 @@
     {
       "url": "https://www.canolacouncil.org/markets-stats/exports/",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
     },
     {
       "url": "https://www.eics-scei.gc.ca/report-rapport/Imports_of_electric_vehicles_from_China.htm",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-21T11:57:00.586Z",
       "digest": "6c9aec5ae01453a8834c0e16ecebd30159b7f92f38d443574147e5972078eb3e",
       "status": "success",
@@ -4432,8 +4491,8 @@
     },
     {
       "url": "https://www.international.gc.ca/trade-commerce/controls-controles/notices-avis/1168.aspx?lang=eng",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T03:37:21.285Z",
       "digest": "e8f273e0d51cd54eee158a84433b76434b672f954235690f402996e4f86c9dde",
       "status": "success",
@@ -4442,15 +4501,15 @@
     {
       "url": "https://www150.statcan.gc.ca/n1/pub/13-605-x/2026001/article/00001-eng.htm",
       "checkedAt": "2026-11-17T12:01:17.466Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T03:37:21.285Z",
       "digest": "cd10e8564ae9564a6600cbe0ebb8cf7b16780fc8a5401b2f35320ce772fbf7f1",
       "status": "failed"
     },
     {
       "url": "https://lgcorp.com/media/release/30700",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:27:03.879Z",
       "digest": "c2392610741e7c3dfff8a2c5809fa249b5a982a7610c8b0254963c8181f4cdf7",
       "status": "success",
@@ -4459,15 +4518,15 @@
     {
       "url": "https://www.unifor.org/news/all-news/unifor-opens-negotiations-general-motors",
       "checkedAt": "2026-11-22T15:10:17.876Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T03:37:21.285Z",
       "digest": "7d2c8ab718c166d91da69506f1592a6357fa4464a388ed207a8b454d15395724",
       "status": "failed"
     },
     {
       "url": "https://www.cer-rec.gc.ca/en/data-analysis/facilities-we-regulate/canadas-pipeline-system/2026/crude-oil/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "086c90ddee534b9e407e848788c72caacb5845eed07af55c3029859c622468e4",
       "status": "success",
@@ -4475,8 +4534,8 @@
     },
     {
       "url": "https://cer-rec.gc.ca/en/data-analysis/facilities-we-regulate/canadas-pipeline-system/2026/natural-gas/index.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "779296ea4fdc157e974f0adc49dcac58edf1fe416ab6f7d652113ea15ae5cc79",
       "status": "success",
@@ -4485,7 +4544,7 @@
     {
       "url": "https://www.lngcanada.ca/news/lng-canada-announces-phase-2-final-investment-decision/",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
@@ -4493,15 +4552,15 @@
     {
       "url": "https://www.lngcanada.ca/news/media-kit/",
       "checkedAt": "2026-11-22T11:55:23.968Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T03:37:21.285Z",
       "digest": "f5af9a40452b06257ea3f824b9d3b4d7eefdc744a541bd9a7b7c2ba82085d8f6",
       "status": "failed"
     },
     {
       "url": "https://www.sec.gov/Archives/edgar/data/1086888/000108688826000080/q22026pressrelease.htm",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "1615d7c13a735d84e2825b573803eb12bfe5848c4e60b9c8afdfe1e42f8382ce",
       "status": "success",
@@ -4509,8 +4568,8 @@
     },
     {
       "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260429/cg-b002-eng.htm",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T03:37:21.285Z",
       "digest": "c472369f171db169363d2f33f76025c93addea21f7997b66ba749c91d82005f9",
       "status": "success",
@@ -4518,8 +4577,8 @@
     },
     {
       "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260429/dq260429b-eng.htm",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "cc2e14c7dce6a1817257ec458d2d68ca9b1af2815abe54be8b6972312835a0e9",
       "status": "success",
@@ -4527,8 +4586,8 @@
     },
     {
       "url": "https://international.canada.ca/en/global-affairs/corporate/reports/chief-economist/state-trade/2026",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T03:37:21.285Z",
       "digest": "521bc8826c0a4187b1db0adbf4d2d0feb67ea0a459ae8e0663f56e3a6b7ee17a",
       "status": "success",
@@ -4536,8 +4595,8 @@
     },
     {
       "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/03/minister-jolys-statement-on-the-outcome-of-the-further-national-security-review-of-tiktok-technology-canada-inc-under-the-investment-canada-act.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T03:37:21.285Z",
       "digest": "cf1cdbfe0b79ac0b884cfb8585478f03e9508e7bf201e8a5b12c4e7ecc43992d",
       "status": "success",
@@ -4545,8 +4604,8 @@
     },
     {
       "url": "https://www.whitehouse.gov/presidential-actions/2026/10/further-modifying-the-scope-of-products-of-canada-subject-to-the-additional-duties-imposed-to-offset-canadian-discrimination-against-the-commerce-of-the-united-states-with-respect-to-motor-vehicles/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "be5495e0423afbd96548d2d10d3cd56b20b680dd6c6d5e7d806a0acd0e2df496",
       "status": "success",
@@ -4554,8 +4613,8 @@
     },
     {
       "url": "https://www.tradecommissioner.gc.ca/en/market-industry-info/search-country-region/country/canada-united-states-export/us-tariffs/answers-common-questions-tariffs.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T03:37:21.285Z",
       "digest": "839033b4d7fb137221a07920a3bf24df370ab10adbd6ca9ec0d62e9ea0cddf22",
       "status": "success",
@@ -4563,8 +4622,8 @@
     },
     {
       "url": "https://www.canada.ca/en/department-finance/programs/financial-sector-policy/joint-statement-on-launch-canada-china-financial-working-group.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T03:37:21.285Z",
       "digest": "012eabb235460f63ea3d1e1d507dc1e99061931b225006c28c89e5fd353aa980",
       "status": "success",
@@ -4572,8 +4631,8 @@
     },
     {
       "url": "https://www.govinfo.gov/content/pkg/FR-2026-10-05/html/2026-20341.htm",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T03:37:21.285Z",
       "digest": "c893c9c7fef3536d32435053bf2051c1f2f6c72fc9f8c97efc72f8857854bd00",
       "status": "success",
@@ -4581,8 +4640,8 @@
     },
     {
       "url": "https://ised-isde.canada.ca/site/ised/en/research-and-business-intelligence/industry-sector-intelligence/manufacturing-industries/aerospace-and-defence/state-canadas-defence-industry",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "a3079d70bf46064f94cf29458d138e4968fa210111db71708c0bee656aa4e4c4",
       "status": "success",
@@ -4590,8 +4649,8 @@
     },
     {
       "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/261009/dq261009a-eng.htm",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "b4ce34f55c492f9a2f10c902e6afcd54921c311d95b33ca8f634c3085788104f",
       "status": "success",
@@ -4599,8 +4658,8 @@
     },
     {
       "url": "https://agriculture.canada.ca/en/sector/crops/reports-statistics/canada-outlook-principal-field-crops-2026-09-25",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "22eeb5b7eb611fbe36f331163046d2e2edf30640497677e018c739af0ad2861f",
       "status": "success",
@@ -4608,8 +4667,8 @@
     },
     {
       "url": "https://open.canada.ca/data/dataset/4ff317bb-fd06-480d-a14c-3d00837f1c13",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "a325df5c6f03a5bc06a79473ef25af775d11b126c6d2ae6d523d8904cb8aed3a",
       "status": "success",
@@ -4617,8 +4676,8 @@
     },
     {
       "url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1410035502&request_locale=en",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T11:55:23.968Z",
       "digest": "4b9c1347511c9635c0a7ff6773f5532d205612a8fb91be53ed130c1ba937cdad",
       "status": "success",
@@ -4626,8 +4685,8 @@
     },
     {
       "url": "https://www.pm.gc.ca/en/news/statements/2026/01/16/canada-china-economic-and-trade-cooperation-roadmap",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T03:37:21.285Z",
       "digest": "89b2340a076cba0ca078335ac2c46e474d19de4a9726ae35e7d71574b70ff998",
       "status": "success",
@@ -4635,8 +4694,8 @@
     },
     {
       "url": "https://www.census.gov/foreign-trade/balance/c1220.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:27:03.879Z",
       "digest": "e7ca52cec7785567645d6b4c75154b528b900bae9ac56a25a085c18863203f5f",
       "status": "success",
@@ -4644,8 +4703,8 @@
     },
     {
       "url": "https://www.census.gov/foreign-trade/balance/c5700.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:27:03.879Z",
       "digest": "d8dde73f032449217710e6554ac96329b3e5d56f1722661df00cf57fc4ba1faa",
       "status": "success",
@@ -4653,8 +4712,8 @@
     },
     {
       "url": "https://www.ustr.gov/countries-regions/americas/canada",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "4ad40a5604360dc352e1ce6184a218604603d86f7650ec7688f3722363c06be1",
       "status": "success",
@@ -4662,8 +4721,8 @@
     },
     {
       "url": "https://www.ustr.gov/countries-regions/china-mongolia-taiwan/peoples-republic-china",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "54cb61a7b3b23f1bcfd7b530acb6de02d979eb1ee912e18f55852aa40f6b1ef2",
       "status": "success",
@@ -4672,7 +4731,7 @@
     {
       "url": "https://fas-prod.azureedge.us/regions/canada",
       "checkedAt": "2026-11-22T15:10:17.876Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-10T11:59:55.307Z",
       "digest": "5b16ccea1ff9df0c119595f8edd896bb714862e1b82eb0f0bb8acde6618540da",
       "status": "failed"
@@ -4680,7 +4739,7 @@
     {
       "url": "https://fas-prod.azureedge.us/regions/china",
       "checkedAt": "2026-11-22T15:10:17.876Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-20T12:10:40.330Z",
       "digest": "3b497c86daaa6e4638b89997b3d7d6931b3fc4abe4a276bf70ea1aef8cd05e98",
       "status": "failed"
@@ -4688,15 +4747,15 @@
     {
       "url": "https://fas.usda.gov/data/trade",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
     },
     {
       "url": "https://www.eia.gov/todayinenergy/detail.php?id=67904",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-21T11:57:00.586Z",
       "digest": "d84b80cac7cccb8d7cf136ebe1989010832ab9cbda5b62580f2fca08c3fe9292",
       "status": "success",
@@ -4704,8 +4763,8 @@
     },
     {
       "url": "https://www.eia.gov/dnav/pet/pet_move_expc_dc_nus-nch_mbbl_a.htm",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "31953e23ea469decc928ece2f2a5294e2be7efb4b9c06191599b96354307043c",
       "status": "success",
@@ -4713,8 +4772,8 @@
     },
     {
       "url": "https://www.eia.gov/dnav/ng/ng_move_poe2_dcu_NUS-NCH_a.htm",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "5c101dea209d24a99ac3939eba9b75bb491a10ece085b843f312c2c8ddef95b4",
       "status": "success",
@@ -4722,8 +4781,8 @@
     },
     {
       "url": "https://www.bea.gov/news/2026/direct-investment-country-and-industry-2025",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "528923ec8147dbf742f2e489bf2fdd6b3d87ddd351cc1c072d4e4dccc1ec1824",
       "status": "success",
@@ -4731,8 +4790,8 @@
     },
     {
       "url": "https://ustr.gov/about-us/policy-offices/press-office/press-releases/2024/september/ustr-finalizes-action-china-tariffs-following-statutory-four-year-review",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "d7a199a1c321ca49bff2a5ed78a458e8b249814d2c40d9b0dcbad03524a50d41",
       "status": "success",
@@ -4740,8 +4799,8 @@
     },
     {
       "url": "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/3b85471",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "3d07b370e3c95596fa55d47b104ab8452d20d42676870e6ecff0713936f608b9",
       "status": "success",
@@ -4749,8 +4808,8 @@
     },
     {
       "url": "https://www.bis.gov/connected-vehicles",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:27:03.879Z",
       "digest": "80b4b2a32dadd6d212513fe2e7527bed54959b3d4bdec4db16c75f153fc8ab4c",
       "status": "success",
@@ -4758,8 +4817,8 @@
     },
     {
       "url": "https://ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement/fact-sheets/rebalancing",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "e3e367b3b28226120f4edc8a2e1329a5e6b519e8863b09ca556bcd6567403cfc",
       "status": "success",
@@ -4767,8 +4826,8 @@
     },
     {
       "url": "https://www.ustr.gov/about-us/policy-offices/press-office/press-releases/2020/february/ustr-announces-formation-bilateral-evaluation-and-dispute-resolution-office-pursuant-us-china-phase",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "b4ed39836263536a3473ba3818cab980b688ba8bd527a7b7fac39ccb9abc6ca4",
       "status": "success",
@@ -4776,8 +4835,8 @@
     },
     {
       "url": "https://www.ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement/fact-sheets/supporting",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "04e02042542fa9666e82f863a5a286c97adcdf99f266e53a1879828f2c16762c",
       "status": "success",
@@ -4785,8 +4844,8 @@
     },
     {
       "url": "https://www.ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement/fact-sheets/modernizing",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "aca96dfc7527dcae6a65b4318426a9cfbe29e4f936a4be37d2205066e679a3d4",
       "status": "success",
@@ -4794,8 +4853,8 @@
     },
     {
       "url": "https://media.bis.gov/press-release/commerce-implements-new-export-controls-advanced-computing-semiconductor-manufacturing-items-peoples",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:27:03.879Z",
       "digest": "0e8af4e8d2226a580519849daac897e4fc44e0b9c7f7fe39bc8ccbea787363e7",
       "status": "success",
@@ -4803,8 +4862,8 @@
     },
     {
       "url": "https://home.treasury.gov/news/press-releases/sb0667",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "2d73b8ef20c45b9c0a1931fda88647a2c4d63271cef7ef5093aa4c525968321e",
       "status": "success",
@@ -4812,8 +4871,8 @@
     },
     {
       "url": "https://home.treasury.gov/news/press-releases/sb0652/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "2d73b8ef20c45b9c0a1931fda88647a2c4d63271cef7ef5093aa4c525968321e",
       "status": "success",
@@ -4821,8 +4880,8 @@
     },
     {
       "url": "https://www.cfius.gov/resources/excepted-foreign-states/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "73422323cf04af47f6b49992b307f19c6d58a9cffce123a00dfdf5c15a3527bf",
       "status": "success",
@@ -4830,8 +4889,8 @@
     },
     {
       "url": "https://www.cfius.gov/resources/faqs/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "9115afde1d6527cfc7bc6642c22037b394022a50d4969145e3243b2416128fc7",
       "status": "success",
@@ -4839,8 +4898,8 @@
     },
     {
       "url": "https://ofac.treasury.gov/faqs/898",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "5422be4eb60fb98f3c6cc9a24f51bfdbc3c3a4b6b4de0a2a7d67c6221abbb66d",
       "status": "success",
@@ -4848,8 +4907,8 @@
     },
     {
       "url": "https://www.norad.mil/About-NORAD/NORAD-Missions/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "f6c6ea2f7113a39d66396fa293c27fc554fa7e5084c1e639a4bb61929beed752",
       "status": "success",
@@ -4858,7 +4917,7 @@
     {
       "url": "https://2021-2025.state.gov/launch-of-united-states-peoples-republic-of-china-counternarcotics-working-group/",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
@@ -4866,15 +4925,15 @@
     {
       "url": "https://2021-2025.state.gov/u-s-prc-counternarcotics-working-group-progress-on-illicit-synthetic-drugs-including-fentanyl/",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
     },
     {
       "url": "https://content.govdelivery.com/accounts/USDHSCISA/bulletins/389465e",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "d7f1caa3987641d0204cee28c1463c7ae6e0e9ffea104a53541ae0a58d0ea7ef",
       "status": "success",
@@ -4882,8 +4941,8 @@
     },
     {
       "url": "https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/june/ustr-issues-tariffs-chinese-products",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "f0d218199efbc29d6841fa441c39be75cd4b941636cd29ae290b24407fb3cf20",
       "status": "success",
@@ -4892,7 +4951,7 @@
     {
       "url": "https://www.govinfo.gov/app/details/FR-2019-05-21/2019-10616",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
@@ -4900,15 +4959,15 @@
     {
       "url": "https://www.help.cbp.gov/s/article/Article1842",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
     },
     {
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/september/ambassador-greer-issues-statement-announcement-recommendations-us-china-board-trade",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "e16abd784ef7a5f81637c8471d6b6b6d29d48c797117e5662e3f31354442c037",
       "status": "success",
@@ -4916,8 +4975,8 @@
     },
     {
       "url": "https://english.mofcom.gov.cn/News/SignificantNews/art/2026/art_4563e1bf2d9a45d38a4663496815d2e0.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "0c2cefc49f96907a82365d58b715c3e4c24dd2f5313d8741df14c3fd58947306",
       "status": "success",
@@ -4925,8 +4984,8 @@
     },
     {
       "url": "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/430e931",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "1f330e6408dff3ea5e97b6515571dd3474ee6037ba64d54423020cfa0cc3552d",
       "status": "success",
@@ -4935,7 +4994,7 @@
     {
       "url": "https://ers.usda.gov/data-products/chart-gallery/58374",
       "checkedAt": "2026-11-22T15:10:17.876Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "ac6f10b728bd9a8f310c1e572d2c08283c2136f279f0e97876a2ac54b5f4b57b",
       "status": "failed"
@@ -4943,15 +5002,15 @@
     {
       "url": "https://trumpwhitehouse.archives.gov/briefings-statements/united-states-canada-statement-joint-action-plan-opioids/",
       "checkedAt": "2026-11-22T15:10:17.876Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T05:07:24.407Z",
       "digest": "4c578d80073771912608580cd4c7efd7e917aab613cfeffddc237a3a5c179b29",
       "status": "failed"
     },
     {
       "url": "https://www.whitehouse.gov/releases/2026/02/ninth-meeting-of-the-north-american-drug-dialogue/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "b55348384c1deb48557212972991e50c3c5a3a0a003f0ee9ca912c29bd701d83",
       "status": "success",
@@ -4959,8 +5018,8 @@
     },
     {
       "url": "https://www.canada.ca/en/privy-council/services/canada-fentanyl-czar.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-04T19:08:39.406Z",
       "digest": "492aa1a54ea9ec6470e4d495a6b0db0d8d4b65f8e9eab6c8f5205447990f03d6",
       "status": "success",
@@ -4968,8 +5027,8 @@
     },
     {
       "url": "https://international.canada.ca/en/global-affairs/corporate/transparency/briefing-documents/parliamentary-committee/2020-01-30-cacn",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "8443af1842f68118a82a4bd446458591058cdf2df098c20470b96b2e5fde0a5e",
       "status": "success",
@@ -4977,8 +5036,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2018/11/joint-outcomes-of-the-first-canada-china-economic-and-financial-strategic-dialogue.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "4f1b9e961ccd7790159bbe68b30781cb1e92fe700c864331706f7eec04452fb8",
       "status": "success",
@@ -4986,8 +5045,8 @@
     },
     {
       "url": "https://www.wto.org/english/tratop_e/dispu_e/cases_e/ds589_e.htm",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:27:03.879Z",
       "digest": "7c7379a61aa4cf034501aacb60ead2eb898142902e2dd66e05b1582cd9828446",
       "status": "success",
@@ -4995,8 +5054,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2020/07/canada-takes-action-following-passage-of-national-security-legislation-for-hong-kong.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "f95644548e9c1ea662fa0523145767a628eca98d95b38823fa698732064f8ced",
       "status": "success",
@@ -5004,8 +5063,8 @@
     },
     {
       "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2022/10/government-of-canada-orders-the-divestiture-of-investments-by-foreign-companies-in-canadian-critical-mineral-companies.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "9407c707ae83fbffec2f2312b5169fa6d10ab7b02d5899454e4f16eb205eeb0c",
       "status": "success",
@@ -5013,8 +5072,8 @@
     },
     {
       "url": "https://www.ised-isde.canada.ca/site/investment-canada-act/en/national-security-decisions",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "0f9a7271281da1510b6cbf88ac1e65ceb04cafde98993c172de30a7d54ce22f7",
       "status": "success",
@@ -5022,8 +5081,8 @@
     },
     {
       "url": "https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/direction-tiktok.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "68c5514fedc3476df22e3634edca00f1586b263a704c4c8e532b589780a962d5",
       "status": "success",
@@ -5031,8 +5090,8 @@
     },
     {
       "url": "https://www.canada.ca/en/treasury-board-secretariat/news/2023/02/statement-by-minister-fortier-announcing-a-ban-on-the-use-of-tiktok-on-government-mobile-devices.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "bc063ede54fd25efb659367a6416dd877b77ad805e76f45d07d60d9faf595a31",
       "status": "success",
@@ -5040,8 +5099,8 @@
     },
     {
       "url": "https://www.cbsa-asfc.gc.ca/publications/cn-ad/cn24-32-eng.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "f62bd042757bc0a827a4a115d7db71a0ffe1179959f6811c36815de34c7f22a2",
       "status": "success",
@@ -5049,8 +5108,8 @@
     },
     {
       "url": "https://www.cbsa-asfc.gc.ca/publications/cn-ad/cn24-36-eng.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "78f73c04e1855f82ecefc245e9c2c30de658953c54643a63b8c606ef47d5ca40",
       "status": "success",
@@ -5058,8 +5117,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2025/03/statement-by-ministers-ng-macaulay-and-lebouthillier-on-chinas-anti-discrimination-investigation.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "5ec1284a25d910b41421e6facc29c751408932b5f4f18e5e143af63f2f9cb804",
       "status": "success",
@@ -5067,8 +5126,8 @@
     },
     {
       "url": "https://www.canada.ca/en/agriculture-agri-food/news/2025/03/government-of-canada-announces-support-for-agricultural-sector-following-the-imposition-of-tariffs-by-china.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "4267e4902290e5c30e2005c32f6fe5d5ff27075586474186603248696370c857",
       "status": "success",
@@ -5076,8 +5135,8 @@
     },
     {
       "url": "https://www.wto.org/english/tratop_e/dispu_e/cases_e/ds636_e.htm",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:27:03.879Z",
       "digest": "98bb04b4c247a3b215ddd1780c347d358cade936a4a88d26b8f7deac7b619942",
       "status": "success",
@@ -5085,8 +5144,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2025/08/statement-by-ministers-sidhu-and-macdonald-on-chinas-preliminary-anti-dumping-measures-on-imports-of-canola-seed-from-canada.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "8fd9c962feec051b3b4e0bad57fe1fa1edd2567548453065c9cca6a8bc2f3322",
       "status": "success",
@@ -5095,15 +5154,15 @@
     {
       "url": "https://www.federalregister.gov/documents/2019/05/21/2019-10616/addition-of-entities-to-the-entity-list",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
     },
     {
       "url": "https://ustr.gov/about-us/policy-offices/press-office/press-releases/2020/february/ustr-announces-formation-bilateral-evaluation-and-dispute-resolution-office-pursuant-us-china-phase",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "b4ed39836263536a3473ba3818cab980b688ba8bd527a7b7fac39ccb9abc6ca4",
       "status": "success",
@@ -5111,8 +5170,8 @@
     },
     {
       "url": "https://home.treasury.gov/news/press-releases/jy1760",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "2d73b8ef20c45b9c0a1931fda88647a2c4d63271cef7ef5093aa4c525968321e",
       "status": "success",
@@ -5120,8 +5179,8 @@
     },
     {
       "url": "https://home.treasury.gov/policy-issues/international/outbound-investment-program/program-regulations",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "2d73b8ef20c45b9c0a1931fda88647a2c4d63271cef7ef5093aa4c525968321e",
       "status": "success",
@@ -5129,8 +5188,8 @@
     },
     {
       "url": "https://home.treasury.gov/news/press-releases/jy2687",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "2d73b8ef20c45b9c0a1931fda88647a2c4d63271cef7ef5093aa4c525968321e",
       "status": "success",
@@ -5138,8 +5197,8 @@
     },
     {
       "url": "https://www.bis.gov/press-release/commerce-finalizes-rule-secure-connected-vehicle-supply-chains-foreign-adversary-threats",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:27:03.879Z",
       "digest": "41b32e9c36ae8384b83f668932f9c7ddb602625c3f248ee3388840dc6ed308e3",
       "status": "success",
@@ -5147,8 +5206,8 @@
     },
     {
       "url": "https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/measures-steel-aluminum-businesses/countermeasures-response-unjustified-tariffs-canadian-steel-aluminum-products.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "47eb85edba5e9178f8dc647c4e4c8432083d7696064a88f49d04ab96185f9cd1",
       "status": "success",
@@ -5156,8 +5215,8 @@
     },
     {
       "url": "https://www.canada.ca/en/department-finance/news/2019/05/canada-eliminates-countermeasures-as-the-united-states-lifts-tariffs-on-canadian-steel-and-aluminum.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "4e2ffe0fbd1c7977702f5cb3eb8d7d3e2329da10b6e5696b405e67bd14ed7fb5",
       "status": "success",
@@ -5165,8 +5224,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2019/05/joint-statement-by-the-united-states-and-canada-on-section-232-duties-on-steel-and-aluminum.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "10f10a1d535215d4c71cd416dca521d1af21335a5a9b70c328368608253f62bf",
       "status": "success",
@@ -5174,8 +5233,8 @@
     },
     {
       "url": "https://www.pm.gc.ca/en/news/statements/2021/02/23/roadmap-renewed-us-canada-partnership",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:27:03.879Z",
       "digest": "21778eb97d404cc2ca6f69376f9a36310cdb9e2e6b9a5c29b5e8fd4b28a3708d",
       "status": "success",
@@ -5183,8 +5242,8 @@
     },
     {
       "url": "https://www.canada.ca/en/department-national-defence/corporate/reports-publications/proactive-disclosure/nddn-main-estimates-2-may-2023/domestic-continental-defence.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "a2b3c23f8be0a5255cf3167a4dabe03d02e9c672334a6646c2a5aa00b857c612",
       "status": "success",
@@ -5192,8 +5251,8 @@
     },
     {
       "url": "https://www.canada.ca/en/department-national-defence/news/2022/06/north-american-aerospace-defense-command-norad.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "64def1b216a1c5a6e5c5db05f7c64c45cf1447dc7e6caa361b1354fa00d3f201",
       "status": "success",
@@ -5201,8 +5260,8 @@
     },
     {
       "url": "https://www.pm.gc.ca/en/news/statements/2023/03/24/prime-minister-trudeau-and-president-biden-joint-statement",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "1e05f09150bb61f0f6ce09450708f19b89e8d4da8ad606363a6135cfb5a1ab8c",
       "status": "success",
@@ -5210,8 +5269,8 @@
     },
     {
       "url": "https://www.canada.ca/en/natural-resources-canada/news/2024/05/government-of-canada-and-the-united-states-co-invest-to-strengthen-critical-mineral-value-chains.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "14db241e0f022cad71904ec717f32e3a29ddd479b700e66b0aa7f2362aa3b449",
       "status": "success",
@@ -5219,8 +5278,8 @@
     },
     {
       "url": "https://www.canada.ca/en/department-finance/news/2025/04/canada-announces-entry-into-force-of-countermeasures-against-auto-imports-from-the-united-states.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "2c6a8866f671f6ba40c6618017e0ed1f62f72f423740e8b0d67e35da6ac5a4f6",
       "status": "success",
@@ -5228,8 +5287,8 @@
     },
     {
       "url": "https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "914385a51bca045f134e68a57552693605881eec2ec5f97111c45f01e0ef8d5f",
       "status": "success",
@@ -5237,8 +5296,8 @@
     },
     {
       "url": "https://www.cbsa-asfc.gc.ca/publications/cn-ad/cn26-23-eng.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-03T20:25:46.807Z",
       "digest": "8417b92dbf1380e5a05f6447939e0e8897865e114fa02e607446c9a12f272090",
       "status": "success",
@@ -5246,8 +5305,8 @@
     },
     {
       "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/261104/dq261104a-eng.htm",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "ffe493475bb3a076b064f23cfcd57ee0a5be967cda57b2aeaca01b3d84104533",
       "status": "success",
@@ -5255,8 +5314,8 @@
     },
     {
       "url": "https://international.canada.ca/en/global-affairs/corporate/reports/chief-economist/monthly/2026-09",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-11T00:36:21.214Z",
       "digest": "055317e98eaa49e16f260b4a0236be8e79e4eb05396f1620ba5a39aa72862c84",
       "status": "success",
@@ -5264,8 +5323,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/11/minister-sidhu-announces-extension-of-favourable-market-access-for-canadian-canola-meal-peas-lobsters-and-crab-through-2028.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-06T03:33:29.954Z",
       "digest": "7d5daa82e47b895c62bb42c2a0bbe3c0468645fa779b1e195a364f7e55013747",
       "status": "success",
@@ -5273,8 +5332,8 @@
     },
     {
       "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/261104/t001a-eng.htm",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-06T03:33:29.954Z",
       "digest": "83d19d89dff7de4d38ff7ed1db38159c653a548f1765ad96c496ba6bc729d762",
       "status": "success",
@@ -5282,8 +5341,8 @@
     },
     {
       "url": "https://www.bea.gov/news/2026/us-international-trade-goods-and-services-september-2026",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-06T03:33:29.954Z",
       "digest": "6e82a90a49f039abd3a2119de7daac235e7b8381453c1b64fedc377062733cc9",
       "status": "success",
@@ -5291,8 +5350,8 @@
     },
     {
       "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/joint-readout-of-the-first-canada-china-ministerial-dialogue-on-energy.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-06T03:33:29.954Z",
       "digest": "2c225edf36134958e7d1686e5f9f5734058aaadf02051e4f9dcb50b5d6a5cc52",
       "status": "success",
@@ -5300,8 +5359,8 @@
     },
     {
       "url": "https://english.mofcom.gov.cn/News/SignificantNews/art/2026/art_149a7dde819c4192be07d226cff098fb.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-06T03:33:29.954Z",
       "digest": "5515b88e5250107f075bb5c0b1373d6f816db752b9e781feaa6799d52ed6877a",
       "status": "success",
@@ -5309,8 +5368,8 @@
     },
     {
       "url": "https://www.ustr.gov/about/policy-offices/press-office/press-releases/2026/september/ambassador-greer-issues-statement-announcement-recommendations-us-china-board-trade",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-06T03:33:29.954Z",
       "digest": "e16abd784ef7a5f81637c8471d6b6b6d29d48c797117e5662e3f31354442c037",
       "status": "success",
@@ -5318,8 +5377,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/07/statement-by-minister-leblanc-following-trilateral-cusma-joint-review-meeting.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-06T03:33:29.954Z",
       "digest": "dcb2034f43f19d1f0a63464952666858914f2b12971e60ad48bb91d4610aac49",
       "status": "success",
@@ -5327,8 +5386,8 @@
     },
     {
       "url": "https://english.mofcom.gov.cn/News/PressConference/art/2026/art_87a9606dc3b1480fb39cb3c5b77c3b81.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-06T03:33:29.954Z",
       "digest": "6a0e39c7477f2f250bb3d2b6404552a9c448c352b11d87f29d9b56129e25f0b4",
       "status": "success",
@@ -5336,8 +5395,8 @@
     },
     {
       "url": "https://www.pm.gc.ca/en/news/statements/2026/01/16/joint-statement-canada-china-leaders-meeting",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-06T03:33:29.954Z",
       "digest": "5068b4a15384c0f2422c476ee7ddfb6522b877f10a18960837eaa80268c25baa",
       "status": "success",
@@ -5345,8 +5404,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2022/11/canada-launches-indo-pacific-strategy-to-support-long-term-growth-prosperity-and-security-for-canadians.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-06T03:33:29.954Z",
       "digest": "71959d3772e9549bf1b24b1da51616a82e3800c317c852314bd5c52d64438c31",
       "status": "success",
@@ -5354,8 +5413,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/04/minister-leblanc-chairs-first-meeting-of-the-new-advisory-committee-on-canadaus-economic-relations.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-06T03:33:29.954Z",
       "digest": "5ba0edee571e05faf8821e4ddcbf2d852ac4fa5b7f819ab669cfc16ccceb5fdd",
       "status": "success",
@@ -5363,8 +5422,8 @@
     },
     {
       "url": "https://www.ustr.gov/issue-areas/enforcement/dispute-settlement-proceedings/wto-dispute-settlement/pending-wto-disputes/tariff-measures-certain-goods-china",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-06T03:33:29.954Z",
       "digest": "bc8db581d6ed45b40e4670029341fca396170ed84a28ddbd283a54ee2541d88a",
       "status": "success",
@@ -5372,8 +5431,8 @@
     },
     {
       "url": "https://www.canada.ca/en/department-finance/news/2026/11/joint-factsheet-second-canadachina-economic-and-financial-strategic-dialogue.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "5a769b45faa3cf81c94389442db2ab09e22d1572ae157492e1f587155da20040",
       "status": "success",
@@ -5381,8 +5440,8 @@
     },
     {
       "url": "https://www.pm.gc.ca/en/news/news-releases/2026/11/17/prime-minister-carney-advances-canadas-strategic-partnership-china",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "b1dd57b621d8074a0629644f4538c5623963df0efb214479a79a5ffbb07f9c5d",
       "status": "success",
@@ -5390,8 +5449,8 @@
     },
     {
       "url": "https://www.international.gc.ca/country_news-pays_nouvelles/2026-11-16-china-chine.aspx?lang=eng",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "d59b9b21ecb62731e36996411db6c5241b282b0eb5feb3dfa8ac68405cf0eea5",
       "status": "success",
@@ -5399,8 +5458,8 @@
     },
     {
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/november/readout-ambassador-greers-call-chinas-vice-premier-he-lifeng",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "2fd1c6cad90803f885ba45cda241fde0170b1f63d466461974f73504c6b85aac",
       "status": "success",
@@ -5408,8 +5467,8 @@
     },
     {
       "url": "https://english.mofcom.gov.cn/News/PressConference/art/2026/art_63ad1064241e4f45b46e299fdff44d90.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "348bfdd133306e0ecbf07b7da1c205562a4d4540cc6618186d03641690c99c8a",
       "status": "success",
@@ -5417,8 +5476,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/11/advisory-committee-on-canada-us-economic-relations-meets-to-discuss-trade-priorities-and-support-for-canadian-businesses.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "77613ee8f52e45959bbc1d80b63b26534a61c68956c3ea01115adaca33b2e2de",
       "status": "success",
@@ -5426,8 +5485,8 @@
     },
     {
       "url": "https://gazette.gc.ca/rp-pr/p2/2026/2026-11-18/html/sor-dors235-eng.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "75ee662e57fc9f1e1f80217eb93122459b622ddf6adf509aaaa1994dee122b47",
       "status": "success",
@@ -5435,8 +5494,8 @@
     },
     {
       "url": "https://www.canada.ca/en/department-finance/news/2026/11/canada-modifies-tariff-relief-measures-to-better-support-workers-and-businesses.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "99095bb99b58c43c3b12ee042f62fea78f24838fbbd7b11c6d3561e3dfb9e4e2",
       "status": "success",
@@ -5444,8 +5503,8 @@
     },
     {
       "url": "https://www.whitehouse.gov/briefings-statements/2026/11/u-s-russia-china-heads-of-state-declaration-toward-peace/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "d1c6f66a17934bd4468fb1d16370e275e7d02725591dd37f2992ec433d78575b",
       "status": "success",
@@ -5453,8 +5512,8 @@
     },
     {
       "url": "https://www.canada.ca/en/privy-council/services/publications/plan-stronger-canada/national-security-canadians.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T19:54:24.251Z",
       "digest": "af2c83851ab2692d31161ce26983796a8b341ab78c197702d7929feb0c889d6d",
       "status": "success",
@@ -5462,8 +5521,8 @@
     },
     {
       "url": "https://www.international.gc.ca/news-nouvelles/2026/2026-11-14-acafta-aleac.aspx?lang=eng",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T19:54:24.251Z",
       "digest": "bfc778c781e78e8e74e0519bb6f6d9e26fe8b8e9cd128331767ca7b0596bfd60",
       "status": "success",
@@ -5471,8 +5530,8 @@
     },
     {
       "url": "https://www.international.gc.ca/trade-commerce/trade-agreements-accords-commerciaux/agr-acc/indonesia-indonesie/cepa-apeg/index.aspx?lang=eng",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T19:54:24.251Z",
       "digest": "8a4a90612ad015bd887bb8d4897651ab6aeeeab845e84229e3a00eec26b50f47",
       "status": "success",
@@ -5480,8 +5539,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/02/canada-advances-defence-industrial-strategy-to-strengthen-security-sovereignty-and-prosperity.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T19:54:24.251Z",
       "digest": "3278cbd95e104d046a5ad7a9d4f196c687c58d77a8c15e6f03d5f9790fd3e5df",
       "status": "success",
@@ -5489,8 +5548,8 @@
     },
     {
       "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/09/canada-celebrates-progress-on-the-mcilvenna-bay-mine-production-underway-jobs-created-supply-chains-strengthened.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T22:11:55.392Z",
       "digest": "b7b8133e3ad5caa8b8e5e56271be03d057dc6e36b976f3aa0eda1e2031466d88",
       "status": "success",
@@ -5499,15 +5558,15 @@
     {
       "url": "https://www.ccc.ca/en/announcements/ccc-pratt-whitney-canada-sign-5-year-contract-with-u-s-military-for-t400-engine-parts/",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
     },
     {
       "url": "https://www.govinfo.gov/content/pkg/FR-2026-11-10/html/2026-22867.htm",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T22:11:55.392Z",
       "digest": "51078b65effc18e63412759bd52dd1cc705906f05d7e5efd8055c1f22624fe05",
       "status": "success",
@@ -5515,8 +5574,8 @@
     },
     {
       "url": "https://www.whitehouse.gov/fact-sheets/2026/11/fact-sheet-president-donald-j-trump-secures-historic-economic-deals-for-american-workers-and-strengthens-americas-leadership-in-asia/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "8b703df8eb3475be26609de40748598a24275a6603dbe82f87317cef32085f56",
       "status": "success",
@@ -5524,8 +5583,8 @@
     },
     {
       "url": "https://www.whitehouse.gov/releases/2026/11/icymi-president-trump-talks-china-iran-super-intelligence-and-the-path-ahead-in-exclusive-interview-from-shenzhen/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "46098777220dfc248964931036a06cd7f5c3e9efbb36b4020a96d112cc24519b",
       "status": "success",
@@ -5533,8 +5592,8 @@
     },
     {
       "url": "https://www.whitehouse.gov/releases/2026/11/president-trump-taps-pentagon-cyber-chief-kirsten-davies-as-national-cyber-director/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "a887bf301115275c4ed26e0baf2c58694e496df0440e5ac3e216e23244bf326e",
       "status": "success",
@@ -5542,8 +5601,8 @@
     },
     {
       "url": "https://www.whitehouse.gov/releases/2026/11/what-they-are-saying-send-the-bipartisan-american-affordability-and-jobs-act-to-president-trumps-desk/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "d59c1fa47f950a4c336ffaab758a8c4c441069fdf6f6e5f91e881beb3c81b5ed",
       "status": "success",
@@ -5551,8 +5610,8 @@
     },
     {
       "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/09/canadian-lng-project-signs-third-international-offtake-deal.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "ef88ff40273b5294b40941914ca8529330de2e0b4337163cd92581f54233584c",
       "status": "success",
@@ -5560,8 +5619,8 @@
     },
     {
       "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/09/canada-strengthens-global-energy-partnerships-at-the-g20-energy-abundance-ministerial-meeting.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "83d8c1fa2d2afb8fb6da3d8956d0da97712a4a1421a37a2c92539bfc2bcf4f0d",
       "status": "success",
@@ -5569,8 +5628,8 @@
     },
     {
       "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/10/minister-mcknight-tours-westridge-marine-terminal-showcasing-canadas-ability-to-build-major-energy-infrastructure-responsibly0.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "a42eebb97b6939b2716a0c78f560bb10eb4502d2784d99c4a6833c2bbf90b109",
       "status": "success",
@@ -5578,8 +5637,8 @@
     },
     {
       "url": "https://www.whitehouse.gov/fact-sheets/2026/11/president-trump-brings-home-billions-in-economic-growth-and-strengthens-americas-security/",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "dbefa2b83a5a5110e4fbcc87af7d1346b3918aa4ef14e9a527bdfad481d3af44",
       "status": "success",
@@ -5587,8 +5646,8 @@
     },
     {
       "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/11/secretary-of-state-belanger-highlights-government-of-canadas-investments-from-budget-2026-masters-of-our-destiny.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "f0e7ebac391ebb885983d8249f43883de0b09c56fac5d277520529a0b286a3e2",
       "status": "success",
@@ -5596,8 +5655,8 @@
     },
     {
       "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/11/parliamentary-secretary-rochefort-highlights-government-of-canadas-budget-2026-investments-in-recreational-facilities-and-community-infrastructure-.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "c8dd0974b54615c9060beccde5628b50da828620d4b3709f1e0c67b533fd053d",
       "status": "success",
@@ -5605,8 +5664,8 @@
     },
     {
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/october/ustr-seeks-public-comment-2027-joint-review-usmca",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "39c1a3a236acbdfe944f01b25011d29972cf5ea608635f84cda0fc276e4abd10",
       "status": "success",
@@ -5614,8 +5673,8 @@
     },
     {
       "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/11/parliamentary-secretary-bardeesy-highlights-government-of-canadas-investments-from-budget-2026-masters-of-our-destiny.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "2438723c2d11b3905ed27a2dfb5ecb6bc626b83d3e3abce0c3d94c57e4dc13e1",
       "status": "success",
@@ -5623,8 +5682,8 @@
     },
     {
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/october/united-states-and-mexico-announce-course-remediation-corporacion-de-occidente-facility",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "142330e76ce7d205d35d02bf72d5064b04f9f806549c1de1c1c64410ed594d29",
       "status": "success",
@@ -5632,8 +5691,8 @@
     },
     {
       "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/11/government-of-canada-announces-major-investment-in-ford-motor-company-of-canada-that-will-strengthen-auto-manufacturing-in-ontario-and-canada.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "38c94e3492b0afaf00fe2f74846962fc2d647edabaeb162d8ec01c8f7cd8d76b",
       "status": "success",
@@ -5641,8 +5700,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/11/secretary-of-state-sarai-highlights-the-productivity-mega-deduction-in-budget-2026.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "65074128969a6e22e06e61b2071bb8136fccbeb654e05516d2f29b75c5d31d02",
       "status": "success",
@@ -5650,8 +5709,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/11/minister-anand-to-attend-the-48th-session-of-the-francophonie-ministerial-conference-20th-francophonie-summit-and-apec.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "f1b730be28c9b5b8057451a4d935282c586edd7fd1a2b4ef7516c426653b9b27",
       "status": "success",
@@ -5659,8 +5718,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/11/parliamentary-secretary-naqvi-highlights-new-action-plan-to-protect-workers-from-tariffs-and-strengthen-ontario-industries.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "a3630c50e46ddd398490df02fa8f60c955d4f3cc47df304e3954ec4e31d9d601",
       "status": "success",
@@ -5668,8 +5727,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/11/minister-anand-meets-with-director-of-the-office-of-the-central-commission-for-foreign-affairs-and-minister-of-foreign-affairs-of-the-peoples-repub.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "c714792785cadecd680890ba0dda4538769955848db44fd637068fe7c15425a9",
       "status": "success",
@@ -5677,8 +5736,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/11/joint-statement-by-australia-canada-and-new-zealand-on-the-occasion-of-the-apec-ministerial-meeting-on-line-3-november-and-apec-economic-leaders-me.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:16:57.665Z",
       "digest": "e7f3499499cf46a50a4a3dae54c572f4e67aeabce3d0bb24283bc8bae1daf40f",
       "status": "success",
@@ -5686,8 +5745,8 @@
     },
     {
       "url": "https://www.cisa.gov/news-events/alerts/2026/11/17/critical-java-vulnerability-requires-immediate-patching",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:27:03.879Z",
       "digest": "ad73f0b4a1934b273d5fdc2bb115aae0ea2a9c4f83b65713661eb9bc33e87d83",
       "status": "success",
@@ -5695,8 +5754,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/10/minister-anand-to-travel-to-iceland-to-attend-arctic-circle-assembly-and-advance-bilateral-relations.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "d6e9f1969edae1c2f0da20857e230c2ef8d57f6e2a3d85b12ed8bb939f966973",
       "status": "success",
@@ -5704,8 +5763,8 @@
     },
     {
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/october/united-states-seeks-mexicos-review-alleged-denial-workers-rights-glm-components-mexico",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "6ed550ce5b0ad3b26bc01d1bc68593b9629e548738fc9628dd732a61e6effe58",
       "status": "success",
@@ -5713,8 +5772,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/10/joint-statement-on-iran-october-12.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "7747689f63229296ff726f40f0a8a97981786cdca399082471f27efbc20bf943",
       "status": "success",
@@ -5722,8 +5781,8 @@
     },
     {
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/october/united-states-seeks-mexicos-review-alleged-denial-workers-rights-carolina-performance-fabrics",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "9b56a00622ceca2e7b6d26358760c4b8f9690b958332cd48a390c824839531b4",
       "status": "success",
@@ -5731,8 +5790,8 @@
     },
     {
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/october/united-states-announces-successful-resolution-rapid-response-labor-mechanism-matter-alimentos-grole",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "e5e4ee22a761fe0c8975dfab87d823473040cb77e353b1676faf9f94f85efb27",
       "status": "success",
@@ -5740,8 +5799,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/10/minister-sidhu-to-lead-team-canada-trade-mission-to-india-to-unlock-new-bilateral-trade-opportunities.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "f39689bede512e094084b023bf990bb0e3a3fd730867d1b10bbec5ac381f13f4",
       "status": "success",
@@ -5749,8 +5808,8 @@
     },
     {
       "url": "https://www.canada.ca/en/global-affairs/news/2026/10/joint-statement-of-the-foreign-ministers-of-canada-denmark-germany-france-italy-japan-the-netherlands-and-the-united-kingdom.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "e3a9d4167fd72f5cf5e60de46ae838f4add42048953da4b26eaf708bbea80636",
       "status": "success",
@@ -5758,8 +5817,8 @@
     },
     {
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/october/america-first-seafood-strategy-charts-course-restoring-us-seafood-dominance",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "219943c1ad97760b87cfaa5b1b93f30b54005ca86f0c458a4e259daca3f4a846",
       "status": "success",
@@ -5767,8 +5826,8 @@
     },
     {
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/november/united-states-and-mexico-announce-memorandum-understanding-industrias-tecnos-facility",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "ce7c0df2d762ef0c80be6a5d7dfb1e712e1794ab0178e8e1ec0440a108f2f327",
       "status": "success",
@@ -5776,8 +5835,8 @@
     },
     {
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/november/united-states-seeks-mexicos-review-alleged-denial-workers-rights-madobox",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "33dd4dd253d61d472514e624f421eb5e26a09c3fb5525cd6f4a571ccf7fbd60d",
       "status": "success",
@@ -5785,8 +5844,8 @@
     },
     {
       "url": "https://www.canada.ca/en/department-finance/news/2026/11/joint-outcomes-of-the-2nd-canada-china-economic-and-financial-strategic-dialogue.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "831597ea0fa604b1088c85f737de0dfbdb9902574c16f4bbaeb05f8ad6f556ca",
       "status": "success",
@@ -5794,8 +5853,8 @@
     },
     {
       "url": "https://www.pm.gc.ca/en/news/readouts/2026/11/17/prime-minister-carney-meets-president-mexico-claudia-sheinbaum",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "4e3b1651652695d45f8bf819fedabf2296da29374d1183cb16ac91a147637cc5",
       "status": "success",
@@ -5803,8 +5862,8 @@
     },
     {
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/november/united-states-seeks-mexicos-review-alleged-denial-workers-rights-industrias-fg",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "466c2f2b9836e11a5bd905ac218d9099966683a48efd0d4f9534b847edf834ab",
       "status": "success",
@@ -5812,8 +5871,8 @@
     },
     {
       "url": "https://english.www.gov.cn/news/202611/22/content_WS6b025e06c6d00ca5f9a0e8ed.html",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "c960268b616883667bb713295c78e16f0ceeb8db4816383ce2316c52fef35aba",
       "status": "success",
@@ -5821,8 +5880,8 @@
     },
     {
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/november/ambassador-greer-pens-letter-editor-wall-street-journal-how-tariffs-are-advancing-americans-long",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "0d0d5fdae653b1c10da1ded917f7b9995b8c0667dee239a236f0ccc780866a17",
       "status": "success",
@@ -5830,8 +5889,8 @@
     },
     {
       "url": "https://www.pm.gc.ca/en/news/readouts/2026/11/17/prime-minister-carney-meets-president-peoples-republic-china-xi-jinping",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "823a759fac2538a0e70e154c6a25fc6d06e2f8a060f10d338d048d1286c12e48",
       "status": "success",
@@ -5839,8 +5898,8 @@
     },
     {
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/november/united-states-seeks-mexicos-review-alleged-denial-workers-rights-polygroup-industrias-mexico",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "762078ffe6f285e639189b9244d3ed7183376fafa313f84a8779da5db4ca029c",
       "status": "success",
@@ -5848,8 +5907,8 @@
     },
     {
       "url": "https://www.pm.gc.ca/en/news/readouts/2026/11/18/prime-minister-carney-meets-president-united-states-donald-j-trump",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "c12f31c7e76c1ba977099728df5c3752e16677cd58f70563ed1792e26a4d31e0",
       "status": "success",
@@ -5857,8 +5916,8 @@
     },
     {
       "url": "https://www.pm.gc.ca/en/news/readouts/2026/11/19/prime-minister-carney-meets-prime-minister-singapore-lawrence-wong-prime",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "983b85401133a4ba56db8505f8b47b79a3caa3470a402aa2a2bd22dd134ee427",
       "status": "success",
@@ -5866,8 +5925,8 @@
     },
     {
       "url": "https://www.pm.gc.ca/en/news/news-releases/2026/11/19/prime-minister-carney-strengthens-economic-partnerships-apec-capping",
-      "checkedAt": "2026-11-22T22:11:55.392Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-22T15:10:17.876Z",
       "digest": "155445130d51c0c0a03c9789860786ed4f7141a2cc7991aa2d7f540692fb87b7",
       "status": "success",
@@ -5876,7 +5935,7 @@
     {
       "url": "https://www.cisa.gov/news-events/congressional-testimony",
       "checkedAt": "2026-11-22T15:10:17.876Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-03T20:25:46.807Z",
       "digest": "17f702cc36d489a56fe24a948bc3ff9552411a8250f960818a2855f5efa4102f",
       "status": "failed"
@@ -5884,7 +5943,7 @@
     {
       "url": "https://www.cisa.gov/news-events/cybersecurity-advisories?f%5B0%5D=advisory_type%3A94",
       "checkedAt": "2026-11-22T15:10:17.876Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-21T11:57:00.586Z",
       "digest": "dcabf8c75a5addbbdae9604bdbd53d2d335b777896971e5e84f35fe72f86536a",
       "status": "failed"
@@ -5892,7 +5951,7 @@
     {
       "url": "https://www.cisa.gov/news-events/ics-advisories",
       "checkedAt": "2026-11-22T15:10:17.876Z",
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": "2026-11-20T12:10:40.330Z",
       "digest": "9f55af0d6c94fd0f1931abde51ceebc20b4ba71f8cf690d995ae30a84e101706",
       "status": "failed"
@@ -6053,7 +6112,7 @@
     {
       "url": "https://www.cisa.gov/news-events/cybersecurity-advisories?page=1",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
@@ -6061,7 +6120,7 @@
     {
       "url": "https://www.cisa.gov/news-events/cybersecurity-advisories?page=511",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
@@ -6069,10 +6128,262 @@
     {
       "url": "https://www.cisa.gov/news-events/cybersecurity-advisories?f%5B0%5D=advisory_type%3A65",
       "checkedAt": null,
-      "lastAttempt": "2026-11-22T22:11:55.392Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
       "lastChanged": null,
       "digest": null,
       "status": "failed"
+    },
+    {
+      "url": "https://www.cfius.gov/resources/laws-and-guidance/",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "25ec586d9d3fa9d8bd2bd95bc1c0a2c686f4cfe90e071c143022bef119ceb468",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/october/ambassador-greer-tour-utahs-advanced-manufacturing-plants",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "926ddca85984ac66f2c62522f20fe97d39265dfaa592fffde3a69bcd4628eac1",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/11/secretary-of-state-belanger-highlights-government-of-canadas-investments-for-indigenous-communities-from-budget-2026-masters-of-our-destiny.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "32d47ad1493993ac5051074908a7fe13711ba39432cd235ed842813050f3029a",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/11/statement-from-minister-joly-on-quebecor-and-telus.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "12cec9444f64dc99d7f332da98ae09cd9beb966613798f0d7f9d882e8bdbef14",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/11/lets-talk-money-get-debt-help-you-can-trust.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "b59d1188641a775ff3286e7396986f4db28d6e7761273ed0698d6a947bbfbc3c",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/11/parliamentary-secretary-bardeesy-to-highlight-federal-budget-investments-in-community-recreational-facilities-and-ice-rinks.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "29d1893ba57708304dac7f62f8c2b2f2b4fa211a74b494e081a64b5499584fac",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/10/canada-makes-milestone-clean-energy-investment-in-new-brunswick-to-drive-economic-and-energy-security-and-enhance-climate-competitiveness.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "7d0f09e9b36f620e64d24b11ddbd041d59f5a01a7126f28442f6690d56d54341",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.whitehouse.gov/fact-sheets/2026/11/fact-sheet-president-donald-j-trump-protects-the-executives-privileges-and-enhances-efficiencies-in-federal-contracting/",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "4a2248397d220efdbebb0e0654b0c4e6776440363146e192ab32a9e1f9d41200",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.whitehouse.gov/briefings-statements/2026/11/congressional-bills-h-r-5284-h-r-8352-and-h-r-10159-signed-into-law/",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "51257176b949ffa1551faafbe1f5a9255ad75da21d72b22acd485137d35d2bd9",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/09/canada-advances-the-canadian-digital-core-library-with-new-funding-and-the-start-of-core-scanning.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "2c20d80f8bcea6aff43e726e4900973ce3873f27d5e3b1b4ad07d98b317bb7af",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/11/national-adoption-month-2026/",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "205d74069c4959cefb05d7c4e197abca9f1f66fb21cb1412b0cc2c429a5364ad",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/09/canada-celebrates-the-inauguration-of-atlantic-canadas-largest-energy-storage-facilities.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "88c6bca113ee05de1fe4453bd0ac0827ec49125c66a69e68a628ac56ba4e8898",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/11/protecting-the-executives-privileges-and-enhancing-efficiencies-in-federal-contracting/",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T22:16:08.435Z",
+      "digest": "263ad498d626244207a1383d91e39355a7110459147cb504d5573e1383c3d3b9",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.whitehouse.gov/releases/2026/11/at-press-briefing-president-trump-touts-historic-wins-for-americans-signals-deal-making-on-healthcare/",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "5c1dc64670baae904ef6a7ba8cd00b43f9e6b4f3b57484843f2926f910b756a6",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/09/canada-invests-in-clean-fuels-innovation-in-ontario.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "e43755b19500d019979ecbc56f46fadff67a61fc5ec0581834fbb3a7c99e7eb7",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.whitehouse.gov/briefings-statements/2026/11/h-r-10167-common-cents-act/",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "134b8bd625db07ae814e1320d2886305a3e6a97bb60d61c4b697b259159d993f",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/10/minister-hodgson-to-announce-a-forest-sector-investment.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "06808a4712f4e02ea9dc51a8b6f72eaae3db5a47b1703b9d32bf13e9e9349d7d",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/10/minister-hodgson-to-announce-clean-energy-investments.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T15:16:57.665Z",
+      "digest": "3ffb5b6a2b3acafd678feb0610ac051ad8d49c7158bb368483732344ea2fd455",
+      "status": "success",
+      "baseline": false
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/canada-and-newfoundland-and-labrador-advance-the-bay-du-nord-project.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T22:16:08.435Z",
+      "digest": "06043e12763178e574a3900b38be351879fc3ee7a36cf4c3592c77812d6fdeee",
+      "status": "success",
+      "baseline": true
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/government-of-canada-invests-to-diversify-markets-and-economic-opportunities-for-canadas-forest-sector.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T22:16:08.435Z",
+      "digest": "32fa78f7de867571363840c7c672d2e1fa246b0ff043ac5a14ab10c9724f63b5",
+      "status": "success",
+      "baseline": true
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/canada-invests-to-drive-clean-energy-create-jobs-and-spur-innovation-in-the-atlantic.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T22:16:08.435Z",
+      "digest": "909ee0ab9537efac29410d8803d35bedd51a338a7c142ab3ab8f59934bc8e1d4",
+      "status": "success",
+      "baseline": true
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/backgrounder-canada-invests-to-drive-clean-energy-create-jobs-and-spur-innovation-in-the-atlantic.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T22:16:08.435Z",
+      "digest": "d339ee7446be5e6b51dc28605bd604bd8d98926b942c9c0a695a59f647441a50",
+      "status": "success",
+      "baseline": true
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/canada-invests-in-critical-mineral-mining-in-the-yukon.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T22:16:08.435Z",
+      "digest": "db2ec224396c49ec5cd7b971c25191fa6d2e6b051fb42744a21429a549c6e213",
+      "status": "success",
+      "baseline": true
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/parliamentary-secretary-hanley-to-make-a-critical-minerals-announcement-in-yukon.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T22:16:08.435Z",
+      "digest": "db1e376d76ebd5e2e2bfba3949d06297ff688392dbb499538d3eb9469bd60631",
+      "status": "success",
+      "baseline": true
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/canada-invests-to-diversify-trade-create-jobs-and-lower-global-emissions-by-expanding-low-carbon-lng-exports.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T22:16:08.435Z",
+      "digest": "bb1df8cfe7129416a7862438ff3bb6807cda551ced871c4224342afa51c3da29",
+      "status": "success",
+      "baseline": true
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/parliamentary-secretary-guay-to-make-a-digital-core-scanning-announcement.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T22:16:08.435Z",
+      "digest": "7870b000a6836fa300000160ab3a77213e9c903366f6bb2c424449c7da5d960e",
+      "status": "success",
+      "baseline": true
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/parliamentary-secretary-hogan-to-deliver-remarks-at-scaling-up-conference.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T22:16:08.435Z",
+      "digest": "142f097c7bc51d7e9d8b2bc75db1c4d0e78dddea3ab03a502343b3c52521ccc2",
+      "status": "success",
+      "baseline": true
+    },
+    {
+      "url": "https://www.canada.ca/en/natural-resources-canada/news/2026/11/parliamentary-secretary-guay-to-speak-at-irpp-fall-lecture.html",
+      "checkedAt": "2026-11-22T22:16:08.435Z",
+      "lastAttempt": "2026-11-22T22:16:08.435Z",
+      "lastChanged": "2026-11-22T22:16:08.435Z",
+      "digest": "f0c2f687a3ee5d08db5b909850f6495e770ab4fa65805f5c3718d4ab12e6d012",
+      "status": "success",
+      "baseline": true
     }
   ]
 }
