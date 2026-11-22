@@ -144,6 +144,18 @@ test('automatic excerpts retain the main article statement without datelines, na
 
 test('dispute summaries skip the website title and disclaimer while retaining dated procedural context',()=>{
  const lead='On 20 March 2025, Canada requested consultations with China about additional import duties on agricultural and fishery products from Canada.';
- const doc=documentOf('<title>WTO | dispute settlement - the disputes - DS636</title><h1>DS: agricultural duties</h1><p>This summary has been prepared by the Secretariat under its own responsibility.</p><p>The summary is for general information only and is not intended to affect the rights and obligations of Members.</p><p>'+lead+'</p>',source.url);
+ const doc=documentOf('<title>WTO | dispute settlement - the disputes - DS636</title><p>Home | About WTO | News &amp; events | Trade topics | Documents &amp; resources | External relations</p><h1>DS: agricultural duties</h1><p>This summary has been prepared by the Secretariat under its own responsibility.</p><p>The summary is for general information only and is not intended to affect the rights and obligations of Members.</p><p>'+lead+'</p>',source.url);
  const s=sourceSummary(doc,{url:source.url,digest:'dispute'},'policy');assert.equal(s.text,lead);assert.equal(s.truncated,false);assert(doc.text.includes(s.quote));
+});
+
+test('contents lists, source captions and historical recitals do not displace substantive source statements',()=>{
+ const statement='Canada’s exports of services increased during the reporting period, while merchandise imports declined.';
+ const doc=documentOf('<main><h1>State of Trade</h1><p>Part 2: The rise of services in Canada’s trade landscape 2.0.</p><p>Data source: International trade classification data published by the U.S. Census Bureau.</p><p>'+statement+'</p></main>',source.url);
+ assert.equal(sourceSummary(doc,{url:source.url},'statistics').text,statement);
+ const purpose='The participants intend to strengthen energy cooperation through regular exchanges between their responsible authorities.';
+ const mou=documentOf('<main><h1>Memorandum of Understanding on energy</h1><p>Recalling the memorandum of understanding on energy cooperation signed in an earlier year.</p><p>'+purpose+'</p></main>',source.url);
+ assert.equal(sourceSummary(mou,{url:source.url},'MOU').text,purpose);
+ const discussion='The leaders discussed a proposed trade agreement that would require further negotiation before implementation.';
+ const meeting=documentOf('<main><h1>Canada United States meeting</h1><p>The prime minister met the president on the margins of the Economic Leaders’ Meeting.</p><p>'+discussion+'</p></main>',source.url);
+ assert.equal(sourceSummary(meeting,{url:source.url},'meeting').text,discussion);
 });
