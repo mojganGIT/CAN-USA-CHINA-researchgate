@@ -1,7 +1,7 @@
 import {createHash} from 'node:crypto';
 export const hash=s=>createHash('sha256').update(s).digest('hex');
 export const normalize=s=>String(s||'').replace(/\s+/g,' ').trim();
-export function decode(s){return s.replace(/&#x([\da-f]+);/gi,(_,h)=>String.fromCodePoint(Math.min(parseInt(h,16),0x10ffff))).replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(Math.min(+n,0x10ffff))).replace(/&(?:amp|lt|gt|quot|apos|nbsp);/g,x=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'"','&apos;':"'",'&nbsp;':' '})[x]);}
+export function decode(s){return s.replace(/&#x([\da-f]+);/gi,(_,h)=>String.fromCodePoint(Math.min(parseInt(h,16),0x10ffff))).replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(Math.min(+n,0x10ffff))).replace(/&(?:amp|lt|gt|quot|apos|nbsp|rsquo|lsquo|rdquo|ldquo|ndash|mdash|hellip);/g,x=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'"','&apos;':"'",'&nbsp;':' ','&rsquo;':'’','&lsquo;':'‘','&rdquo;':'”','&ldquo;':'“','&ndash;':'–','&mdash;':'—','&hellip;':'…'})[x]);}
 export function textOf(html){return normalize(decode(html.replace(/<(script|style|nav|header|footer|aside)\b[^>]*>[\s\S]*?<\/\1>/gi,' ').replace(/<[^>]+>/g,' ')));}
 export function dateOf(value){
  const s=String(value||'').match(/^(\d{4}-\d{2}-\d{2})/)?.[1];
@@ -41,7 +41,11 @@ export function documentOf(html,url){
  // Full day URL dates are a fallback, never use a footer's modification date as publication.
  const urlDate=new URL(url).pathname.match(/(?:^|\/)(\d{4})[/-](\d{2})[/-](\d{2})(?:[/-]|$)/);
  if(urlDate)publicationDate||=dateOf(urlDate.slice(1,4).join('-'));
- return {title,text,publicationDate,modifiedDate};
+ // Keep article blocks separate for summaries: flattening a page joins dates,
+ // headings and unrelated navigation to the first substantive sentence.
+ const articleBlocks=main.replace(/<(script|style|nav|header|footer|aside)\b[^>]*>[\s\S]*?<\/\1>/gi,' ');
+ const paragraphs=[...articleBlocks.matchAll(/<(p|li)\b[^>]*>([\s\S]*?)<\/\1>/gi)].map(m=>textOf(m[2])).filter(p=>p.split(/\s+/).length>=8&&text.includes(p));
+ return {title,text,paragraphs,publicationDate,modifiedDate};
 }
 export function safeURL(raw,hosts){const u=new URL(raw);if(u.protocol!=='https:'||u.username||u.password||u.port||!hosts.includes(u.hostname))throw new Error('Source URL is not allowed.');u.hash='';return u.href;}
 export function discoverCandidates(body,hub,hosts){

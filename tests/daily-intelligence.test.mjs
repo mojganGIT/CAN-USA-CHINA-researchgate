@@ -7,6 +7,7 @@ import R from '../app/research-register.js';
 import F from '../app/stronger-canada-framework.js';
 import RM from '../app/regional-trade-model.js';
 import {makeBriefings,sourceSummary} from '../monitor/briefings.mjs';
+import {documentOf} from '../monitor/core.mjs';
 const now=Date.parse('2026-11-22T18:30:00Z'),source={publisher:'Official fixture',url:'https://www.canada.ca/policy'};
 const record=(id,extra={})=>({id,date:'2026-11-20',kind:'policy',relationship:'Canada-China',topics:['agriculture'],sources:[source],reviewedAt:'2026-11-22',title:id,changed:'Documented policy claim.',canada:'A Canadian decision question.',...extra});
 const scan=(digest='one',status='success',date='2026-11-22T12:00:00Z')=>({lastAttempt:date,lastRunStatus:status,sourceChecks:[{url:source.url,digest,status,checkedAt:date,lastChanged:date}]});
@@ -130,4 +131,19 @@ test('briefing navigation appears above content with dynamic sticky offsets and 
  assert(html.indexOf('class="daily-jump"')<html.indexOf('class="daily-filters"'));
  assert.equal((html.match(/data-daily-jump=/g)||[]).length,7);
  const css=fs.readFileSync(new URL('../app/daily-briefing.css',import.meta.url),'utf8');assert(css.includes('position:sticky;top:var(--daily-main-nav-height'));assert(css.includes('scroll-margin-top:var(--daily-scroll-offset'));
+});
+
+test('automatic excerpts retain the main article statement without datelines, navigation or split initials',()=>{
+ const lead='President Donald J. Trump and Canada’s prime minister discussed a proposed trade agreement on Nov. 18 that would change market access only after further negotiations and legal review by both governments.';
+ const html='<meta property="og:title" content="Joint trade readout"><main><h1>Trade discussions</h1><p>The White House</p><p>November 18, 2026</p><nav><p>Canada and China signed a memorandum in this unrelated navigation link.</p></nav><p>'+lead.replace('’','&rsquo;')+'</p><p>Officials discussed the importance of remaining in close contact.</p></main>';
+ const doc=documentOf(html,source.url),s=sourceSummary(doc,{url:source.url,digest:'article'},'meeting');
+ assert(doc.paragraphs.includes(lead));assert(s.quote.startsWith('President Donald J. Trump and Canada’s prime minister discussed'));
+ assert(s.quote.includes('Nov. 18'));assert.equal(s.truncated,true);assert(s.quote.split(/\s+/).length<=25);assert(doc.text.includes(s.quote));
+ assert(!s.quote.includes('The White House'));assert(!s.quote.includes('Officials discussed'));assert(!s.quote.includes('unrelated navigation'));
+});
+
+test('dispute summaries skip the website title and disclaimer while retaining dated procedural context',()=>{
+ const lead='On 20 March 2025, Canada requested consultations with China about additional import duties on agricultural and fishery products from Canada.';
+ const doc=documentOf('<title>WTO | dispute settlement - the disputes - DS636</title><h1>DS: agricultural duties</h1><p>This summary has been prepared by the Secretariat under its own responsibility.</p><p>The summary is for general information only and is not intended to affect the rights and obligations of Members.</p><p>'+lead+'</p>',source.url);
+ const s=sourceSummary(doc,{url:source.url,digest:'dispute'},'policy');assert.equal(s.text,lead);assert.equal(s.truncated,false);assert(doc.text.includes(s.quote));
 });

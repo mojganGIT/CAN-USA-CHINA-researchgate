@@ -17,10 +17,12 @@ export function sourceSummary(doc,item,kind){
  let body=normalize(doc.text);
  if(body.startsWith(normalize(doc.title)))body=body.slice(normalize(doc.title).length).trim();
  body=body.replace(/^(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+20\d{2}\s*/i,'');
- const protectedText=body.replace(/\b(?:U\.S\.|U\.K\.|Mr\.|Ms\.|Dr\.|Ltd\.|Inc\.)/g,s=>s.replaceAll('.','\u2024'));
- const sentences=protectedText.split(/(?<=[.!?])\s+/).map(s=>s.replaceAll('\u2024','.')).filter(s=>s.split(/\s+/).length>=8);
- const subject=kind==='MOU'?/memorandum|\bmou\b/i:kind==='contract'?/contract|award/i:kind==='meeting'?/discuss|meet|dialogue|consult/i:kind==='statistics'?/export|import|percent|\d/i:/tariff|agreement|signed|agreed|suspend|extend|implement|announc|policy|trade|market access|consider|discuss/i;
- const passage=sentences.find(s=>subject.test(s)&&s.split(/\s+/).length<=25)||sentences.find(s=>subject.test(s))||sentences[0]||body;
+ const blocks=doc.paragraphs?.length?doc.paragraphs:[body];
+ const sentences=blocks.flatMap(block=>normalize(block).replace(/\b(?:U\.S\.|U\.K\.|Mr\.|Ms\.|Dr\.|Ltd\.|Inc\.|Jan\.|Feb\.|Mar\.|Apr\.|Jun\.|Jul\.|Aug\.|Sep\.|Sept\.|Oct\.|Nov\.|Dec\.)|\b[A-Z]\.(?=\s+[A-Z])/g,s=>s.replaceAll('.','\u2024')).split(/(?<=[.!?])\s+/).map(s=>s.replaceAll('\u2024','.'))).filter(s=>s.split(/\s+/).length>=8&&!/^(?:This summary has been prepared|The summary is for general information|Go to the translated article|WTO \||Problems viewing this page|Skip to |Source\(s\):)/i.test(s));
+ const subject=kind==='MOU'?/memorandum|\bmou\b|cooperation|participants intend|objectives/i:kind==='contract'?/contract|award/i:kind==='meeting'?/discuss|meet|dialogue|consult/i:kind==='statistics'?/export|import|percent|\d/i:/tariff|agreement|signed|agreed|suspend|extend|implement|announc|policy|trade|market access|consider|discuss|dut(?:y|ies)|consultations|committed/i;
+ // Prefer the first relevant substantive statement, even if it needs an
+ // ellipsis. A short secondary sentence can omit the actual development.
+ const passage=sentences.find(s=>subject.test(s))||sentences[0]||'';
  const words=passage.split(/\s+/).filter(Boolean),quote=normalize(words.slice(0,25).join(' '));
  const assisted=typeof item.ai?.summary==='string'&&item.ai.summary.trim();
  return {text:assisted?item.ai.summary.trim().slice(0,900):quote,method:assisted?'validated_extraction':'source_excerpt',quote,truncated:!assisted&&words.length>25,
