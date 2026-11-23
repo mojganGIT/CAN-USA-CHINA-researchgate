@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-16T12:28:00.654Z",
+  "generatedAt": "2026-11-23T12:09:11.053Z",
   "cadence": "Weekly, Monday after the daily monitor; GitHub scheduling may be delayed.",
   "feedURL": "https://ambitious-field-09c66cd10.1.azurestaticapps.net/weekly-updates.xml",
   "recordSignatures": {
@@ -231,6 +231,128 @@
     "regional": "d5009bb3e79e03e29d454616317045991c354f223d210363865f39e2fcdee335"
   },
   "issues": [
+    {
+      "id": "week-2026-11-23",
+      "publishedAt": "2026-11-23T12:09:11.053Z",
+      "windowStart": "2026-11-16T12:09:11.053Z",
+      "windowEnd": "2026-11-23T12:09:11.053Z",
+      "title": "Canada policy briefing · week of 2026-11-23",
+      "lead": "Follow this week’s source developments, then ask whether implemented rules or measured Canadian outcomes changed.",
+      "sourceStatus": "partial",
+      "sourceLastSuccessfulRun": "2026-11-23T12:08:32.671Z",
+      "sourceFailures": 40,
+      "observationCount": 99,
+      "observations": [
+        {
+          "id": "auto-0b62404adf3523b3364c",
+          "title": "Joint Statement between ASEAN chair and Canada on the Substantial Conclusion of the ASEAN-Canada Free Trade Agreement (ACAFTA) Negotiations",
+          "url": "https://www.international.gc.ca/news-nouvelles/2026/2026-11-14-acafta-aleac.aspx?lang=eng",
+          "detectedAt": "2026-11-22T22:45:18.750Z",
+          "publicationDate": "2026-11-14",
+          "kind": "Source first indexed · not necessarily a new policy",
+          "story": {
+            "changed": "Source discovery detected 2026-11-22T22:45:18.750Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is whether Canadian firms can serve customers and manage cross-border financial risks. Foreign earnings are different from services exported from Canada.",
+            "regions": "Financial centres and firms across Canada may be exposed; these bilateral or company figures do not assign activity or employment to a province. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-30bbe17f5b51830210dc",
+          "title": "Order Amending the United States Surtax Remission Order (2025): SOR/2026-235",
+          "url": "https://gazette.gc.ca/rp-pr/p2/2026/2026-11-18/html/sor-dors235-eng.html",
+          "detectedAt": "2026-11-22T22:45:18.750Z",
+          "publicationDate": "2026-11-18",
+          "kind": "Source first indexed · not necessarily a new policy",
+          "story": {
+            "changed": "Source discovery detected 2026-11-22T22:45:18.750Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is whether Canadian growers and processors retain buyers, and whether higher-value processing stays in Canada.",
+            "regions": "Prairie growers and processors, and relevant food and seafood communities elsewhere, may face different demand and tariff effects; provincial magnitudes need local data. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-94eba2e3f2560e48d90f",
+          "title": "Backgrounder - Expanding trade between Canada and China",
+          "url": "https://www.international.gc.ca/country_news-pays_nouvelles/2026-11-16-china-chine.aspx?lang=eng",
+          "detectedAt": "2026-11-22T22:45:18.750Z",
+          "publicationDate": "2026-10-23",
+          "kind": "Source first indexed · not necessarily a new policy",
+          "story": {
+            "changed": "Source discovery detected 2026-11-22T22:45:18.750Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is whether market access sustains Canadian assembly and parts production, or changes competition for Canadian producers.",
+            "regions": "Watch assembly and battery communities in Ontario and Quebec; a national trade total cannot establish their local jobs result. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-aba0fd89b7428e851aef",
+          "title": "Monthly trade report: September 2026",
+          "url": "https://international.canada.ca/en/global-affairs/corporate/reports/chief-economist/monthly/2026-09",
+          "detectedAt": "2026-11-22T22:45:18.750Z",
+          "publicationDate": "2026-11-06",
+          "kind": "Source first indexed · not necessarily a new policy",
+          "story": {
+            "changed": "Source discovery detected 2026-11-22T22:45:18.750Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is whether market access sustains Canadian assembly and parts production, or changes competition for Canadian producers.",
+            "regions": "Watch assembly and battery communities in Ontario and Quebec; a national trade total cannot establish their local jobs result. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-a68217057ef3f7fb483a",
+          "title": "WTO | dispute settlement - DS636: China � Additional Import Duties on Certain Agricultural and Fishery Products from Canada",
+          "url": "https://www.wto.org/english/tratop_e/dispu_e/cases_e/ds636_e.htm",
+          "detectedAt": "2026-11-22T22:45:18.750Z",
+          "publicationDate": null,
+          "kind": "Source first indexed · not necessarily a new policy",
+          "story": {
+            "changed": "Source discovery detected 2026-11-22T22:45:18.750Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is whether Canadian growers and processors retain buyers, and whether higher-value processing stays in Canada.",
+            "regions": "Prairie growers and processors, and relevant food and seafood communities elsewhere, may face different demand and tariff effects; provincial magnitudes need local data. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-65bb02d73080be5cee9c",
+          "title": "WTO | dispute settlement - DS589: China - Measures Concerning the Importation of Canola Seed from Canada",
+          "url": "https://www.wto.org/english/tratop_e/dispu_e/cases_e/ds589_e.htm",
+          "detectedAt": "2026-11-22T22:45:18.750Z",
+          "publicationDate": null,
+          "kind": "Source first indexed · not necessarily a new policy",
+          "story": {
+            "changed": "Source discovery detected 2026-11-22T22:45:18.750Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is whether Canadian growers and processors retain buyers, and whether higher-value processing stays in Canada.",
+            "regions": "Prairie growers and processors, and relevant food and seafood communities elsewhere, may face different demand and tariff effects; provincial magnitudes need local data. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-5217f5b31cd5f5f65f0c",
+          "title": "Deputy Minister of Foreign Affairs appearance before the House of Commons Special Committee on Canada-China Relations (CACN) – Briefing material",
+          "url": "https://international.canada.ca/en/global-affairs/corporate/transparency/briefing-documents/parliamentary-committee/2020-01-30-cacn",
+          "detectedAt": "2026-11-22T22:45:18.750Z",
+          "publicationDate": "2025-08-25",
+          "kind": "Source first indexed · not necessarily a new policy",
+          "story": {
+            "changed": "Source discovery detected 2026-11-22T22:45:18.750Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is whether Canadian growers and processors retain buyers, and whether higher-value processing stays in Canada.",
+            "regions": "Prairie growers and processors, and relevant food and seafood communities elsewhere, may face different demand and tariff effects; provincial magnitudes need local data. Geographic effects still require substantive review."
+          }
+        },
+        {
+          "id": "auto-bb51ccabb06bea3857df",
+          "title": "About NORAD",
+          "url": "https://www.norad.mil/About-NORAD/NORAD-Missions/",
+          "detectedAt": "2026-11-22T22:45:18.750Z",
+          "publicationDate": null,
+          "kind": "Source first indexed · not necessarily a new policy",
+          "story": {
+            "changed": "Source discovery detected 2026-11-22T22:45:18.750Z. A changed page does not establish a new policy or an economic result.",
+            "why": "The policy question is how Canadian cooperation, enforcement and supplier choices address security risks while sustaining legitimate trade.",
+            "regions": "Provincial infrastructure, border communities and defence suppliers may have different exposure; operational results and local effects require their own evidence. Geographic effects still require substantive review."
+          }
+        }
+      ],
+      "reviewedChangeCount": 0,
+      "reviewed": [],
+      "statisticalUpdates": [],
+      "watch": "For comparative analysis, match units, scope and reference periods. For policy analysis, check the operative instrument. For trend analysis, separate revisions and price changes from volumes and outcomes."
+    },
     {
       "id": "week-2026-11-16",
       "publishedAt": "2026-11-16T12:28:00.654Z",
