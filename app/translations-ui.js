@@ -8005,5 +8005,10 @@
  ]
 ,
  "Retained policy context":["Contexte de politique conservé","保留的政策背景"]
+,
+ "Source, dates and evidence":["Source, dates et données","来源、日期与证据"],
+ "Investment stock, not newly completed spending.":["Stock d’investissement, et non nouvelles dépenses réalisées.","投资存量，并非新完成的支出。"],
+ "Policy framework, not a measured commercial outcome.":["Cadre de politique, et non résultat commercial mesuré.","政策框架，并非已衡量的商业成果。"],
+ "In this briefing window":["Dans la période du bulletin","在本期简报时间范围内"]
 };if(typeof module!=="undefined"&&module.exports)module.exports=data;if(g)g.POLICY_TRANSLATIONS_UI=data;})(typeof window==="undefined"?null:window);
 

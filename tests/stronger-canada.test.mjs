@@ -139,7 +139,7 @@ test('all sector pages render five sections, four linked assessments and a safe 
  const document={activeElement:null,getElementById:()=>host,addEventListener(){}};
  const context=vm.createContext({window,document,location,Intl,URLSearchParams,Date});
  vm.runInContext(fs.readFileSync(new URL('../app/stronger-canada.js',import.meta.url),'utf8'),context);
- window.StrongerCanada.render();assert.equal((host.innerHTML.match(/class="sc-sector-card"/g)||[]).length,8);assert(host.innerHTML.includes('The official Stronger Canada strategy diagram'));assert(!host.innerHTML.includes('<iframe'));
+ window.StrongerCanada.render();assert.equal((host.innerHTML.match(/class="sc-sector-card"/g)||[]).length,8);assert(host.innerHTML.includes('The official Stronger Canada strategy diagram'));assert(host.innerHTML.includes('<iframe'));assert(host.innerHTML.includes('Source, dates and evidence'));
  for(const topic of Object.keys(D.topics)){
   location.hash='#'+M.query(M.normalize(D,{view:'directions',topic}));window.StrongerCanada.render();
   assert.equal((host.innerHTML.match(/class="sc-page-section"/g)||[]).length,5,topic);assert.equal((host.innerHTML.match(/class="sc-assessment"/g)||[]).length,4,topic);assert(host.innerHTML.includes('Confidence in policy attribution'));
@@ -150,7 +150,7 @@ test('all sector pages render five sections, four linked assessments and a safe 
  assert(host.innerHTML.includes('data-sc-detail="backing-energy-capacity"><summary>'));assert(!host.innerHTML.includes('data-sc-detail="backing-energy-capacity" open'));
  location.hash='#stronger-canada?view=directions&topic=energy&region=ON&dimension=capacity';window.StrongerCanada.render();
  assert(host.innerHTML.includes('A local strategic outcome is not established by the linked records.'));
- location.hash='#stronger-canada?view=directions&topic=investment';window.StrongerCanada.render();assert(host.innerHTML.includes('Who ultimately controls investment in Canada?'));assert(host.innerHTML.includes('Load source video'));
+ location.hash='#stronger-canada?view=directions&topic=investment';window.StrongerCanada.render();assert(host.innerHTML.includes('Who ultimately controls investment in Canada?'));assert(host.innerHTML.includes('data-source-media-kind="video"'));assert(host.innerHTML.includes('data-source-media-inline="true"'));
  location.hash='#stronger-canada?view=compare';window.StrongerCanada.render();assert.equal((host.innerHTML.match(/class="sc-matrix-link"/g)||[]).length,32);assert.equal((host.innerHTML.match(/<option value="(?:CA|AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT)"/g)||[]).length,14);
  location.hash='#stronger-canada?view=directions&topic=finance&dimension=capacity';window.StrongerCanada.render();assert(host.innerHTML.includes('data-sc-detail="assessment-finance-capacity" open'));assert(host.innerHTML.includes('&lt;script&gt;unsafe&lt;/script&gt;'));assert(!host.innerHTML.includes('<script>unsafe'));
 });
