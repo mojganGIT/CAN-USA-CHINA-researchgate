@@ -8057,5 +8057,8 @@
 "Original report page 11":["Page 11 du rapport original","原始报告第11页"],
 "Original report page 12":["Page 12 du rapport original","原始报告第12页"],
 "Original report page 15":["Page 15 du rapport original","原始报告第15页"]
+,
+"Save as PDF":["Enregistrer en PDF","另存为PDF"],
+"Choose Save as PDF in your browser’s print dialog.":["Choisissez Enregistrer en PDF dans la boîte de dialogue d’impression de votre navigateur.","请在浏览器的打印对话框中选择“另存为PDF”。"]
 };if(typeof module!=="undefined"&&module.exports)module.exports=data;if(g)g.POLICY_TRANSLATIONS_UI=data;})(typeof window==="undefined"?null:window);
 

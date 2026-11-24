@@ -106,3 +106,25 @@ test('expanding or closing source details keeps the inline visual; closing its p
  const parent={open:false,matches:()=>false,querySelectorAll:()=>[container]};events.toggle({target:parent});assert.equal(primary.children.length,0);
  parent.open=true;events.toggle({target:parent});assert(primary.children[0].srcdoc.includes(chart.cachedURL));assert.equal(primary.children[0].attrs.sandbox,'allow-same-origin allow-popups');assert.equal(page.children.length,0);
 });
+
+test('video frames shrink to their content, follow metadata and width changes, and release observers when hidden',()=>{
+ const events={},videoEvents={},viewEvents={},observers=[];let contentHeight=240;
+ const video={addEventListener(type,fn){videoEvents[type]=fn;},removeEventListener(type){delete videoEvents[type];}};
+ const body={querySelector:selector=>selector==='video'?video:null,getBoundingClientRect:()=>({height:contentHeight})};
+ const view={getComputedStyle:()=>({marginTop:'16px',marginBottom:'16px'}),addEventListener(type,fn){viewEvents[type]=fn;},removeEventListener(type){delete viewEvents[type];}};
+ const frame={style:{height:'560px'},isConnected:true,contentDocument:{body},contentWindow:view,hasAttribute:name=>name==='srcdoc',matches:selector=>selector.includes('[data-source-media-kind="video"]')};
+ const document={addEventListener(type,fn){events[type]=fn;}};
+ const window={SourceMediaData:Data,document,ResizeObserver:class{constructor(fn){this.update=fn;observers.push(this);}observe(target){assert.equal(target,body);}disconnect(){this.disconnected=true;}}};
+ vm.runInContext(fs.readFileSync(new URL('../app/source-media.js',import.meta.url),'utf8'),vm.createContext({window,URL}));
+ events.load({target:frame});assert.equal(frame.style.height,'274px');assert.equal(observers.length,1);
+ contentHeight=385;viewEvents.resize();assert.equal(frame.style.height,'419px');
+ contentHeight=510;videoEvents.loadedmetadata();assert.equal(frame.style.height,'544px');
+ contentHeight=220;observers[0].update();assert.equal(frame.style.height,'254px');
+ events.load({target:frame});assert.equal(observers.length,1);
+ const slot={querySelectorAll:()=>[frame],replaceChildren(){frame.isConnected=false;}};
+ const container={dataset:{sourceMediaId:'video'},querySelectorAll:()=>[slot]};
+ events.toggle({target:{open:false,matches:()=>false,querySelectorAll:()=>[container]}});
+ assert(observers[0].disconnected);assert.equal(Object.keys(videoEvents).length,0);assert.equal(Object.keys(viewEvents).length,0);
+ contentHeight=400;observers[0].update();assert.equal(frame.style.height,'254px');
+ const foreign={matches:()=>false};events.load({target:foreign});assert.equal(observers.length,1);
+});
