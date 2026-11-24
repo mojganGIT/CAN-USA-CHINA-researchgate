@@ -91,7 +91,7 @@ test('unsafe feed fields are escaped and a failed scan does not render an all-cl
 });
 
 test('the normal updates entry point keeps the date selection through a feed refresh', () => {
- const stored = new Map();
+ const stored = new Map(),events={};
  let page, pageClick;
  const root = {
   set innerHTML(value) {
@@ -105,7 +105,7 @@ test('the normal updates entry point keeps the date selection through a feed ref
   querySelector: () => page
  };
  const window = {
-  document: {addEventListener(){}}, addEventListener() {}, PolicyResearchRegister: register,
+  document: {addEventListener(){}}, addEventListener(type,fn) {events[type]=fn;}, PolicyResearchRegister: register,
   localStorage: {getItem: key => stored.get(key) || null, setItem: (key, value) => stored.set(key, value)}
  };
  const context = vm.createContext({window, URL, URLSearchParams, Date: class extends Date { static now() { return now; } }});
@@ -118,6 +118,9 @@ test('the normal updates entry point keeps the date selection through a feed ref
  assert.match(page.innerHTML, /data-daily-range="week" aria-pressed="true"/);
  assert.match(page.innerHTML, /Partial coverage/);
  assert.equal(stored.size, 1);
+ window.DailyPrint={active:true};const paper=page.innerHTML;
+ window.DailyBriefing.show(root,{changes:[],lastRunStatus:'success'});assert.equal(page.innerHTML,paper,'background refresh cannot replace a briefing during export');
+ window.DailyPrint.active=false;events['daily-print-finished']();assert.notEqual(page.innerHTML,paper);assert.match(page.innerHTML,/data-daily-range="week" aria-pressed="true"/);
  const html = fs.readFileSync(new URL('../app/index.html', import.meta.url), 'utf8');
  assert(html.indexOf('daily-briefing.js') < html.indexOf('agent-tools.js'));
  const agent = fs.readFileSync(new URL('../app/agent-tools.js', import.meta.url), 'utf8');

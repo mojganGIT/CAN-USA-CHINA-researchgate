@@ -1,0 +1,38 @@
+/* Full paper edition. The interactive dashboard keeps its current layout and disclosures. */
+.daily-print-context,.source-media-print-only{display:none}
+@page daily-briefing-edition{size:letter;margin:14mm 12mm 16mm}
+@media print{
+ body:has(.daily-printing){padding:0!important;background:#fff!important}
+ body:has(.daily-printing)>header,#site-navigation:has(~ #root .daily-printing),body:has(.daily-printing) #agent-tools,body:has(.daily-printing) #subscription-dock{display:none!important}
+ .daily-printing{page:daily-briefing-edition;max-width:none;margin:0;padding:0!important;font-size:10pt;line-height:1.5;color:#122b49}
+ .daily-printing .daily-print-context,.daily-printing .daily-review,.daily-printing .daily-verification-strip,.daily-printing .source-media-print-only{display:block!important}
+ .daily-printing :is(.daily-export,.daily-toolbar,.daily-jump,.daily-range,.daily-filters,.daily-footer,.daily-text-button,.source-media-slot,.source-media-actions,.source-media-fallback,.daily-print-status){display:none!important}
+ .daily-printing :is(.daily-columns,.daily-sector-grid,.daily-lenses,.daily-relationships,.daily-trade-countries,.daily-policy-implications){display:block!important}
+ .daily-printing :is(.daily-sector,.daily-relationship,.daily-trade-country,.daily-lenses>article,.daily-policy-implications>article){display:block;margin:14pt 0;padding:10pt;border-radius:0}
+ .daily-printing :is(.daily-section,.daily-chart-panel,.daily-story,.daily-executive-story,.daily-sector,.daily-relationship,.daily-watch,.daily-delta,.daily-lenses>article,.policy-memo,.source-media,.source-media-collection,.daily-source-summary,.daily-change-summary){break-inside:auto!important;page-break-inside:auto!important;box-shadow:none}
+ .daily-printing :is(h2,h3,h4,h5,summary,dt,caption){break-after:avoid;page-break-after:avoid}
+ .daily-printing :is(p,dd,li){orphans:3;widows:3}
+ .daily-printing details{display:block!important;border-radius:0}
+ .daily-printing summary{list-style:none;padding:7pt 0;font-weight:650}
+ .daily-printing summary::marker,.daily-printing summary::-webkit-details-marker{display:none;content:''}
+ .daily-printing .daily-print-context{border-block:1px solid #b58629;padding:10pt 0;margin:14pt 0}
+ .daily-printing .daily-print-context p{margin:4pt 0}
+ .daily-printing :is(.daily-metrics,.daily-proof-grid){grid-template-columns:repeat(2,minmax(0,1fr))}
+ .daily-printing .daily-questions{display:block}.daily-printing .daily-questions dt{margin-top:8pt}.daily-printing .daily-questions dd{margin:3pt 0 8pt}
+ .daily-printing :is(.daily-errors,.daily-table-scroll,.daily-chart-scroll){overflow:visible;max-height:none}
+ .daily-printing table{width:100%!important;min-width:0!important;table-layout:fixed;border-collapse:collapse;font-size:8.5pt}
+ .daily-printing :is(th,td){overflow-wrap:anywhere;white-space:normal;padding:6pt!important;vertical-align:top}
+ .daily-printing thead{display:table-header-group}.daily-printing tr{break-inside:avoid;page-break-inside:avoid}
+ .daily-printing .daily-line-chart{width:100%;min-width:0;max-height:none;break-inside:avoid}
+ .daily-printing .source-media-collection{padding:0;border:0}
+ .daily-printing .source-media-print-only img{display:block;width:auto;max-width:100%;height:auto;max-height:225mm;object-fit:contain;margin:10pt auto;break-inside:avoid}
+ .daily-printing .source-media-print-only img[hidden]{display:none!important}
+ .daily-printing .source-media-print-note{font-size:9pt;border-left:2pt solid #b58629;padding-left:8pt;margin:10pt 0;overflow-wrap:anywhere}
+ .daily-printing .source-media-print-failure{display:none}.daily-printing .source-media-print-unavailable .source-media-print-failure{display:block}
+ .daily-printing .source-media-print-only table{margin-top:10pt}.daily-printing .source-media-print-only :is(th,td){border:1px solid #ccd4da}
+ .daily-printing a{color:#234f7c;text-decoration:underline;overflow-wrap:anywhere}
+ .daily-printing a[href^="https://"]:after{content:' [' attr(href) ']';font-size:8pt;font-weight:400;color:#475b6d}
+ .daily-printing .source-media-links a:after{content:' [' attr(href) ']';font-size:8pt}
+ .daily-printing .source-media-primary,.daily-printing iframe,.daily-printing video{display:none!important}
+ .daily-printing .daily-edition-footer{margin-top:18pt;padding-top:12pt;border-top:1pt solid #b58629}
+}

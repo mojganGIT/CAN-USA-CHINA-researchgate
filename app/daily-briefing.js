@@ -483,7 +483,7 @@
 
  function renderBriefing(model, feed, language = 'en') {
   const newGroups=model.groups.filter(group=>group.count),olderGroups=model.groups.filter(group=>!group.count);
-  return `<header class="daily-heading"><p class="daily-eyebrow">Canada · United States · China</p><h2 id="daily-heading">Daily Policy Intelligence Brief</h2><p>Verified source records, implementation monitoring and Canadian decision questions.</p><div class="daily-export"><button type="button" class="daily-pdf-button" data-daily-print>Save as PDF</button></div></header>
+  return `<header class="daily-heading"><p class="daily-eyebrow">Canada · United States · China</p><h2 id="daily-heading">Daily Policy Intelligence Brief</h2><p>Verified source records, implementation monitoring and Canadian decision questions.</p><div class="daily-export"><button type="button" class="daily-pdf-button" data-daily-print>Save as PDF</button></div><div class="daily-print-context"><p><strong>Full briefing</strong> · All sections and evidence details are expanded for the selected period and filters.</p><p><strong>Export prepared</strong>: <span data-daily-print-time data-no-translate>${formatDate(Date.now(),language)}</span></p><p><strong>Assessment scope</strong>: ${escape(relationships[model.filters.relationship]||'All relationships')} · ${escape(topics[model.filters.topic]||'All sectors and subjects')} · ${escape(stages[model.filters.stage]||model.filters.stage)} · ${escape(I.dimensions[model.filters.priority]||'All priorities')}</p><p><strong>Trade chart scope</strong>: ${escape(provinces[model.filters.region]||'Canada')} · ${escape(model.filters.partner==='all'?'USA and China':model.filters.partner)} · ${escape(model.filters.chart==='share'?'Share of all destinations':'Monthly export value')}</p></div></header>
    <nav class="daily-jump" aria-label="Jump to a briefing section">${Object.entries(sections).map(([id,name])=>`<button type="button" data-daily-jump="${id}"${id===(model.activeSection||'summary')?' aria-current="location"':''}>${name}</button>`).join('')}</nav>
    ${filterPanel(model)}
    <div class="daily-range" role="group" aria-label="Briefing period">${Object.entries(ranges).map(([id,label])=>`<button type="button" data-daily-range="${id}" aria-pressed="${id===model.range}">${label}</button>`).join('')}</div>
@@ -538,8 +538,8 @@
  let previousVisit = null;
  let range = 'today';
  let filters = {relationship:'all',topic:'all',stage:'all',priority:'all',region:'CA',chart:'value',partner:'all'};
- let resources={history:null,tradeData:null},resourcesLoading=false,resourcesAt=0;
- async function refreshResources(){if(resourcesLoading||Date.now()-resourcesAt<60000)return;resourcesLoading=true;const rs=await Promise.allSettled(['daily-editions.json','regional-statistics.json'].map(async path=>{const response=await fetch(path,{cache:'no-store'});if(!response.ok)throw Error();return response.json();}));resources={history:rs[0].status==='fulfilled'?rs[0].value:null,tradeData:rs[1].status==='fulfilled'?rs[1].value:null};resourcesAt=Date.now();resourcesLoading=false;render();}
+ let resources={history:null,tradeData:null},resourcesLoading=false,resourcesAt=0,resourcesPromise=null,renderAfterPrint=false;
+ function refreshResources(){if(resourcesLoading)return resourcesPromise;if(Date.now()-resourcesAt<60000)return Promise.resolve();resourcesLoading=true;return resourcesPromise=(async()=>{const rs=await Promise.allSettled(['daily-editions.json','regional-statistics.json'].map(async path=>{const response=await fetch(path,{cache:'no-store'});if(!response.ok)throw Error();return response.json();}));resources={history:rs[0].status==='fulfilled'?rs[0].value:null,tradeData:rs[1].status==='fulfilled'?rs[1].value:null};resourcesAt=Date.now();resourcesLoading=false;render();})();}
  let displayedDay = '';
 
  function readVisit() {
@@ -552,6 +552,7 @@
 
  function render() {
   if (!page?.isConnected) return;
+  if(global.DailyPrint?.active){renderAfterPrint=true;return;}
   const now = Date.now();
   const model = buildBriefing({feed: currentFeed, register: global.PolicyResearchRegister, previousVisit, range, filters, now,...resources});
   model.activeSection=activeSection;
@@ -595,7 +596,7 @@
   page.addEventListener('click', event => {
    const jump=event.target.closest('[data-daily-jump]')?.dataset.dailyJump;
    if(jump){jumpToSection(jump);return;}
-   if(event.target.closest('[data-daily-print]')){global.print?.();return;}
+   if(event.target.closest('[data-daily-print]')){const ready=global.fetch||typeof fetch==='function'?refreshResources():undefined;if(global.DailyPrint)global.DailyPrint.print(page,{ready});else global.print?.();return;}
    if(event.target.closest('[data-daily-refresh]')){resourcesAt=0;global.PolicyLive?.refresh?.();refreshResources();return;}
    const topic=event.target.closest('[data-daily-topic]')?.dataset.dailyTopic;
    if(topic&&Object.hasOwn(topics,topic)){filters.topic=topic;render();page.querySelector('[data-daily-filter="topic"]')?.focus({preventScroll:true});return;}
@@ -617,6 +618,7 @@
   global.addEventListener('dashboard-language-changed', render);
   global.addEventListener('resize',updateStickyLayout);
   global.addEventListener('scroll',queueSectionSync,{passive:true});
+  global.addEventListener('daily-print-finished',()=>{if(renderAfterPrint){renderAfterPrint=false;render();}});
   global.addEventListener('regional-statistics-loaded',()=>{if(global.RegionalTrade?.data){resources.tradeData=global.RegionalTrade.data;render();}});
  }
 })(typeof window === 'undefined' ? null : window);

@@ -8086,5 +8086,17 @@
 "Official footage records remarks and a meeting. It does not establish a signed bilateral commercial MOU, implemented obligations, delivered contracts or Canadian economic gains.":["Les images officielles présentent des propos et une rencontre. Elles n’établissent ni un protocole d’entente commercial bilatéral signé, ni des obligations mises en œuvre, ni des contrats exécutés, ni des gains économiques canadiens.","官方影像记录发言及会晤，不能证明已签署双边商业谅解备忘录、已履行义务、已交付合同或加拿大经济收益。"],
 "The White House published this video of remarks at the November 19 meeting involving the U.S., Chinese and Russian presidents. It accompanies the diplomatic context of the recorded declaration.":["La Maison-Blanche a publié cette vidéo des propos tenus à la rencontre du 19 novembre réunissant les présidents américain, chinois et russe. Elle éclaire le contexte diplomatique de la déclaration consignée.","白宫发布了美国、中国及俄罗斯总统在11月19日会晤中的发言视频，为已记录声明提供外交背景。"],
 "Canada can use the remarks to identify issues for allied coordination and economic-security monitoring. Compare them with written instruments, subsequent implementing decisions and measured trade before changing a Canadian assessment.":["Le Canada peut utiliser ces propos pour repérer les enjeux de coordination avec ses alliés et de veille de la sécurité économique. Il faut les comparer aux instruments écrits, aux décisions de mise en œuvre ultérieures et aux échanges mesurés avant de modifier une évaluation canadienne.","加拿大可利用这些发言识别盟友协调及经济安全监测议题。在调整加拿大评估前，应与书面文件、后续实施决定及实际贸易数据进行比较。"]
+,
+"Full briefing":["Bulletin complet","完整简报"],
+"All sections and evidence details are expanded for the selected period and filters.":["Toutes les sections et les données justificatives sont développées pour la période et les filtres sélectionnés.","展开所选时间范围和筛选条件下的全部章节及证据详情。"],
+"Export prepared":["Export préparé","导出准备时间"],
+"Trade chart scope":["Portée des graphiques commerciaux","贸易图表范围"],
+"Monthly export value":["Valeur mensuelle des exportations","月度出口金额"],
+"Preparing the full briefing for PDF…":["Préparation du bulletin complet en PDF…","正在准备完整PDF简报…"],
+"Interactive chart: open the original online.":["Graphique interactif : consulter l’original en ligne.","交互式图表：在线打开原始图表。"],
+"Video: open the original recording online.":["Vidéo : consulter l’enregistrement original en ligne.","视频：在线打开原始录像。"],
+"The source image could not be loaded for this export.":["L’image source n’a pas pu être chargée pour cet export.","此次导出未能加载来源图像。"],
+"Eight strategic capabilities":["Huit capacités stratégiques","八项战略能力"],
+"Five policy foundations":["Cinq fondements de politique","五大政策基础"]
 };if(typeof module!=="undefined"&&module.exports)module.exports=data;if(g)g.POLICY_TRANSLATIONS_UI=data;})(typeof window==="undefined"?null:window);
 
