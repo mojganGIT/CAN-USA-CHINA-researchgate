@@ -21,6 +21,7 @@ test('interactive tariff charts are curated and resize only on messages from the
  assert.equal(frame.style.height,undefined);events.message({origin:'https://datawrapper.dwcdn.net',source:ownWindow,data:{'datawrapper-height':{fMrtV:444.2}}});assert.equal(frame.style.height,'445px');
  const video=V.frameMarkup(Data.entries.find(x=>x.id==='white-house-trilateral-video-2026'));assert(video.includes('strict-origin-when-cross-origin'));assert(video.includes('youtube-nocookie.com'));assert(!video.includes('autoplay'));
  assert(Media.matching({relationship:'USA-China',year:'2024'}).some(x=>x.id==='eia-lng-destinations-2025'));assert(!Media.matching({relationship:'USA-China',year:'2024'}).some(x=>x.id==='white-house-trilateral-video-2026'));
+ assert(Media.matching({relationship:'USA-China',year:'2023'}).some(x=>x.id==='eia-lng-destinations-2025'),'the original chart retains its 2023 baseline');
 });
 
 test('the requested chart retains its source, year, ownership basis, exact table and national scope in both tabs',()=>{
