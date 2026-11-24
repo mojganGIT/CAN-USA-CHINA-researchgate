@@ -163,7 +163,7 @@ test('all sector pages render five sections, four linked assessments and a safe 
   const mediaAt=briefing.indexOf('data-source-media-id="outcome-'+id+'-'),detailsAt=briefing.indexOf('data-sc-detail="outcome-'+id+'"');
   assert(mediaAt>0,id);assert(detailsAt>mediaAt,id);assert(briefing.includes('State_of_Defence_2026_eng.pdf#page='+page));
  }
- assert(briefing.includes('ccc-t400-source-photo.jpg'));assert(briefing.includes('data-sc-detail="metric-shipments"'));assert(briefing.includes('data-sc-detail="related"'));assert(briefing.includes('2024 activities'));assert(!briefing.includes('data-source-media-kind="video"'));
+ assert(!briefing.includes('ccc-t400-source-photo.jpg'));assert(briefing.includes('data-sc-detail="metric-shipments"'));assert(briefing.includes('data-sc-detail="related"'));assert(briefing.includes('2024 activities'));assert(!briefing.includes('data-source-media-kind="video"'));
  location.hash='#stronger-canada?view=compare';window.StrongerCanada.render();assert.equal((host.innerHTML.match(/class="sc-matrix-link"/g)||[]).length,32);assert.equal((host.innerHTML.match(/<option value="(?:CA|AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT)"/g)||[]).length,14);
  location.hash='#stronger-canada?view=directions&topic=finance&dimension=capacity';window.StrongerCanada.render();assert(host.innerHTML.includes('data-sc-detail="assessment-finance-capacity" open'));assert(host.innerHTML.includes('&lt;script&gt;unsafe&lt;/script&gt;'));assert(!host.innerHTML.includes('<script>unsafe'));
 });

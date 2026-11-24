@@ -36,7 +36,7 @@ test('report pages share one verified PDF download while retaining distinct page
 });
 
 test('original JPEG photographs retain their bytes and dimensions rather than becoming fabricated outcome graphics',async()=>{
- const appRoot=await mkdtemp(path.join(tmpdir(),'source-jpeg-cache-')),entries=Data.entries.filter(x=>x.id==='ccc-t400-source-photo');
+ const appRoot=await mkdtemp(path.join(tmpdir(),'source-jpeg-cache-')),entries=[{...Data.entries[0],id:'jpeg-test-only',url:'https://www150.statcan.gc.ca/test-only-source.jpg',cachedURL:'assets/source-visuals/jpeg-test-only.jpg'}];
  // Minimal JPEG marker fixture for dimension parsing; never published as a source photograph.
  const jpeg=Buffer.from([255,216,255,192,0,11,8,1,44,2,88,1,1,17,0,255,217]);
  try{
