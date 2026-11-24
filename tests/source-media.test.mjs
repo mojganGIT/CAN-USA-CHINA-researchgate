@@ -10,6 +10,19 @@ import B from '../app/daily-briefing.js';
 const chart=Data.entries.find(x=>x.id==='statcan-fdi-2025');
 const source='https://www.eia.gov/todayinenergy/detail.php?id=67904';
 
+test('interactive tariff charts are curated and resize only on messages from their own publisher frame',()=>{
+ const item=Data.entries.find(x=>x.id==='us-china-tariff-chart'),events={},ownWindow={},otherWindow={};
+ const frame={src:item.url,contentWindow:ownWindow,style:{}};
+ const window={SourceMediaData:Data,document:{querySelectorAll:()=>[frame],addEventListener(){}},addEventListener(type,fn){events[type]=fn;}};
+ const context=vm.createContext({window,URL});vm.runInContext(fs.readFileSync(new URL('../app/source-media.js',import.meta.url),'utf8'),context);
+ const V=window.SourceMedia,markup=V.frameMarkup(item);assert(markup.includes(item.url));assert(markup.includes('allow-scripts'));assert(!markup.includes('allow-top-navigation'));
+ assert.equal(V.normalize({...item,id:'unreviewed-chart'}),null);assert.equal(V.normalize({...item,url:'https://datawrapper.dwcdn.net/other/1/'}),null);assert.equal(V.assetURL('https://evil.example/fMrtV/13/',item.sourceURL,'chart_embed'),'');
+ for(const event of [{origin:'https://evil.example',source:ownWindow,data:{'datawrapper-height':{fMrtV:444}}},{origin:'https://datawrapper.dwcdn.net',source:otherWindow,data:{'datawrapper-height':{fMrtV:444}}},{origin:'https://datawrapper.dwcdn.net',source:ownWindow,data:{'datawrapper-height':{other:444}}},{origin:'https://datawrapper.dwcdn.net',source:ownWindow,data:{'datawrapper-height':{fMrtV:99999}}}])events.message(event);
+ assert.equal(frame.style.height,undefined);events.message({origin:'https://datawrapper.dwcdn.net',source:ownWindow,data:{'datawrapper-height':{fMrtV:444.2}}});assert.equal(frame.style.height,'445px');
+ const video=V.frameMarkup(Data.entries.find(x=>x.id==='white-house-trilateral-video-2026'));assert(video.includes('strict-origin-when-cross-origin'));assert(video.includes('youtube-nocookie.com'));assert(!video.includes('autoplay'));
+ assert(Media.matching({relationship:'USA-China',year:'2024'}).some(x=>x.id==='eia-lng-destinations-2025'));assert(!Media.matching({relationship:'USA-China',year:'2024'}).some(x=>x.id==='white-house-trilateral-video-2026'));
+});
+
 test('the requested chart retains its source, year, ownership basis, exact table and national scope in both tabs',()=>{
  const outcomes=JSON.parse(fs.readFileSync(new URL('../app/evidence-records.json',import.meta.url),'utf8'));
  for(const id of ['fdi-stock-us','fdi-stock-china']){

@@ -12,7 +12,7 @@ import Data from '../app/source-media-data.js';
 const maxBytes=12*1024*1024;
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 function dimensions(width,height,size){
- if(size>maxBytes||width<280||height<100||width*height>60000000)throw Error('Source image dimensions or size are invalid');
+ if(size>maxBytes||!Number.isFinite(width)||!Number.isFinite(height)||width<280||height<100||width*height>60000000)throw Error('Source image dimensions or size are invalid');
  return {width,height};
 }
 export function inspectPNG(bytes){
@@ -36,6 +36,16 @@ export function inspectJPEG(bytes){
  }
  throw Error('JPEG image dimensions are unavailable');
 }
+export function inspectSVG(bytes){
+ const text=bytes.toString('utf8');
+ if(bytes.length>maxBytes||/<!DOCTYPE|<!ENTITY|<script\b|<foreignObject\b/i.test(text))throw Error('Unsupported source SVG');
+ const root=text.replace(/^\uFEFF/,'').replace(/<\?xml[\s\S]*?\?>|<!--[\s\S]*?-->/g,'').trim().match(/^<svg\b([^>]*)>/i);
+ if(!root||!/<\/svg>\s*$/i.test(text))throw Error('Source is not an SVG image');
+ const attr=name=>root[1].match(new RegExp('\\b'+name+'\\s*=\\s*["\x27]([^"\x27]+)["\x27]','i'))?.[1];
+ const numeric=value=>/^\d+(?:\.\d+)?(?:px)?$/.test(value||'')?parseFloat(value):NaN;
+ const box=(attr('viewBox')||'').trim().split(/[\s,]+/).map(Number);
+ return dimensions(numeric(attr('width'))||(box.length===4?box[2]:NaN),numeric(attr('height'))||(box.length===4?box[3]:NaN),bytes.length);
+}
 export async function renderSourcePage(bytes,page){
  const directory=await mkdtemp(path.join(tmpdir(),'official-report-page-'));
  try{
@@ -57,12 +67,12 @@ export async function cacheSourceVisuals({fetcher=fetch,renderer=renderSourcePag
  }
  for(const raw of entries.filter(x=>x.cachedURL)){
   const item=Media.normalize(raw),source=item?.sourceURL,url=item?.url,pdf=item?.kind==='document_image';
-  if(!source||!url||!['image','document_image'].includes(item.kind)||!/^assets\/source-visuals\/[a-z0-9-]+\.(?:png|jpg)$/.test(item.cachedURL)||pdf&&!item.cachedURL.endsWith('.png'))throw Error('Unapproved source image: '+raw.id);
-  const type=pdf?'application/pdf':item.cachedURL.endsWith('.jpg')?'image/jpeg':'image/png';
+  if(!source||!url||!['image','document_image'].includes(item.kind)||!/^assets\/source-visuals\/[a-z0-9-]+\.(?:png|jpg|svg)$/.test(item.cachedURL)||pdf&&!item.cachedURL.endsWith('.png'))throw Error('Unapproved source image: '+raw.id);
+  const type=pdf?'application/pdf':item.cachedURL.endsWith('.jpg')?'image/jpeg':item.cachedURL.endsWith('.svg')?'image/svg+xml':'image/png';
   const original=await download(url,type,item.id);
   if(pdf&&(!original.subarray(0,5).equals(Buffer.from('%PDF-'))||!Number.isSafeInteger(item.documentPage)||item.documentPage<1))throw Error('Invalid official PDF or page: '+item.id);
   const bytes=pdf?await renderer(original,item.documentPage):original;
-  const size=type==='image/jpeg'?inspectJPEG(bytes):inspectPNG(bytes),destination=path.join(appRoot,item.cachedURL);
+  const size=type==='image/jpeg'?inspectJPEG(bytes):type==='image/svg+xml'?inspectSVG(bytes):inspectPNG(bytes),destination=path.join(appRoot,item.cachedURL);
   await mkdir(path.dirname(destination),{recursive:true});await writeFile(destination,bytes);
   records.push({id:item.id,sourceURL:source,originalURL:url,path:item.cachedURL,sha256:hash(bytes),sourceSha256:hash(original),bytes:bytes.length,...size,fetchedAt:now,...(pdf?{documentPage:item.documentPage,rendering:'Unchanged full PDF page at 144 dpi',renderer:'PyMuPDF 1.26.6'}:{rendering:'Original publisher image bytes'})});
  }

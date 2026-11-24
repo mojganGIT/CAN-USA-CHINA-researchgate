@@ -4,7 +4,7 @@ import {mkdtemp,readFile,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
-import {cacheSourceVisuals,inspectPNG,inspectJPEG} from '../scripts/cache-source-visuals.mjs';
+import {cacheSourceVisuals,inspectPNG,inspectJPEG,inspectSVG} from '../scripts/cache-source-visuals.mjs';
 import Data from '../app/source-media-data.js';
 
 // A valid, synthetic PNG tests byte preservation; it is never published as source media.
@@ -54,5 +54,17 @@ test('HTML errors, rejected downloads and malformed images stop publication inst
   await assert.rejects(cacheSourceVisuals({appRoot,fetcher:async()=>new Response('Unavailable',{status:503})}),/could not be verified/);
   await assert.rejects(cacheSourceVisuals({appRoot,fetcher:async()=>new Response('not a PNG',{headers:{'Content-Type':'image/png'}})}),/not a PNG/);
   assert.throws(()=>inspectPNG(Buffer.alloc(20)),/not a PNG/);
+ }finally{await rm(appRoot,{recursive:true,force:true});}
+});
+
+test('the EIA SVG is preserved byte for byte with verified dimensions and rejects HTML or active XML',async()=>{
+ const appRoot=await mkdtemp(path.join(tmpdir(),'source-svg-cache-')),entry=Data.entries.find(x=>x.id==='eia-lng-destinations-2025');
+ // Synthetic validation fixture only; no fabricated chart is published.
+ const svg=Buffer.from('<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" width="800px" height="400" viewBox="0 0 800 400"><rect width="800" height="400"/></svg>');
+ try{
+  const [record]=await cacheSourceVisuals({appRoot,entries:[entry],fetcher:async()=>new Response(svg,{headers:{'Content-Type':'image/svg+xml; charset=utf-8'}})});
+  assert.equal(record.width,800);assert.equal(record.height,400);assert.equal(record.sourceSha256,record.sha256);assert.deepEqual(await readFile(path.join(appRoot,record.path)),svg);assert.equal(record.originalURL,entry.url);
+  assert.deepEqual(inspectSVG(Buffer.from('<svg viewBox="0 0 900 500"></svg>')),{width:900,height:500});
+  for(const bad of ['<html>error</html>','<!DOCTYPE svg><svg width="800" height="400"></svg>','<svg width="800" height="400"><script>alert(1)</script></svg>','<svg width="8" height="4"></svg>'])assert.throws(()=>inspectSVG(Buffer.from(bad)));
  }finally{await rm(appRoot,{recursive:true,force:true});}
 });

@@ -58,8 +58,8 @@ async function setup(){
  const mounts=[];
  const window={addEventListener(k,f){events[k]=f;},DashboardI18n:{get language(){return language.value;},get locale(){return language.value==='fr'?'fr-CA':language.value==='zh-Hans'?'zh-CN':'en-CA';},t(s){return I18n.t(s,language.value);},searchQuery:I18n.searchQuery},CanadaImpact:{mount(view,id){mounts.push(['canada',view,id]);}},USStates:{mount(id,config){mounts.push(['states',id,config]);}},showExplorer(){mounts.push(['relationship']);}};
  const ctx={window,document,location,history:{replaceState(a,b,url){location.hash=url;}},URL,URLSearchParams,Intl,Number,Date,AbortSignal,fetch:async file=>{if(outage)throw Error('offline');return {ok:true,json:async()=>JSON.parse(read(file))};}};
- vm.createContext(ctx);
- for(const p of ['research-register.js','dashboard-guide.js','explorer-inventory.js','explorer-catalog.js','regional-trade-model.js','us-trade-model.js','impact-model.js','policy-narrative.js','insights-model.js','bilateral-copy.js','bilateral-model.js','bilateral-hub.js'])vm.runInContext(read(p),ctx,{filename:p});
+ window.document=document;vm.createContext(ctx);
+ for(const p of ['research-register.js','dashboard-guide.js','explorer-inventory.js','explorer-catalog.js','regional-trade-model.js','us-trade-model.js','impact-model.js','policy-narrative.js','insights-model.js','source-media-data.js','source-media.js','bilateral-copy.js','bilateral-model.js','bilateral-hub.js'])vm.runInContext(read(p),ctx,{filename:p});
  window.BilateralHub.show('canada-china');await window.BilateralHub.ready;
  const go=(pair,view='overview',params={})=>{location.hash='#'+B.target(pair,view,params);window.BilateralHub.show(pair);return node('root').innerHTML;};
  return {node,window,go,mounts,language,events,handlers,setOutage(){outage=true;}};
@@ -95,5 +95,20 @@ test('every relationship renders eight topics, scoped policy and evidence, maps,
  setOutage();events['policy-updates-loaded']();await window.BilateralHub.ready;
  assert(node('root').innerHTML.includes('Some published datasets could not be refreshed'));
  assert(node('root').innerHTML.includes('bilateral-stat'),'previous valid values retained');
+});
+
+test('U.S.–China shows original source media, Canadian memos and expandable provenance scoped to topic and reference year',async()=>{
+ const {go,language,events,node}=await setup();
+ const overview=go('us-china');
+ for(const title of ['U.S.–China tariffs: the publisher’s interactive chart','U.S. agricultural export markets, 2025','Where U.S. LNG cargoes went in 2024 and 2025','Official video: November 2026 trilateral meeting'])assert(overview.includes(title),title);
+ assert(overview.includes('https://datawrapper.dwcdn.net/fMrtV/13/'));assert(overview.includes('https://www.youtube-nocookie.com/embed/A9Z4qlR9Y_s'));assert(overview.includes('Why it matters to Canada'));assert(overview.includes('Analyst interpretation'));
+ assert(overview.indexOf('Eight topic comparisons')<overview.indexOf('U.S.–China source visuals'));assert(overview.indexOf('U.S.–China source visuals')<overview.indexOf('Latest reviewed milestones'));
+ assert(!overview.includes('LNG Canada operating site footage'));assert(!overview.includes('autoplay='));assert(!overview.includes(' autoplay'));
+ const agriculture=go('us-china','overview',{topic:'agriculture',year:'2025'});assert(agriculture.includes('usda-export-markets-2025'));assert(agriculture.includes('us-china-tariff-chart'));assert(!agriculture.includes('eia-lng-destinations-2025'));assert(!agriculture.includes('white-house-trilateral-video-2026'));
+ const energy=go('us-china','overview',{topic:'energy',year:'2024'});assert(energy.includes('eia-lng-destinations-2025'));assert(!energy.includes('usda-export-markets-2025'));assert(!energy.includes('white-house-trilateral-video-2026'));
+ const policy=go('us-china','policy',{topic:'security',year:'2026'}),record=policy.split('data-bilateral-record="note-uc-trilateral-declaration-november-2026"')[1]?.split('</div></details>')[0];
+ assert(record?.includes('white-house-trilateral-video-2026'));assert(record.indexOf('<iframe')<record.indexOf('class="bilateral-source-details"'));assert(record.includes('Source, dates and evidence'));assert(record.includes('2026-11-24'));assert(record.includes('not establish a signed bilateral commercial MOU'));
+ assert(!go('canada-china').includes('us-china-tariff-chart'));assert(!go('canada-us').includes('white-house-trilateral-video-2026'));
+ go('us-china');for(const lang of ['fr','zh-Hans']){language.value=lang;events['dashboard-language-changed']();assert(node('root').innerHTML.includes(I18n.t('U.S.–China source visuals and Canadian implications',lang)));assert(node('root').innerHTML.includes(I18n.t('Why it matters to Canada',lang)));}
 });
 

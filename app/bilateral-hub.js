@@ -18,18 +18,27 @@
  function original(url,title){
   const u=safe(url);return u?`<a href="${E(u)}" target="_blank" rel="noopener noreferrer">${tr(title)} ↗</a>`:tr(title);
  }
+ function sourceVisuals(){
+  if(state.pair.id!=='us-china'||!window.SourceMedia)return '';
+  return window.SourceMedia.collection({relationship:state.pair.relationship,topic:state.topic,year:state.year},data.daily||{}, {keyPrefix:'bilateral-us-china',heading:'U.S.–China source visuals and Canadian implications',translate:v=>window.DashboardI18n?.t(v)||v});
+ }
  function record(r){
   const description=window.PolicyNarrative?.describe({...r,unreviewed:r.kind==='update'})||{};
   const sourceMap=new Map([...Object.values(data.canadian?.sources||{}),...Object.values(data.american?.sources||{})].map(s=>[s.url,s]));
   const field=(key,value)=>value?`<div><dt>${tx(key)}</dt><dd>${tr(value)}</dd></div>`:'';
   const linked=(r.recordIds||[]).map(id=>all().find(x=>x.id==='ca-'+id)).filter(x=>x&&(x.relationships.includes(state.pair.relationship)||!x.relationships.length));
   const status=r.kind==='historical'?'Historical inventory':statuses[r.stage]||r.status||window.ImpactModel.kinds[r.measurementType]||window.USTradeModel.kinds[r.measurementType]||r.kind;
+  const media=state.pair.id==='us-china'?window.SourceMedia?.forSources(r.sources,data.daily||{}).filter(x=>x.relationships?.includes(state.pair.relationship))||[]:[];
+  const sourceDetails=`<dl class="bilateral-dates">${field(r.dates||'Record date',r.date)}${field('Reference period',r.period)}${field('Geography',r.geography)}${field('Effective date',r.effectiveDate)}${field('Recorded expiry',r.expiryDate||r.through)}${field('Sources reviewed',r.reviewedAt)}${field('Date type',r.dateType?.replaceAll('_',' '))}${r.kind==='historical'?field('Original inventory label',r.status):''}</dl>
+  ${r.id==='policy-china-market-access'?`<p class="bilateral-meta">${tr(window.PolicyGuide.labels.originalExpiry)}</p>`:''}
+  <ul class="bilateral-sources">${r.sources.map(s=>{const meta=sourceMap.get(s.url);return `<li>${original(s.url,s.publisher)}${meta?.publicationLabel?`<br><span class="bilateral-meta">${tx('Source publication')}: ${tr(meta.publicationLabel)}</span>`:''}</li>`;}).join('')}</ul>
+  ${media.map(x=>`<div class="bilateral-visual-evidence"><p class="bilateral-meta">${tr(x.publisher)} · ${tr(x.referencePeriod)}${x.publicationDate?' · '+tx('Source publication')+': '+E(x.publicationDate):''} · ${tx('Visual and source link checked')}: ${E(x.verifiedAt||x.checkedAt)}${x.memo?' · '+tx('Summary reviewed')+': '+E(x.memo.reviewedAt):''}</p><p class="source-media-note">${tr(x.note)}</p><p>${original(x.sourceURL,'Open original source')} · ${original(window.SourceMedia.originalVisualURL(x),'Open original visual or video')}</p></div>`).join('')}`;
   return `<details class="bilateral-record" data-bilateral-record="${E(r.id)}"><summary><span class="bilateral-meta">${E(r.date||r.period||'')} · ${tx(r.set||'Research notes')}</span><strong>${tr(r.title)}</strong><span class="bilateral-badge">${tx(status)}</span>${Number.isFinite(r.value)?`<span class="bilateral-value">${E(number(r.value))} ${tr(r.unit)}</span>`:''}</summary><div class="bilateral-record-body">
   ${r.kind==='update'?`<p class="bilateral-caution">${tx('Unreviewed source observation')} · ${tx('Historical labels and years are retained. A source-page change is not automatically a legal amendment.')}</p>`:''}
   <dl class="bilateral-reading">${field('What changed?',r.summary||description.changed)}${field('Why does it matter to Canada?',r.why||description.why)}${field('How could Canada and its provinces be affected?',description.regions)}${field('What remains uncertain?',r.limitation||r.attribution||(r.kind==='historical'?'The original inventory label is retained; it is not a new verification of current law. Check the source for amendments, implementation and exceptions.':''))}</dl>
-  <dl class="bilateral-dates">${field(r.dates||'Record date',r.date)}${field('Reference period',r.period)}${field('Geography',r.geography)}${field('Effective date',r.effectiveDate)}${field('Recorded expiry',r.expiryDate||r.through)}${field('Sources reviewed',r.reviewedAt)}${field('Date type',r.dateType?.replaceAll('_',' '))}${r.kind==='historical'?field('Original inventory label',r.status):''}</dl>
-  ${r.id==='policy-china-market-access'?`<p class="bilateral-meta">${tr(window.PolicyGuide.labels.originalExpiry)}</p>`:''}
-  <ul class="bilateral-sources">${r.sources.map(s=>{const meta=sourceMap.get(s.url);return `<li>${original(s.url,s.publisher)}${meta?.publicationLabel?`<br><span class="bilateral-meta">${tx('Source publication')}: ${tr(meta.publicationLabel)}</span>`:''}</li>`;}).join('')}</ul>${linked.length?`<details class="bilateral-linked"><summary>${tx('Linked outcome evidence')} (${linked.length})</summary><p class="bilateral-meta">${tx('Linked observations can predate the policy or cover a different geography; links are not causal claims.')}</p>${linked.map(record).join('')}</details>`:''}</div></details>`;
+  ${media.length?window.SourceMedia.render(media,{keyPrefix:'bilateral-record-'+r.id,sourceDetails:false,translate:v=>window.DashboardI18n?.t(v)||v}):''}
+  ${state.pair.id==='us-china'?`<details class="bilateral-source-details" data-bilateral-detail="source-${E(r.id)}"><summary>${tx('Source, dates and evidence')}</summary>${sourceDetails}</details>`:sourceDetails}
+  ${linked.length?`<details class="bilateral-linked"><summary>${tx('Linked outcome evidence')} (${linked.length})</summary><p class="bilateral-meta">${tx('Linked observations can predate the policy or cover a different geography; links are not causal claims.')}</p>${linked.map(record).join('')}</details>`:''}</div></details>`;
  }
  function filters({search=false}={}){
   const topics=window.EXPLORER_CATALOG.topics;
@@ -57,7 +66,7 @@
   const story=state.pair.id==='canada-china'?'Market access, sourcing and security choices connect Canadian firms to Chinese buyers and suppliers. The balance differs by sector and province, so commercial openings and security constraints need to be examined together.':state.pair.id==='us-china'?'U.S.–China competition and negotiation can change the markets, inputs and rules facing Canadian firms. The evidence below concerns that bilateral relationship; Canadian implications are interpretation unless independently measured.':'Canada and the U.S. share production networks, energy trade and continental security arrangements. Integration supports Canadian activity but also exposes firms and provinces to American demand and policy decisions.';
   const policies=matched({policy:true}).slice(0,4),updates=matched().filter(r=>r.kind==='update').slice(0,3);
   return `<section data-no-translate><dl class="bilateral-intro"><div><dt>${tx('Canada’s policy question')}</dt><dd>${tx(story)}</dd></div><div><dt>${tx('How to use the comparison')}</dt><dd>${tx('Start with one of the eight topics, follow the timeline and open the source. Compare the same product, period and unit; use the maps to examine regional exposure rather than infer local jobs from national figures.')}</dd></div><div><dt>${tx('What changed across the period?')}</dt><dd>${tx('Tariffs, screening decisions, security measures and renewed dialogues have changed at different times since 2018. The timeline distinguishes the instrument’s event date, effective date and available outcome evidence.')}</dd></div></dl>
-  ${filters()}${statCards()}<h3>${tx('Eight topic comparisons')}</h3>${topicCards()}<div class="bilateral-section-title"><h3>${tx('Latest reviewed milestones')}</h3>${anchor('policy','Policy Tracker')}</div>${policies.map(record).join('')}
+  ${filters()}${statCards()}<h3>${tx('Eight topic comparisons')}</h3>${topicCards()}${sourceVisuals()}<div class="bilateral-section-title"><h3>${tx('Latest reviewed milestones')}</h3>${anchor('policy','Policy Tracker')}</div>${policies.map(record).join('')}
   <h3>${tx('Latest daily observations for this relationship')}</h3>${updates.map(record).join('')||`<p class="bilateral-meta">${tx('No new monitored observations match this relationship. This does not establish that no policy changed.')}</p>`}</section>`;
  }
  function contexts(){
@@ -67,7 +76,7 @@
  function compare(){
   const catalog=window.EXPLORER_CATALOG,topics=catalog.topics.filter(t=>state.topic==='all'||t.id===state.topic),index=catalog.relationships.indexOf(state.pair.relationship);
   const rows=matched().filter(r=>r.kind!=='update');
-  return `<section data-no-translate>${filters()}<p>${tx('Select a topic to read its subtopics and matched evidence.')}</p>${topicCards()}
+  return `<section data-no-translate>${filters()}<p>${tx('Select a topic to read its subtopics and matched evidence.')}</p>${topicCards()}${sourceVisuals()}
   ${topics.map(t=>{
    const records=rows.filter(r=>r.topics.includes(t.id)),ca=data.canadian?.assessments.find(r=>r.id===t.id),us=data.american?.assessments.find(r=>r.id===t.id);
    const summary=records.find(r=>r.summary)?.summary;
@@ -104,13 +113,14 @@
  }
  function render(){
   if(!state||location.hash.slice(1).split('?')[0]!==state.pair.id)return;
-  const view=state.view,open=new Set(Array.from(root.querySelectorAll?.('details[data-bilateral-record][open]')||[],n=>n.dataset.bilateralRecord));
+  const view=state.view,detailKey=n=>n.dataset.bilateralRecord||n.dataset.bilateralDetail||n.dataset.scDetail,open=new Set(Array.from(root.querySelectorAll?.('details[data-bilateral-record][open], details[data-bilateral-detail][open], details[data-sc-detail][open]')||[],detailKey));
   root.innerHTML=`<div class="wrap bilateral-shell"><header class="bilateral-heading" data-no-translate><p class="hub-eyebrow">2018–2026</p><h2>${tx(state.pair.title)}</h2><p>${tx('Follow the evidence from 2018–2026. Each dataset keeps its own reference period; an announcement is separate from implementation and measured results.')}</p></header>
   <nav class="bilateral-subnav" aria-label="${tx('Relationship sections')}" data-no-translate>${[...B.views,...B.mapViews(state.pair.id)].map(([id,label])=>`<a href="#${E(target(id,{topic:state.topic,year:state.year}))}" data-hub="${E(target(id,{topic:state.topic,year:state.year}))}" ${view===id?'aria-current="page"':''}>${tx(label)}</a>`).join('')}</nav>
   <p class="bilateral-meta" data-no-translate>${tx('Only records linked to this relationship appear here. All-market Canadian context is available separately and is never allocated to a bilateral partner.')}</p>
   ${failures.length?`<p class="bilateral-caution" role="status" data-no-translate>${tx('Some published datasets could not be refreshed. Previously loaded data and research notes remain available.')}</p>`:!loaded?`<p class="bilateral-meta" role="status" data-no-translate>${tx('Sources are still loading; published research notes remain available.')}</p>`:''}
   <div id="bilateral-body">${view==='overview'?overview():view==='compare'?compare():view==='policy'?timeline():view==='evidence'?evidence():view==='products'?products():view==='trends'?trendFrame():''}</div></div>`;
-  for(const n of root.querySelectorAll?.('details[data-bilateral-record]')||[])if(open.has(n.dataset.bilateralRecord))n.open=true;
+  for(const n of root.querySelectorAll?.('details[data-bilateral-record], details[data-bilateral-detail], details[data-sc-detail]')||[])if(open.has(detailKey(n)))n.open=true;
+  window.SourceMedia?.hydrate(root);
   if(view==='map')window.CanadaImpact.mount('overview','bilateral-body');
   if(view==='states')window.USStates.mount('bilateral-body',{partner:state.pair.partner,lockedPartner:state.pair.partner});
   if(view==='relationship')window.showExplorer();
@@ -146,4 +156,5 @@
  window.addEventListener('afterprint',()=>{printDetails.forEach(({el,open})=>el.open=open);printDetails=[];});
  window.BilateralHub={show,render,get active(){return state?{...state.pair,view:state.view}:null;},clear(){state=null;},get ready(){return promise;},target:(view,extra)=>state?target(view,extra):'home',get state(){return state&&{...state};}};
 })();
+
 
