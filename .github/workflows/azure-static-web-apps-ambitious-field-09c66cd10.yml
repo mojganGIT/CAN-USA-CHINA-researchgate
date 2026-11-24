@@ -38,7 +38,12 @@ jobs:
         run: |
           node scripts/validate-evidence.mjs
           npm test
-      - name: Verify and cache the publishers' original source images
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the pinned official-report page renderer
+        run: python3 -m pip install PyMuPDF==1.26.6
+      - name: Verify and cache original publisher images and report pages
         run: node scripts/cache-source-visuals.mjs
       - name: Retain source-image provenance for deployment verification
         uses: actions/upload-artifact@v4

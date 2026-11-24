@@ -59,6 +59,27 @@ test('visuals appear before independently expandable sources; page-only previews
  assert.equal(Media.frameMarkup({...chart,url:'https://evil.example/chart.png'}),'');assert.equal(Media.frameMarkup({...chart,sourceURL:'javascript:alert(1)'},'page'),'');
 });
 
+test('security evidence maps each original report page to the matching record without collapsing pages from the same PDF',()=>{
+ const outcomes=JSON.parse(fs.readFileSync(new URL('../app/evidence-records.json',import.meta.url),'utf8'));
+ const expected={'defence-us-exports':15,'defence-domestic-supply':11,'defence-direct-jobs':10,'defence-share-ON':12,'defence-share-QC':12,'defence-atlantic-share':12,'defence-west-north-share':12};
+ for(const [id,page] of Object.entries(expected)){
+  const row=outcomes.records.find(r=>r.id===id),items=Media.forRecord(row,outcomes.sources);assert.equal(items.length,1,id);assert.equal(items[0].documentPage,page,id);
+  const html=Media.recordHTML(row,outcomes.sources,{}, {sourceDetails:false,fallbackPreview:false});assert(html.includes('<iframe'));assert(!html.includes('<details class="source-media-details"'));assert(!html.includes('Original source preview'));assert(html.includes('2024 activities'));
+  const frame=Media.frameHTML(items[0]);assert(frame.includes(items[0].cachedURL));assert(frame.includes(items[0].url+'#page='+page));assert(!frame.includes('<svg'));
+ }
+ assert.equal(Media.all().filter(x=>x.kind==='document_image').length,4);
+ const doc=Data.entries.find(x=>x.kind==='document_image');assert.equal(Media.normalize({...doc,documentPage:99}),null);
+ const textOnly={id:'text-only',title:'Text-only checked source',reviewedAt:'2026-11-24',sources:[{publisher:'EIA',url:source}]};assert.equal(Media.recordHTML(textOnly,{}, {},{fallbackPreview:false}),'');
+});
+
+test('record-bound national context excludes source utility icons and cannot be mistaken for a provincial defence chart',()=>{
+ const outcomes=JSON.parse(fs.readFileSync(new URL('../app/evidence-records.json',import.meta.url),'utf8'));
+ const row=outcomes.records.find(r=>r.id==='lfs-BC'),url=outcomes.sources[row.sourceIds[0]].url;
+ const feed={sourceChecks:[{url,digest:'current'}],sourceMedia:[{sourceURL:url,sourceDigest:'current',checkedAt:'2026-11-24',items:[{kind:'image',url:'https://www150.statcan.gc.ca/dai-quo/img/magnify-clip.png',title:'Chart magnifying icon'},{kind:'image',url:'https://www150.statcan.gc.ca/chart.png',title:'A second unreviewed chart'}]}]};
+ assert(!Media.all(feed).some(x=>x.title==='Chart magnifying icon'));
+ const items=Media.forRecord(row,outcomes.sources,feed);assert.equal(items.length,1);assert.equal(items[0].id,'statcan-employment-rate-september-2026');assert(items[0].note.includes('not a provincial defence-employment series'));
+});
+
 test('reviewed visual memos explain the source and Canadian relevance without promoting a stock or footage to an outcome',()=>{
  for(const item of Data.entries){
   const html=Media.render([item]);assert(item.memo?.summary&&item.memo?.canada&&item.memo?.reviewedAt,item.id);
