@@ -483,7 +483,7 @@
 
  function renderBriefing(model, feed, language = 'en') {
   const newGroups=model.groups.filter(group=>group.count),olderGroups=model.groups.filter(group=>!group.count);
-  return `<header class="daily-heading"><p class="daily-eyebrow">Canada · United States · China</p><h2 id="daily-heading">Daily Policy Intelligence Brief</h2><p>Verified source records, implementation monitoring and Canadian decision questions.</p><div class="daily-export"><button type="button" class="daily-pdf-button" data-daily-print aria-describedby="daily-pdf-help">Save as PDF</button><p id="daily-pdf-help" class="daily-meta">Choose Save as PDF in your browser’s print dialog.</p></div></header>
+  return `<header class="daily-heading"><p class="daily-eyebrow">Canada · United States · China</p><h2 id="daily-heading">Daily Policy Intelligence Brief</h2><p>Verified source records, implementation monitoring and Canadian decision questions.</p><div class="daily-export"><button type="button" class="daily-pdf-button" data-daily-print>Save as PDF</button></div></header>
    <nav class="daily-jump" aria-label="Jump to a briefing section">${Object.entries(sections).map(([id,name])=>`<button type="button" data-daily-jump="${id}"${id===(model.activeSection||'summary')?' aria-current="location"':''}>${name}</button>`).join('')}</nav>
    ${filterPanel(model)}
    <div class="daily-range" role="group" aria-label="Briefing period">${Object.entries(ranges).map(([id,label])=>`<button type="button" data-daily-range="${id}" aria-pressed="${id===model.range}">${label}</button>`).join('')}</div>
