@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import Media from '../app/source-media.js';
 import Data from '../app/source-media-data.js';
+import UI from '../app/translations-ui.js';
 import {discoverSourceMedia} from '../monitor/source-media.mjs';
 import B from '../app/daily-briefing.js';
 const chart=Data.entries.find(x=>x.id==='statcan-fdi-2025');
@@ -30,10 +31,11 @@ test('article discovery excludes chrome, portraits, trackers, unsupported origin
 });
 
 test('automatically discovered visuals stay bound to their source version and never become reviewed analytical evidence',()=>{
- const item={kind:'image',url:'https://www.eia.gov/chart.png',title:'Source trade chart'};
+ const item={kind:'image',url:'https://www.eia.gov/chart.png',title:'Source trade chart',memo:{summary:'Unreviewed outcome claim',canada:'Unreviewed Canadian gain',reviewedAt:'2026-11-24'}};
  const page={sourceURL:source,sourceDigest:'one',checkedAt:'2026-11-24T12:00:00Z',topics:['energy'],relationships:['Canada-USA'],items:[item]};
  const feed={sourceMedia:[page],sourceChecks:[{url:source,digest:'one',status:'success'}]};
  const html=Media.collection({topic:'energy',relationship:'Canada-USA'},feed);assert(html.includes('Automatically discovered · analyst review pending'));assert(html.includes(item.title));assert(!html.includes('Favourable'));
+ assert(!html.includes(item.memo.summary));assert(!html.includes(item.memo.canada));
  const mismatched=Media.collection({topic:'energy'}, {...feed,sourceChecks:[{url:source,digest:'two',status:'success'}]});assert(!mismatched.includes(item.title));
  const stale={...page,items:[{...item,url:chart.url}],sourceURL:chart.sourceURL};const both=Media.all({sourceMedia:[stale],sourceChecks:[{url:chart.sourceURL,digest:'one'}]});assert.equal(both.filter(x=>x.url===chart.url).length,1);
  const run=fs.readFileSync(new URL('../monitor/run.mjs',import.meta.url),'utf8');assert(run.indexOf('discoverSourceMedia(page.html')<run.indexOf('if(!before&&meta.known)continue'));assert(run.includes('feed.sourceMedia='));
@@ -54,6 +56,16 @@ test('visuals appear before independently expandable sources; page-only previews
  assert(html.includes('Source, dates and evidence'));assert(html.includes(chart.publicationDate));assert(html.includes(chart.verifiedAt));assert(html.includes(chart.sourceURL));
  const page=Media.recordHTML({title:'Checked publication',date:'2026-11-24',reviewedAt:'2026-11-24',sources:[{publisher:'EIA',url:source}]});assert(page.startsWith('<details'));assert(!page.includes('<iframe'));assert(page.includes('Preview original source page'));
  assert.equal(Media.frameMarkup({...chart,url:'https://evil.example/chart.png'}),'');assert.equal(Media.frameMarkup({...chart,sourceURL:'javascript:alert(1)'},'page'),'');
+});
+
+test('reviewed visual memos explain the source and Canadian relevance without promoting a stock or footage to an outcome',()=>{
+ for(const item of Data.entries){
+  const html=Media.render([item]);assert(item.memo?.summary&&item.memo?.canada&&item.memo?.reviewedAt,item.id);
+  assert(html.includes('Summary</strong>'));assert(html.includes('Why it matters to Canada'));assert(html.includes('Analyst interpretation'));assert(html.includes('Summary reviewed'));
+  assert(html.indexOf('source-media-memo')<html.indexOf('<iframe'));assert.equal(UI[item.memo.summary]?.length,2);assert.equal(UI[item.memo.canada]?.length,2);
+ }
+ const html=Media.collection({topic:'finance',region:'CA'});assert(html.includes('CAD 816.8 billion'));assert(html.includes('CAD 43.4 billion'));assert(html.includes('does not measure financial-service sales'));assert(!html.includes('LNG Canada’s media kit'));
+ const hostile=Media.render([{...chart,memo:{summary:'<script>claim</script>',canada:'<img onerror=claim()>',reviewedAt:'2026-11-24'}}]);assert(!hostile.includes('<script>claim</script>'));assert(hostile.includes('&lt;script&gt;claim&lt;/script&gt;'));assert(!hostile.includes('<img onerror=claim()>'));
 });
 
 test('expanding or closing source details keeps the inline visual; closing its parent stops hidden media',()=>{
