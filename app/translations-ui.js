@@ -7742,6 +7742,110 @@
  "Change from prior year": ["Variation par rapport à l’année précédente", "较上年变化"],
  "Share of all destinations": ["Part de toutes les destinations", "占全部出口目的地的比重"],
  "Same complete months": ["Mêmes mois complets", "相同完整月份"],
- "Year-to-date": ["Cumul depuis janvier", "年初至今"]
+ "Year-to-date": ["Cumul depuis janvier", "年初至今"],
+ "What does the evidence show?": [
+  "Que montrent les données?",
+  "证据表明了什么？"
+ ],
+ "Figures behind this memo": [
+  "Chiffres à l’appui de cette note",
+  "本简报的具体数据"
+ ],
+ "Figures, sources and evidence limits": [
+  "Chiffres, sources et limites des données",
+  "数据、来源与证据局限"
+ ],
+ "Read supporting records and sources": [
+  "Consulter les documents et sources à l’appui",
+  "查阅支持记录与来源"
+ ],
+ "Read the latest record memo": [
+  "Lire la note sur le dernier document",
+  "阅读最新记录简报"
+ ],
+ "National sector context": [
+  "Contexte sectoriel national",
+  "全国行业背景"
+ ],
+ "No publishable, complete year-to-date total is available for {region} exports to {partner} through {period}. Missing or suppressed values are not zero.": [
+  "Aucun total cumulatif complet et publiable n’est disponible pour les exportations de {region} vers {partner} jusqu’à {period}. Les valeurs manquantes ou confidentielles ne sont pas des zéros.",
+  "截至{period}，{region}对{partner}的年初至今出口没有完整且可公布的总额。缺失或保密数值不等于零。"
+ ],
+ "{region} shipped {amount} CAD of {commodity} to {partner} from January through {period}.": [
+  "De janvier à {period}, {region} a exporté {amount} CAD de {commodity} vers {partner}.",
+  "从1月至{period}，{region}向{partner}出口了{amount}加元的{commodity}。"
+ ],
+ "Export value was unchanged from the same months a year earlier.": [
+  "La valeur des exportations est inchangée par rapport aux mêmes mois de l’année précédente.",
+  "出口额与上年相同月份持平。"
+ ],
+ "Export value rose {change}% from the same months a year earlier.": [
+  "La valeur des exportations a augmenté de {change}% par rapport aux mêmes mois de l’année précédente.",
+  "出口额较上年相同月份增长{change}%。"
+ ],
+ "Export value fell {change}% from the same months a year earlier.": [
+  "La valeur des exportations a diminué de {change}% par rapport aux mêmes mois de l’année précédente.",
+  "出口额较上年相同月份下降{change}%。"
+ ],
+ "A comparable prior-year change is unavailable; this total alone does not establish a trend.": [
+  "Aucune variation annuelle comparable n’est disponible; ce total seul n’établit pas une tendance.",
+  "没有可比的上年变化数据；仅凭这一总额无法确定趋势。"
+ ],
+ "{partner} received {share}% of domestic exports from {region} in this product group and period. This shows buyer concentration; values also move with prices and exchange rates.": [
+  "{partner} a reçu {share}% des exportations intérieures de {region} pour ce groupe de produits et cette période. Cela indique la concentration des acheteurs; les valeurs varient aussi avec les prix et les taux de change.",
+  "在这一产品组和时期，{partner}占{region}本国产品出口的{share}%。这反映买家集中度；出口额也受价格和汇率影响。"
+ ],
+ "A comparable destination share is unavailable. Buyer concentration cannot be inferred from a missing denominator.": [
+  "Aucune part comparable par destination n’est disponible. On ne peut déduire la concentration des acheteurs d’un dénominateur manquant.",
+  "没有可比的目的地份额。分母缺失时，无法推断买家集中度。"
+ ],
+ "Compare shipment volumes and alternative buyers in the next matching release. Check local production and employment before attributing a gain or loss to an agreement.": [
+  "Comparer les volumes expédiés et les autres acheteurs dans la prochaine publication comparable. Vérifier la production et l’emploi locaux avant d’attribuer un gain ou une perte à un accord.",
+  "在下一次可比发布中比较出货量与其他买家。在将收益或损失归因于协议之前，核查当地生产和就业。"
+ ],
+ "Check implementation and matched Canadian outcomes before revising the assessment.": [
+  "Vérifier la mise en œuvre et les résultats canadiens comparables avant de réviser l’évaluation.",
+  "在修订评估之前，核查实施情况与可比的加拿大成果。"
+ ],
+ "Usable access to additional buyers can widen Canada’s options. A signed agreement alone does not demonstrate that firms have diversified their sales.": [
+  "Un accès utilisable à d’autres acheteurs peut élargir les options du Canada. Un accord signé ne démontre pas à lui seul que les entreprises ont diversifié leurs ventes.",
+  "可实际使用的新增买家准入能扩大加拿大的选择。仅签署协议不能证明企业已实现销售多样化。"
+ ],
+ "Operating facilities, Canadian supplier participation and observed employment show whether policy is building productive capacity. Announced spending is an earlier stage.": [
+  "Les installations en exploitation, la participation des fournisseurs canadiens et l’emploi observé indiquent si la politique renforce la capacité productive. Les dépenses annoncées constituent une étape antérieure.",
+  "运营设施、加拿大供应商参与及已观察到的就业说明政策是否正在建设生产能力。宣布支出仍属于较早阶段。"
+ ],
+ "A supply chain is more resilient when a qualified alternative can actually deliver. Multiple agreements do not by themselves remove a critical dependency.": [
+  "Une chaîne d’approvisionnement est plus résiliente lorsqu’une solution de rechange qualifiée peut réellement livrer. Plusieurs accords ne suppriment pas à eux seuls une dépendance critique.",
+  "合格替代供应商能够实际交付时，供应链才更有韧性。多份协议本身不会消除关键依赖。"
+ ],
+ "Commercial access and strategic control need to be assessed together. Safeguards must be implemented and tested before an economic-security benefit is established.": [
+  "L’accès commercial et le contrôle stratégique doivent être évalués ensemble. Les garanties doivent être appliquées et testées avant d’établir un avantage de sécurité économique.",
+  "商业准入与战略控制需要一并评估。只有落实并检验保障措施，才能确认经济安全收益。"
+ ],
+ "This source activity may affect the sector assessment, but its policy significance and Canadian outcome still require review.": [
+  "Cette activité de source pourrait affecter l’évaluation sectorielle, mais sa portée politique et ses résultats pour le Canada restent à examiner.",
+  "此来源动态可能影响行业评估，但其政策意义和加拿大成果仍需审核。"
+ ],
+ "Read the operative text, confirm its date and scope, and classify the evidence before revising the assessment.": [
+  "Lire le texte applicable, confirmer sa date et sa portée, puis classer les données avant de réviser l’évaluation.",
+  "在修订评估之前，阅读具有实际效力的文本、确认日期与范围，并对证据分类。"
+ ],
+ "Check firm uptake, repeat shipments and destination shares in the next comparable release before calling the new access diversification.": [
+  "Vérifier l’utilisation par les entreprises, les expéditions répétées et les parts par destination dans la prochaine publication comparable avant de qualifier le nouvel accès de diversification.",
+  "在将新增准入认定为多样化之前，核查下一次可比发布中的企业使用情况、持续出货和目的地份额。"
+ ],
+ "Check production, completed spending, Canadian suppliers and employment at each documented facility before updating the capacity finding.": [
+  "Vérifier la production, les dépenses effectuées, les fournisseurs canadiens et l’emploi dans chaque installation documentée avant de réviser le constat de capacité.",
+  "在更新生产能力结论之前，核查每个已记录设施的生产、已完成支出、加拿大供应商和就业。"
+ ],
+ "Verify which alternative suppliers or routes are qualified and delivering, and compare delivery times and inventories.": [
+  "Vérifier quels fournisseurs ou itinéraires de rechange sont qualifiés et assurent des livraisons, puis comparer les délais et les stocks.",
+  "核实哪些替代供应商或路线已具备资质并实际交付，比较交付时间和库存。"
+ ],
+ "Check implemented ownership safeguards, essential-input access and continuity evidence; keep a policy commitment separate from a demonstrated result.": [
+  "Vérifier les garanties de propriété appliquées, l’accès aux intrants essentiels et les données de continuité; distinguer l’engagement politique du résultat démontré.",
+  "核查已实施的所有权保障、关键投入准入和连续性证据；将政策承诺与已证实成果区分。"
+ ]
 };if(typeof module!=="undefined"&&module.exports)module.exports=data;if(g)g.POLICY_TRANSLATIONS_UI=data;})(typeof window==="undefined"?null:window);
 

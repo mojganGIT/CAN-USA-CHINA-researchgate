@@ -6,6 +6,7 @@ import D from '../app/stronger-canada-data.js';
 import M from '../app/stronger-canada-model.js';
 import R from '../app/research-register.js';
 import Impact from '../app/impact-model.js';
+import PN from '../app/policy-narrative.js';
 import Regional from '../app/regional-trade-model.js';
 import I18n from '../app/i18n.js';
 const outcomes=JSON.parse(fs.readFileSync(new URL('../app/evidence-records.json',import.meta.url),'utf8'));
@@ -133,7 +134,7 @@ test('matrix links preserve regional scope and shared dependencies without avera
 test('all sector pages render five sections, four linked assessments and a safe monitoring queue',()=>{
  const host={innerHTML:'',querySelectorAll:()=>[]},location={hash:'#stronger-canada?view=overview'},events={};
  const feed={briefings:[{id:'unclassified',reviewState:'source_reported',topics:['finance'],title:'<script>unsafe</script>',publicationDate:'2026-11-22',detectedAt:'2026-11-22T01:00:00Z',sources:[{url:'https://www.canada.ca/new-financial-measure',publisher:'Official source'}]}]};
- const window={StrongerCanadaData:D,StrongerCanadaModel:M,PolicyResearchRegister:R,ImpactModel:Impact,CanadaImpact:{data:outcomes,ensureData:async()=>true},PolicyLive:{feed},DashboardI18n:{t:s=>s,locale:'en-CA',translateTree(){}},addEventListener(type,fn){events[type]=fn;}};
+ const window={StrongerCanadaData:D,StrongerCanadaModel:M,PolicyResearchRegister:R,ImpactModel:Impact,PolicyNarrative:PN,CanadaImpact:{data:outcomes,ensureData:async()=>true},PolicyLive:{feed},DashboardI18n:{t:s=>s,locale:'en-CA',translateTree(){}},addEventListener(type,fn){events[type]=fn;}};
  const document={activeElement:null,getElementById:()=>host,addEventListener(){}};
  const context=vm.createContext({window,document,location,Intl,URLSearchParams,Date});
  vm.runInContext(fs.readFileSync(new URL('../app/stronger-canada.js',import.meta.url),'utf8'),context);
@@ -142,6 +143,12 @@ test('all sector pages render five sections, four linked assessments and a safe 
   location.hash='#'+M.query(M.normalize(D,{view:'directions',topic}));window.StrongerCanada.render();
   assert.equal((host.innerHTML.match(/class="sc-page-section"/g)||[]).length,5,topic);assert.equal((host.innerHTML.match(/class="sc-assessment"/g)||[]).length,4,topic);assert(host.innerHTML.includes('Confidence in policy attribution'));
  }
+ location.hash='#stronger-canada?view=directions&topic=energy&region=SK&dimension=capacity';window.StrongerCanada.render();
+ assert(host.innerHTML.includes('What does the evidence show?'));assert(host.innerHTML.includes('Next analyst action'));
+ assert(host.innerHTML.includes(R.records.find(r=>r.id==='sc-mcilvenna-production-2026').changed));
+ assert(host.innerHTML.includes('data-sc-detail="backing-energy-capacity"><summary>'));assert(!host.innerHTML.includes('data-sc-detail="backing-energy-capacity" open'));
+ location.hash='#stronger-canada?view=directions&topic=energy&region=ON&dimension=capacity';window.StrongerCanada.render();
+ assert(host.innerHTML.includes('A local strategic outcome is not established by the linked records.'));
  location.hash='#stronger-canada?view=compare';window.StrongerCanada.render();assert.equal((host.innerHTML.match(/class="sc-matrix-link"/g)||[]).length,32);assert.equal((host.innerHTML.match(/<option value="(?:CA|AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT)"/g)||[]).length,14);
  location.hash='#stronger-canada?view=directions&topic=finance&dimension=capacity';window.StrongerCanada.render();assert(host.innerHTML.includes('data-sc-detail="assessment-finance-capacity" open'));assert(host.innerHTML.includes('&lt;script&gt;unsafe&lt;/script&gt;'));assert(!host.innerHTML.includes('<script>unsafe'));
 });

@@ -10,3 +10,6 @@
 .stronger-page .sc-record-meta,.sc-review-date,.sc-monitor>div>span{font-size:.875rem}
 
 .sc-assessment{scroll-margin-top:calc(var(--dashboard-nav-height,0px) + 16px)}
+/* Read the assessment before opening the underlying evidence package. */
+.sc-record .policy-memo,.sc-outcome .policy-memo{margin:16px 0}.sc-memo-source{margin-top:18px!important}.sc-supporting-records{margin-top:18px}.sc-sector-card>small{display:block;font-size:.8rem;line-height:1.5;color:#625e55;margin:0 0 14px}.sc-regional-memo{padding:18px 0;border-top:1px solid #dce1e5}.sc-regional .policy-memo p{font-size:1rem}.stronger-page :is(.sc-record,.sc-outcome)>details>summary{color:#234f7c}.sc-sector-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:680px){.sc-sector-grid{grid-template-columns:1fr}}

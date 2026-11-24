@@ -32,3 +32,31 @@ test('numeric explanations distinguish trade direction, comparable changes, conc
  assert(PN.describe({...p,value:null}).changed.includes('not zero'));
  const unsafe={...r,title:'<img src=x onerror=bad()>',summary:'<script>x</script>'};const html=PN.value('<img>',unsafe)+PN.html(unsafe);assert(!html.includes('<img'));assert(!html.includes('<script>'));assert(html.includes('&lt;img'));
 });
+
+
+test('mini memos separate observation, Canadian relevance and next action while escaping source text',()=>{
+ const memo={changed:'<script>claim</script>',why:'Buyer access is not a completed sale.',next:'Check the first shipment.',automatic:true,sourceExcerpt:true,truncated:true};
+ const before=JSON.stringify(memo),html=PN.memo(memo);
+ assert(html.includes('What changed?'));assert(html.includes('Why does it matter to Canada?'));assert(html.includes('Next analyst action'));
+ assert(html.includes('<q>&lt;script&gt;claim&lt;/script&gt;…</q>'));assert(!html.includes('<script>'));assert(html.includes('data-no-translate'));assert.equal(JSON.stringify(memo),before);
+});
+
+test('trade memos preserve matched periods, missing observations, concentration and non-causal reading',()=>{
+ const snapshot={region:'Saskatchewan',commodity:'Energy products',year:2026,month:9};
+ const partner={partner:'China',current:100000000,prior:125000000,change:-20,share:12.5};
+ const memo=PN.tradeMemo(snapshot,partner);
+ assert.match(memo.changed,/Saskatchewan.*China.*January through September 2026/);assert.match(memo.changed,/fell 20%.*same months/);
+ assert.match(memo.why,/12.5%.*concentration/);assert.match(memo.next,/before attributing/);assert(!memo.changed.includes('yesterday'));
+ const missing=PN.tradeMemo(snapshot,{...partner,current:null,change:null,share:null});assert.match(missing.changed,/not zero/);assert.match(missing.why,/missing denominator/);assert(!missing.changed.includes('fell'));
+ const noPrior=PN.tradeMemo(snapshot,{...partner,change:null});assert.match(noPrior.changed,/does not establish a trend/);
+ const flat=PN.tradeMemo(snapshot,{...partner,change:0});assert.match(flat.changed,/unchanged/);
+});
+
+test('trade memo templates and reading controls remain available in French and Chinese',async()=>{
+ const {default:I18n}=await import('../app/i18n.js');
+ for(const lang of ['fr','zh-Hans']){
+  const translate=v=>I18n.t(v,lang),memo=PN.tradeMemo({region:'Ontario',commodity:'Motor vehicles and parts',year:2026,month:9},{partner:'China',current:100000000,change:5,share:2},{locale:lang==='fr'?'fr-CA':'zh-CN',translate});
+  assert(!memo.changed.includes('shipped'));assert(!memo.changed.includes('Export value rose'));assert(!memo.why.includes('received'));assert(!memo.next.includes('Compare shipment'));
+  for(const label of ['Figures behind this memo','Read the latest record memo','What does the evidence show?'])assert.notEqual(translate(label),label);
+ }
+});

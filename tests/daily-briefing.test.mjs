@@ -105,10 +105,11 @@ test('the normal updates entry point keeps the date selection through a feed ref
   querySelector: () => page
  };
  const window = {
-  document: {}, addEventListener() {}, PolicyResearchRegister: register,
+  document: {addEventListener(){}}, addEventListener() {}, PolicyResearchRegister: register,
   localStorage: {getItem: key => stored.get(key) || null, setItem: (key, value) => stored.set(key, value)}
  };
  const context = vm.createContext({window, URL, URLSearchParams, Date: class extends Date { static now() { return now; } }});
+ vm.runInContext(fs.readFileSync(new URL('../app/policy-narrative.js', import.meta.url), 'utf8'), context);
  vm.runInContext(fs.readFileSync(new URL('../app/daily-intelligence.js', import.meta.url), 'utf8'), context);
  vm.runInContext(fs.readFileSync(new URL('../app/daily-briefing.js', import.meta.url), 'utf8'), context);
  window.DailyBriefing.show(root, {changes: [], lastRunStatus: 'loading'});

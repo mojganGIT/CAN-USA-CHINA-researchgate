@@ -5,6 +5,7 @@
  const I=common?require('./daily-intelligence.js'):global.DailyIntelligence;
  const F=common?require('./stronger-canada-framework.js'):global.StrongerCanadaFramework;
  const RM=common?require('./regional-trade-model.js'):null;
+ const N=common?require('./policy-narrative.js'):global.PolicyNarrative;
  const timeZone = 'America/Toronto';
  const visitKey = 'policy-dashboard-daily-visit';
  const calendar = new Intl.DateTimeFormat('en-CA', {
@@ -237,7 +238,12 @@
 
  function sourceSummaryHTML(record,feed,language,{relevance=true}={}){
   const s=I.summary(record,feed);
-  return `<div class="daily-source-summary"><p class="daily-meta"><strong>${escape(s.label)}</strong>${s.automatic?' · Analyst review pending':''}${s.method==='source_excerpt'?' · Automatically selected source passage':''}</p>${summaryParagraph(s)}${relevance&&record.canada?`<p class="daily-summary-relevance"><strong>Canadian relevance</strong>: ${escape(record.canada)}</p>`:''}</div>`;
+  return `<div class="daily-source-summary"><p class="daily-meta"><strong>${escape(s.label)}</strong>${s.automatic?' · Analyst review pending':''}${s.method==='source_excerpt'?' · Automatically selected source passage':''}</p>${N.memo({changed:s.text,why:relevance?record.canada:'',next:relevance?watchText(record):'',whyLabel:'Canadian relevance',sourceExcerpt:s.method==='source_excerpt',truncated:s.truncated,automatic:s.automatic})}</div>`;
+ }
+
+ function recordMemo(record,feed={}){
+  const s=I.summary(record,feed);
+  return N.memo({changed:s.text,why:record.canada,next:watchText(record),automatic:s.automatic,sourceExcerpt:s.method==='source_excerpt',truncated:s.truncated});
  }
 
  function reviewedCard(event, language,feed={},framework=F) {
@@ -249,19 +255,17 @@
    <p class="daily-meta"><span class="daily-tag">${escape(status)}</span> ${event.entryType==='review'?'<span>Evidence added to briefing</span>':record.reviewState?'<span>Detected</span>':''} ${formatDate(day, language)}
     <span>${escape(relationships[record.relationship] || record.relationship)}</span></p>
    <h4>${escape(record.title)}</h4>
-   <div class="daily-proof-grid"><div><span>Implementation status</span><strong class="daily-tag" data-stage="${escape(proof.stage.id)}">${escape(proof.stage.label)}</strong></div><div><span>Evidence confidence</span><strong>${escape(proof.observationConfidence)}</strong><span>${escape(proof.confidence)}</span></div><div><span>Last source check</span>${formatDate(proof.checkedAt,language)||'<strong>Not recorded</strong>'}<span>${escape(proof.freshness)}</span></div><div><span>Analyst reviewed</span>${formatDate(proof.reviewedAt,language)||'<strong>Analyst review pending</strong>'}</div></div>
+   <p class="daily-memo-status"><span class="daily-tag" data-stage="${escape(proof.stage.id)}">${escape(proof.stage.label)}</span><span>Evidence confidence: ${escape(proof.observationConfidence)}</span></p>
    <p class="daily-meta">${record.reviewState?'Official source · analyst review pending':record.kind==='analysis'?'Reviewed research source':'Reviewed primary source'} · ${escape(proof.attribution)}</p>
    ${proof.changed?`<p class="daily-stale">${escape(proof.confidenceReason)}</p>`:''}
-   ${priorityIds.length?`<p class="daily-priority-tags">${priorityIds.map(id=>`<span class="daily-tag">${escape(I.dimensions[id])}</span>`).join('')}</p>`:'<p class="daily-meta">Policy-priority classification awaits analyst review.</p>'}
-   <dl class="daily-questions">
-    <dt>What changed?</dt><dd>${escape(record.changed)}${record.quote&&record.quote!==record.changed?`<blockquote data-no-translate>${escape(record.quote)}</blockquote>`:''}</dd>
-    <dt>Why does it matter to Canada?</dt><dd>${escape(record.canada)}</dd>
-    <dt>Next analyst action</dt><dd>${escape(watchText(record))}</dd>
-   </dl>
+   ${recordMemo(record,feed)}
    <p class="daily-actions">${officialLink(sources[0].url, 'Open original source')}
     ${mapLink(record, 'Explore on the Canada map')}</p>
    <details class="daily-detail" data-daily-detail="${escape(`evidence-${key}`)}">
     <summary>Sources, dates and evidence limits</summary>
+    <div class="daily-proof-grid"><div><span>Implementation status</span><strong>${escape(proof.stage.label)}</strong></div><div><span>Evidence confidence</span><strong>${escape(proof.observationConfidence)}</strong><span>${escape(proof.confidence)}</span></div><div><span>Last source check</span>${formatDate(proof.checkedAt,language)||'<strong>Not recorded</strong>'}<span>${escape(proof.freshness)}</span></div><div><span>Analyst reviewed</span>${formatDate(proof.reviewedAt,language)||'<strong>Analyst review pending</strong>'}</div></div>
+    ${priorityIds.length?`<p class="daily-priority-tags">${priorityIds.map(id=>`<span class="daily-tag">${escape(I.dimensions[id])}</span>`).join('')}</p>`:'<p class="daily-meta">Policy-priority classification awaits analyst review.</p>'}
+    ${record.quote&&record.quote!==record.changed?`<blockquote data-no-translate>${escape(record.quote)}</blockquote>`:''}
     ${record.limit ? `<p class="daily-evidence-limit">${escape(record.limit)}</p>` : ''}<p><strong>Confidence basis</strong>: ${escape(proof.confidenceReason)}</p>
     <p class="daily-meta">Canadian outcome attribution requires shipment, investment or employment evidence and a comparison that addresses other causes.</p>
     <dl class="daily-questions">
@@ -350,7 +354,7 @@
    <p class="daily-meta">Latest dated records remain visible on quiet days. Dates below are source or event dates, not today’s news.</p>
    <div class="daily-relationships">${model.latest.map(({relationship,event})=>`<article class="daily-relationship">
     <h4><img class="daily-flag" src="flags/${relationship==='USA-China'?'us':'ca'}.svg" alt=""><span aria-hidden="true"> / </span><img class="daily-flag" src="flags/${relationship==='Canada-USA'?'us':'cn'}.svg" alt=""> ${escape(relationships[relationship])}</h4>${event?`<p class="daily-meta">${formatDate(event.record.date,language)} <span class="daily-tag">${escape(event.record.status||recordStatus(event.record,event.record.date))}</span></p>
-     <h4>${escape(event.record.title)}</h4><p>${escape(event.record.canada)}</p>
+     <h4>${escape(event.record.title)}</h4>${sourceSummaryHTML(event.record,feed,language)}
      <p class="daily-meta">${event.record.reviewState?'Official source · analyst review pending':event.record.kind==='analysis'?'Reviewed research source':'Reviewed primary source'}</p>
      <details class="daily-detail" data-daily-detail="latest-${relationship}"><summary>Evidence and next action</summary>${reviewedCard(event,language,feed,model.framework)}</details>`:'<p>No matching dated evidence is recorded.</p>'}</article>`).join('')}</div>
   </section>`;
@@ -420,7 +424,7 @@
 
  function sectorPanel(model,language){
   return `<section class="daily-section" id="daily-sectors" aria-labelledby="daily-sectors-title"><h3 id="daily-sectors-title">Sector updates</h3><p class="daily-meta">All eight categories use the same evidence register. A report may concern several sectors; record counts are not additive economic effects.</p>
-   <div class="daily-sector-grid">${model.sectorRows.map(row=>{const latest=[...row.events].sort((a,b)=>b.record.date.localeCompare(a.record.date))[0];return `<article class="daily-sector"><h4>${escape(model.framework?.sectors[row.topic]?.name||row.name)}</h4><p class="daily-tag">${row.fresh.length?'Evidence in selected window':'Retained context'}</p>${latest?`<p>${officialLink(latest.record.sources[0].url,latest.record.title)}</p><p class="daily-meta">${formatDate(latest.record.date,language)} · ${escape(I.stage(latest.record,model.today).label)}</p>`:'<p>No matching dated evidence is recorded.</p>'}<button type="button" class="daily-text-button" data-daily-topic="${row.topic}">Focus this sector</button></article>`;}).join('')}</div>
+   <div class="daily-sector-grid">${model.sectorRows.map(row=>{const latest=[...row.events].sort((a,b)=>b.record.date.localeCompare(a.record.date))[0];return `<article class="daily-sector"><h4>${escape(model.framework?.sectors[row.topic]?.name||row.name)}</h4><p class="daily-tag">${row.fresh.length?'Evidence in selected window':'Retained context'}</p>${latest?`<p>${officialLink(latest.record.sources[0].url,latest.record.title)}</p><p class="daily-meta">${formatDate(latest.record.date,language)} · ${escape(I.stage(latest.record,model.today).label)}</p>${model.framework?.sectors[row.topic]?.overall?`<p class="daily-sector-story">${escape(model.framework.sectors[row.topic].overall)}</p><p class="daily-meta">National sector context · Reviewed: ${formatDate(model.framework.reviewedAt,language)}</p>`:''}<details class="daily-detail" data-daily-detail="sector-memo-${row.topic}"><summary>Read the latest record memo</summary>${recordMemo(latest.record)}<p>${officialLink(latest.record.sources[0].url,'Open original source')}</p></details>`:'<p>No matching dated evidence is recorded.</p>'}<button type="button" class="daily-text-button" data-daily-topic="${row.topic}">Focus this sector</button></article>`;}).join('')}</div>
    ${tradePanel(model,language)}
   </section>`;
  }
@@ -437,7 +441,7 @@
   const name=i=>i===0?'USA':'China';
   let chart='',cards='';
   if(s.available){
-   cards=`<div class="daily-trade-countries">${indices.map(i=>{const p=s.partners[i],latest=s.points.at(-1);return `<article class="daily-trade-country" data-daily-trade-country="${escape(p.partner)}"><h5><img class="daily-flag" src="flags/${i?'cn':'us'}.svg" alt=""> ${name(i)}</h5><p class="daily-meta">Canadian domestic exports to ${escape(p.partner)}</p><dl><div><dt>Latest month</dt><dd>${money(latest.values[i])}<span class="daily-meta">${escape(month(latest.period))}</span></dd></div><div><dt>Year-to-date exports</dt><dd>${money(p.current)}<span class="daily-meta">January–${escape(month(s.year+'-'+String(s.month).padStart(2,'0')))}</span></dd></div><div><dt>Change from prior year</dt><dd>${p.change===null?'Not available':(p.change>0?'+':'')+percent(p.change)}<span class="daily-meta">Same complete months</span></dd></div><div><dt>Share of all destinations</dt><dd>${percent(p.share)}<span class="daily-meta">Year-to-date</span></dd></div></dl></article>`;}).join('')}</div>`;
+   cards=`<div class="daily-trade-countries">${indices.map(i=>{const p=s.partners[i],latest=s.points.at(-1);return `<article class="daily-trade-country" data-daily-trade-country="${escape(p.partner)}"><h5><img class="daily-flag" src="flags/${i?'cn':'us'}.svg" alt=""> ${name(i)}</h5><p class="daily-meta">Canadian domestic exports to ${escape(p.partner)}</p>${N.memo(N.tradeMemo(s,p,{locale,translate:v=>global?.DashboardI18n?.t(v)||v}))}<details class="daily-detail" data-daily-detail="trade-metrics-${escape(p.partner)}"><summary>Figures behind this memo</summary><dl><div><dt>Latest month</dt><dd>${money(latest.values[i])}<span class="daily-meta">${escape(month(latest.period))}</span></dd></div><div><dt>Year-to-date exports</dt><dd>${money(p.current)}<span class="daily-meta">January–${escape(month(s.year+'-'+String(s.month).padStart(2,'0')))}</span></dd></div><div><dt>Change from prior year</dt><dd>${p.change===null?'Not available':(p.change>0?'+':'')+percent(p.change)}<span class="daily-meta">Same complete months</span></dd></div><div><dt>Share of all destinations</dt><dd>${percent(p.share)}<span class="daily-meta">Year-to-date</span></dd></div></dl></details></article>`;}).join('')}</div>`;
    if(selected.chart==='share'){
     const world=s.partners[2].current,us=s.partners[0].current,china=s.partners[1].current;
     chart=`<div class="daily-share-bars" role="img" aria-label="Export destination shares from the same complete year-to-date period">${indices.map(i=>{const p=s.partners[i];return `<div><p><strong>${name(i)}</strong><span>${percent(p.share)}</span></p><div class="daily-share-track"><span style="width:${p.share!==null&&p.share>=0&&p.share<=100?p.share:0}%" class="${i?'daily-china':'daily-us'}"></span></div></div>`;}).join('')}</div><p class="daily-meta">${world!==null&&us!==null&&china!==null&&world>0&&world>=us+china?`Other destinations: ${number((world-us-china)/world*100)}% · `:''}Shares use all-destination domestic exports as the denominator.</p>`;

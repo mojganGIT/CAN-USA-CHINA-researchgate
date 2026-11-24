@@ -74,5 +74,26 @@
   let link='';try{const u=new URL(r.url);if(u.protocol==='https:')link=`<a href="${E(u.href)}" target="_blank" rel="noopener noreferrer">Open original source ↗</a>`;}catch{}
   d.innerHTML=`<form method="dialog"><button type="submit" class="btn">Close context</button></form><h2 id="policy-datum-title">${E(r.title||r.commodity||'Read the data')}</h2><p class="impact-meta">${E(r.period||'Original reference period')} · ${E(r.geography||'National bilateral scope')}</p>${html(r)}${r.limitation?`<p class="impact-limit">${E(r.limitation)}</p>`:''}${link}`;doc.body.append(d);d.addEventListener('close',()=>{if(origin?.isConnected)origin.focus();d.remove();},{once:true});d.showModal();
  }
- const api={describe,html,compact,value,topic,open};if(typeof module!=='undefined'&&module.exports)module.exports=api;if(global){global.PolicyNarrative=api;global.document?.addEventListener('click',e=>{const b=e.target.closest('[data-policy-datum]');if(b){try{open(JSON.parse(b.dataset.policyDatum),b);}catch{}}});}
+ // Memos render supplied evidence and interpretation separately; they do not infer a new event.
+ function memo({changed,why,next,changedLabel='What changed?',whyLabel='Why does it matter to Canada?',sourceExcerpt=false,truncated=false,automatic=false}={},translate=v=>v){
+  const row=(label,body,quote=false)=>body?`<p><strong>${E(translate(label))}</strong><span${automatic&&label===changedLabel?' data-no-translate':''}>${quote?'<q>':''}${E(automatic&&label===changedLabel?body:translate(body))}${quote&&truncated?'…':''}${quote?'</q>':''}</span></p>`:'';
+  return `<div class="policy-memo">${row(changedLabel,changed,sourceExcerpt)}${row(whyLabel,why)}${row('Next analyst action',next)}</div>`;
+ }
+ function tradeMemo(s,p,{locale='en-CA',translate=v=>v}={}){
+  const format=(template,values={})=>translate(template).replace(/\{(\w+)\}/g,(_,key)=>values[key]??'');
+  const number=v=>new Intl.NumberFormat(locale,{maximumFractionDigits:1}).format(v);
+  const period=new Intl.DateTimeFormat(locale,{month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(s.year,s.month-1,1)));
+  const values={region:translate(s.region),partner:translate(p.partner),commodity:translate(s.commodity),period};
+  let changed;
+  if(!Number.isFinite(p.current))changed=format('No publishable, complete year-to-date total is available for {region} exports to {partner} through {period}. Missing or suppressed values are not zero.',values);
+  else {
+   values.amount=new Intl.NumberFormat(locale,{style:'currency',currency:'CAD',notation:'compact',maximumFractionDigits:1}).format(p.current);
+   changed=format('{region} shipped {amount} CAD of {commodity} to {partner} from January through {period}.',values)+' ';
+   changed+=Number.isFinite(p.change)?format(p.change===0?'Export value was unchanged from the same months a year earlier.':p.change>0?'Export value rose {change}% from the same months a year earlier.':'Export value fell {change}% from the same months a year earlier.',{change:number(Math.abs(p.change))}):translate('A comparable prior-year change is unavailable; this total alone does not establish a trend.');
+  }
+  const why=Number.isFinite(p.share)?format('{partner} received {share}% of domestic exports from {region} in this product group and period. This shows buyer concentration; values also move with prices and exchange rates.',{...values,share:number(p.share)}):translate('A comparable destination share is unavailable. Buyer concentration cannot be inferred from a missing denominator.');
+  return {changed,why,next:translate('Compare shipment volumes and alternative buyers in the next matching release. Check local production and employment before attributing a gain or loss to an agreement.'),changedLabel:'What does the evidence show?'};
+ }
+ const api={describe,html,compact,value,topic,open,memo,tradeMemo};if(typeof module!=='undefined'&&module.exports)module.exports=api;if(global){global.PolicyNarrative=api;global.document?.addEventListener('click',e=>{const b=e.target.closest('[data-policy-datum]');if(b){try{open(JSON.parse(b.dataset.policyDatum),b);}catch{}}});}
 })(typeof window==='undefined'?null:window);
+
