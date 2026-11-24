@@ -4,6 +4,12 @@
   },
   "routes": [
     {
+      "route": "/assets/source-visuals/*",
+      "headers": {
+        "cache-control": "no-cache"
+      }
+    },
+    {
       "route": "/",
       "headers": {
         "cache-control": "no-cache"
@@ -106,6 +112,7 @@
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": [
+      "/assets/source-visuals/*",
       "/api/*",
       "/.auth/*",
       "*.css",
@@ -115,3 +122,4 @@
     ]
   }
 }
+

@@ -38,6 +38,14 @@ jobs:
         run: |
           node scripts/validate-evidence.mjs
           npm test
+      - name: Verify and cache the publishers' original source images
+        run: node scripts/cache-source-visuals.mjs
+      - name: Retain source-image provenance for deployment verification
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-source-visuals-${{ github.run_id }}-${{ github.run_attempt }}
+          path: app/assets/source-visuals/
+          retention-days: 7
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
       - name: Get Id Token
