@@ -113,7 +113,7 @@ test('both overview sections display automatic summaries, and summary provenance
  const hostile={...r,sourceSummary:{...r.sourceSummary,text:'<img src=x onerror=bad()>'}};const safe=B.renderBriefing(B.buildBriefing({feed:{briefings:[hostile]},register:{records:[]},now}),{});assert(!safe.includes('<img src=x'));assert(safe.includes('&lt;img'));
 });
 
-test('saved editions carry source summaries into before-and-after change briefings',()=>{
+test('saved editions preserve summary history while the briefing shows only the current substantive summary',()=>{
  const report=(digest,text)=>({id:'auto',title:'Official agricultural policy',relationship:'Canada-China',topics:['agriculture'],kind:'policy',reviewState:'source_reported',digest,quote:text,sourceSummary:{text,method:'source_excerpt',sourceURL:source.url,sourceDigest:digest},sources:[source]});
  const oldText='The authority will consult on market access before any tariff change is implemented.';
  const newText='The authority reports a scheduled tariff suspension subject to the published eligibility requirements.';
@@ -122,7 +122,14 @@ test('saved editions carry source summaries into before-and-after change briefin
  const history=I.saveEdition(I.saveEdition(null,before),after),c=I.compare(history,'2026-11-22');
  assert.equal(c.sourceRevisions[0].before.summary.text,oldText);assert.equal(c.sourceRevisions[0].after.summary.text,newText);
  const html=B.renderBriefing(B.buildBriefing({feed:scan('two'),register:{records:[]},history,now}),scan('two'));
- assert(html.includes(oldText));assert(html.includes(newText));assert(html.includes('Yesterday’s source summary'));assert(html.includes('Current source summary'));assert(html.includes('A changed page does not by itself establish changed obligations'));
+ assert(!html.includes(oldText));assert(html.includes(newText));assert(!html.includes('Yesterday’s source summary'));assert(!html.includes('Source page revised'));assert(!html.includes('A changed page does not by itself establish changed obligations'));
+ const unchanged={...after,sourceSummaries:after.sourceSummaries.map(r=>({...r,summary:{...r.summary,text:oldText}}))};
+ const sameHistory=I.saveEdition(I.saveEdition(null,before),unchanged);
+ const same=B.renderBriefing(B.buildBriefing({feed:scan('two'),register:{records:[]},history:sameHistory,now}),scan('two'));
+ assert(!same.includes(oldText));assert(same.includes('No new or substantively different source summary'));
+ const absent={...after,sourceSummaries:[]},missingHistory=I.saveEdition(I.saveEdition(null,before),absent);
+ const missing=B.renderBriefing(B.buildBriefing({feed:scan('two'),register:{records:[]},history:missingHistory,now}),scan('two'));
+ for(const removed of ['Previous source summary was not recorded.','The source hash changed; a current source summary is unavailable.'])assert(!missing.includes(removed));
 });
 
 test('briefing navigation appears above content with dynamic sticky offsets and title case',()=>{
@@ -172,4 +179,24 @@ test('contents lists, source captions and historical recitals do not displace su
  const discussion='The leaders discussed a proposed trade agreement that would require further negotiation before implementation.';
  const meeting=documentOf('<main><h1>Canada United States meeting</h1><p>The prime minister met the president on the margins of the Economic Leaders’ Meeting.</p><p>'+discussion+'</p></main>',source.url);
  assert.equal(sourceSummary(meeting,{url:source.url},'meeting').text,discussion);
+});
+
+test('executive narrative keeps the source story, Canadian relevance and dates without memo-field repetition',()=>{
+ const r=record('story',{title:'Measured Canadian shipment update',changed:'The authority reports completed shipments for the stated product and period.',canada:'These shipments show usable market access, while local employment still needs a separate measure.',followUp:'Compare matching shipment volumes and local employment in the next release.'});
+ const html=B.renderBriefing(B.buildBriefing({register:{records:[r]},now}),{});
+ const executive=html.slice(html.indexOf('id="daily-summary"'),html.indexOf('class="daily-delta"'));
+ assert(executive.includes(r.changed));assert(executive.includes(r.canada));assert(executive.includes('Nov 20, 2026'));assert(executive.includes('daily-executive-prose'));
+ assert(!executive.includes('What changed?'));assert(!executive.includes('Why does it matter to Canada?'));assert(executive.includes('Next analyst action and evidence details'));
+ assert(!executive.includes('daily-summary-list'));assert.equal((executive.match(/completed shipments for/g)||[]).length,1);
+});
+
+test('unchanged page revisions cannot displace the three dated relationship stories in the executive brief',()=>{
+ const url='https://www.eia.gov/todayinenergy/detail.php?id=67904',text='The value of energy trade fell in the historical reference year.';
+ const records=[record('ca-china',{sources:[{...source,url:source.url+'-china'}],date:'2026-11-20'}),record('ca-us',{sources:[{...source,url:source.url+'-us'}],date:'2026-11-19',relationship:'Canada-USA'}),record('us-china',{sources:[{...source,url:source.url+'-us-china'}],date:'2026-11-18',relationship:'USA-China'})];
+ const automatic=digest=>({id:'eia-old',date:'2026-07-29',publicationDate:'2026-07-29',title:'Historical energy trade value',relationship:'Canada-USA',topics:['energy'],kind:'statistics',reviewState:'source_reported',changed:text,quote:text,digest,detectedAt:'2026-11-22T12:00:00Z',changeType:'source_revision',canada:'Does this change Canadian exposure?',sources:[{publisher:'EIA',url}]});
+ const feed=digest=>({lastAttempt:'2026-11-22T12:00:00Z',briefings:[automatic(digest)],sourceChecks:[{url,digest,status:'success',checkedAt:'2026-11-22T12:00:00Z'}]});
+ const previous=I.snapshot({feed:feed('one'),register:{records},now:Date.parse('2026-11-21T14:00:00Z')}),current=I.snapshot({feed:feed('two'),register:{records},now});
+ const history=I.saveEdition(I.saveEdition(null,previous),current),model=B.buildBriefing({feed:feed('two'),register:{records},history,now});
+ const html=B.renderBriefing(model,feed('two')),executive=html.slice(html.indexOf('id="daily-summary"'),html.indexOf('class="daily-delta"'));
+ for(const r of records)assert(executive.includes(r.title));assert(!executive.includes('Historical energy trade value'));assert(!executive.includes(text));
 });

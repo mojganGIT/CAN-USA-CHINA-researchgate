@@ -6,6 +6,7 @@
  const F=common?require('./stronger-canada-framework.js'):global.StrongerCanadaFramework;
  const RM=common?require('./regional-trade-model.js'):null;
  const N=common?require('./policy-narrative.js'):global.PolicyNarrative;
+ const V=common?require('./source-media.js'):global.SourceMedia;
  const timeZone = 'America/Toronto';
  const visitKey = 'policy-dashboard-daily-visit';
  const calendar = new Intl.DateTimeFormat('en-CA', {
@@ -258,7 +259,7 @@
    <p class="daily-memo-status"><span class="daily-tag" data-stage="${escape(proof.stage.id)}">${escape(proof.stage.label)}</span><span>Evidence confidence: ${escape(proof.observationConfidence)}</span></p>
    <p class="daily-meta">${record.reviewState?'Official source · analyst review pending':record.kind==='analysis'?'Reviewed research source':'Reviewed primary source'} · ${escape(proof.attribution)}</p>
    ${proof.changed?`<p class="daily-stale">${escape(proof.confidenceReason)}</p>`:''}
-   ${recordMemo(record,feed)}
+   ${recordMemo(record,feed)}${V?.recordHTML(record,{},feed,{keyPrefix:'daily-'+key})||''}
    <p class="daily-actions">${officialLink(sources[0].url, 'Open original source')}
     ${mapLink(record, 'Explore on the Canada map')}</p>
    <details class="daily-detail" data-daily-detail="${escape(`evidence-${key}`)}">
@@ -292,7 +293,7 @@
    <p class="daily-meta" translate="no">${escape(new URL(group.url).hostname)}</p>
    <p>${officialLink(group.url, 'Open monitored source')}</p>
    <ol class="daily-revision-list">${group.observations.map(item => `<li>
-    <p class="daily-meta"><span>${item.changeType === 'source_revision' ? 'Source page revised' : item.changeType==='parser_refresh'?'Source re-indexed':'Source first indexed'}</span>
+    <p class="daily-meta"><span>${item.changeType === 'source_revision' ? '' : item.changeType==='parser_refresh'?'Source re-indexed':'Source first indexed'}</span>
      <span>Detected</span> ${formatDate(item.detectedAt, language)}
      ${item.publicationDate ? `<span>Source publication</span> ${formatDate(item.publicationDate, language)}` : ''}</p>
     ${!item.ai&&item.sourceReport?`<p><strong>Official source · analyst review pending</strong></p><p>${escape(item.sourceReport.status)}</p><blockquote data-no-translate>${escape(item.sourceReport.quote)}</blockquote>`:''}
@@ -388,9 +389,8 @@
   return `<section class="daily-delta" aria-labelledby="daily-delta-title"><h3 id="daily-delta-title">What changed since yesterday?</h3>
    ${c.ready?`<p class="daily-meta">${formatDate(c.previous.generatedAt,language)} <span>compared with</span> ${formatDate(c.current.generatedAt,language)} · Toronto calendar editions</p>
     <div class="daily-metrics">${[['Newly added evidence',c.newRecords.length],['Reviewed records amended',c.updatedRecords.length],['Monitored source revisions',c.sourceRevisions.length],['Newly indexed sources',c.newSources.length]].map(([name,value])=>`<div><strong translate="no">${value}</strong><span>${name}</span></div>`).join('')}</div>
-    <p class="daily-meta">Newly indexed sources are discoveries, not proof that a policy changed yesterday. A source revision requires review before an instrument or outcome is changed.</p>
     ${changeSummaries(model,feed,language)}
-    <details class="daily-detail" data-daily-detail="yesterday-comparison"><summary>Inspect the comparison evidence</summary>
+    <details class="daily-detail" data-daily-detail="yesterday-comparison"><summary>Inspect the comparison evidence</summary><p class="daily-meta">Newly indexed sources are discoveries, not proof that a policy changed yesterday. A source revision requires review before an instrument or outcome is changed.</p>
      ${c.newRecords.length?`<h4>Newly added evidence</h4><ul>${c.newRecords.map(r=>`<li>${officialLink(r.sourceURLs[0],r.title)} · ${formatDate(r.date,language)}</li>`).join('')}</ul>`:''}
      ${c.updatedRecords.length?`<h4>Reviewed records amended</h4>${c.updatedRecords.map(({before,after})=>`<article class="daily-diff"><h4>${escape(after.title)}</h4><dl class="daily-questions"><dt>Yesterday</dt><dd>${escape(before.changed)} <span class="daily-tag">${escape(before.stage)}</span></dd><dt>Current edition</dt><dd>${escape(after.changed)} <span class="daily-tag">${escape(after.stage)}</span></dd></dl>${officialLink(after.sourceURLs[0],'Open original source')}</article>`).join('')}`:''}
      ${c.sourceRevisions.length?`<h4>Monitored source revisions</h4><ul>${c.sourceRevisions.map(r=>`<li>${officialLink(r.url,new URL(r.url).hostname)} · ${formatDate(r.checkedAt,language)}<details><summary>Content hashes</summary><p class="daily-hash" translate="no">${escape(r.beforeDigest)} / ${escape(r.digest)}</p></details></li>`).join('')}</ul>`:''}
@@ -403,29 +403,42 @@
  function changeSummaries(model,feed,language){
   const c=model.comparison;
   if(c.ready){
-   const cards=[...c.newRecords.map(r=>`<article class="daily-change-summary"><p class="daily-meta">Newly added evidence</p><h4>${officialLink(r.sourceURLs[0],r.title)}</h4>${sourceSummaryHTML(r,feed,language,{relevance:false})}</article>`),
-    ...c.updatedRecords.map(({before,after})=>`<article class="daily-change-summary"><p class="daily-meta">Reviewed records amended</p><h4>${officialLink(after.sourceURLs[0],after.title)}</h4><dl class="daily-questions"><dt>Yesterday</dt><dd>${escape(before.changed)}</dd><dt>Current edition</dt><dd>${escape(after.changed)}</dd></dl></article>`),
-    ...c.sourceRevisions.map(r=>`<article class="daily-change-summary"><p class="daily-meta">Source page revised · Analyst review pending</p><h4>${officialLink(r.url,r.after?.title||new URL(r.url).hostname)}</h4>${r.before?.summary?`<p class="daily-meta">Yesterday’s source summary</p>${summaryParagraph(r.before.summary)}`:'<p class="daily-meta">Previous source summary was not recorded.</p>'}${r.after?.summary?`<p class="daily-meta">Current source summary</p>${summaryParagraph(r.after.summary)}`:'<p>The source hash changed; a current source summary is unavailable. Review the original page to identify the substantive change.</p>'}<p class="daily-meta">A changed page does not by itself establish changed obligations or Canadian gains.</p></article>`),
-    ...c.newSources.filter(r=>r.after?.summary).map(r=>`<article class="daily-change-summary"><p class="daily-meta">Newly indexed sources · Analyst review pending</p><h4>${officialLink(r.url,r.after.title)}</h4>${summaryParagraph(r.after.summary)}<p class="daily-meta">Newly indexed sources are discoveries, not proof that a policy changed yesterday.</p></article>`)];
-   return `<div class="daily-change-brief"><h4>Summary of recorded changes</h4>${cards.slice(0,3).join('')||'<p>No matched reviewed-record changes or revisions of previously checked sources were recorded between these editions.</p>'}${cards.length>3?`<details class="daily-detail" data-daily-detail="more-change-summaries"><summary>More change summaries</summary>${cards.slice(3).join('')}</details>`:''}</div>`;
+   const same=(a,b)=>String(a?.text||'').replace(/\s+/g,' ').replace(/[.…]+$/,'').trim()===String(b?.text||'').replace(/\s+/g,' ').replace(/[.…]+$/,'').trim();
+   const cards=[],seen=new Set();
+   const add=(url,html)=>{const key=sourceURL(url);if(!key||seen.has(key))return;seen.add(key);cards.push(html);};
+   for(const r of c.newRecords)add(r.sourceURLs[0],`<article class="daily-change-summary"><h4>${officialLink(r.sourceURLs[0],r.title)}</h4>${sourceSummaryHTML(r,feed,language,{relevance:false})}</article>`);
+   for(const {after:r} of c.updatedRecords)add(r.sourceURLs[0],`<article class="daily-change-summary"><h4>${officialLink(r.sourceURLs[0],r.title)}</h4>${sourceSummaryHTML(r,feed,language,{relevance:false})}</article>`);
+   for(const r of c.sourceRevisions){if(!r.after?.summary||same(r.before?.summary,r.after.summary))continue;add(r.url,`<article class="daily-change-summary"><h4>${officialLink(r.url,r.after.title||new URL(r.url).hostname)}</h4>${summaryParagraph(r.after.summary)}</article>`);}
+   for(const r of c.newSources){if(!r.after?.summary)continue;add(r.url,`<article class="daily-change-summary"><h4>${officialLink(r.url,r.after.title)}</h4>${summaryParagraph(r.after.summary)}</article>`);}
+   return `<div class="daily-change-brief"><h4>Summary of recorded changes</h4>${cards.slice(0,3).join('')||'<p>No new or substantively different source summary is recorded in these editions.</p>'}${cards.length>3?`<details class="daily-detail" data-daily-detail="more-change-summaries"><summary>More change summaries</summary>${cards.slice(3).join('')}</details>`:''}</div>`;
   }
-  const items=[...new Map([...model.featured,...model.latest.map(x=>x.event).filter(Boolean)].map(e=>[e.record.id,e])).values()].slice(0,3);
+  const items=[...new Map([...model.featured,...model.latest.map(x=>x.event).filter(Boolean)].map(e=>[sourceURL(e.record.sources[0].url),e])).values()].slice(0,3);
   return `<div class="daily-change-brief"><h4>Latest source summaries</h4><p class="daily-meta">These summaries describe the current evidence. A comparison with yesterday is not available yet.</p>${items.map(e=>`<article class="daily-change-summary"><p class="daily-meta">${escape(e.entryType==='review'?'Evidence added to briefing':e.record.reviewState?'Source report · review pending':'Retained context')} · ${formatDate(e.record.date,language)}</p><h4>${officialLink(e.record.sources[0].url,e.record.title)}</h4>${sourceSummaryHTML(e.record,feed,language,{relevance:false})}</article>`).join('')||'<p>No matching source summary is recorded.</p>'}</div>`;
  }
 
  function executivePanel(model,feed,language){
-  const lead=model.featured[0];
-  return `<div class="daily-takeaway"><p class="daily-eyebrow">Executive takeaway</p><p>${lead?`<strong>${escape(lead.record.title)}</strong><br>${escape(lead.record.canada)}`:'No new matching evidence in this window. Use the retained context and verify monitoring coverage before drawing a policy conclusion.'}</p><p class="daily-meta">${lead?`${escape(lead.entryType==='review'?'Evidence added to briefing':lead.status)} · ${formatDate(lead.record.date,language)} · `:''}Commercial gains require observed shipments, completed investment or employment evidence.</p></div>
+  const normalized=value=>String(value||'').replace(/\s+/g,' ').replace(/[.…]+$/,'').trim();
+  const unchanged=new Set((model.comparison?.sourceRevisions||[]).filter(r=>!r.after?.summary||normalized(r.before?.summary?.text)===normalized(r.after.summary.text)).map(r=>sourceURL(r.url)));
+  const active=model.featured.filter(e=>!e.record.reviewState||e.record.changeType!=='source_revision'||!unchanged.has(sourceURL(e.record.sources[0].url)));
+  const activeIds=new Set(active.map(e=>e.record.id));
+  const pool=[...new Map([...active,...model.latest.map(x=>x.event).filter(Boolean)].map(e=>[sourceURL(e.record.sources[0].url),e])).values()].sort((a,b)=>b.record.date.localeCompare(a.record.date));
+  const items=[],relationshipsSeen=new Set();
+  for(const e of pool){if(items.length===3)break;if(relationshipsSeen.has(e.record.relationship))continue;relationshipsSeen.add(e.record.relationship);items.push(e);}
+  for(const e of pool){if(items.length===3)break;if(!items.includes(e))items.push(e);}
+  const lead=items[0],relevance=r=>r.reviewState&&/[?]$/.test(r.canada||'')?N.describe(r).why:r.canada;
+
+
+  return `<div class="daily-takeaway"><p class="daily-eyebrow">Executive takeaway</p><p>${lead?`<strong>${escape(lead.record.title)}</strong><br>${escape(relevance(lead.record))}`:'No new matching evidence is recorded for this period. The dated developments below provide the context for Canada’s next policy decisions.'}</p>${lead?`<p class="daily-meta">${formatDate(lead.record.date,language)} · ${escape(activeIds.has(lead.record.id)?'In this briefing window':'Retained policy context')}</p>`:''}</div>
    <section class="daily-section" id="daily-summary" aria-labelledby="daily-summary-title"><h3 id="daily-summary-title">Executive summary</h3>
-    ${(model.featured.length?model.featured:model.latest.map(x=>x.event).filter(Boolean)).length?`<ul class="daily-summary-list">${(model.featured.length?model.featured:model.latest.map(x=>x.event).filter(Boolean)).slice(0,3).map(e=>`<li><strong>${escape(relationships[e.record.relationship]||e.record.relationship)}</strong> · ${officialLink(e.record.sources[0].url,e.record.title)}${sourceSummaryHTML(e.record,feed,language)}<p class="daily-meta">${escape(I.stage(e.record,model.today).label)} · ${formatDate(e.record.date,language)}${e.entryType==='review'?' · Evidence added to briefing':!model.featured.length?' · Retained context':''}</p></li>`).join('')}</ul>`:'<p>No new matching evidence in this window.</p>'}
+    ${items.length?`<div class="daily-executive-narrative">${items.map((e,i)=>{const r=e.record,summary=I.summary(r,feed),extracted=summary.method==='source_excerpt';return `<article class="daily-executive-story"><p class="daily-executive-context">${escape(!activeIds.has(r.id)?'Retained policy context':i===0?'The lead development':i===1?'Alongside this':'The wider context')} · ${escape(relationships[r.relationship]||r.relationship)} · ${formatDate(r.date,language)}</p><p class="daily-executive-prose"><span${summary.automatic?' data-no-translate':''}>${extracted?'<q>':''}${escape(summary.text)}${summary.truncated?'…':''}${extracted?'</q>':''}</span></p><p class="daily-executive-prose daily-summary-relevance" aria-label="Canadian relevance">${escape(relevance(r))}</p><p class="daily-meta">${escape(summary.label)}${summary.automatic&&!/review pending/i.test(I.stage(r,model.today).label)?' · Analyst review pending':''} · ${escape(I.stage(r,model.today).label)} · ${officialLink(r.sources[0].url,r.title)}</p><details class="daily-detail" data-daily-detail="executive-${escape(r.id)}"><summary>Next analyst action and evidence details</summary><p>${escape(watchText(r))}</p>${r.limit?`<p>${escape(r.limit)}</p>`:''}<p>${escape(I.evidence(r,feed,model.today).attribution)}</p>${V?.recordHTML(r,{},feed,{keyPrefix:'executive-'+r.id})||''}</details></article>`;}).join('')}</div>`:'<p>No new matching evidence in this window.</p>'}
     ${deltaPanel(model,language,feed)}
    </section>`;
  }
 
- function sectorPanel(model,language){
+ function sectorPanel(model,language,feed={}){
   return `<section class="daily-section" id="daily-sectors" aria-labelledby="daily-sectors-title"><h3 id="daily-sectors-title">Sector updates</h3><p class="daily-meta">All eight categories use the same evidence register. A report may concern several sectors; record counts are not additive economic effects.</p>
    <div class="daily-sector-grid">${model.sectorRows.map(row=>{const latest=[...row.events].sort((a,b)=>b.record.date.localeCompare(a.record.date))[0];return `<article class="daily-sector"><h4>${escape(model.framework?.sectors[row.topic]?.name||row.name)}</h4><p class="daily-tag">${row.fresh.length?'Evidence in selected window':'Retained context'}</p>${latest?`<p>${officialLink(latest.record.sources[0].url,latest.record.title)}</p><p class="daily-meta">${formatDate(latest.record.date,language)} · ${escape(I.stage(latest.record,model.today).label)}</p>${model.framework?.sectors[row.topic]?.overall?`<p class="daily-sector-story">${escape(model.framework.sectors[row.topic].overall)}</p><p class="daily-meta">National sector context · Reviewed: ${formatDate(model.framework.reviewedAt,language)}</p>`:''}<details class="daily-detail" data-daily-detail="sector-memo-${row.topic}"><summary>Read the latest record memo</summary>${recordMemo(latest.record)}<p>${officialLink(latest.record.sources[0].url,'Open original source')}</p></details>`:'<p>No matching dated evidence is recorded.</p>'}<button type="button" class="daily-text-button" data-daily-topic="${row.topic}">Focus this sector</button></article>`;}).join('')}</div>
-   ${tradePanel(model,language)}
+   ${tradePanel(model,language)}${V?.collection(model.filters,feed,{keyPrefix:'daily-library'})||''}
   </section>`;
  }
 
@@ -483,9 +496,9 @@
     ${model.earlier.length?`<details class="daily-detail" data-daily-detail="earlier-reviewed"><summary>Earlier evidence</summary>${model.earlier.map(e=>reviewedCard(e,language,feed,model.framework)).join('')}</details>`:''}
     <details class="daily-detail" data-daily-detail="instruments"><summary>Agreements and implementation watch</summary>${instrumentPanel(model,language)}</details>
    </section>
-   ${sectorPanel(model,language)}
+   ${sectorPanel(model,language,feed)}
    <section class="daily-section" id="daily-relationships">${comparisonPanel(model,language,feed)}</section>
-   ${strategicPanel(model,language)}
+   ${strategicPanel(model,language)}${V?.collection({...model.filters,framework:true},feed,{keyPrefix:'daily-framework'})||''}
    <section class="daily-section" id="daily-watch">${watchPanel(model,language)}<p class="daily-meta">A scheduled date requests verification; it does not establish that a measure entered into force or a contract was fulfilled.</p></section>
    ${implicationsPanel(model,language)}
    <details class="daily-detail daily-review" data-daily-detail="review-queue"><summary>Source changes to review <span class="daily-count" translate="no">${newGroups.reduce((total,group)=>total+group.count,0)}</span></summary><p>These observations await review. Expand a source to see its revision history.</p>${newGroups.map(group=>groupCard(group,language)).join('')||'<p>No source changes recorded for this period.</p>'}${olderGroups.length?`<details class="daily-detail" data-daily-detail="source-archive"><summary>Earlier monitored sources <span class="daily-count" translate="no">${olderGroups.length}</span></summary>${olderGroups.map(group=>groupCard(group,language)).join('')}</details>`:''}</details>
@@ -551,6 +564,7 @@
    if (open.has(detail.dataset.dailyDetail)) detail.open = true;
   }
   if (focused && Object.hasOwn(ranges, focused)) page.querySelector(`[data-daily-range="${focused}"]`)?.focus({preventScroll: true});
+  V?.hydrate(page);
   global.DashboardI18n?.translateTree(page);
   observeStickyLayout();
   highlightSection(activeSection);

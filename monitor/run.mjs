@@ -7,6 +7,7 @@ import {assessmentReview} from './assessment-review.mjs';
 import research from '../app/research-register.js';
 import intelligence from '../app/daily-intelligence.js';
 import {makeBriefings} from './briefings.mjs';
+import {discoverSourceMedia} from './source-media.mjs';
 import {hash,documentOf,safeURL,discoverCandidates,embeddedFeeds,classify,validateExtraction,fetchOfficial} from './core.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=async(p,fallback)=>{try{return JSON.parse(await fs.readFile(path.join(root,p),'utf8'));}catch(e){if(e.code==='ENOENT')return fallback;throw e;}};
@@ -15,6 +16,7 @@ const usEvidence=await read('app/us-trade-evidence.json',null),usInvestment=awai
 const c={window:{}};vm.createContext(c);vm.runInContext(await fs.readFile(path.join(root,'app/explorer-catalog.js'),'utf8'),c);const catalog=c.window.EXPLORER_CATALOG;
 const now=new Date().toISOString(),state=await read('monitor/state.json',{version:1,pages:{}}),previous=await read('app/policy-updates.json',{changes:[],lastSuccessfulRun:null});
 const feed={...previous,lastAttempt:now,scheduleUTC:config.scheduleUTC,aiEnabled:!!(process.env.POLICY_MONITOR_API_KEY&&process.env.POLICY_MONITOR_MODEL),sourcesChecked:0,sourceFailures:[],changes:previous.changes||[],briefings:previous.briefings||[],workflowURL:process.env.GITHUB_SERVER_URL&&process.env.GITHUB_RUN_ID?process.env.GITHUB_SERVER_URL+'/'+process.env.GITHUB_REPOSITORY+'/actions/runs/'+process.env.GITHUB_RUN_ID:null};
+const sourceMedia=new Map((previous.sourceMedia||[]).map(item=>[item.sourceURL,item]));
 const sourceChecks=new Map((previous.sourceChecks||[]).map(c=>[c.url,c]));
 const rebuildBriefings=previous.briefingSchemaVersion!==9;
 feed.briefingSchemaVersion=9;if(rebuildBriefings)feed.briefings=[];
@@ -83,6 +85,8 @@ for(let offset=0;offset<entries.length;offset+=6){
   const digest=hash(doc.text),before=state.pages[url];
   state.pages[url]={digest,lastChecked:now,lastChanged:before?.digest===digest?before.lastChanged:now,title:doc.title,issuer:meta.issuer};
   sourceChecks.set(url,{url:page.url,checkedAt:now,lastAttempt:now,lastChanged:state.pages[url].lastChanged,digest,status:'success',baseline:!before||before.digest===digest&&sourceChecks.get(url)?.baseline===true});
+  const visuals=discoverSourceMedia(page.html,{sourceURL:page.url,sourceDigest:digest,checkedAt:now,title:doc.title,publicationDate:doc.publicationDate,publisher:meta.issuer||new URL(page.url).hostname,issuer:meta.issuer});
+  if(visuals)sourceMedia.set(page.url,visuals);
   if(!before&&meta.known)continue; // Baseline existing research, never report old records as a new policy.
   const last=feed.changes.find(x=>x.url===url&&x.digest===digest);
   if(rebuildBriefings&&last){last.title=doc.title;last.publicationDate=doc.publicationDate||last.publicationDate;}
@@ -113,6 +117,7 @@ for(let offset=0;offset<entries.length;offset+=6){
  }catch(e){feed.sourceFailures.push({url,error:e.message});const old=state.pages[url];sourceChecks.set(url,{url,checkedAt:old?.lastChecked||null,lastAttempt:now,lastChanged:old?.lastChanged||null,digest:old?.digest||null,status:'failed'});}
  }
 }
+feed.sourceMedia=[...sourceMedia.values()].filter(page=>page.items?.length).sort((a,b)=>b.checkedAt.localeCompare(a.checkedAt)).slice(0,220);
 feed.sourceChecks=[...sourceChecks.values()];
 for(const b of feed.briefings){const check=sourceChecks.get(b.sources?.[0]?.url);if(check?.status==='success')b.checkedAt=check.checkedAt;}
 feed.briefings=feed.briefings.sort((a,b)=>b.detectedAt.localeCompare(a.detectedAt)).slice(0,180);

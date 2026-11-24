@@ -7846,6 +7846,164 @@
  "Check implemented ownership safeguards, essential-input access and continuity evidence; keep a policy commitment separate from a demonstrated result.": [
   "Vérifier les garanties de propriété appliquées, l’accès aux intrants essentiels et les données de continuité; distinguer l’engagement politique du résultat démontré.",
   "核查已实施的所有权保障、关键投入准入和连续性证据；将政策承诺与已证实成果区分。"
+ ],
+ "The lead development": [
+  "Le fait principal",
+  "主要进展"
+ ],
+ "Alongside this": [
+  "En parallèle",
+  "与此同时"
+ ],
+ "The wider context": [
+  "Le contexte plus large",
+  "更广泛的背景"
+ ],
+ "Next analyst action and evidence details": [
+  "Prochaine action de l’analyste et détails des données",
+  "分析师下一步行动与证据详情"
+ ],
+ "No new matching evidence is recorded for this period. The dated developments below provide the context for Canada’s next policy decisions.": [
+  "Aucune nouvelle donnée correspondante n’est enregistrée pour cette période. Les faits datés ci-dessous éclairent les prochaines décisions du Canada.",
+  "本期未记录到匹配的新证据。以下注明日期的进展为加拿大下一步政策决策提供背景。"
+ ],
+ "No new or substantively different source summary is recorded in these editions.": [
+  "Ces éditions ne contiennent aucun résumé de source nouveau ou substantiellement différent.",
+  "这些版本中未记录到新的或实质不同的来源摘要。"
+ ],
+ "Explore the source visuals": [
+  "Explorer les visuels des sources",
+  "查看来源图表与影像"
+ ],
+ "Source visual": [
+  "Visuel de la source",
+  "来源图表"
+ ],
+ "Source video": [
+  "Vidéo de la source",
+  "来源视频"
+ ],
+ "Original source preview": [
+  "Aperçu de la source originale",
+  "原始来源预览"
+ ],
+ "Load source visual": [
+  "Afficher le visuel de la source",
+  "加载来源图表"
+ ],
+ "Load source video": [
+  "Afficher la vidéo de la source",
+  "加载来源视频"
+ ],
+ "Preview original source page": [
+  "Prévisualiser la page source originale",
+  "预览原始来源页面"
+ ],
+ "Open original visual or video": [
+  "Ouvrir le visuel ou la vidéo originale",
+  "打开原始图表或视频"
+ ],
+ "Visual and source link checked": [
+  "Visuel et lien source vérifiés",
+  "图表与来源链接核查时间"
+ ],
+ "Source record date": [
+  "Date du document source",
+  "来源记录日期"
+ ],
+ "Automatically discovered · analyst review pending": [
+  "Repéré automatiquement · examen de l’analyste en attente",
+  "自动发现 · 待分析师审核"
+ ],
+ "Original source period": [
+  "Période de la source originale",
+  "原始来源参考期"
+ ],
+ "Original geographic scope": [
+  "Portée géographique originale",
+  "原始地理范围"
+ ],
+ "Scope requires analyst review": [
+  "Portée à examiner par l’analyste",
+  "范围有待分析师审核"
+ ],
+ "Source reference period not separately verified": [
+  "Période de référence de la source non vérifiée séparément",
+  "来源参考期尚未单独核实"
+ ],
+ "More source visuals": [
+  "Autres visuels des sources",
+  "更多来源图表与影像"
+ ],
+ "Original charts, diagrams and publisher-provided footage attached to the evidence. Reference periods remain separate from today’s briefing date.": [
+  "Graphiques, schémas et séquences des éditeurs liés aux données. Leurs périodes de référence restent distinctes de la date du présent bulletin.",
+  "与证据关联的原始图表、示意图和发布者影像。参考期与今天的简报日期保持区分。"
+ ],
+ "National and project visuals retain their original geography; they are not a provincial outcome measure.": [
+  "Les visuels nationaux et de projets conservent leur portée originale; ils ne mesurent pas un résultat provincial.",
+  "全国和项目影像保留其原始地理范围；它们不衡量省级成果。"
+ ],
+ "Publisher or browser restrictions may prevent an embedded page or media from loading. The original links remain available.": [
+  "Des restrictions de l’éditeur ou du navigateur peuvent empêcher l’affichage intégré. Les liens originaux restent disponibles.",
+  "发布者或浏览器的限制可能使内嵌页面或媒体无法加载。原始链接仍可使用。"
+ ],
+ "Automatically discovered on the checked source page. Its subject, date and analytical relevance require review.": [
+  "Repéré automatiquement sur la page source vérifiée. Son sujet, sa date et sa pertinence analytique restent à examiner.",
+  "自动从已核查的来源页面发现。主题、日期及分析相关性仍需审核。"
+ ],
+ "Read the original publication alongside the analyst memo. Its own dates, policy stage and geographic scope remain authoritative.": [
+  "Lire la publication originale avec la note analytique. Ses dates, son stade de politique et sa portée géographique font foi.",
+  "请将原始出版物与分析简报一并阅读。以原文的日期、政策阶段和地理范围为准。"
+ ],
+ "Who ultimately controls investment in Canada?": [
+  "Qui contrôle en dernier ressort les investissements au Canada?",
+  "谁最终控制加拿大的投资？"
+ ],
+ "The official Stronger Canada strategy diagram": [
+  "Le schéma officiel du Plan pour un Canada fort",
+  "官方“更强大的加拿大”战略示意图"
+ ],
+ "First LNG cargo departs Kitimat": [
+  "Départ de la première cargaison de GNL de Kitimat",
+  "首批液化天然气货物离开基蒂马特"
+ ],
+ "LNG Canada operating site footage": [
+  "Séquences du site d’exploitation de LNG Canada",
+  "LNG Canada运营现场影像"
+ ],
+ "Year-end 2025": [
+  "Fin de 2025",
+  "2025年末"
+ ],
+ "October 2026 policy framework": [
+  "Cadre de politique d’octobre 2026",
+  "2026年10月政策框架"
+ ],
+ "Footage: June 30, 2025": [
+  "Images : 30 juin 2025",
+  "影像日期：2025年6月30日"
+ ],
+ "Footage: April 2026": [
+  "Images : avril 2026",
+  "影像日期：2026年4月"
+ ],
+ "Kitimat, British Columbia — project site": [
+  "Kitimat, Colombie-Britannique — site du projet",
+  "不列颠哥伦比亚省基蒂马特——项目现场"
+ ],
+ "This is accumulated investment at book value, not newly completed spending. The chart is national and cannot establish provincial jobs or an agreement’s effect.": [
+  "Il s’agit d’un stock d’investissement à valeur comptable, et non de nouvelles dépenses réalisées. Ce graphique national n’établit ni emplois provinciaux ni effet d’un accord.",
+  "这是按账面价值衡量的累计投资存量，并非新完成的支出。全国图表不能确定省级就业或协议效果。"
+ ],
+ "The government’s eight capabilities and five foundations retain their official classification. This diagram is policy context, not a measured trade, investment or employment result.": [
+  "Les huit capacités et les cinq fondements du gouvernement conservent leur classification officielle. Ce schéma fournit un contexte de politique, et non un résultat mesuré de commerce, d’investissement ou d’emploi.",
+  "政府的八项能力与五大基础保留其官方分类。这幅图提供政策背景，并非已衡量的贸易、投资或就业成果。"
+ ],
+ "Company-provided footage is project context. It does not quantify export destinations, shipment values, Canadian employment or Phase 2 completion.": [
+  "Les séquences fournies par l’entreprise décrivent le projet. Elles ne quantifient ni destinations d’exportation, ni valeurs expédiées, ni emploi canadien, ni achèvement de la phase 2.",
+  "企业提供的影像属于项目背景，不能量化出口目的地、出货金额、加拿大就业或第二阶段完成情况。"
  ]
+,
+ "Retained policy context":["Contexte de politique conservé","保留的政策背景"]
 };if(typeof module!=="undefined"&&module.exports)module.exports=data;if(g)g.POLICY_TRANSLATIONS_UI=data;})(typeof window==="undefined"?null:window);
 
