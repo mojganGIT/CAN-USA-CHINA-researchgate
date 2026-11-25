@@ -59,7 +59,7 @@ async function setup(){
  const window={addEventListener(k,f){events[k]=f;},DashboardI18n:{get language(){return language.value;},get locale(){return language.value==='fr'?'fr-CA':language.value==='zh-Hans'?'zh-CN':'en-CA';},t(s){return I18n.t(s,language.value);},searchQuery:I18n.searchQuery},CanadaImpact:{mount(view,id){mounts.push(['canada',view,id]);}},USStates:{mount(id,config){mounts.push(['states',id,config]);}},showExplorer(){mounts.push(['relationship']);}};
  const ctx={window,document,location,history:{replaceState(a,b,url){location.hash=url;}},URL,URLSearchParams,Intl,Number,Date,AbortSignal,fetch:async file=>{if(outage)throw Error('offline');return {ok:true,json:async()=>JSON.parse(read(file))};}};
  window.document=document;vm.createContext(ctx);
- for(const p of ['research-register.js','dashboard-guide.js','explorer-inventory.js','explorer-catalog.js','regional-trade-model.js','us-trade-model.js','impact-model.js','policy-narrative.js','insights-model.js','source-media-data.js','source-media.js','bilateral-copy.js','bilateral-model.js','canada-china-visuals.js','bilateral-hub.js'])vm.runInContext(read(p),ctx,{filename:p});
+ for(const p of ['research-register.js','dashboard-guide.js','explorer-inventory.js','explorer-catalog.js','regional-trade-model.js','us-trade-model.js','impact-model.js','policy-narrative.js','insights-model.js','source-media-data.js','source-media.js','bilateral-copy.js','bilateral-model.js','canada-china-visuals.js','us-canada-visuals.js','bilateral-hub.js'])vm.runInContext(read(p),ctx,{filename:p});
  window.BilateralHub.show('canada-china');await window.BilateralHub.ready;
  const go=(pair,view='overview',params={})=>{location.hash='#'+B.target(pair,view,params);window.BilateralHub.show(pair);return node('root').innerHTML;};
  return {node,window,go,mounts,language,events,handlers,setOutage(){outage=true;}};
@@ -159,5 +159,52 @@ test('Canada–China tariff comparison preserves rate basis, quota limits, effec
  assert.equal(chart.tariff(B.normalize('canada-china',{topic:'finance',year:'2026'})),'');
  assert.equal(chart.tariff(B.normalize('canada-china',{year:'2025'})),'');
  assert.equal(chart.selectProduct('<script>rate</script>'),false);
+});
+
+test('U.S.–Canada briefs and original visuals survive all nine section mounts and follow sector and reference year',async()=>{
+ const {go,node,window,handlers,language,events}=await setup();
+ for(const [view] of [...B.views,...B.mapViews('us-canada')]){
+  const html=go('us-canada',view);
+  assert(html.includes('id="us-canada-briefing-title"'),view);
+  assert(html.includes('U.S.–Canada Source Visuals and Canadian Implications'),view);
+  assert(html.includes('white-house-canada-meeting-2025'),view);
+  assert.equal((html.match(/id="bilateral-topic"/g)||[]).length,1,view);
+  assert.equal((html.match(/id="bilateral-year"/g)||[]).length,1,view);
+  assert(html.indexOf('id="us-canada-visuals"')>html.indexOf('id="bilateral-body"'),view);
+  assert(!html.includes('canada-china-partnership-video-2026'));assert(!html.includes('us-china-tariff-chart'));
+  assert(!html.includes('autoplay='));assert(!html.includes(' autoplay'));
+ }
+ for(const topic of catalog.topics){
+  const html=go('us-canada','compare',{topic:topic.id,year:'2026'});
+  assert(html.includes('Why It Matters to Canada'));assert(html.includes('canada-ontario-tariff-response-2026'));
+  assert(!html.includes('white-house-canada-meeting-2025'));assert(!html.includes('statcan-fdi-2025'));
+ }
+ const security=go('us-canada','overview',{topic:'security',year:'2024'});
+ for(const id of ['defence-exports-2024','defence-suppliers-2024','defence-regions-2024','defence-employment-2024'])assert(security.includes(id));
+ assert(!security.includes('canada-ontario-tariff-response-2026'));assert(!security.includes('white-house-canada-meeting-2025'));
+ const finance=go('us-canada','overview',{topic:'finance',year:'2025'});assert(finance.includes('statcan-fdi-2025'));assert(!finance.includes('eia-canada-energy-value-2025'));
+ const oldTechnology=go('us-canada','overview',{topic:'technology',year:'2018'});assert(oldTechnology.includes('No verified source visual matches'));assert(!oldTechnology.includes('U.S. product coverage changed during 2026'));
+ const record=go('us-canada','evidence',{topic:'investment',year:'2025'}).split('data-bilateral-record="ca-fdi-stock-us"')[1]?.split('</div></details>')[0];
+ assert(record?.includes('statcan-fdi-2025'));assert(record.indexOf('<iframe')<record.indexOf('class="bilateral-source-details"'));
+ go('us-canada','relationship',{topic:'agriculture',year:'2026'});handlers.change({target:{id:'lab-topic',value:'energy'}});
+ assert.equal(window.BilateralHub.state.topic,'energy');assert(node('root').innerHTML.includes('The EIA charts distinguish energy trade value'));
+ for(const lang of ['fr','zh-Hans']){language.value=lang;events['dashboard-language-changed']();assert(node('root').innerHTML.includes(I18n.t('U.S.–Canada Source Visuals and Canadian Implications',lang)));assert.notEqual(I18n.t('U.S.–Canada Source Visuals and Canadian Implications',lang),'U.S.–Canada Source Visuals and Canadian Implications');}
+});
+
+test('U.S.–Canada chart keeps import directions, duty layers, approved content and historical rates distinct',async()=>{
+ const {go,window}=await setup(),chart=window.USCanadaVisuals;
+ let html=go('us-canada','products',{topic:'vehicles',year:'2026'});
+ assert(html.includes('25%'));assert(html.includes('0%'));assert(html.includes('approved U.S. content'));assert(html.includes('Other duties, import restrictions and eligible remission'));
+ chart.selectProduct('ca-steel');html=chart.tariff(B.normalize('us-canada',{topic:'vehicles',year:'2026'}));
+ assert(html.includes('U.S. → Canada'));assert(html.includes('7208.10.00'));assert(html.includes('25%'));assert(html.includes('50%'));assert(html.includes('before any applicable remission'));
+ const prior=chart.tariff(B.normalize('us-canada',{topic:'vehicles',year:'2025'}));assert(prior.includes('25%'));assert(!prior.includes('50%'));assert(prior.includes('13 March 2025'));
+ chart.selectProduct('us-338');html=chart.tariff(B.normalize('us-canada',{topic:'technology',year:'2026'}));
+ assert(html.includes('50%'));assert(html.includes('CUSMA status does not exempt'));assert(html.includes('Import bans require a separate check'));
+ chart.selectProduct('us-301');html=chart.tariff(B.normalize('us-canada',{topic:'technology',year:'2026'}));assert(html.includes('10%'));assert(html.includes('0%'));assert(html.includes('Section 301 layer only'));
+ assert(html.indexOf('role="img"')<html.indexOf('data-bilateral-detail="us-canada-tariff"'));
+ assert.equal(chart.tariff(B.normalize('us-canada',{topic:'finance',year:'2026'})),'');
+ assert.equal(chart.tariff(B.normalize('us-canada',{year:'2024'})),'');
+ assert.equal(chart.selectProduct('<script>rate</script>'),false);
+ const index=read('index.html');assert(index.indexOf('us-canada-visuals.js')<index.indexOf('bilateral-hub.js'));
 });
 

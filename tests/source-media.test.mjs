@@ -9,6 +9,7 @@ import {discoverSourceMedia} from '../monitor/source-media.mjs';
 import B from '../app/daily-briefing.js';
 const chart=Data.entries.find(x=>x.id==='statcan-fdi-2025');
 const source='https://www.eia.gov/todayinenergy/detail.php?id=67904';
+const textOnlySource='https://www.tradecommissioner.gc.ca/en/market-industry-info/search-country-region/country/canada-united-states-export/us-tariffs/answers-common-questions-tariffs.html';
 
 test('interactive tariff charts are curated and resize only on messages from their own publisher frame',()=>{
  const item=Data.entries.find(x=>x.id==='us-china-tariff-chart'),events={},ownWindow={},otherWindow={};
@@ -69,7 +70,7 @@ test('visuals appear before independently expandable sources; page-only previews
  assert(html.startsWith('<article'));assert(html.indexOf('<iframe')<html.indexOf('<details class="source-media-details"'));
  assert(html.includes('loading="lazy"'));assert(html.includes('sandbox="allow-same-origin allow-popups"'));assert(!html.includes('data-source-media-details open'));
  assert(html.includes('Source, dates and evidence'));assert(html.includes(chart.publicationDate));assert(html.includes(chart.verifiedAt));assert(html.includes(chart.sourceURL));
- const page=Media.recordHTML({title:'Checked publication',date:'2026-11-24',reviewedAt:'2026-11-24',sources:[{publisher:'EIA',url:source}]});assert(page.startsWith('<details'));assert(!page.includes('<iframe'));assert(page.includes('Preview original source page'));
+ const page=Media.recordHTML({title:'Checked publication',date:'2026-11-24',reviewedAt:'2026-11-24',sources:[{publisher:'Trade Commissioner Service',url:textOnlySource}]});assert(page.startsWith('<details'));assert(!page.includes('<iframe'));assert(page.includes('Preview original source page'));
  assert.equal(Media.frameMarkup({...chart,url:'https://evil.example/chart.png'}),'');assert.equal(Media.frameMarkup({...chart,sourceURL:'javascript:alert(1)'},'page'),'');
 });
 
@@ -83,7 +84,7 @@ test('security evidence maps each original report page to the matching record wi
  }
  assert.equal(Media.all().filter(x=>x.kind==='document_image').length,4);
  const doc=Data.entries.find(x=>x.kind==='document_image');assert.equal(Media.normalize({...doc,documentPage:99}),null);
- const textOnly={id:'text-only',title:'Text-only checked source',reviewedAt:'2026-11-24',sources:[{publisher:'EIA',url:source}]};assert.equal(Media.recordHTML(textOnly,{}, {},{fallbackPreview:false}),'');
+ const textOnly={id:'text-only',title:'Text-only checked source',reviewedAt:'2026-11-24',sources:[{publisher:'Trade Commissioner Service',url:textOnlySource}]};assert.equal(Media.recordHTML(textOnly,{}, {},{fallbackPreview:false}),'');
 });
 
 test('record-bound national context excludes source utility icons and cannot be mistaken for a provincial defence chart',()=>{

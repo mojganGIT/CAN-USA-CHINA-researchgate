@@ -11,6 +11,7 @@
  const number=n=>new Intl.NumberFormat(window.DashboardI18n?.locale||'en-CA',{maximumFractionDigits:3}).format(n);
  const compact=(n,currency)=>n===null||n===undefined?T('Not available'):new Intl.NumberFormat(window.DashboardI18n?.locale||'en-CA',{style:'currency',currency,notation:'compact',maximumFractionDigits:2}).format(n);
  const month=m=>String(m).padStart(2,'0');
+ const visualModule=()=>state?.pair.id==='canada-china'?window.CanadaChinaVisuals:state?.pair.id==='us-canada'?window.USCanadaVisuals:null;
  const target=(view='overview',extra={})=>B.target(state.pair,view,{topic:state.topic,year:state.year,...extra});
  const anchor=(view,label,extra={},cls='')=>`<a href="#${E(target(view,extra))}" data-hub="${E(target(view,extra))}" ${cls?'class="'+cls+'"':''}>${tx(label)} <span aria-hidden="true">→</span></a>`;
  function all(){return B.records(data,window.PolicyResearchRegister,window.EXPLORER_INVENTORY,window.EXPLORER_CATALOG,window.InsightsModel);}
@@ -28,7 +29,7 @@
   const field=(key,value)=>value?`<div><dt>${tx(key)}</dt><dd>${tr(value)}</dd></div>`:'';
   const linked=(r.recordIds||[]).map(id=>all().find(x=>x.id==='ca-'+id)).filter(x=>x&&(x.relationships.includes(state.pair.relationship)||!x.relationships.length));
   const status=r.kind==='historical'?'Historical inventory':statuses[r.stage]||r.status||window.ImpactModel.kinds[r.measurementType]||window.USTradeModel.kinds[r.measurementType]||r.kind;
-  const media=['us-china','canada-china'].includes(state.pair.id)?window.SourceMedia?.forRecord({...r,id:r.id.replace(/^ca-/,'')},{},data.daily||{}).filter(x=>x.relationships?.includes(state.pair.relationship))||[]:[];
+  const media=['us-china','canada-china','us-canada'].includes(state.pair.id)?window.SourceMedia?.forRecord({...r,id:r.id.replace(/^ca-/,'')},{},data.daily||{}).filter(x=>x.relationships?.includes(state.pair.relationship))||[]:[];
   const sourceDetails=`<dl class="bilateral-dates">${field(r.dates||'Record date',r.date)}${field('Reference period',r.period)}${field('Geography',r.geography)}${field('Effective date',r.effectiveDate)}${field('Recorded expiry',r.expiryDate||r.through)}${field('Sources reviewed',r.reviewedAt)}${field('Date type',r.dateType?.replaceAll('_',' '))}${r.kind==='historical'?field('Original inventory label',r.status):''}</dl>
   ${r.id==='policy-china-market-access'?`<p class="bilateral-meta">${tr(window.PolicyGuide.labels.originalExpiry)}</p>`:''}
   <ul class="bilateral-sources">${r.sources.map(s=>{const meta=sourceMap.get(s.url);return `<li>${original(s.url,s.publisher)}${meta?.publicationLabel?`<br><span class="bilateral-meta">${tx('Source publication')}: ${tr(meta.publicationLabel)}</span>`:''}</li>`;}).join('')}</ul>
@@ -37,11 +38,11 @@
   ${r.kind==='update'?`<p class="bilateral-caution">${tx('Unreviewed source observation')} · ${tx('Historical labels and years are retained. A source-page change is not automatically a legal amendment.')}</p>`:''}
   <dl class="bilateral-reading">${field('What changed?',r.summary||description.changed)}${field('Why does it matter to Canada?',r.why||description.why)}${field('How could Canada and its provinces be affected?',description.regions)}${field('What remains uncertain?',r.limitation||r.attribution||(r.kind==='historical'?'The original inventory label is retained; it is not a new verification of current law. Check the source for amendments, implementation and exceptions.':''))}</dl>
   ${media.length?window.SourceMedia.render(media,{keyPrefix:'bilateral-record-'+r.id,sourceDetails:false,translate:v=>window.DashboardI18n?.t(v)||v}):''}
-  ${['us-china','canada-china'].includes(state.pair.id)?`<details class="bilateral-source-details" data-bilateral-detail="source-${E(r.id)}"><summary>${tx('Source, dates and evidence')}</summary>${sourceDetails}</details>`:sourceDetails}
+  ${['us-china','canada-china','us-canada'].includes(state.pair.id)?`<details class="bilateral-source-details" data-bilateral-detail="source-${E(r.id)}"><summary>${tx('Source, dates and evidence')}</summary>${sourceDetails}</details>`:sourceDetails}
   ${linked.length?`<details class="bilateral-linked"><summary>${tx('Linked outcome evidence')} (${linked.length})</summary><p class="bilateral-meta">${tx('Linked observations can predate the policy or cover a different geography; links are not causal claims.')}</p>${linked.map(record).join('')}</details>`:''}</div></details>`;
  }
  function filters({search=false,force=false}={}){
-  if(state.pair.id==='canada-china'&&!force)return '';
+  if(visualModule()&&!force)return '';
   const topics=window.EXPLORER_CATALOG.topics;
   const select=(key,label,rows)=>`<label for="bilateral-${key}">${tx(label)}<select id="bilateral-${key}" data-bilateral-filter="${key}">${rows.map(([v,l])=>`<option value="${E(v)}" ${state[key]===v?'selected':''}>${tx(l)}</option>`).join('')}</select></label>`;
   return `<div class="bilateral-filters">${select('topic','Topic',[['all','All topics'],...topics.map(t=>[t.id,t.name])])}${select('year','Reference year',[['all','All years: 2018–2026'],...Array.from({length:9},(_,i)=>[String(2026-i),String(2026-i)])])}${search?`<form id="bilateral-search"><label class="sr-only" for="bilateral-query">${tx('Search')}</label><input id="bilateral-query" type="search" value="${E(state.query)}" placeholder="${tx('Search titles, findings or dates')}"><button type="submit">${tx('Search')}</button></form>`:''}</div>`;
@@ -119,8 +120,8 @@
   <nav class="bilateral-subnav" aria-label="${tx('Relationship sections')}" data-no-translate>${[...B.views,...B.mapViews(state.pair.id)].map(([id,label])=>`<a href="#${E(target(id,{topic:state.topic,year:state.year}))}" data-hub="${E(target(id,{topic:state.topic,year:state.year}))}" ${view===id?'aria-current="page"':''}>${tx(label)}</a>`).join('')}</nav>
   <p class="bilateral-meta" data-no-translate>${tx('Only records linked to this relationship appear here. All-market Canadian context is available separately and is never allocated to a bilateral partner.')}</p>
   ${failures.length?`<p class="bilateral-caution" role="status" data-no-translate>${tx('Some published datasets could not be refreshed. Previously loaded data and research notes remain available.')}</p>`:!loaded?`<p class="bilateral-meta" role="status" data-no-translate>${tx('Sources are still loading; published research notes remain available.')}</p>`:''}
-  ${state.pair.id==='canada-china'?filters({force:true,search:['policy','evidence'].includes(view)})+(window.CanadaChinaVisuals?.summary(state,matched())||''):''}
-  <div id="bilateral-body">${view==='overview'?overview():view==='compare'?compare():view==='policy'?timeline():view==='evidence'?evidence():view==='products'?products():view==='trends'?trendFrame():''}</div>${state.pair.id==='canada-china'?window.CanadaChinaVisuals?.visuals(state,data.daily||{})||'':''}</div>`;
+  ${visualModule()?filters({force:true,search:['policy','evidence'].includes(view)})+visualModule().summary(state,matched()):''}
+  <div id="bilateral-body">${view==='overview'?overview():view==='compare'?compare():view==='policy'?timeline():view==='evidence'?evidence():view==='products'?products():view==='trends'?trendFrame():''}</div>${visualModule()?.visuals(state,data.daily||{})||''}</div>`;
   for(const n of root.querySelectorAll?.('details[data-bilateral-record], details[data-bilateral-detail], details[data-sc-detail]')||[])if(open.has(detailKey(n)))n.open=true;
   window.SourceMedia?.hydrate(root);
   if(view==='map')window.CanadaImpact.mount('overview','bilateral-body');
@@ -148,7 +149,18 @@
   history.replaceState(null,'','#'+target(state.view,{topic:state.topic,year:state.year,query:state.query,page:state.page}));render();window.HomeHub?.updateNavigation();
   document.getElementById('bilateral-'+key)?.focus({preventScroll:true});
  }
- document.addEventListener('change',ev=>{if(state?.pair.id==='canada-china'&&state.view==='relationship'&&ev.target.id==='lab-topic'){state=B.normalize(state.pair.id,{...state,topic:ev.target.value,page:0});render();window.HomeHub?.updateNavigation();document.getElementById('lab-topic')?.focus({preventScroll:true});return;}if(state?.pair.id==='canada-china'&&ev.target.matches?.('[data-cc-tariff-product]')&&window.CanadaChinaVisuals?.selectProduct(ev.target.value)){const slot=root.querySelector?.('.cc-tariff');if(slot){const open=slot.querySelector('details')?.open,holder=document.createElement('div');holder.innerHTML=window.CanadaChinaVisuals.tariff(state);if(open)holder.querySelector('details').open=true;slot.replaceWith(holder.firstElementChild);document.getElementById('cc-tariff-product')?.focus({preventScroll:true});}return;}const el=ev.target.closest('[data-bilateral-filter]');if(el&&state)set(el.dataset.bilateralFilter,el.value);});
+ document.addEventListener('change',ev=>{
+  const enhanced=visualModule();
+  if(enhanced&&state.view==='relationship'&&ev.target.id==='lab-topic'){
+   state=B.normalize(state.pair.id,{...state,topic:ev.target.value,page:0});render();window.HomeHub?.updateNavigation();document.getElementById('lab-topic')?.focus({preventScroll:true});return;
+  }
+  const productID=state?.pair.id==='us-canada'?'us-canada-tariff-product':'cc-tariff-product';
+  if(enhanced&&ev.target.id===productID&&enhanced.selectProduct(ev.target.value)){
+   const slot=root.querySelector?.('.cc-tariff');
+   if(slot){const open=slot.querySelector('details')?.open,holder=document.createElement('div');holder.innerHTML=enhanced.tariff(state);if(open)holder.querySelector('details').open=true;slot.replaceWith(holder.firstElementChild);document.getElementById(productID)?.focus({preventScroll:true});}return;
+  }
+  const el=ev.target.closest('[data-bilateral-filter]');if(el&&state)set(el.dataset.bilateralFilter,el.value);
+ });
  document.addEventListener('submit',ev=>{if(ev.target.id!=='bilateral-search'||!state)return;ev.preventDefault();set('query',document.getElementById('bilateral-query').value);});
  document.addEventListener('click',ev=>{const el=ev.target.closest('[data-bilateral-page]');if(el&&state){state.page=Math.max(0,state.page+Number(el.dataset.bilateralPage));render();document.getElementById('bilateral-search')?.scrollIntoView({block:'start'});}});
  window.addEventListener('dashboard-language-changed',()=>{if(state)render();});
