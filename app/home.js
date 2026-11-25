@@ -76,7 +76,7 @@
  function weeklyBriefingActive(){return routeId()==='weekly-updates'&&new URLSearchParams(location.hash.split('?')[1]||'').get('view')==='briefing';}
  function updateTitle(){
   const title=weeklyBriefingActive()?'Weekly policy briefing':tabs.find(t=>t[0]===routeId())?.[1]||'Policy Research';
-  document.title=routeId()==='home'?'policyintelligence':'policyintelligence | '+(window.DashboardI18n?.t(title)||title);
+  document.title=routeId()==='home'?'Policy Intelligence Dashboard':'Policy Intelligence Dashboard | '+(window.DashboardI18n?.t(title)||title);
  }
  function updateNavigationOffset(){
   const rect=navigation.getBoundingClientRect?.();

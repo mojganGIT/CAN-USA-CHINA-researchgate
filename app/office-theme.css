@@ -1,9 +1,9 @@
 :root{--office-navy:#122b49;--office-deep:#0b2039;--office-gold:#d6af60;--office-ink-gold:#805a18;--office-beige:#f2eadc;--office-paper:#fffcf6;--office-line:#d6c7ac;--office-muted:#625e55;color-scheme:light}
 body{background:var(--office-beige);color:var(--office-navy);font-family:Inter,"Segoe UI","Noto Sans",Arial,sans-serif}
-body>header{background:var(--office-deep);color:var(--office-paper);border-bottom:3px solid var(--office-gold);padding:22px max(20px,calc((100% - 1320px)/2));position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;column-gap:16px}
+body>header{background:var(--office-beige);color:var(--office-navy);border-bottom:3px solid var(--office-gold);padding:22px max(20px,calc((100% - 1320px)/2));position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;column-gap:16px}
 body>header h1{font-weight:650;letter-spacing:-.025em;font-size:clamp(23px,3vw,35px);line-height:1.2;max-width:900px;margin:0;overflow-wrap:anywhere}
-.dashboard-language-bar{justify-self:end;color:#f1e5cc}
-.dashboard-language-bar select{min-height:44px;max-width:100%;background:#193656;color:#fff5df;border:1px solid var(--office-gold);border-radius:6px;padding:8px 10px;font:inherit;font-size:14px}.dashboard-language-bar select:focus-visible{outline:3px solid #f1d697;outline-offset:3px}
+.dashboard-language-bar{justify-self:end;color:var(--office-navy)}
+.dashboard-language-bar select{min-height:44px;max-width:100%;background:var(--office-paper);color:var(--office-navy);border:1px solid var(--office-ink-gold);border-radius:6px;padding:8px 10px;font:inherit;font-size:14px}.dashboard-language-bar select:focus-visible{outline:3px solid var(--office-ink-gold);outline-offset:3px}
 .hub-main-nav{background:var(--office-navy);border-color:var(--office-ink-gold);gap:5px}.hub-main-nav a{color:#eee4d1;border:1px solid transparent;line-height:1.45}.hub-main-nav a[aria-current=page],.hub-main-nav a[aria-current=page]:hover{background:var(--office-gold);border-color:var(--office-gold);color:var(--office-deep);font-weight:650}.hub-main-nav a:hover{background:#284362;color:#fff5df;border-color:#8c7547}
 /* Keep the daily briefing easy to find on every dashboard view. */
 .hub-main-nav{position:relative}
