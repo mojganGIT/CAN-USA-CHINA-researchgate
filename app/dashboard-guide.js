@@ -30,6 +30,8 @@
   map:S('Open the Canada map','Ouvrir la carte du Canada','打开加拿大地图'),
   selected:S('Selected milestones since 2018','Jalons choisis depuis 2018','2018年以来的部分关键节点'),
   how:S('How to use this section','Comment utiliser cette section','如何使用本节'),
+  howCompare:S('How to Compare','Comment comparer','如何比较'),
+  compareConfidence:S('A reliable source can establish an observation without proving that an arrangement caused it. Check implementation dates, product coverage and alternative explanations before attributing a Canadian gain or loss.','Une source fiable peut établir un constat sans prouver qu’un accord en est la cause. Vérifiez les dates d’application, les produits visés et les autres explications avant d’attribuer un gain ou une perte au Canada.','可靠来源可以证实一项观察，但不能因此证明某项安排导致了该结果。将加拿大的得失归因于安排之前，应核查实施日期、产品范围及其他可能解释。'),
   resources:S('Verified research and source notes','Recherche vérifiée et notes sur les sources','已核实的研究与来源说明'),
   policyUpdates:S('Verified policy and MOU records','Fiches vérifiées de politiques et de protocoles','已核实的政策与谅解备忘录'),
   usSources:S('U.S.–China research and policy sources','Recherche et sources sur les politiques États-Unis–Chine','美中研究与政策来源'),
@@ -136,7 +138,7 @@
  const rels={'Canada-USA':'Canada–U.S.','Canada-China':'Canada–China','USA-China':'U.S.–China',Canada:'Canada'};
  const questions=copy=>'<dl class="guide-questions">'+[labels.why,labels.use,labels.changed].map((label,i)=>'<div><dt>'+E(label)+'</dt><dd>'+E(copy[i])+'</dd></div>').join('')+'</dl>';
  const link=(id,label,cls='')=>'<a href="#'+E(id)+'" data-hub="'+E(id)+'"'+(cls?' class="'+E(cls)+'"':'')+'>'+E(label)+' <span aria-hidden="true">→</span></a>';
- const context=id=>notes[id]?'<details class="guide-context" open><summary>'+E(labels.how)+'</summary>'+questions(notes[id])+'</details>':'';
+ const context=id=>notes[id]?'<details class="guide-context'+(id==='comparative'?' impact-compare-help':'')+'"'+(id==='comparative'?'':' open')+'><summary>'+E(id==='comparative'?labels.howCompare:labels.how)+'</summary>'+questions(notes[id])+(id==='comparative'?'<p class="impact-compare-guidance">'+E(labels.compareConfidence)+'</p>':'')+'</details>':'';
  function renderRecord(r){
   const R=g.PolicyResearchRegister;
   const field=(label,copy)=>'<div><dt>'+E(label)+'</dt><dd>'+E(copy)+'</dd></div>';
@@ -179,6 +181,7 @@
  }
  const milestoneIds=['section-301-start','cusma-entry','indo-pacific-strategy','canada-china-energy-mou','canada-china-access-march','cusma-joint-review-meeting','us-china-board-framework','canada-china-relief-extension'];
  function page(id,catalog){
+  if(id==='comparative')return '';
   const title=labels[id];if(!title)return '';
   let body='';
   if(id==='categories')body='<div class="guide-category-list">'+catalog.topics.map((t,i)=>'<details class="guide-category"><summary><span aria-hidden="true">'+String(i+1).padStart(2,'0')+'</span><strong>'+E(t.name)+'</strong></summary>'+questions(categories[t.id])+'<p>'+link('compare-topics?topic='+t.id,labels.more)+'</p></details>').join('')+'</div>';
@@ -190,3 +193,4 @@
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
  if(g)g.PolicyGuide=api;
 })(typeof window==='undefined'?null:window);
+

@@ -22,8 +22,14 @@ assert(hub);assert.equal(hub.tools.length,3);
 const primary=['home','canada-china','us-china','us-canada','stronger-canada','research-search','your-llm','daily-updates'];
 const initialNav=node('site-navigation').innerHTML;
 assert.deepEqual(Array.from(initialNav.matchAll(/data-hub="([^"?]+)"/g),m=>m[1]).filter(id=>primary.includes(id)),primary);
-assert.deepEqual(Array.from(hub.homeMenu,([id])=>id),['categories','countries','comparative']);
+assert.deepEqual(Array.from(hub.homeMenu,([id])=>id),['categories','countries']);
 assert.deepEqual(Array.from(hub.compareMenu,([id])=>id),['findings-trends','evidence-methods','relationship-explorer']);
+assert(!initialNav.includes('data-hub="comparative"'));assert(!hub.tabs.some(([id])=>id==='comparative'));
+hub.navigate('comparative?region=SK&topic=agriculture&relationship=Canada-China&period=2026&metric=shipments&layer=trade');
+assert.equal(location.hash,'#compare-topics?region=SK&topic=agriculture&relationship=Canada-China&period=2026&metric=shipments&layer=trade');assert.equal(node('root').innerHTML,'IMPACT compare');
+location.hash='#comparative';hub.route();assert.equal(location.hash,'#compare-topics');assert.equal(node('root').innerHTML,'IMPACT compare');
+hub.navigate('home');
+
 assert.equal((initialNav.match(/<details class="hub-nav-menu">/g)||[]).length,5);
 for(const [id,label]of Object.entries(window.DailyBriefing.sections))assert(initialNav.includes('data-hub="daily-updates?section='+id+'" data-daily-section="'+id+'">'+label+'</a>'));
 assert(!initialNav.includes('data-hub="research-tools"'));
@@ -60,11 +66,10 @@ for(const [id]of hub.tabs){
  if(id==='weekly-updates')assert.equal(node('root').innerHTML,'WEEKLY UPDATES VIEW');
  if(id==='stronger-canada')assert.equal(node('root').innerHTML,'STRONGER CANADA VIEW');
  if(id==='research-tools'){assert.equal((node('root').innerHTML.match(/class="hub-research-card"/g)||[]).length,8);for(const [tool]of hub.researchTools)assert(node('root').innerHTML.includes('data-hub="'+tool+'"'));}
- if(['categories','countries','comparative'].includes(id)){
+ if(['categories','countries'].includes(id)){
   const html=node('root').innerHTML;assert(html.includes('Why does it matter to Canada?'));assert(html.includes('How can it help policy analysis?'));assert(html.includes('What changed?'));
   if(id==='categories')assert.equal((html.match(/data-hub="compare-topics\?topic=/g)||[]).length,8);
   if(id==='countries'){assert(html.includes('2018-07-06'));assert(html.includes('2026-11-04'));assert(html.includes('data-hub="canada-implications"'));}
-  if(id==='comparative')assert(html.includes('data-hub="compare-topics"'));
  }
 
  if(id==='policy-map'){assert.equal((node('root').innerHTML.match(/class="mapcell"/g)||[]).length,21);assert(node('root').innerHTML.includes('data-legacy-record="live-auto-test-Canada-USA"'));assert(!node('root').innerHTML.includes('data-legacy-record="-1"'));}

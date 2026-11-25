@@ -1,4 +1,80 @@
 (function(g){const data={
+ "Canadian outcomes": [
+  "Résultats canadiens",
+  "加拿大实际结果"
+ ],
+ "Provincial exposure": [
+  "Exposition provinciale",
+  "省级敞口"
+ ],
+ "Confidence": [
+  "Degré de confiance",
+  "可信度"
+ ],
+ "Canadian comparison assessment": [
+  "Évaluation comparative pour le Canada",
+  "加拿大比较评估"
+ ],
+ "Detailed Evidence: Five Tests": [
+  "Preuves détaillées : cinq critères",
+  "详细证据：五项检验"
+ ],
+ "Snapshot context:": [
+  "Contexte de l’instantané :",
+  "快照背景："
+ ],
+ "All-market context": [
+  "Contexte tous marchés",
+  "所有市场背景"
+ ],
+ "Regions with documented relevance": [
+  "Régions dont la pertinence est documentée",
+  "有记录表明相关的地区"
+ ],
+ "Local observations available": [
+  "Observations locales disponibles",
+  "有当地观察数据"
+ ],
+ "No reviewed policy event matches these filters. Dated levels and baselines below do not by themselves establish a change.": [
+  "Aucun événement de politique examiné ne correspond à ces filtres. Les niveaux et données de référence datés ci-dessous ne démontrent pas à eux seuls un changement.",
+  "没有符合这些筛选条件的已审阅政策事件。下方标有日期的水平与基准数据本身并不能证明发生了变化。"
+ ],
+ "No measured Canadian outcome matches these filters. Administrative, historical, financial or policy context may still be available in the detailed evidence.": [
+  "Aucun résultat canadien mesuré ne correspond à ces filtres. Les preuves détaillées peuvent néanmoins contenir des éléments administratifs, historiques, financiers ou de politique.",
+  "没有符合这些筛选条件的已测量加拿大结果。详细证据中仍可能有行政、历史、金融或政策背景。"
+ ],
+ "Selected observations retain their original periods; they are not a net Canadian gain or loss.": [
+  "Les observations sélectionnées conservent leur période d’origine; elles ne constituent pas un gain ou une perte nette pour le Canada.",
+  "所选观察保留原始参考期；它们不代表加拿大的净收益或净损失。"
+ ],
+ "No provincial exposure is established by the matching records.": [
+  "Les fiches correspondantes n’établissent aucune exposition provinciale.",
+  "匹配记录未证实省级敞口。"
+ ],
+ "No measured local outcome matches these filters.": [
+  "Aucun résultat local mesuré ne correspond à ces filtres.",
+  "没有符合这些筛选条件的已测量当地结果。"
+ ],
+ "Regional relevance does not allocate national figures to provinces. Project and employer results remain in their original scope.": [
+  "La pertinence régionale ne répartit pas les chiffres nationaux entre les provinces. Les résultats des projets et employeurs conservent leur portée d’origine.",
+  "地区相关性并不意味着将全国数据分配给各省。项目和雇主结果保留其原有范围。"
+ ],
+ "Outcome assessment pending": [
+  "Évaluation des résultats en attente",
+  "结果评估待完成"
+ ],
+ "A linked source changed after review. Check the source-review flags before relying on this assessment.": [
+  "Une source liée a changé après l’examen. Vérifiez les indicateurs de révision avant de vous appuyer sur cette évaluation.",
+  "关联来源在审阅后发生变化。使用此评估前，请核查来源审阅标记。"
+ ],
+ "The summaries follow the selected filters. Expand the evidence to compare matching units, periods and geography.": [
+  "Les résumés suivent les filtres sélectionnés. Développez les preuves pour comparer des unités, périodes et zones géographiques équivalentes.",
+  "摘要遵循所选筛选条件。展开证据以比较相同单位、时期及地理范围。"
+ ],
+ "Compare what changed, measured Canadian outcomes, provincial exposure and confidence across eight topics. Open the detailed evidence to check each source and its limits.": [
+  "Comparez les changements, les résultats canadiens mesurés, l’exposition provinciale et le degré de confiance dans huit thèmes. Ouvrez les preuves détaillées pour vérifier chaque source et ses limites.",
+  "围绕八个主题比较变化、已测量的加拿大结果、省级敞口和可信度。打开详细证据，核查每个来源及其局限。"
+ ],
  "Home": [
   "Accueil",
   "首页"

@@ -28,6 +28,19 @@ test('reference-period filtering does not turn 2024 defence observations into 20
  const past=M.records(data,s({region:'ON',topic:'security',period:'2024'}));assert(past.some(r=>r.id==='defence-share-ON'));
  const crop=M.records(data,s({region:'SK',period:'2026'}));assert(crop.some(r=>r.id==='canola-crush'));
 });
+test('comparison focus keeps measured outcomes, provincial scope and policy events distinct',()=>{
+ const before=JSON.stringify(data),vehicles=M.comparisonFocus(data,s({topic:'vehicles'}),'vehicles');
+ assert(vehicles.outcomes.some(r=>r.outcome==='pressure'));assert(vehicles.outcomes.every(r=>r.measurementType==='observed'));
+ assert(!vehicles.outcomes.some(r=>r.id==='ev-quota-permits'));assert(vehicles.observedRegions.includes('ON'));
+ const crop=M.comparisonFocus(data,s({region:'SK',topic:'agriculture',relationship:'Canada-China',metric:'shipments'}),'agriculture');
+ assert(crop.outcomes.some(r=>r.id==='canola-seed-china'));assert(crop.outcomes.every(r=>r.geography==='Canada'));
+ assert.deepEqual(crop.exposureRegions,['SK']);assert.deepEqual(crop.observedRegions,[]);
+ const finance=M.comparisonFocus(data,s({topic:'finance'}),'finance');assert.equal(finance.outcomes.length,0);assert(finance.records.some(r=>r.measurementType==='company_result'));
+ const historical=M.comparisonFocus(data,s({topic:'security',period:'2026'}),'security');assert.equal(historical.outcomes.length,0);assert.equal(historical.observedRegions.length,0);
+ const technology=M.comparisonFocus(data,s({topic:'technology'}),'technology');assert.equal(technology.outcomes.length,0);
+ const china=M.comparisonFocus(data,s({topic:'vehicles',relationship:'Canada-China',metric:'tariffs'}),'vehicles');assert(china.records.every(r=>r.metric==='tariffs'));assert(china.policies.every(p=>p.relationship==='Canada-China'));
+ assert.equal(JSON.stringify(data),before);
+});
 test('map outcome classification excludes stocks, forecasts, historical shares and broad labour changes',()=>{
  assert.equal(M.mapClass(data,s({layer:'observed'}),'ON'),'mixed');
  assert.equal(M.mapClass(data,s({layer:'observed',topic:'energy'}),'BC'),'operating');
@@ -78,6 +91,10 @@ test('rendered explorer loads its two assets, escapes records and retains filter
  const html=node('target').innerHTML;assert.equal((html.match(/data-impact-region=/g)||[]).length,26);assert(html.includes('&lt;img'));assert(!html.includes('<img src=x'));
  assert(html.includes('How confidently can we connect it?'));assert(html.includes('30%'));assert(html.includes('S07'));
  window.CanadaImpact.show('compare');assert.equal(window.CanadaImpact.state.region,'ON');assert.equal(window.CanadaImpact.state.topic,'vehicles');assert(node('canada-impact-root').innerHTML.includes('Canada–U.S.'));
+ const comparison=node('canada-impact-root').innerHTML;
+ for(const label of ['What changed?','Canadian outcomes','Provincial exposure','Confidence'])assert(comparison.includes('<dt>'+label+'</dt>'));
+ assert(comparison.includes('data-impact-comparison="vehicles"><summary>Detailed Evidence: Five Tests'));
+ assert(comparison.includes('No isolated causal effect established.'));assert(comparison.includes('&lt;img'));assert(!comparison.includes('<img src=x'));
  events.change({target:{matches:()=>true,dataset:{impactFilter:'region'},value:'BC'}});assert(location.hash.includes('region=BC'));
  window.BilateralHub={active:{canadian:true,relationship:'Canada-China'},target(view,extra){return 'canada-china?'+new URLSearchParams({...extra,view});}};
  location.hash='#canada-china?view=map&relationship=Canada-USA';window.CanadaImpact.mount('overview','target');
@@ -88,4 +105,5 @@ test('rendered explorer loads its two assets, escapes records and retains filter
  assert(node('target').innerHTML.includes('data-hub="canada-china?'));
 
 });
+
 

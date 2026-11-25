@@ -12,6 +12,15 @@ const hosts=JSON.parse(read('monitor/sources.json')).allowedHosts;
 const c={window:{}};vm.createContext(c);
 for(const file of ['research-register.js','dashboard-guide.js'])vm.runInContext(read('app/'+file),c);
 const guide=c.window.PolicyGuide;
+test('comparison guidance is a collapsed panel and the old standalone page is retired',()=>{
+ const html=guide.context('comparative');
+ assert(html.startsWith('<details class="guide-context impact-compare-help"><summary>How to Compare</summary>'));
+ assert(!html.includes(' open'));assert(html.includes('Compare the same product, period, unit and geography'));
+ assert(html.includes('A reliable source can establish an observation without proving'));
+ assert.equal(guide.page('comparative',{}),'');
+ assert(guide.context('policy').includes(' open'));
+ for(const language of ['fr','zh-Hans'])assert.notEqual(I18n.t('How to Compare',language),'How to Compare');
+});
 
 test('new evidence keeps provenance, bilingual translations and status distinctions',()=>{
  const ids=new Set(),topics=new Set(ca.assessments.map(x=>x.id));
@@ -41,3 +50,4 @@ test('policy and evidence views separate interpretation, geography and partner s
  assert(guide.register('evidence',{topic:'energy'}).includes('canada-september-energy'));
  assert(guide.register('evidence',{topic:'agriculture'}).includes('canada-china-food-security'));
 });
+

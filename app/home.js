@@ -6,7 +6,7 @@
  const guide=window.PolicyGuide,L=guide.labels;
  const BM=window.BilateralModel;
  const primaryTabs=[['home','Home'],...Object.values(BM.pairs).map(p=>[p.id,p.title]),['stronger-canada','Stronger Canada'],['research-search',L.search],['your-llm',L.llm],['daily-updates','Daily Updates']];
- const homeMenu=[['categories',L.categories],['countries',L.countries],['comparative',L.comparative]];
+ const homeMenu=[['categories',L.categories],['countries',L.countries]];
  const compareMenu=[['findings-trends',L.insights],['evidence-methods','Evidence & Methods'],['relationship-explorer',L.relationship]];
  const menus={home:{label:L.homeMenu,items:homeMenu}};
  for(const p of Object.values(BM.pairs))menus[p.id]={label:p.title,items:[...BM.views,...BM.mapViews(p.id)].map(([view,label])=>[BM.target(p,view),label])};
@@ -159,6 +159,7 @@
  function evidencePage(){window.CanadaImpact.show('evidence');}
 
  function route(focus=false){let id=routeId();
+  if(id==='comparative'){const query=location.hash.indexOf('?');history.replaceState(null,'','#compare-topics'+(query<0?'':location.hash.slice(query)));id='compare-topics';}
   if(BM.pairs[id])window.BilateralHub.show(id);
   else {window.BilateralHub?.clear();
   if(id==='home')root.innerHTML=homeHTML();

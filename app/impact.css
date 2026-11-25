@@ -14,3 +14,19 @@
 
 
 .impact-region-swatch,.impact-map-selection{display:flex;align-items:center;gap:8px}.impact-region-swatch i,.impact-map-selection>i{flex:0 0 16px;width:16px;height:16px;border:1px solid #526e7e;border-radius:3px}.impact-map-selection{padding:12px;background:#f0f5f8;border:1px solid #c8d9e2;border-radius:6px;font-size:12px;flex-wrap:wrap}.impact-canada-map .impact-province{opacity:1}.impact-legend i,.impact-region-swatch i,.impact-map-selection>i{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+
+/* A short Canadian assessment leads; supporting tests stay expandable. */
+.impact-comparison-focus{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:18px 0}
+.impact-comparison-focus>div{min-width:0;padding:18px 20px;background:var(--office-paper,#fffcf6);border:1px solid var(--office-line,#d6c7ac);border-top:3px solid var(--office-ink-gold,#805a18);border-radius:8px;overflow-wrap:anywhere}
+.impact-comparison-focus dt{font-size:16px;font-weight:650;color:var(--office-navy,#122b49);margin:0 0 12px}
+.impact-comparison-focus dd{margin:0;font-size:14px;line-height:1.7}
+.impact-comparison-focus dd p{margin:0 0 13px}.impact-comparison-focus dd p:last-child{margin-bottom:0}
+.impact-comparison-focus .impact-focus-meta{display:block;font-size:12px;color:var(--office-muted,#625e55);margin:5px 0 7px;line-height:1.6}
+.impact-comparison-focus .impact-focus-note{font-size:12px;color:var(--office-muted,#625e55);border-top:1px solid var(--office-line,#d6c7ac);padding-top:10px}
+.impact-comparison-evidence{margin:16px 0 25px;border:1px solid var(--office-line,#d6c7ac);border-radius:8px;background:var(--office-paper,#fffcf6);min-width:0}
+.impact-comparison-evidence>summary{padding:13px 16px;min-height:44px;cursor:pointer;font-weight:600;color:var(--office-navy,#122b49)}
+.impact-comparison-evidence>.impact-comparison-scroll{margin:0 12px 12px}
+.impact-compare-guidance{margin:0;padding:0 16px 16px;line-height:1.7}
+@media(max-width:720px){.impact-comparison-focus{grid-template-columns:1fr;gap:12px}.impact-comparison-focus>div{padding:16px}.impact-comparison-evidence>.impact-comparison-scroll{margin:0 8px 8px}}
+@media print{.impact-comparison-focus{display:block}.impact-comparison-focus>div{break-inside:avoid;margin:10px 0;padding:10px;background:white}.impact-comparison-focus dd{font-size:10pt}.impact-comparison-evidence{border:0}.impact-comparison-evidence>.impact-comparison-scroll{margin:0}}

@@ -34,9 +34,24 @@
   const checks=feed?.assessmentReview?.dataVersion===data.version?feed.assessmentReview.checks||[]:[];
   return record.sourceIds.map(id=>({source:data.sources[id],check:checks.find(c=>c.sourceId===id)||null}));
  }
+ function comparisonFocus(data,state,topicId){
+  const topic=data.assessments.find(t=>t.id===topicId),scope={...state,topic:topicId};
+  const ids=new Set((topic?.criteria||[]).filter(c=>state.metric==='all'||c.metric===state.metric).flatMap(c=>c.recordIds));
+  const matched=data.records.filter(r=>ids.has(r.id)&&recordMatches(r,scope));
+  const measured=matched.filter(r=>r.measurementType==='observed').sort((a,b)=>(b.periodEnd||'').localeCompare(a.periodEnd||''));
+  const outcomes=[];
+  for(const relationship of state.relationship==='all'?['Canada-China','Canada-USA']:[state.relationship]){const row=measured.find(r=>r.relationships.includes(relationship));if(row&&!outcomes.includes(row))outcomes.push(row);}
+  const pressure=measured.find(r=>r.outcome==='pressure');if(pressure&&!outcomes.includes(pressure))outcomes.push(pressure);
+  for(const row of measured){if(outcomes.length>=2)break;if(!outcomes.includes(row))outcomes.push(row);}
+  const events=policies(data,scope),relevant=[...matched,...events];
+  const exposureRegions=state.region==='CA'?Object.keys(data.regions).filter(code=>relevant.some(r=>r.regions.includes(code))):relevant.some(r=>r.regions.includes(state.region))?[state.region]:[];
+  const observedRegions=exposureRegions.filter(code=>matched.some(r=>local(r,code)));
+  return {records:matched,outcomes,policies:events.slice(0,2),exposureRegions,observedRegions};
+ }
  function displayedValue(record){return record.value===null?record.unit:new Intl.NumberFormat('en-CA',{maximumFractionDigits:3}).format(record.value)+' '+record.unit;}
- const api={defaults,kinds,attribution,stages,years,normalize,recordMatches,records,policies,local,mapClass,sourceHealth,displayedValue};
+ const api={defaults,kinds,attribution,stages,years,normalize,recordMatches,records,policies,local,mapClass,sourceHealth,comparisonFocus,displayedValue};
  if(typeof module!=='undefined'&&module.exports)module.exports=api;
  if(global)global.ImpactModel=api;
 })(typeof window==='undefined'?null:window);
+
 
