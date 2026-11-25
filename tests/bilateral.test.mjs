@@ -59,7 +59,7 @@ async function setup(){
  const window={addEventListener(k,f){events[k]=f;},DashboardI18n:{get language(){return language.value;},get locale(){return language.value==='fr'?'fr-CA':language.value==='zh-Hans'?'zh-CN':'en-CA';},t(s){return I18n.t(s,language.value);},searchQuery:I18n.searchQuery},CanadaImpact:{mount(view,id){mounts.push(['canada',view,id]);}},USStates:{mount(id,config){mounts.push(['states',id,config]);}},showExplorer(){mounts.push(['relationship']);}};
  const ctx={window,document,location,history:{replaceState(a,b,url){location.hash=url;}},URL,URLSearchParams,Intl,Number,Date,AbortSignal,fetch:async file=>{if(outage)throw Error('offline');return {ok:true,json:async()=>JSON.parse(read(file))};}};
  window.document=document;vm.createContext(ctx);
- for(const p of ['research-register.js','dashboard-guide.js','explorer-inventory.js','explorer-catalog.js','regional-trade-model.js','us-trade-model.js','impact-model.js','policy-narrative.js','insights-model.js','source-media-data.js','source-media.js','bilateral-copy.js','bilateral-model.js','bilateral-hub.js'])vm.runInContext(read(p),ctx,{filename:p});
+ for(const p of ['research-register.js','dashboard-guide.js','explorer-inventory.js','explorer-catalog.js','regional-trade-model.js','us-trade-model.js','impact-model.js','policy-narrative.js','insights-model.js','source-media-data.js','source-media.js','bilateral-copy.js','bilateral-model.js','canada-china-visuals.js','bilateral-hub.js'])vm.runInContext(read(p),ctx,{filename:p});
  window.BilateralHub.show('canada-china');await window.BilateralHub.ready;
  const go=(pair,view='overview',params={})=>{location.hash='#'+B.target(pair,view,params);window.BilateralHub.show(pair);return node('root').innerHTML;};
  return {node,window,go,mounts,language,events,handlers,setOutage(){outage=true;}};
@@ -110,5 +110,54 @@ test('U.S.–China shows original source media, Canadian memos and expandable pr
  assert(record?.includes('white-house-trilateral-video-2026'));assert(record.indexOf('<iframe')<record.indexOf('class="bilateral-source-details"'));assert(record.includes('Source, dates and evidence'));assert(record.includes('2026-11-24'));assert(record.includes('not establish a signed bilateral commercial MOU'));
  assert(!go('canada-china').includes('us-china-tariff-chart'));assert(!go('canada-us').includes('white-house-trilateral-video-2026'));
  go('us-china');for(const lang of ['fr','zh-Hans']){language.value=lang;events['dashboard-language-changed']();assert(node('root').innerHTML.includes(I18n.t('U.S.–China source visuals and Canadian implications',lang)));assert(node('root').innerHTML.includes(I18n.t('Why it matters to Canada',lang)));}
+});
+
+test('Canada–China retains a source briefing and filtered inline visuals across every section and all eight sectors',async()=>{
+ const {go,language,events,node,window,handlers}=await setup();
+ for(const [view] of [...B.views,...B.mapViews('canada-china')]){
+  const html=go('canada-china',view);
+  assert(html.includes('What Changed and Why It Matters'),view);
+  assert(html.includes('Canada–China Source Visuals and Canadian Implications'),view);
+  assert(html.includes('canada-china-apec-video-2026'),view);
+  assert.equal((html.match(/id="bilateral-topic"/g)||[]).length,1,view);
+  assert.equal((html.match(/id="bilateral-year"/g)||[]).length,1,view);
+  assert(html.indexOf('id="cc-visuals"')>html.indexOf('id="bilateral-body"'),view+' survives embedded map and tracker mounts');
+  assert(!html.includes('us-china-tariff-chart'));assert(!html.includes('autoplay='));
+ }
+ for(const topic of catalog.topics){
+  const html=go('canada-china','compare',{topic:topic.id,year:'2026'});
+  assert(html.includes('Why It Matters to Canada'));assert(html.includes('Official APEC media remarks, November 2026'));
+  assert(!html.includes('statcan-fdi-2025'),'reference year does not relabel a 2025 stock as 2026');
+ }
+ const investment=go('canada-china','overview',{topic:'investment',year:'2025'});
+ assert(investment.includes('statcan-fdi-2025'));assert(!investment.includes('canada-china-apec-video-2026'));
+ const past=go('canada-china','policy',{topic:'vehicles',year:'2024'});
+ assert(past.includes('No verified source visual matches'));assert(!past.includes('cc-tariff-product'));
+ assert(!past.includes('March implementation reopened'));
+ const record=go('canada-china','evidence',{topic:'investment',year:'2025'}).split('data-bilateral-record="ca-fdi-stock-china"')[1]?.split('</div></details>')[0];
+ assert(record?.includes('statcan-fdi-2025'));assert(record.indexOf('<iframe')<record.indexOf('class="bilateral-source-details"'));
+ go('canada-china','overview',{topic:'agriculture',year:'2026'});
+ for(const lang of ['fr','zh-Hans']){language.value=lang;events['dashboard-language-changed']();assert(node('root').innerHTML.includes(I18n.t('What Changed and Why It Matters',lang)));assert.notEqual(I18n.t('Canada–China Interactive Tariff Comparison',lang),'Canada–China Interactive Tariff Comparison');}
+ assert(window.BilateralHub.target('relationship',{topic:'energy'}).includes('year=2026'));
+ language.value='en';go('canada-china','relationship',{topic:'agriculture',year:'2026'});
+ handlers.change({target:{id:'lab-topic',value:'energy'}});
+ assert.equal(window.BilateralHub.state.topic,'energy');assert(node('root').innerHTML.includes('Pacific LNG exports began in 2025'));
+ assert(!node('root').innerHTML.includes('id="cc-tariff-product"'));assert(node('root').innerHTML.includes('topic=energy&amp;year=2026'));
+
+});
+
+test('Canada–China tariff comparison preserves rate basis, quota limits, effective dates and the future implementation boundary',async()=>{
+ const {go,window}=await setup(),chart=window.CanadaChinaVisuals;
+ let html=go('canada-china','products',{topic:'agriculture',year:'2026'});
+ assert(html.includes('84.8%'));assert(html.includes('14.9%'));assert(html.includes('Combined applied tariff'));
+ chart.selectProduct('canola-meal');html=chart.tariff(B.normalize('canada-china',{topic:'agriculture',year:'2026'}));
+ assert(html.includes('100%'));assert(html.includes('0%'));assert(html.includes('Additional anti-discrimination tariff'));assert(html.includes('31 December 2028'));
+ assert(html.includes('data-bilateral-detail="cc-tariff"'));assert(html.indexOf('role="img"')<html.indexOf('<details'));
+ chart.selectProduct('ev');html=chart.tariff(B.normalize('canada-china',{topic:'vehicles',year:'2026'}));
+ assert(html.includes('Additional Canadian surtax'));assert(html.includes('6.1% MFN tariff'));assert(html.includes('49,000'));assert(html.includes('not describe out-of-quota treatment'));
+ assert(!html.includes('14.9%'));assert(html.includes('prospective rates are not plotted as implemented 2026 treatment'));
+ assert.equal(chart.tariff(B.normalize('canada-china',{topic:'finance',year:'2026'})),'');
+ assert.equal(chart.tariff(B.normalize('canada-china',{year:'2025'})),'');
+ assert.equal(chart.selectProduct('<script>rate</script>'),false);
 });
 
