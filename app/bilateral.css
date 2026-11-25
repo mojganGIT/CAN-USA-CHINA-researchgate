@@ -9,10 +9,10 @@ html{scroll-padding-bottom:calc(var(--subscription-dock-height) + 24px)}
 #subscription-dock .dock-subscribe{gap:24px;background:#c9a452;color:#102a43;padding:10px 18px;border-radius:7px;font-weight:750;text-decoration:none}
 #subscription-dock .dock-subscribe:hover{background:#e1bd70}#subscription-dock a:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .weekly-page-sections{display:grid;gap:24px}
-.hub-nav-menu>ul{max-height:calc(100dvh - var(--dashboard-nav-height,100px) - var(--subscription-dock-height) - 24px);overflow-y:auto;overscroll-behavior:contain}
+.hub-nav-panel{max-height:calc(100dvh - var(--dashboard-nav-height,100px) - var(--subscription-dock-height) - 24px);overflow-y:auto;overscroll-behavior:contain}
 .hub-topic-dropdown{border-top:1px solid #d8cbb0;margin-top:7px;padding-top:6px}
 .hub-topic-dropdown>summary{cursor:pointer;padding:9px 12px;color:#183247;font-weight:700}
-.hub-nav-menu .hub-topic-dropdown>ul{position:static;display:block;box-shadow:none;border:0;background:transparent;min-width:0;width:auto;padding:0 0 0 10px;max-height:none}
+.hub-nav-panel .hub-topic-dropdown>ul{position:static;display:block;box-shadow:none;border:0;background:transparent;min-width:0;width:auto;padding:0 0 0 10px;max-height:none;list-style:none;margin:0}
 /* Relationship headers use the Home welcome panel's paper, navy and gold theme. */
 .bilateral-heading{padding:30px 34px;background:var(--office-paper,#fffcf6);color:var(--office-navy,#122b49);border:1px solid var(--office-line,#d6c7ac);border-top:3px solid var(--office-gold,#d6af60);border-radius:13px;box-shadow:none}
 .bilateral-heading h2{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.15;margin:8px 0 14px;color:var(--office-navy,#122b49)}

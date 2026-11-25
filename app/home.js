@@ -84,11 +84,15 @@
   document.documentElement?.style?.setProperty('--dashboard-nav-height',Math.ceil(rect.height)+'px');
   document.documentElement?.style?.setProperty('--dashboard-nav-bottom',Math.ceil(rect.bottom)+'px');
   const viewport=document.documentElement?.clientWidth||window.innerWidth;
-  if(!Number.isFinite(viewport))return;
-  for(const menu of navigation.querySelectorAll('details.hub-nav-menu[open]')){
-   const width=menu.querySelector('ul')?.getBoundingClientRect?.().width||315;
+  for(const menu of navigation.querySelectorAll('details.hub-nav-menu')){
+   const summary=menu.querySelector('summary'),panel=document.getElementById(summary?.getAttribute('aria-controls'));
+   if(!panel)continue;
+   summary.setAttribute('aria-expanded',String(menu.open));
+   panel.hidden=!menu.open;
+   if(!menu.open||!Number.isFinite(viewport))continue;
+   const width=panel.getBoundingClientRect?.().width||315;
    const left=menu.parentElement?.getBoundingClientRect?.().left||8;
-   menu.style.setProperty('--dashboard-menu-left',Math.round(Math.max(8,Math.min(left,viewport-width-8)))+'px');
+   panel.style.setProperty('--dashboard-menu-left',Math.round(Math.max(8,Math.min(left,viewport-width-8)))+'px');
   }
  }
  function updateSubscriptionDock(){
@@ -112,21 +116,26 @@
    if(!BM.pairs[id])return true;
    const test=new URLSearchParams(q);return (test.get('view')||'overview')===(params.get('view')||'overview')&&!test.get('topic')&&(!params.get('topic')||params.get('topic')==='all');
   };
-  navigation.innerHTML=`<nav class="hub-main-nav" aria-label="Main dashboard navigation">${primaryTabs.map(([id,label])=>{
+  const panels=[];
+  navigation.innerHTML=`<nav aria-label="Main dashboard navigation"><div class="hub-main-nav">${primaryTabs.map(([id,label])=>{
    const menu=menus[id],top=navLink(id,label,id===active?(BM.pairs[id]?'location':'page'):legacyParents[active]===id?'location':'');
    if(!menu)return top;
    const topics=BM.pairs[id]?`<li><details class="hub-topic-dropdown"><summary>Eight topic comparisons</summary><ul>${C.topics.map(t=>'<li>'+navLink(BM.target(id,'compare',{topic:t.id}),t.name,active===id&&params.get('view')==='compare'&&params.get('topic')===t.id?'page':'')+'</li>').join('')}</ul></details></li>`:'';
-   return `<div class="hub-nav-group"${id==='daily-updates'?' data-daily-navigation':''} ${parent===id?'data-section-active':''}>${top}<details class="hub-nav-menu"><summary aria-label="${E(menu.label)}"><span aria-hidden="true">▾</span></summary><ul>${menu.items.map(([key,title])=>'<li>'+navLink(key,title,currentItem(key)?(id==='daily-updates'?'location':'page'):'')+'</li>').join('')}${topics}</ul></details></div>`;
-  }).join('')}</nav>`;
+   const panelId='hub-menu-'+id,triggerId=panelId+'-trigger';
+   panels.push(`<ul class="hub-nav-panel" id="${E(panelId)}" aria-labelledby="${E(triggerId)}"${id==='daily-updates'?' data-daily-navigation':''} hidden>${menu.items.map(([key,title])=>'<li>'+navLink(key,title,currentItem(key)?(id==='daily-updates'?'location':'page'):'')+'</li>').join('')}${topics}</ul>`);
+   return `<div class="hub-nav-group"${id==='daily-updates'?' data-daily-navigation':''} ${parent===id?'data-section-active':''}>${top}<details class="hub-nav-menu"><summary id="${E(triggerId)}" role="button" aria-expanded="false" aria-controls="${E(panelId)}" aria-label="${E(menu.label)}"><span aria-hidden="true">▾</span></summary></details></div>`;
+  }).join('')}</div>${panels.join('')}</nav>`;
   updateSubscriptionDock();updateTitle();updateNavigationOffset();
  }
  function closeMenus(except=null){
   for(const menu of navigation.querySelectorAll('details.hub-nav-menu[open]'))if(menu!==except)menu.open=false;
+  updateNavigationOffset();
  }
- navigation.addEventListener('click',e=>{const summary=e.target.closest('.hub-nav-menu > summary');if(summary)closeMenus(summary.parentElement);});
+ navigation.addEventListener('click',e=>{const summary=e.target.closest('.hub-nav-menu > summary');if(!summary)return;e.preventDefault();const menu=summary.parentElement,open=!menu.open;closeMenus(menu);menu.open=open;updateNavigationOffset();});
+ navigation.addEventListener('keydown',e=>{const summary=e.target.closest('.hub-nav-menu > summary');if(!summary||!['ArrowDown','ArrowUp','Tab'].includes(e.key)||e.key==='Tab'&&(e.shiftKey||!summary.parentElement.open))return;const menu=summary.parentElement,panel=document.getElementById(summary.getAttribute('aria-controls'));if(!panel)return;e.preventDefault();closeMenus(menu);menu.open=true;updateNavigationOffset();const links=panel.querySelectorAll('a[href]');(e.key==='ArrowUp'?links[links.length-1]:links[0])?.focus();});
  navigation.addEventListener('toggle',e=>{if(e.target.classList?.contains('hub-nav-menu'))updateNavigationOffset();},true);
  navigation.addEventListener('scroll',updateNavigationOffset,true);
- document.addEventListener('click',e=>{if(!e.target.closest('.hub-nav-menu'))closeMenus();});
+ document.addEventListener('click',e=>{if(!e.target.closest('.hub-nav-menu, .hub-nav-panel'))closeMenus();});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'){const menu=navigation.querySelector('details.hub-nav-menu[open]');if(menu){closeMenus();menu.querySelector('summary').focus();}}});
  function researchToolsPage(){root.innerHTML=`<div class="wrap hub-home"><div class="hub-page-heading"><p class="hub-eyebrow">RESEARCH TOOLS</p><h2>Choose a research tool.</h2><p>Start with a question, follow the relationship and open its evidence. Each tool supports a different step in preparing a Canadian policy brief.</p></div><div class="hub-research-grid">${researchTools.map(([id,title,description])=>`<a class="hub-research-card" href="#${id}" data-hub="${id}"><h3>${E(title)} <span aria-hidden="true">→</span></h3><p>${E(description)}</p></a>`).join('')}</div></div>`;}
  function executiveSummaryHTML(){

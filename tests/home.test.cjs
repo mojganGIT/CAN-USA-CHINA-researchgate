@@ -1,7 +1,7 @@
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
-const dir=path.join(__dirname,'../app'),nodes=new Map(),events=new Map();
+const dir=path.join(__dirname,'../app'),nodes=new Map(),events=new Map(),documentListeners=new Map();
 function node(id){if(!nodes.has(id))nodes.set(id,{innerHTML:'',value:'',open:false,listeners:{},addEventListener(type,fn){this.listeners[type]=fn;},querySelector(s){return node(id+' '+s);},querySelectorAll(){return[];},closest(){return node('panel');},insertAdjacentHTML(_,html){this.innerHTML+=html;},focus(){},scrollIntoView(){},setAttribute(){},append(){},showModal(){this.open=true;},remove(){}});return nodes.get(id);}
-const location={hash:'',pathname:'/',search:'',href:'https://dashboard.test/',origin:'https://dashboard.test'},document={title:'',getElementById:node,querySelector:s=>node(s),querySelectorAll:()=>[],addEventListener(type,fn){events.set(type,fn);}};
+const location={hash:'',pathname:'/',search:'',href:'https://dashboard.test/',origin:'https://dashboard.test'},document={title:'',getElementById:node,querySelector:s=>node(s),querySelectorAll:()=>[],addEventListener(type,fn){events.set(type,fn);if(!documentListeners.has(type))documentListeners.set(type,[]);documentListeners.get(type).push(fn);}};
 const window={document,addEventListener(type,fn){events.set(type,fn);}};
 const ctx={window,document,location,history:{replaceState(a,b,url){location.hash=url.startsWith('#')?url:'';},pushState(a,b,url){location.hash=url;}},URL,URLSearchParams,Intl,Date,console};vm.createContext(ctx);
 for(const file of ['bilateral-model.js','research-register.js','dashboard-guide.js','master-data.js','app.js','explorer-inventory.js','explorer-catalog.js','home-briefing.js','home-position.js'])vm.runInContext(fs.readFileSync(path.join(dir,file),'utf8'),ctx,{filename:file});
@@ -32,6 +32,32 @@ location.hash='#comparative';hub.route();assert.equal(location.hash,'#compare-to
 hub.navigate('home');
 
 assert.equal((initialNav.match(/<details class="hub-nav-menu">/g)||[]).length,5);
+// A phone tap must expose its own panel, keep other menus closed and retain usable focus.
+{
+ const nav=node('site-navigation'),styles=new Map();
+ const makeMenu=(id,left)=>{
+  const panel=node('hub-menu-'+id),summary={attributes:{'aria-controls':'hub-menu-'+id},getAttribute(k){return this.attributes[k];},setAttribute(k,v){this.attributes[k]=v;},focus(){this.focused=true;}},menu={open:false,querySelector(){return summary;},parentElement:{getBoundingClientRect(){return {left};}}};summary.parentElement=menu;
+  const links=[{focus(){this.focused=true;}},{focus(){this.focused=true;}}];
+  panel.hidden=true;panel.getBoundingClientRect=()=>({width:290});panel.style={setProperty(k,v){styles.set(id+':'+k,v);}};panel.querySelectorAll=()=>links;
+  return {menu,summary,panel,links,target:{closest(selector){return selector==='.hub-nav-menu > summary'?summary:selector==='.hub-nav-menu, .hub-nav-panel'?menu:null;}}};
+ };
+ const home=makeMenu('home',8),daily=makeMenu('daily-updates',270),menus=[home,daily];
+ const all=nav.querySelectorAll,one=nav.querySelector;
+ nav.querySelectorAll=selector=>menus.filter(x=>!selector.includes('[open]')||x.menu.open).map(x=>x.menu);
+ nav.querySelector=selector=>selector.includes('[open]')?menus.find(x=>x.menu.open)?.menu:null;
+ nav.getBoundingClientRect=()=>({height:64,bottom:90});document.documentElement={clientWidth:320,style:{setProperty(){}}};
+ const click=entry=>{let prevented=false;const e={target:entry.target,preventDefault(){prevented=true;}};nav.listeners.click(e);for(const fn of documentListeners.get('click'))fn(e);assert(prevented);};
+ click(home);assert(home.menu.open);assert(!home.panel.hidden);assert.equal(home.summary.attributes['aria-expanded'],'true');
+ click(home);assert(!home.menu.open);assert(home.panel.hidden);assert.equal(home.summary.attributes['aria-expanded'],'false');
+ click(home);click(daily);assert(!home.menu.open);assert(home.panel.hidden);assert(daily.menu.open);assert(!daily.panel.hidden);assert.equal(styles.get('daily-updates:--dashboard-menu-left'),'22px');
+ const nested={closest(selector){return selector==='.hub-nav-menu, .hub-nav-panel'?daily.panel:null;}};for(const fn of documentListeners.get('click'))fn({target:nested});assert(daily.menu.open);
+ for(const fn of documentListeners.get('keydown')||[])fn({key:'Escape'});assert(!daily.menu.open);assert(daily.panel.hidden);assert(daily.summary.focused);
+ nav.listeners.keydown({key:'ArrowDown',target:home.target,preventDefault(){}});assert(home.menu.open);assert(home.links[0].focused);
+ for(const fn of documentListeners.get('click'))fn({target:{closest(){return null;}}});assert(!home.menu.open);assert(home.panel.hidden);
+ nav.querySelectorAll=all;nav.querySelector=one;delete nav.getBoundingClientRect;delete document.documentElement;
+ for(const entry of menus)delete entry.panel.getBoundingClientRect;
+}
+for(const id of ['home','canada-china','us-china','us-canada','daily-updates']){assert(initialNav.includes('role="button" aria-expanded="false" aria-controls="hub-menu-'+id+'"'));assert(initialNav.includes('class="hub-nav-panel" id="hub-menu-'+id+'"'));}
 for(const [id,label]of Object.entries(window.DailyBriefing.sections))assert(initialNav.includes('data-hub="daily-updates?section='+id+'" data-daily-section="'+id+'">'+label+'</a>'));
 assert(!initialNav.includes('data-hub="research-tools"'));
 
