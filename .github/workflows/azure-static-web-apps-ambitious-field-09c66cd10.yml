@@ -38,6 +38,8 @@ jobs:
         run: |
           node scripts/validate-evidence.mjs
           npm test
+      - name: Build the Home overview from the shared statistical vintage
+        run: node scripts/build-home-position.mjs
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'

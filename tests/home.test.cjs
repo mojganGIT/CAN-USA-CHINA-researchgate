@@ -2,9 +2,10 @@ const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),asse
 const dir=path.join(__dirname,'../app'),nodes=new Map(),events=new Map();
 function node(id){if(!nodes.has(id))nodes.set(id,{innerHTML:'',value:'',open:false,listeners:{},addEventListener(type,fn){this.listeners[type]=fn;},querySelector(s){return node(id+' '+s);},querySelectorAll(){return[];},closest(){return node('panel');},insertAdjacentHTML(_,html){this.innerHTML+=html;},focus(){},scrollIntoView(){},setAttribute(){},append(){},showModal(){this.open=true;},remove(){}});return nodes.get(id);}
 const location={hash:'',pathname:'/',search:'',href:'https://dashboard.test/',origin:'https://dashboard.test'},document={title:'',getElementById:node,querySelector:s=>node(s),querySelectorAll:()=>[],addEventListener(type,fn){events.set(type,fn);}};
-const window={addEventListener(type,fn){events.set(type,fn);}};
+const window={document,addEventListener(type,fn){events.set(type,fn);}};
 const ctx={window,document,location,history:{replaceState(a,b,url){location.hash=url.startsWith('#')?url:'';},pushState(a,b,url){location.hash=url;}},URL,URLSearchParams,Intl,Date,console};vm.createContext(ctx);
-for(const file of ['bilateral-model.js','research-register.js','dashboard-guide.js','master-data.js','app.js','explorer-inventory.js','explorer-catalog.js','home-briefing.js'])vm.runInContext(fs.readFileSync(path.join(dir,file),'utf8'),ctx,{filename:file});
+for(const file of ['bilateral-model.js','research-register.js','dashboard-guide.js','master-data.js','app.js','explorer-inventory.js','explorer-catalog.js','home-briefing.js','home-position.js'])vm.runInContext(fs.readFileSync(path.join(dir,file),'utf8'),ctx,{filename:file});
+window.HomePosition.mount=()=>{};
 const original=JSON.stringify(window.POLICY_MASTER.executiveSummary);
 const feed={lastSuccessfulRun:new Date().toISOString(),lastRunStatus:'partial',sourcesChecked:40,sourceFailures:[{url:'https://www.canada.ca/moved',error:'HTTP 404'}],aiEnabled:false,scheduleUTC:'11:17 daily',changes:[{id:'auto-test',title:'New EV customs source <script>x</script>',url:'https://www.canada.ca/test',source:'Canada',detectedAt:new Date().toISOString(),topics:['vehicles'],relationships:['Canada-USA'],changeType:'new_source'}]};
 window.PolicyLive={feed,show(view){if(view==='llm')location.hash='#your-llm';else if(!location.hash.startsWith('#daily-updates'))location.hash='#daily-updates';node('root').innerHTML='LIVE VIEW '+view;}};
@@ -36,15 +37,15 @@ assert(!initialNav.includes('data-hub="research-tools"'));
 
 const initialHome=hub.homeHTML();
 assert(initialHome.includes('class="hub-welcome"'));assert(initialHome.includes('Explore Canada’s policy choices.'));
-assert(initialHome.includes('Where would you like to start?'));
+assert(initialHome.includes('Canada’s Strategic Position at a Glance'));
 assert(initialHome.includes(window.HomeBriefing.executiveQuestions[0][1]));assert(initialHome.includes(window.HomeBriefing.executiveQuestions[1][1]));
-assert(initialHome.indexOf('id="hub-executive-title"')<initialHome.indexOf('id="hub-weekly"'));assert(initialHome.indexOf('id="hub-weekly"')<initialHome.indexOf('Where would you like to start?'));
+assert(initialHome.indexOf('id="hub-executive-title"')<initialHome.indexOf('id="hub-weekly"'));assert(initialHome.indexOf('id="hub-weekly"')<initialHome.indexOf('Canada’s Strategic Position at a Glance'));
 assert.equal((initialHome.match(/class="hub-tool"/g)||[]).length,3);
 assert.equal((initialHome.match(/id="hub-live-status"/g)||[]).length,1);
 assert.equal((initialHome.match(/class="hub-topic"/g)||[]).length,0);
 assert(!initialHome.includes('hub-region-explorer'));assert(!initialHome.includes('<table'));assert(!initialHome.includes('<svg'));assert.equal(mounts.length,0);
-for(const [id]of hub.tools)assert(initialHome.includes('data-hub="'+id+'"'));
-assert(initialHome.includes('data-hub="executive-summary"'));assert(!initialHome.includes('data-hub="canada-implications"'));assert(!initialHome.includes('Explore the Canada map'));
+for(const [id]of hub.tools)assert(initialHome.includes('data-hub="'+id+'?view=overview'));
+assert(initialHome.includes('data-hub="executive-summary"'));assert(initialHome.includes('data-hub="canada-implications?'));assert.equal((initialHome.match(/data-home-sector=/g)||[]).length,8);
 assert(node('site-navigation').innerHTML.includes('data-hub="home" aria-current="page">Home</a>'));
 for(const id of Object.keys(window.DailyBriefing.sections)){hub.navigate('daily-updates?section='+id);assert.equal(location.hash,'#daily-updates?section='+id);assert.equal(dailyJumps.at(-1),id);assert(node('site-navigation').innerHTML.includes('data-daily-section="'+id+'" aria-current="location"'));}
 hub.navigate('home');
@@ -92,6 +93,6 @@ input.value='龙虾';window.ask();assert(node('ans').innerHTML.includes('data-gu
 
 const index=fs.readFileSync(path.join(dir,'index.html'),'utf8');assert(index.includes('id="site-navigation"'));assert(index.includes('id="root" tabindex="-1"'));assert(index.includes('home.js'));assert(index.includes('home.css'));
 const live=fs.readFileSync(path.join(dir,'agent-tools.js'),'utf8');assert(live.includes('5*60*1000'));assert(live.includes("cache:'no-store'"));assert(live.includes("'visibilitychange'"));assert(!/localStorage|sessionStorage/.test(live));
-console.log(JSON.stringify({passed:true,navigationTabs:hub.tabs.length,primaryTabs:8,dropdowns:5,homeSections:5,topicViews:8,routes:'all home destinations and seven daily briefing deep links',daily:'home leads with the executive overview and dated weekly briefing, with three source-title rows and compact monitoring status',preservation:'curated executive assessment and 22 original records retained'}));
+console.log(JSON.stringify({passed:true,navigationTabs:hub.tabs.length,primaryTabs:8,dropdowns:5,homeSections:5,topicViews:8,routes:'all home destinations and seven daily briefing deep links',daily:'home leads with the executive overview and dated weekly briefing, with a strategic infographic, three source-title rows and compact monitoring status',preservation:'curated executive assessment and 22 original records retained'}));
 
 

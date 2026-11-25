@@ -1,4 +1,160 @@
 (function(g){const data={
+ "Canada’s Strategic Position at a Glance": [
+  "La position stratégique du Canada en un coup d’œil",
+  "加拿大的战略地位一览"
+ ],
+ "RELATIONSHIPS · MARKETS · REGIONS · SECTORS": [
+  "RELATIONS · MARCHÉS · RÉGIONS · SECTEURS",
+  "关系 · 市场 · 地区 · 行业"
+ ],
+ "Canada’s room to act depends on its buyers, production links and regional exposure. Start with the relationships, compare export concentration, then follow a province or sector to its evidence.": [
+  "La marge de manœuvre du Canada dépend de ses acheteurs, de ses liens de production et de son exposition régionale. Examinez les relations, comparez la concentration des exportations, puis consultez les preuves d’une province ou d’un secteur.",
+  "加拿大的行动空间取决于买家、生产联系及地区敞口。先了解各组关系，比较出口集中度，再查看各省或行业的证据。"
+ ],
+ "Integrated production and the largest export market.": [
+  "Une production intégrée et le principal marché d’exportation.",
+  "一体化生产及最大的出口市场。"
+ ],
+ "Alternative buyers, supply inputs and market-access choices.": [
+  "D’autres acheteurs, des intrants et des choix d’accès aux marchés.",
+  "其他买家、供应投入及市场准入选择。"
+ ],
+ "Competition and policy changes that can reach Canada indirectly.": [
+  "Une concurrence et des changements de politique pouvant toucher indirectement le Canada.",
+  "可能间接影响加拿大的竞争与政策变化。"
+ ],
+ "Trade Dependence and Diversification": [
+  "Dépendance commerciale et diversification",
+  "贸易依赖与多元化"
+ ],
+ "Where are Canadian domestic exports going?": [
+  "Où vont les exportations nationales du Canada?",
+  "加拿大本国产品出口到哪里？"
+ ],
+ "January through": [
+  "De janvier à",
+  "1月至"
+ ],
+ "Other markets": [
+  "Autres marchés",
+  "其他市场"
+ ],
+ "Share of domestic merchandise export value, all destinations. Both bars use the same months; values also reflect prices and exchange rates.": [
+  "Part de la valeur des exportations nationales de marchandises, toutes destinations. Les deux barres couvrent les mêmes mois; les valeurs reflètent aussi les prix et les taux de change.",
+  "本国货物出口额中各目的地所占份额。两条柱形覆盖相同月份；金额也受到价格和汇率影响。"
+ ],
+ "A matching prior-period comparison is unavailable.": [
+  "Une comparaison avec la même période antérieure n’est pas disponible.",
+  "没有可比的上年同期数据。"
+ ],
+ "A complete national export comparison is unavailable. Missing values are not zero.": [
+  "Une comparaison nationale complète des exportations n’est pas disponible. Les valeurs manquantes ne sont pas des zéros.",
+  "无法提供完整的全国出口比较。缺失值不等于零。"
+ ],
+ "Loading the shared trade and regional evidence…": [
+  "Chargement des données commerciales et régionales partagées…",
+  "正在加载共享贸易与地区证据…"
+ ],
+ "A broader set of buyers can improve Canada’s options. Check sustained shipments, Canadian production and employment before treating a change in export shares as a policy gain.": [
+  "Un éventail plus large d’acheteurs peut améliorer les options du Canada. Vérifiez la continuité des expéditions, la production canadienne et l’emploi avant de considérer un changement des parts d’exportation comme un gain lié à une politique.",
+  "更广泛的买家可增加加拿大的选择。将出口份额变化视为政策收益前，应核查持续出货、加拿大生产及就业。"
+ ],
+ "Explore trade dependence": [
+  "Explorer la dépendance commerciale",
+  "探索贸易依赖"
+ ],
+ "Provincial Exposure": [
+  "Exposition provinciale",
+  "省级敞口"
+ ],
+ "Provincial export exposure": [
+  "Exposition des exportations provinciales",
+  "省级出口敞口"
+ ],
+ "Map destination": [
+  "Destination sur la carte",
+  "地图目的地"
+ ],
+ "Export share by destination": [
+  "Part des exportations selon la destination",
+  "按目的地划分的出口份额"
+ ],
+ "Share of domestic export value": [
+  "Part de la valeur des exportations nationales",
+  "本国出口额占比"
+ ],
+ "Reviewed regional context": [
+  "Contexte régional examiné",
+  "已审阅的地区背景"
+ ],
+ "Choose a region to connect measured export dependence with its reviewed sector exposure.": [
+  "Choisissez une région pour relier sa dépendance commerciale mesurée à l’exposition sectorielle examinée.",
+  "选择一个地区，将已测量的出口依赖与已审阅的行业敞口联系起来。"
+ ],
+ "Open provincial evidence": [
+  "Ouvrir les preuves provinciales",
+  "打开省级证据"
+ ],
+ "Select a province or territory to open its trade map and evidence. Colours show the selected destination’s share of domestic exports, not gains or losses.": [
+  "Sélectionnez une province ou un territoire pour ouvrir sa carte commerciale et ses preuves. Les couleurs montrent la part des exportations nationales vers la destination choisie, et non des gains ou pertes.",
+  "选择省或地区以打开其贸易地图与证据。颜色表示所选目的地占本国出口的份额，而非收益或损失。"
+ ],
+ "The map is temporarily unavailable. All provinces and territories remain available in the selector.": [
+  "La carte est temporairement indisponible. Toutes les provinces et tous les territoires restent accessibles dans le sélecteur.",
+  "地图暂时不可用。仍可通过选择器查看所有省和地区。"
+ ],
+ "Loading the shared Canada map…": [
+  "Chargement de la carte partagée du Canada…",
+  "正在加载共享加拿大地图…"
+ ],
+ "Eight Sector Assessments": [
+  "Huit évaluations sectorielles",
+  "八个行业评估"
+ ],
+ "Follow the same questions across sectors.": [
+  "Suivez les mêmes questions dans tous les secteurs.",
+  "围绕相同问题比较各行业。"
+ ],
+ "Sources, Dates and How to Read This Visual": [
+  "Sources, dates et lecture de ce visuel",
+  "来源、日期及图示阅读方法"
+ ],
+ "Statistics retrieved": [
+  "Statistiques récupérées le",
+  "统计数据获取日期"
+ ],
+ "Regional assessment reviewed": [
+  "Évaluation régionale examinée le",
+  "地区评估审阅日期"
+ ],
+ "Domestic merchandise exports · customs basis · current CAD · unadjusted": [
+  "Exportations nationales de marchandises · base douanière · dollars canadiens courants · données non désaisonnalisées",
+  "本国货物出口 · 海关口径 · 当期加元 · 未经调整"
+ ],
+ "National totals are read directly from Statistics Canada. Other markets equal all-destination exports minus exports to the U.S. and China. Every year-to-date total requires all months from January; incomplete or suppressed series remain unavailable.": [
+  "Les totaux nationaux proviennent directement de Statistique Canada. Les autres marchés correspondent aux exportations toutes destinations moins celles vers les États-Unis et la Chine. Chaque total cumulatif exige tous les mois depuis janvier; les séries incomplètes ou supprimées restent indisponibles.",
+  "全国总额直接取自加拿大统计局。其他市场等于全部目的地出口减去对美国和中国的出口。年内累计总额要求从1月起每个月均有数据；不完整或保密的数据系列仍标为不可用。"
+ ],
+ "The regional context comes from the shared evidence register. National values are not allocated to provinces. Export concentration does not measure employment, net benefit or an agreement’s causal effect.": [
+  "Le contexte régional provient du registre de preuves partagé. Les valeurs nationales ne sont pas réparties entre les provinces. La concentration des exportations ne mesure ni l’emploi, ni le bénéfice net, ni l’effet causal d’un accord.",
+  "地区背景来自共享证据登记册。全国数值不分摊到各省。出口集中度不能衡量就业、净收益或协议的因果效果。"
+ ],
+ "Download overview data": [
+  "Télécharger les données de l’aperçu",
+  "下载概览数据"
+ ],
+ "The latest overview check failed. Showing the saved dates and values.": [
+  "La dernière vérification de l’aperçu a échoué. Les dates et valeurs conservées sont affichées.",
+  "最近一次概览检查失败。正在显示已保存的日期与数值。"
+ ],
+ "The overview data could not be loaded. Relationship and sector links remain available.": [
+  "Les données de l’aperçu n’ont pas pu être chargées. Les liens vers les relations et secteurs restent disponibles.",
+  "无法加载概览数据。关系与行业链接仍可使用。"
+ ],
+ "The latest statistics refresh failed. Displayed values retain their earlier retrieval date.": [
+  "La dernière mise à jour statistique a échoué. Les valeurs affichées conservent leur date de récupération antérieure.",
+  "最近一次统计刷新失败。显示值保留此前的数据获取日期。"
+ ],
  "Canada’s Investment Links": ["Les liens d’investissement du Canada", "加拿大的投资联系"],
  "Original publisher chart · national investment context. Its reference period is separate from the weekly briefing.": ["Graphique original de l’éditeur · contexte national de l’investissement. Sa période de référence est distincte de celle du brief hebdomadaire.", "发布者原始图表 · 全国投资背景。其参考期与每周简报的时间范围分别标明。"],
  "Canadian outcomes": [
