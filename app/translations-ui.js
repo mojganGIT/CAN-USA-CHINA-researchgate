@@ -1,4 +1,6 @@
 (function(g){const data={
+ "Canada’s Investment Links": ["Les liens d’investissement du Canada", "加拿大的投资联系"],
+ "Original publisher chart · national investment context. Its reference period is separate from the weekly briefing.": ["Graphique original de l’éditeur · contexte national de l’investissement. Sa période de référence est distincte de celle du brief hebdomadaire.", "发布者原始图表 · 全国投资背景。其参考期与每周简报的时间范围分别标明。"],
  "Canadian outcomes": [
   "Résultats canadiens",
   "加拿大实际结果"
