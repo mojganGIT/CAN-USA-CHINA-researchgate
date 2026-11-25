@@ -1,7 +1,7 @@
 (function(){
  'use strict';
  const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- let digest=null,config=null,host=null,promise,error='';
+ let digest=null,config=null,host=null,promise,error='',digestRequest=null,digestCheckedAt=0;
  const base='https://ambitious-field-09c66cd10.1.azurestaticapps.net/';
  const feedPath=()=>window.DashboardI18n?.language==='fr'?'weekly-updates.fr.xml':window.DashboardI18n?.language==='zh-Hans'?'weekly-updates.zh.xml':'weekly-updates.xml';
  const feedURL=()=>base+feedPath();
@@ -15,11 +15,18 @@
   const edition=`<section class="weekly-card weekly-issue" aria-labelledby="weekly-issue-title"><div class="hub-section-heading"><h3 id="weekly-issue-title">Read an edition</h3>${issues.length?`<label for="weekly-issue-select">Edition<select id="weekly-issue-select">${issues.map(i=>`<option value="${E(i.id)}" ${i.id===issue?.id?'selected':''}>${E(i.title)}</option>`).join('')}</select></label>`:''}</div>${issue?`<p class="hub-small">Published ${date(issue.publishedAt)} · observation window ${date(issue.windowStart)}–${date(issue.windowEnd)} · source coverage ${E(issue.sourceStatus)} (${issue.sourceFailures} latest errors)</p><p>${E(issue.lead)}</p><h4>Source developments to examine</h4><p class="hub-small">${issue.observationCount} observations in this window; ${issue.observations.length} shown. Detection is not a policy’s announcement or effective date.</p>${issue.observations.map(o=>`<article><p class="hub-small">${E(o.kind)} · detected ${date(o.detectedAt)}${o.publicationDate?' · published '+E(o.publicationDate):''}</p><h4>${link(o.url,o.title)||E(o.title)}</h4><details><summary>Read the Canadian policy context</summary>${story(o.story)}</details></article>`).join('')||'<p>No new source observations were stored for this window. This does not prove that no policy changed.</p>'}<h4>Reviewed evidence to put beside the headlines</h4>${issue.reviewed.map(r=>`<article><p class="hub-small">${r.baseline?'Opening baseline · not a new finding':'Reviewed record update'} · ${E(r.period)} · reviewed ${date(r.reviewedAt)}</p><h4>${E(r.title)}</h4><details><summary>What changed and why Canada should care</summary>${story(r.story)}<p>${r.sources.map(s=>link(s.url,s.title)).join(' · ')}</p></details></article>`).join('')||'<p>No reviewed record changed since the previous edition.</p>'}<h4>Statistical releases and revisions</h4>${issue.statisticalUpdates.map(s=>`<p><strong>${link(s.url,s.title)}</strong> · ${E(s.periods.join(', '))}<br><span class="hub-small">${E(s.note)}</span></p>`).join('')||'<p>No changes in collected statistical values or coverage since the previous edition.</p>'}<p class="policy-guide">${E(issue.watch)}</p><a href="#daily-updates" data-hub="daily-updates">Inspect the complete daily monitoring history →</a>`:`<p role="status">${E(error||'Loading the latest weekly edition…')}</p>`}</section>`;
   host.innerHTML=`<div class="wrap hub-home">${heading}<div class="weekly-page-sections">${briefing?edition+subscription:subscription+edition}</div></div>`;
  }
- async function load(){const rows=await Promise.allSettled([fetch('weekly-updates.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();}),fetch('/api/weekly-subscription',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();})]);if(rows[0].status==='fulfilled')digest=rows[0].value;else error='The weekly archive is temporarily unavailable. You can still subscribe to the feed above.';config=rows[1].status==='fulfilled'?rows[1].value:{emailAvailable:false};render();}
+ function loadDigest(){
+  if(digestRequest)return digestRequest;
+  if(digest&&Date.now()-digestCheckedAt<5*60*1000)return Promise.resolve(digest);
+  digestRequest=fetch('weekly-updates.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(value=>{if(!Array.isArray(value?.issues))throw Error();digest=value;error='';return digest;}).catch(e=>{error='The weekly archive is temporarily unavailable. You can still subscribe to the feed above.';throw e;}).finally(()=>{digestCheckedAt=Date.now();digestRequest=null;});
+  return digestRequest;
+ }
+ async function load(){const rows=await Promise.allSettled([loadDigest(),fetch('/api/weekly-subscription',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();})]);config=rows[1].status==='fulfilled'?rows[1].value:{emailAvailable:false};render();}
  function show(){host=document.getElementById('root');render();promise=load();}
  document.addEventListener('change',e=>{if(e.target.id==='weekly-issue-select'){const params=weeklyParams();params.set('issue',e.target.value);history.replaceState(null,'','#weekly-updates?'+params);render();document.getElementById('weekly-issue-select')?.focus();}});
  document.addEventListener('click',async e=>{if(!e.target.closest('[data-weekly-copy]'))return;try{await navigator.clipboard.writeText(feedURL());document.getElementById('weekly-copy-status').textContent='Feed address copied.';}catch{document.getElementById('weekly-feed-url').select();document.getElementById('weekly-copy-status').textContent='Copy the selected address to your feed reader.';}});
  function syncSubscription(){if(location.hash.split('?')[0]!=='#weekly-updates')return;const a=document.getElementById('weekly-feed-link'),input=document.getElementById('weekly-feed-url');if(a)a.href=feedPath();if(input)input.value=feedURL();const status=document.getElementById('weekly-copy-status');if(status)status.textContent='';}
  window.addEventListener('dashboard-language-changed',syncSubscription);
- window.WeeklyUpdates={show,render,feedPath,feedURL,get ready(){return promise;}};
+ window.WeeklyUpdates={show,render,feedPath,feedURL,loadDigest,get digest(){return digest;},get digestError(){return error;},get ready(){return promise;}};
 })();
+

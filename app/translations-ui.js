@@ -8098,5 +8098,27 @@
 "The source image could not be loaded for this export.":["L’image source n’a pas pu être chargée pour cet export.","此次导出未能加载来源图像。"],
 "Eight strategic capabilities":["Huit capacités stratégiques","八项战略能力"],
 "Five policy foundations":["Cinq fondements de politique","五大政策基础"]
+,
+"Weekly Brief":["Brief hebdomadaire","每周简报"],
+"Why It Matters to Canada":["Pourquoi cela compte pour le Canada","对加拿大的重要性"],
+"Read the full executive summary →":["Lire le résumé complet →","阅读完整执行摘要 →"],
+"Open Daily Update →":["Ouvrir le bulletin quotidien →","打开每日更新 →"],
+"Read the weekly brief →":["Lire le brief hebdomadaire →","阅读每周简报 →"],
+"Read the full weekly brief →":["Lire le brief hebdomadaire complet →","阅读完整每周简报 →"],
+"Open the weekly archive →":["Ouvrir les archives hebdomadaires →","打开每周简报档案 →"],
+"Loading the latest published weekly brief…":["Chargement du dernier brief hebdomadaire publié…","正在加载最近发布的每周简报…"],
+"The weekly brief is temporarily unavailable.":["Le brief hebdomadaire est temporairement indisponible.","每周简报暂时无法加载。"],
+"Open the Daily Update for the latest monitored evidence.":["Consultez le bulletin quotidien pour les dernières données suivies.","请打开每日更新，查看最新监测证据。"],
+"Week of":["Semaine du","当周起始日"],
+"Observation window":["Période de veille","观察时间范围"],
+"Source coverage:":["Couverture des sources :","来源覆盖情况："],
+"Awaiting a newer weekly edition. The dates above identify the latest published brief.":["Une nouvelle édition hebdomadaire est attendue. Les dates ci-dessus identifient le dernier brief publié.","正在等待更新的每周版本。以上日期标识最近发布的简报。"],
+"The latest archive check failed. Showing the saved published edition.":["La dernière vérification des archives a échoué. L’édition publiée enregistrée est affichée.","最近一次档案检查失败，现显示已保存的发布版本。"],
+"Reviewed policy context for this observation window":["Contexte de politique examiné pour cette période de veille","本观察期内已审阅的政策背景"],
+"Published edition overview":["Aperçu de l’édition publiée","已发布版本概览"],
+"Sources and Dates":["Sources et dates","来源与日期"],
+"No reviewed narrative records were established for this observation window. The full edition retains the monitored sources and their review status.":["Aucune fiche narrative examinée n’a été établie pour cette période de veille. L’édition complète conserve les sources suivies et leur statut d’examen.","本观察期内未确定已审阅的叙事记录。完整版本保留了受监测来源及其审阅状态。"],
+"No reviewed weekly narrative is available for this edition.":["Aucune synthèse hebdomadaire examinée n’est disponible pour cette édition.","本版本没有可用的已审阅每周综述。"],
+"For Canada, the next step is to check whether the reported developments change market access, supplier options or economic-security requirements, then compare Canadian shipments, completed investment and employment. Source monitoring alone cannot establish a Canadian gain or loss.":["Pour le Canada, il faut ensuite vérifier si les développements signalés modifient l’accès aux marchés, les choix de fournisseurs ou les exigences de sécurité économique, puis comparer les expéditions canadiennes, les investissements réalisés et l’emploi. La veille des sources ne suffit pas à établir un gain ou une perte pour le Canada.","对加拿大而言，下一步是核实所报告的发展是否改变市场准入、供应商选择或经济安全要求，再比较加拿大出货、已完成投资及就业。仅凭来源监测不能确定加拿大的收益或损失。"]
 };if(typeof module!=="undefined"&&module.exports)module.exports=data;if(g)g.POLICY_TRANSLATIONS_UI=data;})(typeof window==="undefined"?null:window);
 

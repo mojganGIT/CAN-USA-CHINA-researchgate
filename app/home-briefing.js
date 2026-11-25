@@ -1,0 +1,27 @@
+(function(g){
+ 'use strict';
+ const executiveQuestions=[
+   ["What is this dashboard?", "policyintelligence is a research dashboard that compares three relationships: Canada–China, U.S.–China, and Canada–U.S. It brings together evidence from 2018–2026 to answer a central question: How do Canada’s close ties with the United States and its economic relationship with China shape its opportunities, constraints, and policy choices?"],
+   ["Why does it matter to Canada?", "The same policy change can have different effects across Canada. Improved access to China can open opportunities for Prairie canola exporters, while changes to U.S. vehicle rules can affect Ontario manufacturers that rely on cross-border supply chains. The dashboard helps users identify which industries and regions are exposed, what has been measured, and where the effects are still uncertain."],
+   ["What is it used for?", "Use it to prepare policy briefs, compare sectors, and follow a measure from announcement to implementation. For example, when a tariff changes, you can check which products are covered and when the change takes effect, then look at shipment or employment data to see what followed. The dashboard helps you distinguish what happened after a policy change from what the evidence shows the policy caused."],
+   ["Who can use it?", "Policy advisors and government officials can use it to brief decision-makers and assess policy options. Chambers of commerce, industry associations, and businesses can use it to identify market opportunities and questions to investigate before making decisions. Researchers and students can trace findings to their original sources and build their own comparisons."],
+   ["Why should users choose it?", "The dashboard applies the same questions across sectors and relationships: What changed? Why does it matter to Canada? How could provinces and territories be affected? Each record keeps its source, date, geography, and measurement limits visible. That makes it easier to compare like with like and see why, for example, an import quota, actual vehicle arrivals, and Canadian factory jobs tell different parts of the story."],
+   ["What will users find?", "Users can explore eight topics: vehicles, EVs and batteries; agriculture and market access; energy exports and investment; financial services; technology and digital trade; defence and security; investment and screening; and agreements and dialogue.", "The dashboard includes interactive Canadian provincial and U.S. state maps, trade charts, policy timelines, and expandable evidence linked to original sources. Daily checks flag changes to monitored sources, weekly briefings highlight developments worth following, and the optional Bring Your Own LLM tool can help users ask questions about reviewed evidence."]
+  ];
+ const day=value=>{if(!value)return '';const date=new Date(value);if(!Number.isFinite(date.getTime()))return '';const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Toronto',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(date),get=type=>parts.find(p=>p.type===type).value;return get('year')+'-'+get('month')+'-'+get('day');};
+ function sourceURL(value){try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password&&!u.port?u.href:'';}catch{return '';}}
+ function weekly({digest,register={},now=Date.now()}={}){
+  const issue=(Array.isArray(digest?.issues)?digest.issues:[]).filter(i=>Number.isFinite(Date.parse(i.publishedAt))&&Date.parse(i.publishedAt)<=now&&Number.isFinite(Date.parse(i.windowStart))&&Number.isFinite(Date.parse(i.windowEnd))&&Date.parse(i.windowStart)<=Date.parse(i.windowEnd)&&Date.parse(i.windowEnd)<=Date.parse(i.publishedAt)).sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt))[0];
+  if(!issue)return null;
+  const start=day(issue.windowStart),end=day(issue.windowEnd);
+  const candidates=(register.records||[]).filter(r=>r.reviewedAt&&!r.reviewState&&r.changed&&r.canada&&r.date>=start&&r.date<=end&&r.reviewedAt.slice(0,10)<=end&&r.sources?.some(s=>sourceURL(s.url))).sort((a,b)=>b.date.localeCompare(a.date)||a.id.localeCompare(b.id));
+  const picked=[];
+  for(const pair of ['Canada-China','Canada-USA','USA-China']){const row=candidates.find(r=>r.relationship===pair);if(row)picked.push(row);}
+  for(const row of candidates){if(picked.length>=3)break;if(!picked.includes(row))picked.push(row);}
+  const records=picked.map(r=>({id:r.id,title:r.title,date:r.date,reviewedAt:r.reviewedAt,relationship:r.relationship,summary:r.changed,why:r.canada,limit:r.limit||'',sources:r.sources.filter(s=>sourceURL(s.url)).map(s=>({...s,url:sourceURL(s.url)}))}));
+  const fallbackWhy='For Canada, the next step is to check whether the reported developments change market access, supplier options or economic-security requirements, then compare Canadian shipments, completed investment and employment. Source monitoring alone cannot establish a Canadian gain or loss.';
+  return {issue,records,summary:records.length?records.map(r=>r.summary).join(' '):issue.lead||'No reviewed weekly narrative is available for this edition.',why:records.length?records.map(r=>r.why).join(' '):fallbackWhy,stale:now-Date.parse(issue.publishedAt)>8*86400000,windowStart:start,windowEnd:end};
+ }
+ const api={executiveQuestions,weekly,sourceURL};
+ if(typeof module!=='undefined'&&module.exports)module.exports=api;if(g)g.HomeBriefing=api;
+})(typeof window==='undefined'?null:window);
